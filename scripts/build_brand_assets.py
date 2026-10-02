@@ -18,69 +18,95 @@ STATIC_DIR = os.path.join(PROJECT_ROOT, "static")
 ICON_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
   <defs>
     <radialGradient id="radarBg" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#0f172a" />
-      <stop offset="100%" stop-color="#05070a" />
+      <stop offset="0%" stop-color="#0c1633" />
+      <stop offset="100%" stop-color="#020617" />
     </radialGradient>
+    <linearGradient id="neonRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
     <linearGradient id="cyanSweep" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.8" />
-      <stop offset="50%" stop-color="#00f0ff" stop-opacity="0.2" />
-      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.0" />
+      <stop offset="0%" stop-color="#00f2fe" stop-opacity="0.85" />
+      <stop offset="50%" stop-color="#00f2fe" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#00f2fe" stop-opacity="0.0" />
     </linearGradient>
     <linearGradient id="neonGlow" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#38bdf8" />
-      <stop offset="100%" stop-color="#00f0ff" />
+      <stop offset="100%" stop-color="#00f2fe" />
     </linearGradient>
   </defs>
 
-  <!-- Base Rounded Container with subtle cyan border -->
-  <rect width="100" height="100" rx="22" fill="url(#radarBg)" stroke="#1e293b" stroke-width="1.5"/>
+  <!-- Base Rounded Container with Glowing Dual-Gradient Rim -->
+  <rect width="100" height="100" rx="22" fill="url(#radarBg)" stroke="url(#neonRim)" stroke-width="2.5"/>
 
   <!-- Radar Concentric Rings -->
-  <circle cx="50" cy="50" r="38" fill="none" stroke="#1e293b" stroke-width="1.2"/>
-  <circle cx="50" cy="50" r="26" fill="none" stroke="#00f0ff" stroke-width="1.4" stroke-opacity="0.4" stroke-dasharray="3 3"/>
-  <circle cx="50" cy="50" r="14" fill="none" stroke="#00f0ff" stroke-width="1.2" stroke-opacity="0.6"/>
+  <circle cx="50" cy="50" r="38" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+  <circle cx="50" cy="50" r="26" fill="none" stroke="#00f2fe" stroke-width="1.8" stroke-opacity="0.5" stroke-dasharray="4 3"/>
+  <circle cx="50" cy="50" r="14" fill="none" stroke="#00f2fe" stroke-width="1.5" stroke-opacity="0.7"/>
 
   <!-- Precision Crosshairs -->
-  <line x1="50" y1="8" x2="50" y2="20" stroke="#00f0ff" stroke-width="1.8" stroke-linecap="round"/>
-  <line x1="50" y1="80" x2="50" y2="92" stroke="#00f0ff" stroke-width="1.8" stroke-linecap="round"/>
-  <line x1="8" y1="50" x2="20" y2="50" stroke="#00f0ff" stroke-width="1.8" stroke-linecap="round"/>
-  <line x1="80" y1="50" x2="92" y2="50" stroke="#00f0ff" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="50" y1="8" x2="50" y2="20" stroke="#00f2fe" stroke-width="2" stroke-linecap="round"/>
+  <line x1="50" y1="80" x2="50" y2="92" stroke="#00f2fe" stroke-width="2" stroke-linecap="round"/>
+  <line x1="8" y1="50" x2="20" y2="50" stroke="#00f2fe" stroke-width="2" stroke-linecap="round"/>
+  <line x1="80" y1="50" x2="92" y2="50" stroke="#00f2fe" stroke-width="2" stroke-linecap="round"/>
 
   <!-- Active 45-degree Radar Sweep Sector -->
   <path d="M 50 50 L 76.8 23.2 A 38 38 0 0 0 50 12 Z" fill="url(#cyanSweep)"/>
-  <line x1="50" y1="50" x2="76.8" y2="23.2" stroke="#00f0ff" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="50" y1="50" x2="76.8" y2="23.2" stroke="#00f2fe" stroke-width="3" stroke-linecap="round"/>
 
-  <!-- Telemetry Detection Nodes (Active Job Matches) -->
-  <circle cx="68" cy="32" r="3.2" fill="#10b981"/>
-  <circle cx="68" cy="32" r="6" fill="none" stroke="#10b981" stroke-width="0.8" stroke-opacity="0.5"/>
+  <!-- Telemetry Detection Nodes (Active Job Matches in Neon Emerald) -->
+  <circle cx="68" cy="32" r="7" fill="none" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.7"/>
+  <circle cx="68" cy="32" r="4" fill="#10b981"/>
 
-  <circle cx="34" cy="62" r="2.4" fill="#38bdf8"/>
-  <circle cx="62" cy="70" r="2" fill="#00f0ff"/>
+  <circle cx="34" cy="62" r="3" fill="#38bdf8"/>
+  <circle cx="62" cy="70" r="2.5" fill="#00f2fe"/>
 
   <!-- Radar Core Emitter -->
-  <circle cx="50" cy="50" r="4.5" fill="url(#neonGlow)"/>
-  <circle cx="50" cy="50" r="2" fill="#ffffff"/>
+  <circle cx="50" cy="50" r="6" fill="url(#neonGlow)"/>
+  <circle cx="50" cy="50" r="2.8" fill="#ffffff"/>
 </svg>"""
 
 # 2. Responsive Vector Favicon (Works on Light & Dark browser tabs)
 FAVICON_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <defs>
-    <style>
-      .bg { fill: #0a0b0e; }
-      .ring { stroke: #00f0ff; stroke-width: 1.5; fill: none; }
-      .core { fill: #00f0ff; }
-      .blip { fill: #10b981; }
-      @media (prefers-color-scheme: light) {
-        .bg { fill: #0f172a; }
-      }
-    </style>
+    <radialGradient id="favBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0b1329" />
+      <stop offset="100%" stop-color="#030712" />
+    </radialGradient>
+    <linearGradient id="favRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <linearGradient id="favSweep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#00f2fe" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#00f2fe" stop-opacity="0.0" />
+    </linearGradient>
   </defs>
-  <rect width="32" height="32" rx="7" class="bg"/>
-  <circle cx="16" cy="16" r="11" class="ring" stroke-opacity="0.3" stroke-dasharray="2 1"/>
-  <circle cx="16" cy="16" r="7" class="ring" stroke-opacity="0.7"/>
-  <line x1="16" y1="16" x2="24" y2="8" stroke="#00f0ff" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="16" cy="16" r="2.2" class="core"/>
-  <circle cx="21" cy="11" r="1.5" class="blip"/>
+
+  <!-- High-Contrast Squircle Shield with Glowing Neon Rim -->
+  <rect width="32" height="32" rx="7.5" fill="url(#favBg)" stroke="url(#favRim)" stroke-width="1.2"/>
+
+  <!-- Radar Distance Ring -->
+  <circle cx="16" cy="16" r="10.5" fill="none" stroke="#1e293b" stroke-width="1"/>
+  <circle cx="16" cy="16" r="7" fill="none" stroke="#00f2fe" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="2 1.5"/>
+
+  <!-- Radar Sweep Sector Beam -->
+  <path d="M 16 16 L 24.5 7.5 A 12 12 0 0 0 16 4 Z" fill="url(#favSweep)"/>
+  <line x1="16" y1="16" x2="24.5" y2="7.5" stroke="#00f2fe" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Active Telemetry Job Hit (Cyber Emerald Blip with Halo) -->
+  <circle cx="21" cy="9.5" r="2.8" fill="none" stroke="#10b981" stroke-width="0.8" stroke-opacity="0.8"/>
+  <circle cx="21" cy="9.5" r="1.8" fill="#10b981"/>
+
+  <!-- Secondary Match Blip -->
+  <circle cx="10" cy="20" r="1.2" fill="#38bdf8"/>
+
+  <!-- Core Pulse Emitter -->
+  <circle cx="16" cy="16" r="3" fill="#00f2fe"/>
+  <circle cx="16" cy="16" r="1.5" fill="#ffffff"/>
 </svg>"""
 
 # 3. Full Brand Logo (Horizontal layout for Header & Presentations)

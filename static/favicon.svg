@@ -1,19 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <defs>
-    <style>
-      .bg { fill: #0a0b0e; }
-      .ring { stroke: #00f0ff; stroke-width: 1.5; fill: none; }
-      .core { fill: #00f0ff; }
-      .blip { fill: #10b981; }
-      @media (prefers-color-scheme: light) {
-        .bg { fill: #0f172a; }
-      }
-    </style>
+    <radialGradient id="favBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0b1329" />
+      <stop offset="100%" stop-color="#030712" />
+    </radialGradient>
+    <linearGradient id="favRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <linearGradient id="favSweep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#00f2fe" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#00f2fe" stop-opacity="0.0" />
+    </linearGradient>
   </defs>
-  <rect width="32" height="32" rx="7" class="bg"/>
-  <circle cx="16" cy="16" r="11" class="ring" stroke-opacity="0.3" stroke-dasharray="2 1"/>
-  <circle cx="16" cy="16" r="7" class="ring" stroke-opacity="0.7"/>
-  <line x1="16" y1="16" x2="24" y2="8" stroke="#00f0ff" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="16" cy="16" r="2.2" class="core"/>
-  <circle cx="21" cy="11" r="1.5" class="blip"/>
+
+  <!-- High-Contrast Squircle Shield with Glowing Neon Rim -->
+  <rect width="32" height="32" rx="7.5" fill="url(#favBg)" stroke="url(#favRim)" stroke-width="1.2"/>
+
+  <!-- Radar Distance Ring -->
+  <circle cx="16" cy="16" r="10.5" fill="none" stroke="#1e293b" stroke-width="1"/>
+  <circle cx="16" cy="16" r="7" fill="none" stroke="#00f2fe" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="2 1.5"/>
+
+  <!-- Radar Sweep Sector Beam -->
+  <path d="M 16 16 L 24.5 7.5 A 12 12 0 0 0 16 4 Z" fill="url(#favSweep)"/>
+  <line x1="16" y1="16" x2="24.5" y2="7.5" stroke="#00f2fe" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Active Telemetry Job Hit (Cyber Emerald Blip with Halo) -->
+  <circle cx="21" cy="9.5" r="2.8" fill="none" stroke="#10b981" stroke-width="0.8" stroke-opacity="0.8"/>
+  <circle cx="21" cy="9.5" r="1.8" fill="#10b981"/>
+
+  <!-- Secondary Match Blip -->
+  <circle cx="10" cy="20" r="1.2" fill="#38bdf8"/>
+
+  <!-- Core Pulse Emitter -->
+  <circle cx="16" cy="16" r="3" fill="#00f2fe"/>
+  <circle cx="16" cy="16" r="1.5" fill="#ffffff"/>
 </svg>

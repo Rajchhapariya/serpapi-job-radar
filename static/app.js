@@ -939,6 +939,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }
+
+    // Auto-run initial benchmark query so all 4 columns are populated on first view
+    setTimeout(() => {
+      executeDuckDbSql();
+    }, 350);
   }
 
   async function executeDuckDbSql() {
@@ -1020,21 +1025,48 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const colsHtml = (data.columns || [])
-      .map((col) => `<th>${escapeHtml(col)}</th>`)
+    const cols = data.columns || [];
+    const isStandardView = cols.length <= 4;
+
+    let colgroupHtml = "";
+    if (isStandardView) {
+      colgroupHtml =
+        "<colgroup>" +
+        cols
+          .map((col) => {
+            const lower = col.toLowerCase();
+            if (lower === "title") return '<col style="width: 38%;">';
+            if (lower === "company_name" || lower === "company")
+              return '<col style="width: 27%;">';
+            if (lower === "location_type" || lower === "location")
+              return '<col style="width: 18%;">';
+            if (lower === "salary" || lower === "salary_raw")
+              return '<col style="width: 17%;">';
+            return `<col style="width: ${Math.floor(100 / cols.length)}%;">`;
+          })
+          .join("") +
+        "</colgroup>";
+    }
+
+    const colsHtml = cols
+      .map((col) => `<th title="${escapeHtml(col)}">${escapeHtml(col)}</th>`)
       .join("");
 
     const rowsHtml = (data.rows || [])
       .map((row) => {
         const cells = row
-          .map((cell) => `<td>${escapeHtml(cell)}</td>`)
+          .map((cell) => {
+            const val = cell !== null && cell !== undefined ? String(cell) : "";
+            return `<td title="${escapeHtml(val)}">${escapeHtml(val)}</td>`;
+          })
           .join("");
         return `<tr>${cells}</tr>`;
       })
       .join("");
 
     sqlTableWrap.innerHTML = `
-      <table class="sql-table">
+      <table class="sql-table ${isStandardView ? "sql-table-fixed" : "sql-table-auto"}">
+        ${colgroupHtml}
         <thead><tr>${colsHtml}</tr></thead>
         <tbody>${rowsHtml}</tbody>
       </table>
@@ -1457,8 +1489,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await res.json();
       if (data.status === "healthy") {
         apiStatusText.textContent = data.serpapi_configured
-          ? "SERPAPI: LIVE ONLINE"
-          : "SERPAPI: DEMO CORPUS";
+          ? "SERPAPI: LIVE ENGINE ACTIVE"
+          : "SERPAPI: UNCONFIGURED";
         if (apiStatusPill) {
           apiStatusPill.classList.toggle(
             "status-online",
