@@ -829,11 +829,240 @@
                   </svg>
                   Reset Filters
                 </button>
+
+                <button
+                  type="button"
+                  id="exportCsvBtn"
+                  class="btn-export-toolbar font-mono gap-icon"
+                  title="Export filtered job corpus to CSV"
+                >
+                  <svg
+                    class="ui-icon ui-icon-xs text-emerald"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  Export CSV
+                </button>
+
+                <button
+                  type="button"
+                  id="exportJsonBtn"
+                  class="btn-export-toolbar font-mono gap-icon"
+                  title="Export filtered job corpus to JSON"
+                >
+                  <svg
+                    class="ui-icon ui-icon-xs text-cyan"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    ></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                  </svg>
+                  Export JSON
+                </button>
               </div>
             </div>
 
             <div id="jobsContainer" class="jobs-stream-container">
               <p class="empty-state font-mono">Awaiting telemetry stream...</p>
+            </div>
+          </section>
+
+          <!-- Live DuckDB SQL Query Console & OLAP Playground -->
+          <section class="sql-console-card spotlight-card">
+            <div class="card-header">
+              <div>
+                <span class="section-eyebrow">IN-MEMORY OLAP TERMINAL</span>
+                <h3 class="gap-icon">
+                  <svg
+                    class="ui-icon ui-icon-sm text-cyan"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                  </svg>
+                  DuckDB In-Process SQL Playground
+                </h3>
+              </div>
+              <div class="header-telemetry">
+                <span
+                  id="sqlLatencyBadge"
+                  class="telemetry-pill font-mono text-cyan gap-icon"
+                >
+                  <svg
+                    class="ui-icon ui-icon-xs text-cyan"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polygon
+                      points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                    ></polygon>
+                  </svg>
+                  Sub-10ms SQL
+                </span>
+                <span class="card-tag font-mono">POST /api/sql</span>
+              </div>
+            </div>
+
+            <p class="card-subtext">
+              Direct read-only analytical SQL console executing across in-memory
+              columnar tables. Verify database schema, run aggregations, and
+              compute real-time salary and platform distributions.
+            </p>
+
+            <!-- Quick SQL Presets -->
+            <div class="sql-presets-bar">
+              <span class="preset-label font-mono">ANALYTICAL PRESETS:</span>
+              <button
+                type="button"
+                class="sql-preset-btn font-mono gap-icon"
+                data-sql="SELECT COALESCE(via_platform, 'Direct / Portal') AS platform, COUNT(*) AS openings, ROUND(AVG(CASE WHEN salary_raw IS NOT NULL THEN 100.0 ELSE 0.0 END), 1) AS salary_disclosure_pct FROM jobs GROUP BY platform ORDER BY openings DESC LIMIT 10"
+              >
+                <svg
+                  class="ui-icon ui-icon-xs text-cyan"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                </svg>
+                Platform &amp; Salary Analysis
+              </button>
+              <button
+                type="button"
+                class="sql-preset-btn font-mono gap-icon"
+                data-sql="SELECT unnest(skills_required) AS skill, COUNT(*) AS demand_count FROM jobs GROUP BY skill ORDER BY demand_count DESC LIMIT 10"
+              >
+                <svg
+                  class="ui-icon ui-icon-xs text-emerald"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+                Unnested Skill Matrix
+              </button>
+              <button
+                type="button"
+                class="sql-preset-btn font-mono gap-icon"
+                data-sql="SELECT location_type, COUNT(*) AS total_jobs, ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 1) AS share_percentage FROM jobs GROUP BY location_type ORDER BY total_jobs DESC"
+              >
+                <svg
+                  class="ui-icon ui-icon-xs text-amber"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                Work Arrangement Share
+              </button>
+            </div>
+
+            <!-- SQL Query Input -->
+            <div class="sql-editor-wrap">
+              <textarea
+                id="sqlQueryInput"
+                class="sql-editor-textarea font-mono"
+                rows="3"
+                spellcheck="false"
+                placeholder="Enter read-only SELECT query against the 'jobs' table..."
+              >
+SELECT title, company_name, location_type, COALESCE(salary_raw, 'Not Disclosed') AS salary FROM jobs LIMIT 8</textarea>
+            </div>
+
+            <!-- SQL Actions & Execution Metrics -->
+            <div class="sql-actions-bar">
+              <div class="gap-icon font-mono text-sub">
+                <span id="sqlRowCount">Awaiting execution...</span>
+                <span class="text-sub">&bull;</span>
+                <span class="text-sub">Shortcuts: Ctrl + Enter to run</span>
+              </div>
+              <div class="gap-icon">
+                <button
+                  type="button"
+                  id="clearSqlBtn"
+                  class="btn-reset-filters font-mono gap-icon"
+                  title="Clear SQL Query"
+                >
+                  Clear
+                </button>
+                <button
+                  type="button"
+                  id="runSqlBtn"
+                  class="btn btn-primary font-mono gap-icon"
+                >
+                  <svg
+                    class="ui-icon ui-icon-xs"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                  Execute Query
+                </button>
+              </div>
+            </div>
+
+            <!-- SQL Tabular Results View -->
+            <div id="sqlResultsContainer" class="sql-results-panel">
+              <div class="sql-table-wrap" id="sqlTableWrap">
+                <p class="empty-state font-mono">
+                  Click Execute Query to benchmark live DuckDB execution.
+                </p>
+              </div>
             </div>
           </section>
         </div>

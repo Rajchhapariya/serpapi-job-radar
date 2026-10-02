@@ -43,6 +43,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterSalaryOnly = document.getElementById("filterSalaryOnly");
   const filterSort = document.getElementById("filterSort");
   const clearAllFiltersBtn = document.getElementById("clearAllFiltersBtn");
+  const exportCsvBtn = document.getElementById("exportCsvBtn");
+  const exportJsonBtn = document.getElementById("exportJsonBtn");
+
+  // SQL Console elements
+  const sqlQueryInput = document.getElementById("sqlQueryInput");
+  const runSqlBtn = document.getElementById("runSqlBtn");
+  const clearSqlBtn = document.getElementById("clearSqlBtn");
+  const sqlRowCount = document.getElementById("sqlRowCount");
+  const sqlLatencyBadge = document.getElementById("sqlLatencyBadge");
+  const sqlTableWrap = document.getElementById("sqlTableWrap");
 
   // Resume Matcher elements
   const resumeInput = document.getElementById("resumeInput");
@@ -78,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Local state cache
   let cachedJobs = [];
   let currentDrawerJob = null;
+  let candidateAnalyzedSkills = [];
 
   // ==================== INITIALIZATION ====================
   initRadarAnimation();
@@ -86,6 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initDrawerControls();
   initFieldValidation();
   initFilterControls();
+  initExportControls();
+  initSqlConsole();
   initAtsControls();
   initKeyboardShortcuts();
   checkHealth();
@@ -510,7 +523,187 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const debounceLoadJobs = debounce(loadJobs, 250);
 
-  // ==================== 4. ATS RESUME MATCHER CONTROLS ====================
+  // ==================== 4. EXPORT DATA CONTROLS ====================
+  function initExportControls() {
+    if (exportCsvBtn) {
+      exportCsvBtn.addEventListener("click", () => triggerExport("csv"));
+    }
+    if (exportJsonBtn) {
+      exportJsonBtn.addEventListener("click", () => triggerExport("json"));
+    }
+  }
+
+  function triggerExport(format) {
+    const keyword = filterKeyword ? filterKeyword.value.trim() : "";
+    const locationType = filterWorkType ? filterWorkType.value : "";
+    const fromDate = filterFromDate ? filterFromDate.value : "";
+    const toDate = filterToDate ? filterToDate.value : "";
+    const hasSalary = filterSalaryOnly ? filterSalaryOnly.checked : false;
+
+    const params = new URLSearchParams();
+    params.append("format", format);
+    if (keyword) params.append("keyword", keyword);
+    if (locationType) params.append("location_type", locationType);
+    if (fromDate) params.append("from_date", fromDate);
+    if (toDate) params.append("to_date", toDate);
+    if (hasSalary) params.append("has_salary", "true");
+
+    const exportUrl = `/api/export?${params.toString()}`;
+    const link = document.createElement("a");
+    link.href = exportUrl;
+    link.setAttribute("download", `serpapi_jobs_radar.${format}`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    showToast(
+      `Streaming ${format.toUpperCase()} dataset from DuckDB database...`,
+      "success",
+    );
+  }
+
+  // ==================== 5. LIVE DUCKDB SQL QUERY CONSOLE ====================
+  function initSqlConsole() {
+    if (runSqlBtn) {
+      runSqlBtn.addEventListener("click", executeDuckDbSql);
+    }
+
+    if (clearSqlBtn) {
+      clearSqlBtn.addEventListener("click", () => {
+        if (sqlQueryInput) {
+          sqlQueryInput.value = "";
+          sqlQueryInput.focus();
+        }
+        if (sqlRowCount) sqlRowCount.textContent = "Query input cleared";
+        if (sqlTableWrap) {
+          sqlTableWrap.innerHTML =
+            '<p class="empty-state font-mono">Enter a SELECT query or click an analytical preset above.</p>';
+        }
+      });
+    }
+
+    const presetBtns = document.querySelectorAll(".sql-preset-btn");
+    presetBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const sql = btn.getAttribute("data-sql");
+        if (sql && sqlQueryInput) {
+          sqlQueryInput.value = sql;
+          executeDuckDbSql();
+        }
+      });
+    });
+
+    if (sqlQueryInput) {
+      sqlQueryInput.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.key === "Enter") {
+          e.preventDefault();
+          executeDuckDbSql();
+        }
+      });
+    }
+  }
+
+  async function executeDuckDbSql() {
+    if (!sqlQueryInput) return;
+    const query = sqlQueryInput.value.trim();
+    if (!query) {
+      showToast("Please enter an analytical SQL query.", "warning");
+      sqlQueryInput.focus();
+      return;
+    }
+
+    if (!query.toUpperCase().startsWith("SELECT")) {
+      showToast(
+        "Only read-only SELECT queries are permitted in the analytical console.",
+        "error",
+      );
+      return;
+    }
+
+    if (runSqlBtn) {
+      runSqlBtn.disabled = true;
+      runSqlBtn.innerHTML =
+        '<svg class="ui-icon ui-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Executing...';
+    }
+
+    if (sqlRowCount)
+      sqlRowCount.textContent = "Executing in-memory OLAP query...";
+
+    try {
+      const res = await fetch("/api/sql", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.detail || "Query execution failed.");
+      }
+
+      if (sqlLatencyBadge) {
+        sqlLatencyBadge.innerHTML = `<svg class="ui-icon ui-icon-xs text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> DuckDB: ${data.latency_ms}ms`;
+      }
+      if (statLatency) {
+        statLatency.textContent = `${data.latency_ms} ms`;
+      }
+
+      if (sqlRowCount) {
+        sqlRowCount.textContent = `${data.row_count} ${data.row_count === 1 ? "row" : "rows"} (${data.latency_ms} ms)`;
+      }
+
+      renderSqlResults(data);
+      showToast(
+        `DuckDB returned ${data.row_count} rows in ${data.latency_ms} ms.`,
+        "success",
+      );
+    } catch (err) {
+      if (sqlTableWrap) {
+        sqlTableWrap.innerHTML = `<p class="empty-state font-mono text-rose" style="padding: 16px;">Execution Error: ${escapeHtml(err.message)}</p>`;
+      }
+      if (sqlRowCount) sqlRowCount.textContent = "Execution halted";
+      showToast(err.message, "error");
+    } finally {
+      if (runSqlBtn) {
+        runSqlBtn.disabled = false;
+        runSqlBtn.innerHTML =
+          '<svg class="ui-icon ui-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Execute Query';
+      }
+    }
+  }
+
+  function renderSqlResults(data) {
+    if (!sqlTableWrap) return;
+
+    if (!data.rows || data.rows.length === 0) {
+      sqlTableWrap.innerHTML =
+        '<p class="empty-state font-mono">0 rows returned matching query filter.</p>';
+      return;
+    }
+
+    const colsHtml = (data.columns || [])
+      .map((col) => `<th>${escapeHtml(col)}</th>`)
+      .join("");
+
+    const rowsHtml = (data.rows || [])
+      .map((row) => {
+        const cells = row
+          .map((cell) => `<td>${escapeHtml(cell)}</td>`)
+          .join("");
+        return `<tr>${cells}</tr>`;
+      })
+      .join("");
+
+    sqlTableWrap.innerHTML = `
+      <table class="sql-table">
+        <thead><tr>${colsHtml}</tr></thead>
+        <tbody>${rowsHtml}</tbody>
+      </table>
+    `;
+  }
+
+  // ==================== 6. ATS RESUME MATCHER CONTROLS ====================
   function initAtsControls() {
     if (resumeInput) {
       resumeInput.addEventListener("input", updateResumeCounters);
@@ -716,6 +909,25 @@ document.addEventListener("DOMContentLoaded", () => {
           ? `<span class="badge badge-salary gap-icon"><svg class="ui-icon ui-icon-xs text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>${escapeHtml(job.salary)}</span>`
           : "";
 
+        let fitBadge = "";
+        if (candidateAnalyzedSkills && candidateAnalyzedSkills.length > 0) {
+          const reqSkills = Array.isArray(job.skills_required)
+            ? job.skills_required
+            : [];
+          if (reqSkills.length > 0) {
+            const lowerCandidateSkills = candidateAnalyzedSkills.map((s) =>
+              s.toLowerCase(),
+            );
+            const matchedCount = reqSkills.filter((s) =>
+              lowerCandidateSkills.includes(s.toLowerCase()),
+            ).length;
+            const fitPct = Math.round((matchedCount / reqSkills.length) * 100);
+            if (fitPct > 0) {
+              fitBadge = `<span class="badge badge-fit gap-icon"><svg class="ui-icon ui-icon-xs text-emerald" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>${fitPct}% FIT</span>`;
+            }
+          }
+        }
+
         return `
         <article class="job-stream-card" data-index="${idx}" tabindex="0" role="button" aria-label="View details for ${escapeHtml(job.title)}">
           <div class="job-card-header">
@@ -727,6 +939,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ${remoteBadge}
               ${viaBadge}
               ${salaryBadge}
+              ${fitBadge}
             </div>
           </div>
           <p class="job-card-snippet">${escapeHtml(truncate(job.description, 200))}</p>
@@ -792,7 +1005,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const remoteDrawerBadge = job.work_from_home
       ? '<span class="badge badge-remote gap-icon"><svg class="ui-icon ui-icon-xs text-emerald" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>REMOTE</span>'
-      : '<span class="badge gap-icon"><svg class="ui-icon ui-icon-xs text-sub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line><line x1="9" y1="6" x2="9.01" y2="6"></line><line x1="15" y1="6" x2="15.01" y2="6"></line><line x1="9" y1="10" x2="9.01" y2="10"></line><line x1="15" y1="10" x2="15.01" y2="10"></line><line x1="9" y1="14" x2="9.01" y2="14"></line><line x1="15" y1="14" x2="15.01" y2="14"></line></svg>ON-SITE</span>';
+      : '<span class="badge gap-icon"><svg class="ui-icon ui-icon-xs text-sub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line><line x1="9" y1="6" x2="9.01" y2="6"></line><line x1="15" y1="6" x2="15.01" y2="6"></line><line x1="9" y1="10" x2="9.01" y2="10"></line><line x1="15" y1="10" x2="15.01" y2="10"></line><line x1="9" y1="14" x2="9.01" y2="14"></line><line x1="15" y1="15" x2="15.01" y2="14"></line></svg>ON-SITE</span>';
 
     drawerBadges.innerHTML = `
       ${remoteDrawerBadge}
@@ -818,13 +1031,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     jobDetailDrawer.classList.add("open");
+    jobDetailDrawer.classList.add("is-open");
     drawerBackdrop.classList.add("open");
+    drawerBackdrop.classList.add("is-open");
     document.body.style.overflow = "hidden";
   }
 
   function closeDrawer() {
     jobDetailDrawer.classList.remove("open");
+    jobDetailDrawer.classList.remove("is-open");
     drawerBackdrop.classList.remove("open");
+    drawerBackdrop.classList.remove("is-open");
     document.body.style.overflow = "";
     currentDrawerJob = null;
   }
@@ -985,12 +1202,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const circumference = 2 * Math.PI * 28;
     const offset = circumference - (score / 100) * circumference;
 
+    candidateAnalyzedSkills = data.matched_skills || [];
+
     const matchedPills =
       data.matched_skills.length > 0
         ? data.matched_skills
             .map(
               (s) =>
-                `<span class="tax-pill pill-matched">${escapeHtml(s)}</span>`,
+                `<span class="tax-pill pill-matched clickable-pill font-mono" data-skill="${escapeHtml(s)}" role="button" tabindex="0" title="Filter job corpus for ${escapeHtml(s)}">${escapeHtml(s)}</span>`,
             )
             .join("")
         : '<span class="text-sub font-mono">None detected</span>';
@@ -1000,7 +1219,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ? data.missing_skills
             .map(
               (s) =>
-                `<span class="tax-pill pill-missing">${escapeHtml(s)}</span>`,
+                `<span class="tax-pill pill-missing clickable-pill font-mono" data-skill="${escapeHtml(s)}" role="button" tabindex="0" title="Filter job corpus for ${escapeHtml(s)}">${escapeHtml(s)}</span>`,
             )
             .join("")
         : '<span class="text-sub font-mono">None</span>';
@@ -1037,6 +1256,36 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="pill-cloud">${missingPills}</div>
       </div>
     `;
+
+    // Attach click listeners to skill pills for deep-link filtering
+    const pills = matcherResults.querySelectorAll(".clickable-pill");
+    pills.forEach((p) => {
+      const handlePillClick = () => {
+        const skill = p.getAttribute("data-skill");
+        if (skill && filterKeyword) {
+          filterKeyword.value = skill;
+          filterKeyword.dispatchEvent(new Event("input"));
+          updateResetButtonVisibility();
+          loadJobs();
+          document
+            .querySelector(".jobs-section")
+            ?.scrollIntoView({ behavior: "smooth" });
+          showToast(`Filtered job stream for skill: ${skill}`, "info");
+        }
+      };
+      p.addEventListener("click", handlePillClick);
+      p.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handlePillClick();
+        }
+      });
+    });
+
+    // Re-render job stream to display fit percentage badges
+    if (cachedJobs && cachedJobs.length > 0) {
+      renderJobs(cachedJobs);
+    }
   }
 
   // ==================== 10. PRESET CHIPS & SPOTLIGHT PHYSICS ====================
@@ -1095,7 +1344,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ctxMain.clearRect(0, 0, w, h);
 
       // Concentric rings
-      ctxMain.strokeStyle = "rgba(14, 165, 233, 0.15)";
+      ctxMain.strokeStyle = "rgba(167, 139, 250, 0.12)";
       ctxMain.lineWidth = 1;
       for (let r = 25; r <= maxR; r += 26) {
         ctxMain.beginPath();
@@ -1117,8 +1366,8 @@ document.addEventListener("DOMContentLoaded", () => {
       ctxMain.rotate(angle);
 
       const grad = ctxMain.createRadialGradient(0, 0, 0, 0, 0, maxR);
-      grad.addColorStop(0, "rgba(56, 189, 248, 0.4)");
-      grad.addColorStop(1, "rgba(14, 165, 233, 0)");
+      grad.addColorStop(0, "rgba(167, 139, 250, 0.35)");
+      grad.addColorStop(1, "rgba(124, 58, 237, 0)");
 
       ctxMain.fillStyle = grad;
       ctxMain.beginPath();
@@ -1128,9 +1377,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ctxMain.fill();
 
       // Sweep Leading Line
-      ctxMain.strokeStyle = "#00f0ff";
+      ctxMain.strokeStyle = "#a78bfa";
       ctxMain.lineWidth = 2;
-      ctxMain.shadowColor = "#00f0ff";
+      ctxMain.shadowColor = "#7c3aed";
       ctxMain.shadowBlur = 8;
       ctxMain.beginPath();
       ctxMain.moveTo(0, 0);
@@ -1165,7 +1414,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const mmaxR = mcx - 3;
 
       ctxMini.clearRect(0, 0, mw, mh);
-      ctxMini.strokeStyle = "rgba(14, 165, 233, 0.3)";
+      ctxMini.strokeStyle = "rgba(167, 139, 250, 0.3)";
       ctxMini.lineWidth = 1;
       ctxMini.beginPath();
       ctxMini.arc(mcx, mcy, mmaxR, 0, Math.PI * 2);
@@ -1174,7 +1423,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ctxMini.save();
       ctxMini.translate(mcx, mcy);
       ctxMini.rotate(angle);
-      ctxMini.strokeStyle = "#00f0ff";
+      ctxMini.strokeStyle = "#a78bfa";
       ctxMini.lineWidth = 1.5;
       ctxMini.beginPath();
       ctxMini.moveTo(0, 0);

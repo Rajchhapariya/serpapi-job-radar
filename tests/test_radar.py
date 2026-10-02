@@ -431,6 +431,101 @@ def test_comprehensive_input_field_validations():
     assert res.status_code == 422
 
 
+def test_readonly_sql_execution():
+    from fastapi.testclient import TestClient
+    from app.main import app
+    client = TestClient(app)
+
+    # Valid SELECT query
+    res = client.post("/api/sql", json={"query": "SELECT COUNT(*) as total FROM jobs"})
+    assert res.status_code == 200
+    data = res.json()
+    assert "columns" in data
+    assert "rows" in data
+    assert "latency_ms" in data
+    assert data["row_count"] >= 1
+
+
+def test_readonly_sql_security_sandbox():
+    from fastapi.testclient import TestClient
+    from app.main import app
+    client = TestClient(app)
+
+    # Reject non-SELECT
+    res_delete = client.post("/api/sql", json={"query": "DELETE FROM jobs WHERE 1=1"})
+    assert res_delete.status_code == 400
+
+    # Reject DROP
+    res_drop = client.post("/api/sql", json={"query": "DROP TABLE jobs"})
+    assert res_drop.status_code == 400
+
+    # Reject INSERT
+    res_insert = client.post("/api/sql", json={"query": "INSERT INTO jobs (job_id) VALUES ('evil')"})
+    assert res_insert.status_code == 400
+
+
+def test_export_csv_and_json():
+    from fastapi.testclient import TestClient
+    from app.main import app
+    client = TestClient(app)
+
+    # CSV Export
+    res_csv = client.get("/api/export?format=csv")
+    assert res_csv.status_code == 200
+    assert "text/csv" in res_csv.headers["content-type"]
+    assert "attachment; filename=serpapi_jobs_radar.csv" in res_csv.headers["content-disposition"]
+
+    # JSON Export
+    res_json = client.get("/api/export?format=json")
+    assert res_json.status_code == 200
+    assert "application/json" in res_json.headers["content-type"]
+    assert "attachment; filename=serpapi_jobs_radar.json" in res_json.headers["content-disposition"]
+
+
+def test_sql_console_presets_execution():
+    from fastapi.testclient import TestClient
+    from app.main import app
+    client = TestClient(app)
+
+    # Preset 1: Platform & Salary
+    p1 = "SELECT COALESCE(via_platform, 'Direct / Portal') AS platform, COUNT(*) AS openings, ROUND(AVG(CASE WHEN salary_raw IS NOT NULL THEN 100.0 ELSE 0.0 END), 1) AS salary_disclosure_pct FROM jobs GROUP BY platform ORDER BY openings DESC LIMIT 10"
+    r1 = client.post("/api/sql", json={"query": p1})
+    assert r1.status_code == 200
+    d1 = r1.json()
+    assert "columns" in d1
+    assert "platform" in d1["columns"]
+
+    # Preset 2: Unnested Skills
+    p2 = "SELECT unnest(skills_required) AS skill, COUNT(*) AS demand_count FROM jobs GROUP BY skill ORDER BY demand_count DESC LIMIT 10"
+    r2 = client.post("/api/sql", json={"query": p2})
+    assert r2.status_code == 200
+    d2 = r2.json()
+    assert "skill" in d2["columns"]
+
+    # Preset 3: Work Arrangement
+    p3 = "SELECT location_type, COUNT(*) AS total_jobs, ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 1) AS share_percentage FROM jobs GROUP BY location_type ORDER BY total_jobs DESC"
+    r3 = client.post("/api/sql", json={"query": p3})
+    assert r3.status_code == 200
+    d3 = r3.json()
+    assert "location_type" in d3["columns"]
+
+
+def test_export_filtered_and_date_boundaries():
+    from fastapi.testclient import TestClient
+    from app.main import app
+    client = TestClient(app)
+
+    # Filtered CSV Export
+    res = client.get("/api/export?format=csv&location_type=Remote&has_salary=true")
+    assert res.status_code == 200
+
+    # Invalid Date boundary check
+    res_err = client.get("/api/export?format=csv&from_date=2026-10-15&to_date=2026-10-01")
+    assert res_err.status_code == 422
+
+
+
+
 
 
 

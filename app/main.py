@@ -1,4 +1,7 @@
 import os
+import io
+import csv
+import json
 import time
 from collections import defaultdict
 from fastapi import FastAPI, HTTPException, Query, Request, Response
@@ -6,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, PlainTextResponse, Response
 from typing import Optional
 
-from app.models import SearchRequest, ResumeMatchRequest
+from app.models import SearchRequest, ResumeMatchRequest, SQLQueryRequest
 from app.database import db_manager
 from app.serpapi_client import serpapi_client
 
@@ -191,3 +194,61 @@ def get_analytics():
 @app.post("/api/match-resume")
 def match_resume(req: ResumeMatchRequest):
     return db_manager.match_resume(req.resume_text)
+
+
+@app.post("/api/sql")
+def execute_sql(req: SQLQueryRequest):
+    try:
+        return db_manager.execute_readonly_query(req.query)
+    except ValueError as ve:
+        raise HTTPException(status_code=400, detail=str(ve))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"DuckDB SQL Execution Error: {str(e)}")
+
+
+@app.get("/api/export")
+def export_jobs(
+    format: str = Query(default="csv", pattern="^(csv|json)$"),
+    keyword: Optional[str] = Query(default=None, max_length=100),
+    location_type: Optional[str] = Query(default=None, pattern="^(Remote|On-site|Hybrid)$"),
+    from_date: Optional[str] = Query(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$"),
+    to_date: Optional[str] = Query(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$"),
+    has_salary: Optional[bool] = None,
+    limit: int = Query(default=500, ge=1, le=1000)
+):
+    if from_date and to_date and from_date > to_date:
+        raise HTTPException(status_code=422, detail="from_date cannot be later than to_date")
+
+    records = db_manager.get_jobs(
+        keyword=keyword,
+        location_type=location_type,
+        from_date=from_date,
+        to_date=to_date,
+        has_salary=has_salary,
+        limit=limit
+    )
+
+    if format == "json":
+        return Response(
+            content=json.dumps(records, indent=2, default=str),
+            media_type="application/json",
+            headers={"Content-Disposition": "attachment; filename=serpapi_jobs_radar.json"}
+        )
+
+    # CSV Export
+    output = io.StringIO()
+    if records:
+        writer = csv.DictWriter(output, fieldnames=list(records[0].keys()))
+        writer.writeheader()
+        writer.writerows(records)
+    else:
+        writer = csv.writer(output)
+        writer.writerow(["message"])
+        writer.writerow(["No records found matching filters."])
+
+    return Response(
+        content=output.getvalue(),
+        media_type="text/csv",
+        headers={"Content-Disposition": "attachment; filename=serpapi_jobs_radar.csv"}
+    )
+

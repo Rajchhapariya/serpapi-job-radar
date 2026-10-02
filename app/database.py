@@ -266,6 +266,51 @@ class DatabaseManager:
             "recommended_jobs": recommended
         }
 
+    def execute_readonly_query(self, sql_query: str) -> Dict[str, Any]:
+        cleaned = sql_query.strip().rstrip(";")
+        if not re.match(r"^SELECT\b", cleaned, re.IGNORECASE):
+            raise ValueError("Restricted execution: Only read-only SELECT queries are allowed.")
+
+        forbidden = [
+            "INSERT", "UPDATE", "DELETE", "DROP", "ALTER", "CREATE",
+            "ATTACH", "COPY", "PRAGMA", "EXPORT", "IMPORT", "SHOW",
+            "LOAD", "INSTALL", "SET", "CALL", "EXECUTE"
+        ]
+        for word in forbidden:
+            if re.search(r"\b" + word + r"\b", cleaned, re.IGNORECASE):
+                raise ValueError(f"Restricted keyword: '{word}' is not permitted in the analytical console.")
+
+        limit_match = re.search(r"\bLIMIT\s+(\d+)", cleaned, re.IGNORECASE)
+        if not limit_match:
+            executable_query = f"{cleaned} LIMIT 50"
+        else:
+            limit_val = int(limit_match.group(1))
+            if limit_val > 50:
+                executable_query = re.sub(r"\bLIMIT\s+\d+", "LIMIT 50", cleaned, flags=re.IGNORECASE)
+            else:
+                executable_query = cleaned
+
+        import time
+        with self.get_connection() as con:
+            t0 = time.perf_counter()
+            cursor = con.execute(executable_query)
+            cols = [desc[0] for desc in cursor.description] if cursor.description else []
+            rows = cursor.fetchall()
+            elapsed_ms = round((time.perf_counter() - t0) * 1000, 2)
+
+            # Convert rows to serializable primitive types
+            serialized_rows = []
+            for row in rows:
+                serialized_rows.append([str(v) if v is not None else "" for v in row])
+
+            return {
+                "columns": cols,
+                "rows": serialized_rows,
+                "row_count": len(serialized_rows),
+                "latency_ms": elapsed_ms
+            }
+
 
 # Global database instance
 db_manager = DatabaseManager()
+

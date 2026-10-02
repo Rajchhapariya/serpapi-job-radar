@@ -68,3 +68,13 @@ class ResumeMatchRequest(BaseModel):
         max_length=50000,
         description="Raw resume text or extracted skills with 50KB payload boundary limit"
     )
+
+
+class SQLQueryRequest(BaseModel):
+    query: str = Field(
+        ...,
+        min_length=6,
+        max_length=1000,
+        description="Read-only SELECT query executed against in-memory DuckDB table"
+    )
+
