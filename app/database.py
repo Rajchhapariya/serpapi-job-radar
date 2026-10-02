@@ -750,11 +750,11 @@ class DatabaseManager:
                 params.append(to_date.strip())
 
             if sort_by == "company":
-                query += " ORDER BY company_name ASC, scraped_at DESC"
+                query += " ORDER BY company_name ASC, scraped_at DESC, job_id ASC"
             elif sort_by == "title":
-                query += " ORDER BY title ASC, scraped_at DESC"
+                query += " ORDER BY title ASC, scraped_at DESC, job_id ASC"
             else:
-                query += " ORDER BY scraped_at DESC"
+                query += " ORDER BY scraped_at DESC, job_id ASC"
 
             query += " LIMIT ? OFFSET ?"
             params.extend([max(1, limit), max(0, offset)])
@@ -877,7 +877,7 @@ class DatabaseManager:
                 SELECT job_id, title, company_name, location, via, apply_link, salary, schedule_type
                 FROM jobs
                 WHERE {skill_conditions}
-                ORDER BY scraped_at DESC
+                ORDER BY scraped_at DESC, job_id ASC
                 LIMIT 6
             """
             params = [f"%{s.lower()}%" for s in matched]

@@ -1298,6 +1298,57 @@ def test_dedup_regression_wfh_and_anywhere_location(temp_db):
         assert j["work_from_home"] is True
 
 
+def test_deterministic_pagination_with_identical_timestamps(temp_db):
+    """
+    Inserts 10 jobs with identical scraped_at, pages through them with limit 3,
+    and asserts no duplicates, no missing rows, and identical order across two runs.
+    """
+    fixed_time = "2026-10-01T12:00:00"
+    jobs = [
+        {
+            "job_id": f"job_page_{i:02d}",
+            "title": f"Software Engineer {i}",
+            "company_name": f"Company {i % 3}",
+            "location": "Bengaluru, India",
+            "description": f"Description for role {i}",
+            "scraped_at": fixed_time
+        }
+        for i in range(10)
+    ]
+    temp_db.upsert_jobs(jobs)
+
+    # First run: page through with limit 3
+    run_1_jobs = []
+    offset = 0
+    limit = 3
+    while True:
+        page = temp_db.get_jobs(limit=limit, offset=offset)
+        if not page:
+            break
+        run_1_jobs.extend(page)
+        offset += limit
+
+    assert len(run_1_jobs) == 10
+    run_1_ids = [j["job_id"] for j in run_1_jobs]
+    assert len(set(run_1_ids)) == 10
+    expected_ids = {f"job_page_{i:02d}" for i in range(10)}
+    assert set(run_1_ids) == expected_ids
+
+    # Second run: page through again with limit 3
+    run_2_jobs = []
+    offset = 0
+    while True:
+        page = temp_db.get_jobs(limit=limit, offset=offset)
+        if not page:
+            break
+        run_2_jobs.extend(page)
+        offset += limit
+
+    run_2_ids = [j["job_id"] for j in run_2_jobs]
+    assert run_1_ids == run_2_ids
+
+
+
 
 
 
