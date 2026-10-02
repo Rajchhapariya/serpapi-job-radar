@@ -43,9 +43,24 @@ class DatabaseManager:
                     salary VARCHAR,
                     apply_link VARCHAR,
                     posted_at VARCHAR,
-                    scraped_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    scraped_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    via_platform VARCHAR,
+                    salary_raw VARCHAR,
+                    location_type VARCHAR,
+                    skills_required VARCHAR[]
                 );
             """)
+            # Migrations for existing database files
+            for col, ctype in [
+                ("via_platform", "VARCHAR"),
+                ("salary_raw", "VARCHAR"),
+                ("location_type", "VARCHAR"),
+                ("skills_required", "VARCHAR[]")
+            ]:
+                try:
+                    con.execute(f"ALTER TABLE jobs ADD COLUMN {col} {ctype};")
+                except Exception:
+                    pass
 
     def upsert_jobs(self, jobs: List[Dict[str, Any]]) -> int:
         if not jobs:
@@ -66,12 +81,19 @@ class DatabaseManager:
                 apply_link = job.get("apply_link", "")
                 posted_at = job.get("posted_at", "")
 
+                location_type = "Remote" if (work_from_home or "remote" in (location or "").lower()) else "On-site"
+                via_platform = via
+                salary_raw = salary
+                combined_text = f"{title} {description}".lower()
+                skills_required = [s for s in TRACKED_SKILLS if re.search(r'\b' + re.escape(s.lower()) + r'\b', combined_text)]
+
                 con.execute("""
                     INSERT INTO jobs (
                         job_id, title, company_name, location, via,
                         description, schedule_type, work_from_home,
-                        salary, apply_link, posted_at, scraped_at
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())
+                        salary, apply_link, posted_at, scraped_at,
+                        via_platform, salary_raw, location_type, skills_required
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), ?, ?, ?, ?)
                     ON CONFLICT (job_id) DO UPDATE SET
                         title = excluded.title,
                         company_name = excluded.company_name,
@@ -82,11 +104,16 @@ class DatabaseManager:
                         work_from_home = excluded.work_from_home,
                         salary = excluded.salary,
                         apply_link = excluded.apply_link,
-                        scraped_at = now();
+                        scraped_at = now(),
+                        via_platform = excluded.via_platform,
+                        salary_raw = excluded.salary_raw,
+                        location_type = excluded.location_type,
+                        skills_required = excluded.skills_required;
                 """, [
                     job_id, title, company_name, location, via,
                     description, schedule_type, work_from_home,
-                    salary, apply_link, posted_at
+                    salary, apply_link, posted_at,
+                    via_platform, salary_raw, location_type, skills_required
                 ])
                 inserted_count += 1
 
@@ -279,6 +306,15 @@ class DatabaseManager:
         for word in forbidden:
             if re.search(r"\b" + word + r"\b", cleaned, re.IGNORECASE):
                 raise ValueError(f"Restricted keyword: '{word}' is not permitted in the analytical console.")
+
+        # Rewrite unnest grouping query if needed for DuckDB binder compatibility
+        if re.search(r"SELECT\s+unnest\(skills_required\)\s+AS\s+skill,\s+COUNT\(\*\)\s+AS\s+demand_count\s+FROM\s+jobs\s+GROUP\s+BY\s+skill", cleaned, re.IGNORECASE):
+            cleaned = re.sub(
+                r"SELECT\s+unnest\(skills_required\)\s+AS\s+skill,\s+COUNT\(\*\)\s+AS\s+demand_count\s+FROM\s+jobs\s+GROUP\s+BY\s+skill",
+                "SELECT skill, COUNT(*) AS demand_count FROM (SELECT unnest(skills_required) AS skill FROM jobs) _sub GROUP BY skill",
+                cleaned,
+                flags=re.IGNORECASE
+            )
 
         limit_match = re.search(r"\bLIMIT\s+(\d+)", cleaned, re.IGNORECASE)
         if not limit_match:

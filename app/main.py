@@ -6,7 +6,8 @@ import time
 from collections import defaultdict
 from fastapi import FastAPI, HTTPException, Query, Request, Response
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse, PlainTextResponse, Response
+from fastapi.responses import FileResponse, PlainTextResponse, Response, JSONResponse
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from typing import Optional
 
 from app.models import SearchRequest, ResumeMatchRequest, SQLQueryRequest
@@ -85,7 +86,42 @@ async def security_and_rate_limit_middleware(request: Request, call_next):
     return response
 
 
+# ==================== ERROR HANDLERS (404 & 500) ====================
 
+@app.exception_handler(StarletteHTTPException)
+async def custom_http_exception_handler(request: Request, exc: StarletteHTTPException):
+    accept = request.headers.get("accept", "")
+    if exc.status_code == 404:
+        if request.url.path.startswith("/api/") or "application/json" in accept:
+            return JSONResponse(
+                status_code=404,
+                content={"error": "Not Found", "detail": exc.detail, "path": request.url.path}
+            )
+        page_404 = os.path.join(STATIC_DIR, "404.html")
+        if os.path.exists(page_404):
+            return FileResponse(page_404, status_code=404)
+        return JSONResponse(status_code=404, content={"detail": "Not Found"})
+
+    if request.url.path.startswith("/api/") or "application/json" in accept:
+        return JSONResponse(status_code=exc.status_code, content={"detail": exc.detail})
+    return JSONResponse(status_code=exc.status_code, content={"detail": exc.detail})
+
+
+@app.exception_handler(Exception)
+async def custom_500_exception_handler(request: Request, exc: Exception):
+    accept = request.headers.get("accept", "")
+    if request.url.path.startswith("/api/") or "application/json" in accept:
+        return JSONResponse(
+            status_code=500,
+            content={"error": "Internal Server Error", "detail": str(exc), "path": request.url.path}
+        )
+    page_500 = os.path.join(STATIC_DIR, "500.html")
+    if os.path.exists(page_500):
+        return FileResponse(page_500, status_code=500)
+    return JSONResponse(
+        status_code=500,
+        content={"error": "Internal Server Error", "detail": str(exc)}
+    )
 
 
 # ==================== SEO & STATIC ROUTES ====================

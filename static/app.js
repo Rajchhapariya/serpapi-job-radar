@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initDrawerControls();
   initFieldValidation();
   initFilterControls();
+  initCustomDropdowns();
   initExportControls();
   initSqlConsole();
   initAtsControls();
@@ -487,13 +488,23 @@ document.addEventListener("DOMContentLoaded", () => {
       clearAllFiltersBtn.addEventListener("click", () => {
         if (filterKeyword) filterKeyword.value = "";
         if (clearKeywordBtn) clearKeywordBtn.style.display = "none";
-        if (filterWorkType) filterWorkType.value = "";
+        if (filterWorkType) {
+          filterWorkType.value = "";
+          if (typeof filterWorkType._syncCustomDropdown === "function") {
+            filterWorkType._syncCustomDropdown();
+          }
+        }
         if (filterFromDate) filterFromDate.value = "";
         if (filterToDate) filterToDate.value = "";
         if (calendarRangeWrap) calendarRangeWrap.classList.remove("is-invalid");
         if (clearDateBtn) clearDateBtn.style.display = "none";
         if (filterSalaryOnly) filterSalaryOnly.checked = false;
-        if (filterSort) filterSort.value = "newest";
+        if (filterSort) {
+          filterSort.value = "newest";
+          if (typeof filterSort._syncCustomDropdown === "function") {
+            filterSort._syncCustomDropdown();
+          }
+        }
 
         clearAllFiltersBtn.style.display = "none";
         showToast("All filters reset to defaults.", "info");
@@ -525,13 +536,340 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ==================== 4. EXPORT DATA CONTROLS ====================
   function initExportControls() {
+    const exportDropdownWrap = document.getElementById("exportDropdownWrap");
+    const exportDropdownTrigger = document.getElementById(
+      "exportDropdownTrigger",
+    );
+
+    if (exportDropdownTrigger && exportDropdownWrap) {
+      exportDropdownTrigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = exportDropdownWrap.classList.contains("is-open");
+        closeAllDropdowns(exportDropdownWrap);
+        if (!isOpen) {
+          exportDropdownWrap.classList.add("is-open");
+          exportDropdownTrigger.setAttribute("aria-expanded", "true");
+        } else {
+          exportDropdownWrap.classList.remove("is-open");
+          exportDropdownTrigger.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
     if (exportCsvBtn) {
-      exportCsvBtn.addEventListener("click", () => triggerExport("csv"));
+      exportCsvBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (exportDropdownWrap) {
+          exportDropdownWrap.classList.remove("is-open");
+          if (exportDropdownTrigger) {
+            exportDropdownTrigger.setAttribute("aria-expanded", "false");
+          }
+        }
+        triggerExport("csv");
+      });
     }
     if (exportJsonBtn) {
-      exportJsonBtn.addEventListener("click", () => triggerExport("json"));
+      exportJsonBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (exportDropdownWrap) {
+          exportDropdownWrap.classList.remove("is-open");
+          if (exportDropdownTrigger) {
+            exportDropdownTrigger.setAttribute("aria-expanded", "false");
+          }
+        }
+        triggerExport("json");
+      });
     }
   }
+
+  // ==================== CUSTOM RADAR DROPDOWNS ====================
+  function initCustomDropdowns() {
+    const selects = document.querySelectorAll(
+      "select.custom-select, select.filter-select",
+    );
+
+    selects.forEach((select) => {
+      if (select.dataset.radarCustomized) return;
+      select.dataset.radarCustomized = "true";
+
+      // Visually hide native select but retain in DOM for form processing & values
+      select.classList.add("radar-select-native-hidden");
+
+      // Wrap in radar-select-wrapper
+      const wrapper = document.createElement("div");
+      wrapper.className = "radar-select-wrapper";
+      if (select.classList.contains("filter-select")) {
+        wrapper.classList.add("filter-select-wrapper");
+      }
+      select.parentNode.insertBefore(wrapper, select);
+      wrapper.appendChild(select);
+
+      // Trigger button
+      const trigger = document.createElement("button");
+      trigger.type = "button";
+      trigger.className = "radar-select-trigger font-mono";
+      trigger.setAttribute("aria-haspopup", "listbox");
+      trigger.setAttribute("aria-expanded", "false");
+
+      const valueWrap = document.createElement("span");
+      valueWrap.className = "radar-select-value";
+
+      const chevronSvg = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "svg",
+      );
+      chevronSvg.setAttribute("class", "radar-select-chevron");
+      chevronSvg.setAttribute("viewBox", "0 0 24 24");
+      chevronSvg.setAttribute("fill", "none");
+      chevronSvg.setAttribute("stroke", "currentColor");
+      chevronSvg.setAttribute("stroke-width", "2");
+      chevronSvg.setAttribute("stroke-linecap", "round");
+      chevronSvg.setAttribute("stroke-linejoin", "round");
+      chevronSvg.setAttribute("aria-hidden", "true");
+      chevronSvg.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
+
+      trigger.appendChild(valueWrap);
+      trigger.appendChild(chevronSvg);
+      wrapper.appendChild(trigger);
+
+      // Floating Menu Panel
+      const panel = document.createElement("div");
+      panel.className = "radar-select-panel";
+      panel.setAttribute("role", "listbox");
+      panel.setAttribute("tabindex", "-1");
+
+      function buildOptions() {
+        panel.innerHTML = "";
+        Array.from(select.options).forEach((opt) => {
+          const item = document.createElement("div");
+          item.className = "radar-select-option";
+          item.setAttribute("role", "option");
+          item.dataset.value = opt.value;
+          item.dataset.text = opt.text;
+          const isSelected = opt.value === select.value;
+          item.setAttribute("aria-selected", isSelected ? "true" : "false");
+          if (isSelected) {
+            item.classList.add("is-selected");
+          }
+
+          const iconHtml = getOptionIconHtml(select.id, opt.value, opt.text);
+
+          item.innerHTML = `
+            <span class="radar-select-option-content">
+              ${iconHtml}
+              <span>${opt.text}</span>
+            </span>
+            <svg class="radar-select-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          `;
+
+          item.addEventListener("click", (e) => {
+            e.stopPropagation();
+            selectOption(opt.value);
+          });
+
+          panel.appendChild(item);
+        });
+      }
+
+      function updateTriggerDisplay() {
+        const selectedOpt = select.options[select.selectedIndex];
+        if (selectedOpt) {
+          const icon = getOptionIconHtml(
+            select.id,
+            selectedOpt.value,
+            selectedOpt.text,
+          );
+          valueWrap.innerHTML = `${icon}<span>${selectedOpt.text}</span>`;
+        }
+      }
+
+      function selectOption(val) {
+        select.value = val;
+        select._syncCustomDropdown();
+        closeDropdown();
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+        select.dispatchEvent(new Event("input", { bubbles: true }));
+        trigger.focus();
+      }
+
+      function toggleDropdown() {
+        if (wrapper.classList.contains("is-open")) {
+          closeDropdown();
+        } else {
+          openDropdown();
+        }
+      }
+
+      function openDropdown() {
+        closeAllDropdowns(wrapper);
+
+        // Viewport collision detection
+        const rect = wrapper.getBoundingClientRect();
+        const spaceBelow = window.innerHeight - rect.bottom;
+        if (spaceBelow < 220 && rect.top > 220) {
+          wrapper.classList.add("drop-up");
+        } else {
+          wrapper.classList.remove("drop-up");
+        }
+
+        wrapper.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+
+        const parentCard = wrapper.closest(".spotlight-card");
+        if (parentCard) parentCard.classList.add("has-open-dropdown");
+
+        // Focus current or first option
+        const selectedItem =
+          panel.querySelector(".radar-select-option.is-selected") ||
+          panel.querySelector(".radar-select-option");
+        if (selectedItem) {
+          panel
+            .querySelectorAll(".radar-select-option")
+            .forEach((o) => o.classList.remove("is-focused"));
+          selectedItem.classList.add("is-focused");
+          selectedItem.scrollIntoView({ block: "nearest" });
+        }
+      }
+
+      function closeDropdown() {
+        wrapper.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+        panel
+          .querySelectorAll(".radar-select-option")
+          .forEach((o) => o.classList.remove("is-focused"));
+
+        const parentCard = wrapper.closest(".spotlight-card");
+        if (parentCard) parentCard.classList.remove("has-open-dropdown");
+      }
+
+      select._syncCustomDropdown = () => {
+        updateTriggerDisplay();
+        panel.querySelectorAll(".radar-select-option").forEach((opt) => {
+          const isSel = opt.dataset.value === select.value;
+          opt.classList.toggle("is-selected", isSel);
+          opt.setAttribute("aria-selected", isSel ? "true" : "false");
+        });
+      };
+
+      select.addEventListener("change", select._syncCustomDropdown);
+
+      trigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleDropdown();
+      });
+
+      trigger.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          if (!wrapper.classList.contains("is-open")) {
+            openDropdown();
+          }
+        } else if (e.key === "Escape") {
+          closeDropdown();
+        }
+      });
+
+      wrapper.addEventListener("keydown", (e) => {
+        if (!wrapper.classList.contains("is-open")) return;
+        const items = Array.from(
+          panel.querySelectorAll(".radar-select-option"),
+        );
+        let focusedIdx = items.findIndex((i) =>
+          i.classList.contains("is-focused"),
+        );
+
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          const nextIdx = focusedIdx < items.length - 1 ? focusedIdx + 1 : 0;
+          items.forEach((i) => i.classList.remove("is-focused"));
+          items[nextIdx].classList.add("is-focused");
+          items[nextIdx].scrollIntoView({ block: "nearest" });
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          const prevIdx = focusedIdx > 0 ? focusedIdx - 1 : items.length - 1;
+          items.forEach((i) => i.classList.remove("is-focused"));
+          items[prevIdx].classList.add("is-focused");
+          items[prevIdx].scrollIntoView({ block: "nearest" });
+        } else if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          if (focusedIdx >= 0 && items[focusedIdx]) {
+            selectOption(items[focusedIdx].dataset.value);
+          }
+        } else if (e.key === "Escape") {
+          e.preventDefault();
+          closeDropdown();
+          trigger.focus();
+        } else if (e.key === "Tab") {
+          closeDropdown();
+        }
+      });
+
+      buildOptions();
+      updateTriggerDisplay();
+      wrapper.appendChild(panel);
+    });
+  }
+
+  function getOptionIconHtml(selectId, value, text) {
+    if (selectId === "locationInput") {
+      if (value === "Remote" || (value && value.includes("United States"))) {
+        return '<svg class="radar-select-option-icon text-emerald" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>';
+      }
+      return '<svg class="radar-select-option-icon text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>';
+    }
+    if (selectId === "datePostedInput") {
+      return '<svg class="radar-select-option-icon text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>';
+    }
+    if (selectId === "resultsLimit") {
+      return '<svg class="radar-select-option-icon text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>';
+    }
+    if (selectId === "filterWorkType") {
+      if (value === "Remote") {
+        return '<svg class="radar-select-option-icon text-emerald" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>';
+      }
+      if (value === "Hybrid") {
+        return '<svg class="radar-select-option-icon text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><line x1="1.05" y1="12" x2="7" y2="12"></line><line x1="17.01" y1="12" x2="22.96" y2="12"></line></svg>';
+      }
+      if (value === "On-site") {
+        return '<svg class="radar-select-option-icon text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line></svg>';
+      }
+      return '<svg class="radar-select-option-icon text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>';
+    }
+    if (selectId === "filterSort") {
+      return '<svg class="radar-select-option-icon text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>';
+    }
+    return "";
+  }
+
+  function closeAllDropdowns(except = null) {
+    document
+      .querySelectorAll(
+        ".radar-select-wrapper.is-open, .export-dropdown-wrap.is-open",
+      )
+      .forEach((el) => {
+        if (el !== except) {
+          el.classList.remove("is-open");
+          const trigger = el.querySelector(
+            ".radar-select-trigger, #exportDropdownTrigger",
+          );
+          if (trigger) trigger.setAttribute("aria-expanded", "false");
+          const parentCard = el.closest(".spotlight-card");
+          if (parentCard) parentCard.classList.remove("has-open-dropdown");
+        }
+      });
+  }
+
+  // Global document click listener for outside clicks
+  document.addEventListener("click", (e) => {
+    if (
+      !e.target.closest(".radar-select-wrapper") &&
+      !e.target.closest(".export-dropdown-wrap")
+    ) {
+      closeAllDropdowns();
+    }
+  });
 
   function triggerExport(format) {
     const keyword = filterKeyword ? filterKeyword.value.trim() : "";
@@ -977,6 +1315,39 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==================== 7. DRAWER INSPECTION & LINK SHARING ====================
+  function copyTextToClipboard(text, successMsg = "Copied to clipboard!") {
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard
+        .writeText(text)
+        .then(() => showToast(successMsg, "success"))
+        .catch(() => fallbackCopyText(text, successMsg));
+    } else {
+      fallbackCopyText(text, successMsg);
+    }
+  }
+
+  function fallbackCopyText(text, successMsg) {
+    try {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-999999px";
+      textArea.style.top = "-999999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      const successful = document.execCommand("copy");
+      document.body.removeChild(textArea);
+      if (successful) {
+        showToast(successMsg, "success");
+      } else {
+        showToast("Unable to copy to clipboard.", "warning");
+      }
+    } catch (err) {
+      showToast("Unable to copy to clipboard.", "warning");
+    }
+  }
+
   function initDrawerControls() {
     if (closeDrawerBtn) closeDrawerBtn.addEventListener("click", closeDrawer);
     if (drawerBackdrop) drawerBackdrop.addEventListener("click", closeDrawer);
@@ -985,13 +1356,9 @@ document.addEventListener("DOMContentLoaded", () => {
       drawerCopyLinkBtn.addEventListener("click", () => {
         if (!currentDrawerJob) return;
         const link = currentDrawerJob.apply_link || window.location.href;
-        navigator.clipboard.writeText(link).then(
-          () =>
-            showToast(
-              "Official application link copied to clipboard!",
-              "success",
-            ),
-          () => showToast("Unable to copy to clipboard.", "error"),
+        copyTextToClipboard(
+          link,
+          "Official application link copied to clipboard!",
         );
       });
     }
@@ -1301,6 +1668,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (l && locationInput) {
           locationInput.value = l;
+          if (typeof locationInput._syncCustomDropdown === "function") {
+            locationInput._syncCustomDropdown();
+          }
         }
         showToast(`Preset loaded: ${q}`, "info");
       });

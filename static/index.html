@@ -95,7 +95,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -478,169 +478,175 @@
             </div>
 
             <form id="searchForm" class="search-form">
-              <div class="form-grid">
-                <div class="form-field flex-grow-2">
-                  <div class="field-label-row">
-                    <label for="queryInput" class="font-mono gap-icon">
-                      <svg
-                        class="ui-icon ui-icon-xs text-cyan"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        aria-hidden="true"
+              <div class="search-form-rows">
+                <div class="form-row form-row-primary">
+                  <div class="form-field flex-query">
+                    <div class="field-label-row">
+                      <label for="queryInput" class="font-mono gap-icon">
+                        <svg
+                          class="ui-icon ui-icon-xs text-cyan"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <polyline points="4 17 10 11 4 5"></polyline>
+                          <line x1="12" y1="19" x2="20" y2="19"></line>
+                        </svg>
+                        JOB ROLE / TECHNICAL SKILLS
+                      </label>
+                      <span id="queryCharCount" class="char-counter font-mono"
+                        >24 / 100</span
                       >
-                        <polyline points="4 17 10 11 4 5"></polyline>
-                        <line x1="12" y1="19" x2="20" y2="19"></line>
-                      </svg>
-                      JOB ROLE / TECHNICAL SKILLS
-                    </label>
-                    <span id="queryCharCount" class="char-counter font-mono"
-                      >24 / 100</span
+                    </div>
+                    <div class="input-validation-wrap">
+                      <input
+                        type="text"
+                        id="queryInput"
+                        value="Software Engineer Python"
+                        placeholder="e.g. Data Engineer DuckDB, AI Engineer, Next.js"
+                        maxlength="100"
+                        required
+                      />
+                      <span
+                        id="queryValidationStatus"
+                        class="validation-dot"
+                        title="Validation status"
+                      ></span>
+                    </div>
+                    <div
+                      id="queryErrorMsg"
+                      class="field-error-text font-mono"
+                      style="display: none"
+                    ></div>
+                  </div>
+
+                  <div class="form-field flex-location">
+                    <div class="field-label-row">
+                      <label for="locationInput" class="font-mono gap-icon">
+                        <svg
+                          class="ui-icon ui-icon-xs text-cyan"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                          ></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        LOCATION BOUNDARY
+                      </label>
+                    </div>
+                    <select id="locationInput" class="custom-select">
+                      <option value="India" selected>
+                        India (All Regions)
+                      </option>
+                      <option value="Remote">100% Remote Global</option>
+                      <option value="Bengaluru, Karnataka, India">
+                        Bengaluru, India
+                      </option>
+                      <option value="Gurgaon, Haryana, India">
+                        Gurgaon / NCR, India
+                      </option>
+                      <option value="Hyderabad, Telangana, India">
+                        Hyderabad, India
+                      </option>
+                      <option value="United States">
+                        United States (Remote)
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row form-row-secondary">
+                  <div class="form-field flex-recency">
+                    <div class="field-label-row">
+                      <label for="datePostedInput" class="font-mono gap-icon">
+                        <svg
+                          class="ui-icon ui-icon-xs text-cyan"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        POSTED RECENCY
+                      </label>
+                    </div>
+                    <select id="datePostedInput" class="custom-select">
+                      <option value="" selected>Any Time</option>
+                      <option value="today">Past 24 Hours</option>
+                      <option value="3days">Past 3 Days</option>
+                      <option value="week">Past Week</option>
+                      <option value="month">Past Month</option>
+                    </select>
+                  </div>
+
+                  <div class="form-field flex-limit">
+                    <div class="field-label-row">
+                      <label for="resultsLimit" class="font-mono gap-icon">
+                        <svg
+                          class="ui-icon ui-icon-xs text-cyan"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <line x1="8" y1="6" x2="21" y2="6"></line>
+                          <line x1="8" y1="12" x2="21" y2="12"></line>
+                          <line x1="8" y1="18" x2="21" y2="18"></line>
+                          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                        </svg>
+                        FETCH COUNT
+                      </label>
+                    </div>
+                    <select id="resultsLimit" class="custom-select">
+                      <option value="10">10 Jobs</option>
+                      <option value="20" selected>20 Jobs</option>
+                      <option value="50">50 Jobs</option>
+                    </select>
+                  </div>
+
+                  <div class="form-field flex-btn">
+                    <button
+                      type="submit"
+                      id="searchBtn"
+                      class="btn btn-primary gap-icon"
                     >
-                  </div>
-                  <div class="input-validation-wrap">
-                    <input
-                      type="text"
-                      id="queryInput"
-                      value="Software Engineer Python"
-                      placeholder="e.g. Data Engineer DuckDB, AI Engineer, Next.js"
-                      maxlength="100"
-                      required
-                    />
-                    <span
-                      id="queryValidationStatus"
-                      class="validation-dot"
-                      title="Validation status"
-                    ></span>
-                  </div>
-                  <div
-                    id="queryErrorMsg"
-                    class="field-error-text font-mono"
-                    style="display: none"
-                  ></div>
-                </div>
-
-                <div class="form-field flex-grow-1">
-                  <div class="field-label-row">
-                    <label for="locationInput" class="font-mono gap-icon">
                       <svg
-                        class="ui-icon ui-icon-xs text-cyan"
+                        class="ui-icon ui-icon-sm"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="2"
+                        stroke-width="2.5"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         aria-hidden="true"
                       >
-                        <path
-                          d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-                        ></path>
-                        <circle cx="12" cy="10" r="3"></circle>
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                       </svg>
-                      LOCATION BOUNDARY
-                    </label>
+                      <span id="searchBtnText">Run Live Scan</span>
+                    </button>
                   </div>
-                  <select id="locationInput" class="custom-select">
-                    <option value="India" selected>India (All Regions)</option>
-                    <option value="Remote">100% Remote Global</option>
-                    <option value="Bengaluru, Karnataka, India">
-                      Bengaluru, India
-                    </option>
-                    <option value="Gurgaon, Haryana, India">
-                      Gurgaon / NCR, India
-                    </option>
-                    <option value="Hyderabad, Telangana, India">
-                      Hyderabad, India
-                    </option>
-                    <option value="United States">
-                      United States (Remote)
-                    </option>
-                  </select>
-                </div>
-
-                <div class="form-field flex-fixed-140">
-                  <div class="field-label-row">
-                    <label for="datePostedInput" class="font-mono gap-icon">
-                      <svg
-                        class="ui-icon ui-icon-xs text-cyan"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        aria-hidden="true"
-                      >
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polyline points="12 6 12 12 16 14"></polyline>
-                      </svg>
-                      POSTED RECENCY
-                    </label>
-                  </div>
-                  <select id="datePostedInput" class="custom-select">
-                    <option value="" selected>Any Time</option>
-                    <option value="today">Past 24 Hours</option>
-                    <option value="3days">Past 3 Days</option>
-                    <option value="week">Past Week</option>
-                    <option value="month">Past Month</option>
-                  </select>
-                </div>
-
-                <div class="form-field flex-fixed-100">
-                  <div class="field-label-row">
-                    <label for="resultsLimit" class="font-mono gap-icon">
-                      <svg
-                        class="ui-icon ui-icon-xs text-cyan"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        aria-hidden="true"
-                      >
-                        <line x1="8" y1="6" x2="21" y2="6"></line>
-                        <line x1="8" y1="12" x2="21" y2="12"></line>
-                        <line x1="8" y1="18" x2="21" y2="18"></line>
-                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
-                      </svg>
-                      FETCH COUNT
-                    </label>
-                  </div>
-                  <select id="resultsLimit" class="custom-select">
-                    <option value="10">10 Jobs</option>
-                    <option value="20" selected>20 Jobs</option>
-                    <option value="50">50 Jobs</option>
-                  </select>
-                </div>
-
-                <div class="form-field flex-btn">
-                  <button
-                    type="submit"
-                    id="searchBtn"
-                    class="btn btn-primary gap-icon"
-                  >
-                    <svg
-                      class="ui-icon ui-icon-sm"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <circle cx="11" cy="11" r="8"></circle>
-                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                    <span id="searchBtnText">Run Live Scan</span>
-                  </button>
                 </div>
               </div>
             </form>
@@ -830,54 +836,110 @@
                   Reset Filters
                 </button>
 
-                <button
-                  type="button"
-                  id="exportCsvBtn"
-                  class="btn-export-toolbar font-mono gap-icon"
-                  title="Export filtered job corpus to CSV"
-                >
-                  <svg
-                    class="ui-icon ui-icon-xs text-emerald"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
+                <!-- Unified Export Dropdown Menu -->
+                <div class="export-dropdown-wrap" id="exportDropdownWrap">
+                  <button
+                    type="button"
+                    id="exportDropdownTrigger"
+                    class="btn-export-toolbar font-mono gap-icon"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    title="Export filtered job corpus in multiple formats"
                   >
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="7 10 12 15 17 10"></polyline>
-                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                  </svg>
-                  Export CSV
-                </button>
-
-                <button
-                  type="button"
-                  id="exportJsonBtn"
-                  class="btn-export-toolbar font-mono gap-icon"
-                  title="Export filtered job corpus to JSON"
-                >
-                  <svg
-                    class="ui-icon ui-icon-xs text-cyan"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
+                    <svg
+                      class="ui-icon ui-icon-xs text-emerald"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                      ></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>Export Corpus</span>
+                    <svg
+                      class="radar-select-chevron"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                  <div
+                    class="export-dropdown-menu"
+                    id="exportDropdownMenu"
+                    role="menu"
                   >
-                    <path
-                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                    ></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                  </svg>
-                  Export JSON
-                </button>
+                    <button
+                      type="button"
+                      id="exportCsvBtn"
+                      class="radar-dropdown-item gap-icon"
+                      role="menuitem"
+                      title="Export filtered job corpus to CSV"
+                    >
+                      <span class="dropdown-item-left">
+                        <svg
+                          class="ui-icon ui-icon-xs text-emerald"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                          ></path>
+                          <polyline points="7 10 12 15 17 10"></polyline>
+                          <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span class="dropdown-item-label">Export as CSV</span>
+                      </span>
+                      <span class="dropdown-item-meta font-mono">.csv</span>
+                    </button>
+                    <button
+                      type="button"
+                      id="exportJsonBtn"
+                      class="radar-dropdown-item gap-icon"
+                      role="menuitem"
+                      title="Export filtered job corpus to JSON"
+                    >
+                      <span class="dropdown-item-left">
+                        <svg
+                          class="ui-icon ui-icon-xs text-cyan"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                          ></path>
+                          <polyline points="14 2 14 8 20 8"></polyline>
+                          <line x1="16" y1="13" x2="8" y2="13"></line>
+                          <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                        <span class="dropdown-item-label">Export as JSON</span>
+                      </span>
+                      <span class="dropdown-item-meta font-mono">.json</span>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
