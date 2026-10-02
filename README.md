@@ -147,7 +147,7 @@ All 16 core tests verify:
 - **Event:** SerpApi India Hackathon 2026
 - **Submission Deadline:** 10 October 2026 at 23:59 IST
 - **Category / Track:** AI Agents & Developer Tools / Market Intelligence
-- **Author:** Raj Chhapariya
+- **Author / Participant:** SerpApi Hackathon Participant
 - **Repository:** `https://github.com/Rajchhapariya/serpapi-job-radar`
 - **Demo Video Script (Under 3 Minutes):**
   1. **Intro (0:00 - 0:30):** State problem (portal fragmentation, anti-scraping blocks) and show the unified dashboard.
