@@ -378,4 +378,59 @@ def test_database_calendar_date_range(temp_db):
     assert len(past) == 0
 
 
+def test_api_date_range_inverted_validation():
+    from fastapi.testclient import TestClient
+    from app.main import app
+    client = TestClient(app)
+
+    # Inverted date range (from_date > to_date) must return 422 Unprocessable Entity
+    response = client.get("/api/jobs?from_date=2026-10-10&to_date=2026-10-01")
+    assert response.status_code == 422
+    assert "cannot be later than" in response.json()["detail"]
+
+
+def test_comprehensive_input_field_validations():
+    from fastapi.testclient import TestClient
+    from app.main import app
+    client = TestClient(app)
+
+    # 1. Search query too short (< 2 chars) -> 422
+    res = client.post("/api/search", json={"query": "a", "location": "India"})
+    assert res.status_code == 422
+
+    # 2. Search query too long (> 100 chars) -> 422
+    res = client.post("/api/search", json={"query": "x" * 101, "location": "India"})
+    assert res.status_code == 422
+
+    # 3. Location with illegal script injection -> 422
+    res = client.post("/api/search", json={"query": "Python", "location": "India<script>"})
+    assert res.status_code == 422
+
+    # 4. Resume matcher too short (< 5 chars) -> 422
+    res = client.post("/api/match-resume", json={"resume_text": "Py"})
+    assert res.status_code == 422
+
+    # 5. Jobs filter invalid location_type -> 422
+    res = client.get("/api/jobs?location_type=Virtual")
+    assert res.status_code == 422
+
+    # 6. Jobs filter invalid sort_by -> 422
+    res = client.get("/api/jobs?sort_by=salary_desc")
+    assert res.status_code == 422
+
+    # 7. Jobs filter limit out of bounds (> 100) -> 422
+    res = client.get("/api/jobs?limit=500")
+    assert res.status_code == 422
+
+    # 8. Jobs filter negative offset -> 422
+    res = client.get("/api/jobs?offset=-5")
+    assert res.status_code == 422
+
+    # 9. Jobs filter keyword too long (> 100) -> 422
+    res = client.get("/api/jobs?keyword=" + "k" * 105)
+    assert res.status_code == 422
+
+
+
+
 

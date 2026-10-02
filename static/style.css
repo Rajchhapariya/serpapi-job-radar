@@ -116,6 +116,41 @@ body.obsidian-theme {
   color: var(--rose);
 }
 
+/* Inline SVG Icon Utilities */
+.ui-icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  vertical-align: -2px;
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+.ui-icon-xs {
+  width: 11px;
+  height: 11px;
+  vertical-align: -1px;
+}
+.ui-icon-sm {
+  width: 13px;
+  height: 13px;
+  vertical-align: -2px;
+}
+.ui-icon-md {
+  width: 16px;
+  height: 16px;
+  vertical-align: -3px;
+}
+.ui-icon-lg {
+  width: 20px;
+  height: 20px;
+  vertical-align: -4px;
+}
+.gap-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
 /* Header */
 .app-header {
   position: sticky;
@@ -701,14 +736,22 @@ input.is-valid {
   opacity: 1;
 }
 
-/* Filter Input Inline Clear */
+/* Filter Input Inline Clear & Search Icon */
 .filter-input-wrap {
   position: relative;
   display: inline-flex;
   align-items: center;
 }
 
+.filter-search-icon {
+  position: absolute;
+  left: 10px;
+  pointer-events: none;
+  z-index: 2;
+}
+
 .filter-input-wrap input {
+  padding-left: 30px;
   padding-right: 28px;
 }
 
@@ -718,15 +761,34 @@ input.is-valid {
   background: none;
   border: none;
   color: var(--text-sub);
-  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 0 4px;
+  padding: 2px;
   line-height: 1;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .btn-clear-inline:hover {
   color: #f43f5e;
+  transform: scale(1.1);
+}
+
+textarea.is-invalid {
+  border-color: #f43f5e !important;
+  box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.25) !important;
+  animation: shakeError 0.35s ease;
+}
+
+textarea.is-valid {
+  border-color: rgba(16, 185, 129, 0.7) !important;
+}
+
+.calendar-range-wrap.is-invalid {
+  border-color: #f43f5e !important;
+  box-shadow: 0 0 0 2px rgba(244, 63, 94, 0.25) !important;
+  animation: shakeError 0.35s ease;
 }
 
 /* Filter Salary Toggle Pill */

@@ -163,6 +163,12 @@ def get_jobs(
     limit: int = Query(default=50, ge=1, le=100),
     offset: int = Query(default=0, ge=0)
 ):
+    if from_date and to_date and from_date > to_date:
+        raise HTTPException(
+            status_code=422,
+            detail="Invalid date range: from_date cannot be later than to_date"
+        )
+
     records = db_manager.get_jobs(
         keyword=keyword,
         location_type=location_type,

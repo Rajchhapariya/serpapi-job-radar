@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Resume Matcher elements
   const resumeInput = document.getElementById("resumeInput");
+  const resumeErrorMsg = document.getElementById("resumeErrorMsg");
   const atsWordCount = document.getElementById("atsWordCount");
   const atsCharCount = document.getElementById("atsCharCount");
   const matchBtn = document.getElementById("matchBtn");
@@ -53,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const loadSampleBioBtn = document.getElementById("loadSampleBioBtn");
   const resumeFileInput = document.getElementById("resumeFileInput");
   const clearResumeBtn = document.getElementById("clearResumeBtn");
+  const calendarRangeWrap = document.querySelector(".calendar-range-wrap");
 
   // Drawer elements
   const jobDetailDrawer = document.getElementById("jobDetailDrawer");
@@ -94,8 +96,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!toastContainer) return;
 
     const toast = document.createElement("div");
-    toast.className = `toast-pill toast-${type}`;
+    toast.className = `toast-pill toast-${type} gap-icon`;
     toast.setAttribute("role", "alert");
+
+    const toastIcons = {
+      success:
+        '<svg class="ui-icon ui-icon-md text-emerald" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>',
+      error:
+        '<svg class="ui-icon ui-icon-md text-rose" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
+      warning:
+        '<svg class="ui-icon ui-icon-md text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
+      info: '<svg class="ui-icon ui-icon-md text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>',
+    };
+
+    const iconSpan = document.createElement("span");
+    iconSpan.innerHTML = toastIcons[type] || toastIcons.info;
+    toast.appendChild(iconSpan);
 
     const textSpan = document.createElement("span");
     textSpan.textContent = message;
@@ -103,7 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const closeBtn = document.createElement("button");
     closeBtn.className = "toast-close-btn";
-    closeBtn.innerHTML = "&times;";
+    closeBtn.innerHTML =
+      '<svg class="ui-icon ui-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
     closeBtn.title = "Dismiss";
     closeBtn.onclick = () => removeToast(toast);
     toast.appendChild(closeBtn);
@@ -150,41 +167,156 @@ document.addEventListener("DOMContentLoaded", () => {
     return { valid: true, message: "" };
   }
 
+  function validateFilterKeyword(val) {
+    if (!val) return { valid: true, message: "" };
+    if (val.length > 100) {
+      return {
+        valid: false,
+        message: "Filter keyword must not exceed 100 characters.",
+      };
+    }
+    const unsafeChars = /[<>"';`]/;
+    if (unsafeChars.test(val)) {
+      return {
+        valid: false,
+        message: "Restricted characters detected (< > \" ' ; `).",
+      };
+    }
+    return { valid: true, message: "" };
+  }
+
+  function validateDateRange(from, to) {
+    if (!from && !to) return { valid: true, message: "" };
+    const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+    if (from && !dateRegex.test(from)) {
+      return {
+        valid: false,
+        message: "From Date must follow YYYY-MM-DD format.",
+      };
+    }
+    if (to && !dateRegex.test(to)) {
+      return {
+        valid: false,
+        message: "To Date must follow YYYY-MM-DD format.",
+      };
+    }
+    if (from && to && from > to) {
+      return {
+        valid: false,
+        message: "From Date cannot be later than To Date.",
+      };
+    }
+    return { valid: true, message: "" };
+  }
+
+  function validateResume(text) {
+    const trimmed = text.trim();
+    if (!trimmed) {
+      return {
+        valid: false,
+        message: "Resume skill inventory cannot be empty.",
+      };
+    }
+    if (trimmed.length < 10) {
+      return {
+        valid: false,
+        message: "Resume text is too brief (minimum 10 characters required).",
+      };
+    }
+    const words = trimmed.split(/\s+/).length;
+    if (words < 2) {
+      return {
+        valid: false,
+        message:
+          "Please enter at least 2 distinct technical skills or phrases.",
+      };
+    }
+    if (trimmed.length > 50000) {
+      return {
+        valid: false,
+        message: "Resume text exceeds 50,000 character maximum limit.",
+      };
+    }
+    return { valid: true, message: "" };
+  }
+
   function initFieldValidation() {
-    if (!queryInput) return;
+    // 1. Search Query Validation
+    if (queryInput) {
+      function handleQueryInput() {
+        const val = queryInput.value;
+        if (queryCharCount) {
+          queryCharCount.textContent = `${val.length} / 100`;
+        }
 
-    function handleQueryInput() {
-      const val = queryInput.value;
-      if (queryCharCount) {
-        queryCharCount.textContent = `${val.length} / 100`;
+        const check = validateQuery(val);
+        if (check.valid) {
+          queryInput.classList.remove("is-invalid");
+          queryInput.classList.add("is-valid");
+          if (queryValidationStatus) {
+            queryValidationStatus.className = "validation-dot valid";
+          }
+          if (queryErrorMsg) {
+            queryErrorMsg.style.display = "none";
+            queryErrorMsg.textContent = "";
+          }
+        } else {
+          queryInput.classList.remove("is-valid");
+          queryInput.classList.add("is-invalid");
+          if (queryValidationStatus) {
+            queryValidationStatus.className = "validation-dot invalid";
+          }
+          if (queryErrorMsg) {
+            queryErrorMsg.style.display = "block";
+            queryErrorMsg.textContent = check.message;
+          }
+        }
       }
 
-      const check = validateQuery(val);
-      if (check.valid) {
-        queryInput.classList.remove("is-invalid");
-        queryInput.classList.add("is-valid");
-        if (queryValidationStatus) {
-          queryValidationStatus.className = "validation-dot valid";
-        }
-        if (queryErrorMsg) {
-          queryErrorMsg.style.display = "none";
-          queryErrorMsg.textContent = "";
-        }
-      } else {
-        queryInput.classList.remove("is-valid");
-        queryInput.classList.add("is-invalid");
-        if (queryValidationStatus) {
-          queryValidationStatus.className = "validation-dot invalid";
-        }
-        if (queryErrorMsg) {
-          queryErrorMsg.style.display = "block";
-          queryErrorMsg.textContent = check.message;
-        }
-      }
+      queryInput.addEventListener("input", handleQueryInput);
+      handleQueryInput();
     }
 
-    queryInput.addEventListener("input", handleQueryInput);
-    handleQueryInput(); // Run on initial render
+    // 2. Filter Keyword Validation
+    if (filterKeyword) {
+      filterKeyword.addEventListener("input", () => {
+        const check = validateFilterKeyword(filterKeyword.value);
+        if (!check.valid) {
+          filterKeyword.classList.add("is-invalid");
+          showToast(check.message, "warning", 3000);
+        } else {
+          filterKeyword.classList.remove("is-invalid");
+        }
+      });
+    }
+
+    // 3. Resume Real-Time Validation
+    if (resumeInput) {
+      resumeInput.addEventListener("input", () => {
+        const val = resumeInput.value.trim();
+        if (!val) {
+          resumeInput.classList.remove("is-valid", "is-invalid");
+          if (resumeErrorMsg) resumeErrorMsg.style.display = "none";
+          return;
+        }
+        const check = validateResume(val);
+        if (check.valid) {
+          resumeInput.classList.remove("is-invalid");
+          resumeInput.classList.add("is-valid");
+          if (resumeErrorMsg) {
+            resumeErrorMsg.style.display = "none";
+            resumeErrorMsg.textContent = "";
+          }
+        } else {
+          resumeInput.classList.remove("is-valid");
+          resumeInput.classList.add("is-invalid");
+          if (resumeErrorMsg) {
+            resumeErrorMsg.style.display = "block";
+            resumeErrorMsg.textContent = check.message;
+          }
+        }
+      });
+    }
   }
 
   // ==================== 2. SEARCH INGESTION CONTROLLER ====================
@@ -309,9 +441,14 @@ document.addEventListener("DOMContentLoaded", () => {
           clearDateBtn.style.display = from || to ? "inline-block" : "none";
         }
 
-        if (from && to && from > to) {
-          showToast("From Date cannot be later than To Date.", "warning");
+        const dateCheck = validateDateRange(from, to);
+        if (!dateCheck.valid) {
+          if (calendarRangeWrap) calendarRangeWrap.classList.add("is-invalid");
+          showToast(dateCheck.message, "warning");
           filterToDate.value = from;
+        } else {
+          if (calendarRangeWrap)
+            calendarRangeWrap.classList.remove("is-invalid");
         }
 
         updateResetButtonVisibility();
@@ -326,6 +463,7 @@ document.addEventListener("DOMContentLoaded", () => {
       clearDateBtn.addEventListener("click", () => {
         if (filterFromDate) filterFromDate.value = "";
         if (filterToDate) filterToDate.value = "";
+        if (calendarRangeWrap) calendarRangeWrap.classList.remove("is-invalid");
         clearDateBtn.style.display = "none";
         updateResetButtonVisibility();
         loadJobs();
@@ -339,6 +477,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (filterWorkType) filterWorkType.value = "";
         if (filterFromDate) filterFromDate.value = "";
         if (filterToDate) filterToDate.value = "";
+        if (calendarRangeWrap) calendarRangeWrap.classList.remove("is-invalid");
         if (clearDateBtn) clearDateBtn.style.display = "none";
         if (filterSalaryOnly) filterSalaryOnly.checked = false;
         if (filterSort) filterSort.value = "newest";
@@ -382,6 +521,9 @@ document.addEventListener("DOMContentLoaded", () => {
       loadSampleBioBtn.addEventListener("click", () => {
         resumeInput.value =
           "Senior Software Engineer with 4+ years building high-throughput analytical services using Python, DuckDB, FastAPI, PostgreSQL, and Docker. Experienced in PyTorch ML inference, Next.js TypeScript frontends, and GeoPandas telemetry.";
+        if (resumeErrorMsg) resumeErrorMsg.style.display = "none";
+        resumeInput.classList.remove("is-invalid");
+        resumeInput.classList.add("is-valid");
         updateResumeCounters();
         showToast("Sample technical candidate bio loaded.", "info");
       });
@@ -392,14 +534,30 @@ document.addEventListener("DOMContentLoaded", () => {
         const file = e.target.files[0];
         if (!file) return;
 
+        const allowedExts = [".txt", ".md", ".json", ".csv"];
+        const fileName = file.name.toLowerCase();
+        const isAllowed = allowedExts.some((ext) => fileName.endsWith(ext));
+        if (!isAllowed) {
+          showToast(
+            "Invalid file type. Only .txt, .md, .json, and .csv files are supported.",
+            "error",
+          );
+          resumeFileInput.value = "";
+          return;
+        }
+
         if (file.size > 2 * 1024 * 1024) {
           showToast("File size exceeds 2MB limit.", "error");
+          resumeFileInput.value = "";
           return;
         }
 
         const reader = new FileReader();
         reader.onload = (event) => {
           resumeInput.value = event.target.result;
+          if (resumeErrorMsg) resumeErrorMsg.style.display = "none";
+          resumeInput.classList.remove("is-invalid");
+          resumeInput.classList.add("is-valid");
           updateResumeCounters();
           showToast(`Imported ${file.name} successfully.`, "success");
         };
@@ -413,6 +571,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (clearResumeBtn) {
       clearResumeBtn.addEventListener("click", () => {
         resumeInput.value = "";
+        resumeInput.classList.remove("is-valid", "is-invalid");
+        if (resumeErrorMsg) resumeErrorMsg.style.display = "none";
         updateResumeCounters();
         matcherResults.innerHTML =
           '<div class="ats-empty-state font-mono">Paste skill inventory to compute match ratio.</div>';
@@ -437,21 +597,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function runAtsMatch() {
     const text = resumeInput.value.trim();
-    if (!text) {
-      showToast(
-        "Please enter or upload technical skills to evaluate.",
-        "warning",
-      );
+    const check = validateResume(text);
+
+    if (!check.valid) {
+      resumeInput.classList.remove("is-valid");
+      resumeInput.classList.add("is-invalid");
+      if (resumeErrorMsg) {
+        resumeErrorMsg.style.display = "block";
+        resumeErrorMsg.textContent = check.message;
+      }
+      showToast(check.message, "warning");
       resumeInput.focus();
       return;
     }
-    if (text.length < 5) {
-      showToast("Resume text is too brief (minimum 5 characters).", "warning");
-      return;
-    }
+
+    resumeInput.classList.remove("is-invalid");
+    resumeInput.classList.add("is-valid");
+    if (resumeErrorMsg) resumeErrorMsg.style.display = "none";
 
     matchBtn.disabled = true;
-    matchBtn.textContent = "Analyzing Market Alignment...";
+    matchBtn.innerHTML =
+      '<svg class="ui-icon ui-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Analyzing Market Alignment...';
 
     try {
       const res = await fetch("/api/match-resume", {
@@ -476,7 +642,8 @@ document.addEventListener("DOMContentLoaded", () => {
       showToast(err.message, "error");
     } finally {
       matchBtn.disabled = false;
-      matchBtn.textContent = "Calculate Skill Alignment";
+      matchBtn.innerHTML =
+        '<svg class="ui-icon ui-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg> Calculate Skill Alignment';
     }
   }
 
@@ -539,6 +706,16 @@ document.addEventListener("DOMContentLoaded", () => {
           job.work_from_home ||
           (job.location && job.location.toLowerCase().includes("remote"));
 
+        const remoteBadge = isRemote
+          ? '<span class="badge badge-remote gap-icon"><svg class="ui-icon ui-icon-xs text-emerald" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>REMOTE</span>'
+          : '<span class="badge gap-icon"><svg class="ui-icon ui-icon-xs text-sub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line><line x1="9" y1="6" x2="9.01" y2="6"></line><line x1="15" y1="6" x2="15.01" y2="6"></line><line x1="9" y1="10" x2="9.01" y2="10"></line><line x1="15" y1="10" x2="15.01" y2="10"></line><line x1="9" y1="14" x2="9.01" y2="14"></line><line x1="15" y1="15" x2="15.01" y2="14"></line></svg>ON-SITE</span>';
+
+        const viaBadge = `<span class="badge gap-icon"><svg class="ui-icon ui-icon-xs text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>${escapeHtml(job.via || "Direct Portal")}</span>`;
+
+        const salaryBadge = job.salary
+          ? `<span class="badge badge-salary gap-icon"><svg class="ui-icon ui-icon-xs text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>${escapeHtml(job.salary)}</span>`
+          : "";
+
         return `
         <article class="job-stream-card" data-index="${idx}" tabindex="0" role="button" aria-label="View details for ${escapeHtml(job.title)}">
           <div class="job-card-header">
@@ -547,15 +724,23 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="job-card-company">${escapeHtml(job.company_name)}</div>
             </div>
             <div class="badge-row">
-              ${isRemote ? '<span class="badge badge-remote">REMOTE</span>' : '<span class="badge">ON-SITE</span>'}
-              <span class="badge">${escapeHtml(job.via || "Direct Portal")}</span>
-              ${job.salary ? `<span class="badge badge-salary">${escapeHtml(job.salary)}</span>` : ""}
+              ${remoteBadge}
+              ${viaBadge}
+              ${salaryBadge}
             </div>
           </div>
           <p class="job-card-snippet">${escapeHtml(truncate(job.description, 200))}</p>
           <div class="job-card-footer">
-            <span class="job-card-location">${escapeHtml(job.location || "Location Not Stated")} &bull; ${escapeHtml(job.posted_at || "Indexed")}</span>
-            <span class="inspect-trigger">Inspect Details &rarr;</span>
+            <span class="job-card-location gap-icon">
+              <svg class="ui-icon ui-icon-xs text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              ${escapeHtml(job.location || "Location Not Stated")} &bull;
+              <svg class="ui-icon ui-icon-xs text-sub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              ${escapeHtml(job.posted_at || "Indexed")}
+            </span>
+            <span class="inspect-trigger gap-icon">
+              Inspect Details
+              <svg class="ui-icon ui-icon-xs text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
           </div>
         </article>
       `;
@@ -605,10 +790,14 @@ document.addEventListener("DOMContentLoaded", () => {
     drawerJobCompany.textContent = job.company_name;
     drawerLocation.textContent = `${job.location || "Location Not Stated"} • Schedule: ${job.schedule_type || "Standard"}`;
 
+    const remoteDrawerBadge = job.work_from_home
+      ? '<span class="badge badge-remote gap-icon"><svg class="ui-icon ui-icon-xs text-emerald" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>REMOTE</span>'
+      : '<span class="badge gap-icon"><svg class="ui-icon ui-icon-xs text-sub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line><line x1="9" y1="6" x2="9.01" y2="6"></line><line x1="15" y1="6" x2="15.01" y2="6"></line><line x1="9" y1="10" x2="9.01" y2="10"></line><line x1="15" y1="10" x2="15.01" y2="10"></line><line x1="9" y1="14" x2="9.01" y2="14"></line><line x1="15" y1="14" x2="15.01" y2="14"></line></svg>ON-SITE</span>';
+
     drawerBadges.innerHTML = `
-      <span class="badge ${job.work_from_home ? "badge-remote" : ""}">${job.work_from_home ? "REMOTE" : "ON-SITE"}</span>
-      <span class="badge">${escapeHtml(job.via || "Direct")}</span>
-      <span class="badge font-mono text-cyan">${escapeHtml(job.posted_at || "Indexed")}</span>
+      ${remoteDrawerBadge}
+      <span class="badge gap-icon"><svg class="ui-icon ui-icon-xs text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>${escapeHtml(job.via || "Direct")}</span>
+      <span class="badge font-mono text-cyan gap-icon"><svg class="ui-icon ui-icon-xs text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${escapeHtml(job.posted_at || "Indexed")}</span>
     `;
 
     if (job.salary) {
@@ -833,12 +1022,18 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <div class="ats-taxonomy-group">
-        <div class="ats-taxonomy-title font-mono">MATCHED PREREQUISITES (${data.matched_skills.length})</div>
+        <div class="ats-taxonomy-title font-mono gap-icon">
+          <svg class="ui-icon ui-icon-xs text-emerald" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          MATCHED PREREQUISITES (${data.matched_skills.length})
+        </div>
         <div class="pill-cloud">${matchedPills}</div>
       </div>
 
       <div class="ats-taxonomy-group">
-        <div class="ats-taxonomy-title font-mono">HIGH-DEMAND GAPS (${data.missing_skills.length})</div>
+        <div class="ats-taxonomy-title font-mono gap-icon">
+          <svg class="ui-icon ui-icon-xs text-rose" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          HIGH-DEMAND GAPS (${data.missing_skills.length})
+        </div>
         <div class="pill-cloud">${missingPills}</div>
       </div>
     `;
