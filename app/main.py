@@ -136,7 +136,12 @@ def health_check():
 
 @app.post("/api/search")
 def search_jobs(req: SearchRequest):
-    result = serpapi_client.fetch_jobs(query=req.query, location=req.location, num_results=req.num_results)
+    result = serpapi_client.fetch_jobs(
+        query=req.query,
+        location=req.location,
+        num_results=req.num_results,
+        date_posted=req.date_posted
+    )
     inserted = db_manager.upsert_jobs(result["jobs"])
     return {
         "source": result["source"],
@@ -152,6 +157,8 @@ def get_jobs(
     location_type: Optional[str] = Query(default=None, pattern="^(Remote|On-site|Hybrid)$"),
     company: Optional[str] = Query(default=None, max_length=100),
     has_salary: Optional[bool] = None,
+    from_date: Optional[str] = Query(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$"),
+    to_date: Optional[str] = Query(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$"),
     sort_by: str = Query(default="newest", pattern="^(newest|company|title)$"),
     limit: int = Query(default=50, ge=1, le=100),
     offset: int = Query(default=0, ge=0)
@@ -161,6 +168,8 @@ def get_jobs(
         location_type=location_type,
         company=company,
         has_salary=has_salary,
+        from_date=from_date,
+        to_date=to_date,
         sort_by=sort_by,
         limit=limit,
         offset=offset

@@ -307,3 +307,75 @@ def test_brand_assets_and_favicons_available():
         assert len(res.content) > 0, f"Expected non-empty content for {path}"
 
 
+def test_search_with_recency_filter():
+    from fastapi.testclient import TestClient
+    from app.main import app
+
+    client = TestClient(app)
+    # Valid date_posted options: today, 3days, week, month
+    valid_payload = {
+        "query": "Python Engineer",
+        "location": "India",
+        "date_posted": "week"
+    }
+    response = client.post("/api/search", json=valid_payload)
+    assert response.status_code == 200
+    data = response.json()
+    assert "retrieved_count" in data
+
+    # Invalid date_posted rejected by regex pattern boundary
+    bad_payload = {
+        "query": "Python Engineer",
+        "location": "India",
+        "date_posted": "yesterday"
+    }
+    bad_response = client.post("/api/search", json=bad_payload)
+    assert bad_response.status_code == 422
+
+
+def test_jobs_calendar_date_filters(temp_db):
+    from fastapi.testclient import TestClient
+    from app.main import app
+
+    client = TestClient(app)
+
+    # Valid date range format (YYYY-MM-DD)
+    response = client.get("/api/jobs?from_date=2026-10-01&to_date=2026-10-05")
+    assert response.status_code == 200
+    assert "jobs" in response.json()
+
+    # Invalid calendar format returns 422
+    bad_response = client.get("/api/jobs?from_date=01-10-2026")
+    assert bad_response.status_code == 422
+
+
+def test_database_calendar_date_range(temp_db):
+    sample_jobs = [
+        {
+            "job_id": "date_test_01",
+            "title": "Data Engineer 2026",
+            "company_name": "DateCorp",
+            "location": "Remote",
+            "via": "via LinkedIn",
+            "description": "Python DuckDB SQL",
+            "schedule_type": "Full-time",
+            "work_from_home": True,
+            "salary": "INR 20,00,000",
+            "apply_link": "https://example.com/date1",
+            "posted_at": "Today"
+        }
+    ]
+    temp_db.upsert_jobs(sample_jobs)
+    import datetime
+    today_str = datetime.date.today().strftime("%Y-%m-%d")
+
+    # Match today
+    matched = temp_db.get_jobs(from_date=today_str, to_date=today_str)
+    assert len(matched) >= 1
+
+    # Match in past should return 0
+    past = temp_db.get_jobs(from_date="2020-01-01", to_date="2020-01-02")
+    assert len(past) == 0
+
+
+

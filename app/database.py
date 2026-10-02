@@ -98,6 +98,8 @@ class DatabaseManager:
         location_type: Optional[str] = None,
         company: Optional[str] = None,
         has_salary: Optional[bool] = None,
+        from_date: Optional[str] = None,
+        to_date: Optional[str] = None,
         sort_by: str = "newest",
         limit: int = 50,
         offset: int = 0
@@ -126,6 +128,14 @@ class DatabaseManager:
 
             if has_salary is True:
                 query += " AND salary IS NOT NULL AND salary != ''"
+
+            if from_date and from_date.strip():
+                query += " AND CAST(scraped_at AS DATE) >= ?"
+                params.append(from_date.strip())
+
+            if to_date and to_date.strip():
+                query += " AND CAST(scraped_at AS DATE) <= ?"
+                params.append(to_date.strip())
 
             if sort_by == "company":
                 query += " ORDER BY company_name ASC, scraped_at DESC"

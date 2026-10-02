@@ -299,23 +299,43 @@
             <form id="searchForm" class="search-form">
               <div class="form-grid">
                 <div class="form-field flex-grow-2">
-                  <label for="queryInput" class="font-mono"
-                    >JOB ROLE / TECHNICAL SKILLS</label
-                  >
-                  <input
-                    type="text"
-                    id="queryInput"
-                    value="Software Engineer Python"
-                    placeholder="e.g. Data Engineer DuckDB, AI Engineer, Next.js"
-                    required
-                  />
+                  <div class="field-label-row">
+                    <label for="queryInput" class="font-mono"
+                      >JOB ROLE / TECHNICAL SKILLS</label
+                    >
+                    <span id="queryCharCount" class="char-counter font-mono"
+                      >24 / 100</span
+                    >
+                  </div>
+                  <div class="input-validation-wrap">
+                    <input
+                      type="text"
+                      id="queryInput"
+                      value="Software Engineer Python"
+                      placeholder="e.g. Data Engineer DuckDB, AI Engineer, Next.js"
+                      maxlength="100"
+                      required
+                    />
+                    <span
+                      id="queryValidationStatus"
+                      class="validation-dot"
+                      title="Validation status"
+                    ></span>
+                  </div>
+                  <div
+                    id="queryErrorMsg"
+                    class="field-error-text font-mono"
+                    style="display: none"
+                  ></div>
                 </div>
 
                 <div class="form-field flex-grow-1">
-                  <label for="locationInput" class="font-mono"
-                    >LOCATION BOUNDARY</label
-                  >
-                  <select id="locationInput">
+                  <div class="field-label-row">
+                    <label for="locationInput" class="font-mono"
+                      >LOCATION BOUNDARY</label
+                    >
+                  </div>
+                  <select id="locationInput" class="custom-select">
                     <option value="India" selected>India (All Regions)</option>
                     <option value="Remote">100% Remote Global</option>
                     <option value="Bengaluru, Karnataka, India">
@@ -333,11 +353,28 @@
                   </select>
                 </div>
 
-                <div class="form-field flex-fixed-120">
-                  <label for="resultsLimit" class="font-mono"
-                    >FETCH COUNT</label
-                  >
-                  <select id="resultsLimit">
+                <div class="form-field flex-fixed-140">
+                  <div class="field-label-row">
+                    <label for="datePostedInput" class="font-mono"
+                      >POSTED RECENCY</label
+                    >
+                  </div>
+                  <select id="datePostedInput" class="custom-select">
+                    <option value="" selected>Any Time</option>
+                    <option value="today">Past 24 Hours</option>
+                    <option value="3days">Past 3 Days</option>
+                    <option value="week">Past Week</option>
+                    <option value="month">Past Month</option>
+                  </select>
+                </div>
+
+                <div class="form-field flex-fixed-100">
+                  <div class="field-label-row">
+                    <label for="resultsLimit" class="font-mono"
+                      >FETCH COUNT</label
+                    >
+                  </div>
+                  <select id="resultsLimit" class="custom-select">
                     <option value="10">10 Jobs</option>
                     <option value="20" selected>20 Jobs</option>
                     <option value="50">50 Jobs</option>
@@ -368,23 +405,85 @@
               </div>
 
               <div class="jobs-filter-group">
-                <input
-                  type="text"
-                  id="filterKeyword"
-                  placeholder="Filter title, company, stack..."
-                  class="filter-search-input"
-                />
-                <select id="filterWorkType" class="filter-select">
+                <div class="filter-input-wrap">
+                  <input
+                    type="text"
+                    id="filterKeyword"
+                    placeholder="Filter title, company, stack..."
+                    class="filter-search-input"
+                    maxlength="100"
+                  />
+                  <button
+                    type="button"
+                    id="clearKeywordBtn"
+                    class="btn-clear-inline"
+                    style="display: none"
+                    title="Clear filter"
+                  >
+                    &times;
+                  </button>
+                </div>
+                <select id="filterWorkType" class="filter-select custom-select">
                   <option value="">All Arrangements</option>
                   <option value="Remote">Remote Only</option>
                   <option value="On-site">On-site Only</option>
                   <option value="Hybrid">Hybrid Only</option>
                 </select>
-                <select id="filterSort" class="filter-select">
+
+                <!-- Calendar Date Range Inputs -->
+                <div
+                  class="calendar-range-wrap"
+                  title="Filter by Ingestion Date Range"
+                >
+                  <span class="calendar-icon font-mono">CAL:</span>
+                  <input
+                    type="date"
+                    id="filterFromDate"
+                    class="filter-date-input"
+                    title="From Date"
+                  />
+                  <span class="date-dash font-mono">&ndash;</span>
+                  <input
+                    type="date"
+                    id="filterToDate"
+                    class="filter-date-input"
+                    title="To Date"
+                  />
+                  <button
+                    type="button"
+                    id="clearDateBtn"
+                    class="btn-clear-inline"
+                    style="display: none"
+                    title="Clear date range"
+                  >
+                    &times;
+                  </button>
+                </div>
+
+                <!-- Salary Filter Toggle -->
+                <label
+                  class="filter-toggle-pill font-mono"
+                  title="Show only jobs with disclosed salary"
+                >
+                  <input type="checkbox" id="filterSalaryOnly" />
+                  <span>Salary Only</span>
+                </label>
+
+                <select id="filterSort" class="filter-select custom-select">
                   <option value="newest" selected>Sort: Newest</option>
                   <option value="company">Sort: Company</option>
                   <option value="title">Sort: Role</option>
                 </select>
+
+                <button
+                  type="button"
+                  id="clearAllFiltersBtn"
+                  class="btn-reset-filters font-mono"
+                  style="display: none"
+                  title="Reset all filters"
+                >
+                  Reset Filters
+                </button>
               </div>
             </div>
 
@@ -411,12 +510,48 @@
               job corpus to isolate keyword deficits.
             </p>
 
+            <!-- Quick ATS Actions Bar -->
+            <div class="ats-actions-bar">
+              <button
+                type="button"
+                id="loadSampleBioBtn"
+                class="btn-preset-action font-mono"
+              >
+                Load Sample Bio
+              </button>
+              <label
+                for="resumeFileInput"
+                class="btn-preset-action font-mono cursor-pointer"
+                title="Load text or markdown resume"
+              >
+                Upload File
+                <input
+                  type="file"
+                  id="resumeFileInput"
+                  accept=".txt,.md,.json"
+                  style="display: none"
+                />
+              </label>
+              <button
+                type="button"
+                id="clearResumeBtn"
+                class="btn-preset-action font-mono"
+              >
+                Clear
+              </button>
+            </div>
+
             <div class="ats-input-wrap">
               <textarea
                 id="resumeInput"
                 rows="4"
+                maxlength="50000"
                 placeholder="Paste technical skills or resume bio (e.g. Python, DuckDB, PostgreSQL, Docker, FastAPI, Next.js, PyTorch)..."
               ></textarea>
+              <div class="ats-counter-row font-mono">
+                <span id="atsWordCount">0 words</span>
+                <span id="atsCharCount">0 / 50,000 chars</span>
+              </div>
               <button
                 type="button"
                 id="matchBtn"
@@ -534,9 +669,19 @@
           >
             Proceed to Official Portal Application
           </a>
+          <button
+            type="button"
+            id="drawerCopyLinkBtn"
+            class="btn btn-secondary font-mono drawer-copy-btn"
+          >
+            Copy Link
+          </button>
         </div>
       </div>
     </aside>
+
+    <!-- Floating Obsidian Glass Toast Container -->
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
 
     <!-- Sleek Obsidian Footer -->
     <footer class="app-footer">

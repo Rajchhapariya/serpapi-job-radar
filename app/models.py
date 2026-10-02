@@ -18,12 +18,20 @@ class SearchRequest(BaseModel):
         description="Location or country filter"
     )
     num_results: int = Field(default=20, ge=5, le=100, description="Max jobs to fetch per batch")
+    date_posted: Optional[str] = Field(
+        default=None,
+        pattern=r"^(today|3days|week|month)$",
+        description="Optional recency filter (today, 3days, week, month)"
+    )
 
 
 class JobFilter(BaseModel):
     keyword: Optional[str] = Field(default=None, max_length=100)
     location_type: Optional[str] = Field(default=None, pattern="^(Remote|On-site|Hybrid)$")
     company: Optional[str] = Field(default=None, max_length=100)
+    has_salary: Optional[bool] = None
+    from_date: Optional[str] = Field(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$")
+    to_date: Optional[str] = Field(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$")
     limit: int = Field(default=50, ge=1, le=100)
     offset: int = Field(default=0, ge=0)
 

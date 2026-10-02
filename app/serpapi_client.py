@@ -1,6 +1,6 @@
 import os
 import requests
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 
 SERPAPI_URL = "https://serpapi.com/search.json"
 
@@ -79,7 +79,13 @@ class SerpApiClient:
     def __init__(self, api_key: str = None):
         self.api_key = api_key or os.getenv("SERPAPI_API_KEY", "")
 
-    def fetch_jobs(self, query: str = "Software Engineer", location: str = "India", num_results: int = 20) -> Dict[str, Any]:
+    def fetch_jobs(
+        self,
+        query: str = "Software Engineer",
+        location: str = "India",
+        num_results: int = 20,
+        date_posted: Optional[str] = None
+    ) -> Dict[str, Any]:
         """
         Calls SerpApi's google_jobs engine.
         Falls back to curated demo dataset if API key is unconfigured.
@@ -99,6 +105,8 @@ class SerpApiClient:
             "gl": "in" if "india" in location.lower() else "us",
             "api_key": self.api_key,
         }
+        if date_posted and date_posted in ["today", "3days", "week", "month"]:
+            params["chips"] = f"date_posted:{date_posted}"
 
         try:
             response = requests.get(SERPAPI_URL, params=params, timeout=20)
