@@ -284,3 +284,26 @@ def test_resume_matcher_payload_boundary():
     response = client.post("/api/match-resume", json={"resume_text": oversized})
     assert response.status_code == 422  # Unprocessable Entity (exceeds max_length=50000)
 
+
+def test_brand_assets_and_favicons_available():
+    from fastapi.testclient import TestClient
+    from app.main import app
+
+    client = TestClient(app)
+    asset_paths = [
+        "/static/favicon.svg",
+        "/static/favicon.ico",
+        "/static/favicon-16x16.png",
+        "/static/favicon-32x32.png",
+        "/static/apple-touch-icon.png",
+        "/static/icon-192.png",
+        "/static/icon-512.png",
+        "/static/logo.svg",
+        "/static/logo-icon.svg"
+    ]
+    for path in asset_paths:
+        res = client.get(path)
+        assert res.status_code == 200, f"Expected 200 for {path}, got {res.status_code}"
+        assert len(res.content) > 0, f"Expected non-empty content for {path}"
+
+
