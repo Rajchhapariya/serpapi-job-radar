@@ -2,8 +2,10 @@ import os
 import re
 import json
 import glob
+import hashlib
+from datetime import datetime
 import duckdb
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
 
 DATABASE_FILE = os.getenv("DUCKDB_PATH") or os.getenv("DATABASE_PATH", "radar.duckdb")
 
@@ -56,6 +58,78 @@ for s in TRACKED_SKILLS:
         escaped = re.escape(s)
         escaped = re.sub(r'\\ ', r'\\s+', escaped)
         SKILL_PATTERNS[s] = re.compile(r'(?<![a-zA-Z0-9_#+])' + escaped + r'(?![a-zA-Z0-9_#+])', re.IGNORECASE)
+
+
+def normalize_text(s: Any) -> str:
+    """
+    Normalizes text by converting to lowercase, collapsing whitespace, and stripping.
+    """
+    if not s:
+        return ""
+    return " ".join(str(s).lower().split()).strip()
+
+
+def generate_canonical_job_id(title: str, company_name: str, location: str, description: str) -> str:
+    """
+    Computes deterministic canonical job_id using:
+    md5(title | company_name | location | first 300 normalized description chars)
+    with each component lowercased, whitespace collapsed, and trimmed.
+    """
+    norm_title = normalize_text(title)
+    norm_comp = normalize_text(company_name)
+    norm_loc = normalize_text(location)
+    norm_desc = normalize_text(description)[:300]
+    raw_key = f"{norm_title}|{norm_comp}|{norm_loc}|{norm_desc}"
+    return hashlib.md5(raw_key.encode("utf-8")).hexdigest()
+
+
+def merge_apply_options(existing_opts: Any, incoming_opts: Any) -> Tuple[List[Dict[str, Any]], int]:
+    """
+    Unions apply options by publisher title, keeping the first link per publisher.
+    Returns (merged_options, length_of_union).
+    """
+    def to_list(opts):
+        if not opts:
+            return []
+        if isinstance(opts, str):
+            try:
+                opts = json.loads(opts)
+            except Exception:
+                return []
+        return [o for o in opts if isinstance(o, dict)] if isinstance(opts, list) else []
+
+    list1 = to_list(existing_opts)
+    list2 = to_list(incoming_opts)
+
+    merged = []
+    seen = set()
+
+    for opt in list1 + list2:
+        pub = (opt.get("title") or opt.get("link") or "").strip().lower()
+        if not pub:
+            continue
+        if pub not in seen:
+            seen.add(pub)
+            merged.append(opt)
+
+    return merged, len(merged) if merged else 1
+
+
+def parse_timestamp(val: Any) -> float:
+    """
+    Parses datetime, float, or ISO string to timestamp float for time comparison.
+    """
+    if not val:
+        return float("inf")
+    if isinstance(val, (int, float)):
+        return float(val)
+    if hasattr(val, "timestamp"):
+        return val.timestamp()
+    try:
+        s = str(val).replace("Z", "+00:00")
+        return datetime.fromisoformat(s).timestamp()
+    except Exception:
+        return float("inf")
 
 
 def extract_skills_from_text(text: str) -> List[str]:
@@ -123,7 +197,9 @@ class DatabaseManager:
                     salary_max_lpa DOUBLE,
                     source_query VARCHAR,
                     source_gl VARCHAR,
-                    is_snapshot BOOLEAN DEFAULT FALSE
+                    is_snapshot BOOLEAN DEFAULT FALSE,
+                    serpapi_token VARCHAR,
+                    source_queries VARCHAR[]
                 );
             """)
             # Non-destructive migrations for existing database files
@@ -160,7 +236,9 @@ class DatabaseManager:
                 ("salary_max_lpa", "DOUBLE"),
                 ("source_query", "VARCHAR"),
                 ("source_gl", "VARCHAR"),
-                ("is_snapshot", "BOOLEAN DEFAULT FALSE")
+                ("is_snapshot", "BOOLEAN DEFAULT FALSE"),
+                ("serpapi_token", "VARCHAR"),
+                ("source_queries", "VARCHAR[]")
             ]
             for col, ctype in new_columns:
                 try:
@@ -171,6 +249,16 @@ class DatabaseManager:
                         con.execute(f"ALTER TABLE jobs ADD COLUMN {col} {ctype};")
                     except Exception:
                         pass
+
+            # Backfill source_queries from source_query on existing rows
+            try:
+                con.execute("""
+                    UPDATE jobs
+                    SET source_queries = [source_query]
+                    WHERE source_queries IS NULL AND source_query IS NOT NULL;
+                """)
+            except Exception:
+                pass
 
             # Strict relative-time cleanup migration
             try:
@@ -193,6 +281,95 @@ class DatabaseManager:
             if should_close:
                 con.close()
 
+    @staticmethod
+    def _merge_job_records(existing: Dict[str, Any], incoming: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Merges existing and incoming job records per Phase 1.7 deduplication rules:
+        - source_queries: distinct union
+        - apply_options: union by publisher title, keeping first link per publisher; portal_count = length of union
+        - salary_raw, salary_min_lpa, salary_max_lpa: keep existing non-null, else take incoming
+        - scraped_at: earliest
+        - is_snapshot: existing AND incoming (false if any live source)
+        - serpapi_token: keep existing non-null, else take incoming
+        """
+        merged = dict(existing)
+
+        # 1. source_queries: distinct union
+        def to_q_list(rec):
+            qs = rec.get("source_queries")
+            if qs is not None and isinstance(qs, list):
+                res = [str(q).strip() for q in qs if q and str(q).strip()]
+            else:
+                res = []
+            sq = rec.get("source_query")
+            if sq and str(sq).strip() and str(sq).strip() not in res:
+                res.append(str(sq).strip())
+            return res
+
+        ex_qs = to_q_list(existing)
+        in_qs = to_q_list(incoming)
+        merged_queries = []
+        for q in ex_qs + in_qs:
+            if q not in merged_queries:
+                merged_queries.append(q)
+        merged["source_queries"] = merged_queries
+        merged["source_query"] = existing.get("source_query") or (merged_queries[0] if merged_queries else None)
+
+        # 2. apply_options & portal_count
+        opts, p_count = merge_apply_options(existing.get("apply_options"), incoming.get("apply_options"))
+        merged["apply_options"] = opts
+        merged["portal_count"] = p_count
+        if not merged.get("apply_link") and opts:
+            merged["apply_link"] = opts[0].get("link", "")
+
+        # 3. salary_raw, salary_min_lpa, salary_max_lpa = keep existing non-null, else take new
+        ex_salary_raw = existing.get("salary_raw") or existing.get("salary")
+        in_salary_raw = incoming.get("salary_raw") or incoming.get("salary")
+        if ex_salary_raw and str(ex_salary_raw).strip():
+            merged["salary_raw"] = ex_salary_raw
+            merged["salary"] = ex_salary_raw
+            merged["salary_min_lpa"] = existing.get("salary_min_lpa") if existing.get("salary_min_lpa") is not None else incoming.get("salary_min_lpa")
+            merged["salary_max_lpa"] = existing.get("salary_max_lpa") if existing.get("salary_max_lpa") is not None else incoming.get("salary_max_lpa")
+        else:
+            merged["salary_raw"] = in_salary_raw
+            merged["salary"] = in_salary_raw
+            merged["salary_min_lpa"] = incoming.get("salary_min_lpa")
+            merged["salary_max_lpa"] = incoming.get("salary_max_lpa")
+
+        # 4. scraped_at = earliest
+        ts_ex = parse_timestamp(existing.get("scraped_at"))
+        ts_in = parse_timestamp(incoming.get("scraped_at") or incoming.get("captured_at"))
+        if ts_in < ts_ex:
+            merged["scraped_at"] = incoming.get("scraped_at") or incoming.get("captured_at")
+        else:
+            merged["scraped_at"] = existing.get("scraped_at")
+
+        # 5. is_snapshot = existing AND new (false if any live source)
+        merged["is_snapshot"] = bool(existing.get("is_snapshot", False)) and bool(incoming.get("is_snapshot", False))
+
+        # 6. serpapi_token
+        merged["serpapi_token"] = existing.get("serpapi_token") or incoming.get("serpapi_token")
+
+        # 7. skills_required: distinct union
+        ex_skills = existing.get("skills_required") or []
+        in_skills = incoming.get("skills_required") or []
+        merged["skills_required"] = sorted(list(set(ex_skills + in_skills)))
+
+        # 8. location_type & work_from_home
+        wfh = bool(existing.get("work_from_home") or incoming.get("work_from_home"))
+        merged["work_from_home"] = wfh
+        if wfh or existing.get("location_type") == "Remote" or incoming.get("location_type") == "Remote":
+            merged["location_type"] = "Remote"
+        else:
+            merged["location_type"] = existing.get("location_type") or incoming.get("location_type") or "On-site"
+
+        # Update non-protected metadata fields from incoming if present
+        for field in ["title", "company_name", "location", "via", "description", "schedule_type", "posted_at", "via_platform", "source_gl"]:
+            if incoming.get(field):
+                merged[field] = incoming[field]
+
+        return merged
+
     def upsert_jobs(
         self,
         jobs: List[Dict[str, Any]],
@@ -204,99 +381,182 @@ class DatabaseManager:
             return 0
 
         # Import sanitization utility
-        from app.serpapi_client import sanitize_salary_raw
+        from app.serpapi_client import sanitize_salary_raw, parse_indian_salary_to_lpa
 
-        inserted_count = 0
+        prepared_jobs = []
+        for job in jobs:
+            title = job.get("title", "Untitled Role")
+            company_name = job.get("company_name", "Unknown Company")
+            location = job.get("location", "")
+            description = job.get("description", "")
+            via = job.get("via", "Direct")
+            schedule_type = job.get("schedule_type", "Full-time")
+
+            raw_token = job.get("serpapi_token")
+            incoming_job_id = job.get("job_id")
+
+            if raw_token:
+                final_job_id = generate_canonical_job_id(title, company_name, location, description)
+                final_serp_token = raw_token
+            elif incoming_job_id:
+                final_job_id = incoming_job_id
+                final_serp_token = None
+            else:
+                final_job_id = generate_canonical_job_id(title, company_name, location, description)
+                final_serp_token = None
+
+            salary_str = sanitize_salary_raw(job.get("salary"))
+            salary_raw = sanitize_salary_raw(job.get("salary_raw") or salary_str)
+            salary_min_lpa = job.get("salary_min_lpa")
+            salary_max_lpa = job.get("salary_max_lpa")
+            if salary_raw and salary_min_lpa is None and salary_max_lpa is None:
+                salary_min_lpa, salary_max_lpa = parse_indian_salary_to_lpa(salary_raw)
+
+            loc_lower = str(location or "").lower()
+            extensions_list = job.get("extensions") or []
+            wfh_from_ext = any("work from home" in str(e).lower() for e in extensions_list)
+            is_remote_loc = bool(
+                job.get("work_from_home", False) or
+                wfh_from_ext or
+                "remote" in loc_lower or
+                loc_lower == "anywhere" or
+                "anywhere" in loc_lower
+            )
+            location_type = job.get("location_type") or ("Remote" if is_remote_loc else "On-site")
+            work_from_home = bool(is_remote_loc or (location_type == "Remote"))
+
+            combined_text = f"{title} {description} {job.get('highlights_text', '')}"
+            skills_required = job.get("skills_required") or extract_skills_from_text(combined_text)
+
+            apply_options = job.get("apply_options")
+            if isinstance(apply_options, str):
+                try:
+                    apply_options = json.loads(apply_options)
+                except Exception:
+                    apply_options = []
+            elif apply_options is None:
+                apply_options = []
+
+            apply_link = job.get("apply_link") or (apply_options[0].get("link") if apply_options else "")
+            portal_count = int(job.get("portal_count", len(apply_options) if apply_options else 1))
+
+            job_source_query = job.get("source_query") or source_query or ""
+            sq_list = job.get("source_queries")
+            if sq_list is None:
+                source_queries = [job_source_query] if job_source_query else []
+            else:
+                source_queries = [str(x).strip() for x in sq_list if x and str(x).strip()]
+                if job_source_query and job_source_query not in source_queries:
+                    source_queries.append(job_source_query)
+
+            scraped_at = job.get("scraped_at") or job.get("captured_at") or datetime.now()
+            job_is_snap = job.get("is_snapshot", is_snapshot)
+
+            prepared_jobs.append({
+                "job_id": final_job_id,
+                "title": title,
+                "company_name": company_name,
+                "location": location,
+                "via": via,
+                "description": description,
+                "schedule_type": schedule_type,
+                "work_from_home": work_from_home,
+                "salary": salary_raw,
+                "apply_link": apply_link,
+                "posted_at": job.get("posted_at", ""),
+                "scraped_at": scraped_at,
+                "via_platform": job.get("via_platform") or via,
+                "salary_raw": salary_raw,
+                "location_type": location_type,
+                "skills_required": skills_required,
+                "apply_options": apply_options,
+                "portal_count": portal_count,
+                "salary_min_lpa": salary_min_lpa,
+                "salary_max_lpa": salary_max_lpa,
+                "source_query": job_source_query,
+                "source_gl": job.get("source_gl") or source_gl or "in",
+                "is_snapshot": bool(job_is_snap),
+                "serpapi_token": final_serp_token,
+                "source_queries": source_queries
+            })
+
+        upsert_sql = """
+            INSERT INTO jobs (
+                job_id, title, company_name, location, via,
+                description, schedule_type, work_from_home,
+                salary, apply_link, posted_at, scraped_at,
+                via_platform, salary_raw, location_type, skills_required,
+                apply_options, portal_count, salary_min_lpa, salary_max_lpa,
+                source_query, source_gl, is_snapshot, serpapi_token, source_queries
+            ) VALUES (
+                ?, ?, ?, ?, ?,
+                ?, ?, ?,
+                ?, ?, ?, ?,
+                ?, ?, ?, ?,
+                ?, ?, ?, ?,
+                ?, ?, ?, ?, ?
+            )
+            ON CONFLICT (job_id) DO UPDATE SET
+                title = excluded.title,
+                company_name = excluded.company_name,
+                location = excluded.location,
+                via = excluded.via,
+                description = excluded.description,
+                schedule_type = excluded.schedule_type,
+                work_from_home = excluded.work_from_home,
+                salary = excluded.salary,
+                apply_link = excluded.apply_link,
+                scraped_at = excluded.scraped_at,
+                via_platform = excluded.via_platform,
+                salary_raw = excluded.salary_raw,
+                location_type = excluded.location_type,
+                skills_required = excluded.skills_required,
+                apply_options = excluded.apply_options,
+                portal_count = excluded.portal_count,
+                salary_min_lpa = excluded.salary_min_lpa,
+                salary_max_lpa = excluded.salary_max_lpa,
+                source_query = excluded.source_query,
+                source_gl = excluded.source_gl,
+                is_snapshot = excluded.is_snapshot,
+                serpapi_token = excluded.serpapi_token,
+                source_queries = excluded.source_queries;
+        """
+
         with self.get_connection() as con:
-            for job in jobs:
-                job_id = job.get("job_id") or f"{job.get('company_name', '')}_{job.get('title', '')}_{job.get('location', '')}"
-                title = job.get("title", "Untitled")
-                company_name = job.get("company_name", "Unknown")
-                location = job.get("location", "")
-                via = job.get("via", "")
-                description = job.get("description", "")
-                schedule_type = job.get("schedule_type", "Full-time")
-                work_from_home = bool(job.get("work_from_home", False))
-                salary = sanitize_salary_raw(job.get("salary"))
-                apply_link = job.get("apply_link", "")
-                posted_at = job.get("posted_at", "")
+            con.execute("BEGIN TRANSACTION;")
+            try:
+                unique_ids = list({p["job_id"] for p in prepared_jobs})
+                placeholders = ", ".join(["?"] * len(unique_ids))
+                cur = con.execute(f"SELECT * FROM jobs WHERE job_id IN ({placeholders})", unique_ids)
+                existing_records = self._rows_to_dicts(cur)
+                merged_map = {r["job_id"]: r for r in existing_records}
 
-                loc_lower = (location or "").lower()
-                is_remote_loc = work_from_home or "remote" in loc_lower or loc_lower == "anywhere" or "anywhere" in loc_lower
-                location_type = job.get("location_type") or ("Remote" if is_remote_loc else "On-site")
-                via_platform = job.get("via_platform") or via
-                salary_raw = sanitize_salary_raw(job.get("salary_raw") or salary)
-                combined_text = f"{title} {description} {job.get('highlights_text', '')}"
-                skills_required = job.get("skills_required") or extract_skills_from_text(combined_text)
+                for p in prepared_jobs:
+                    jid = p["job_id"]
+                    if jid in merged_map:
+                        merged_map[jid] = self._merge_job_records(merged_map[jid], p)
+                    else:
+                        merged_map[jid] = p
 
-                apply_options = job.get("apply_options")
-                apply_options_json = json.dumps(apply_options) if apply_options is not None else None
-                portal_count = int(job.get("portal_count", len(apply_options) if isinstance(apply_options, list) and apply_options else 1))
-                salary_min_lpa = job.get("salary_min_lpa")
-                salary_max_lpa = job.get("salary_max_lpa")
-                job_source_query = job.get("source_query") or source_query or ""
-                job_source_gl = job.get("source_gl") or source_gl or ""
-                
-                # Check for explicit scraped_at or captured_at timestamp (e.g. from snapshots)
-                custom_scraped_at = job.get("scraped_at") or job.get("captured_at")
-                scraped_at_clause = "?" if custom_scraped_at else "now()"
+                for jid, rec in merged_map.items():
+                    opts = rec.get("apply_options")
+                    opts_json = json.dumps(opts) if opts is not None else None
+                    params = [
+                        rec["job_id"], rec.get("title", ""), rec.get("company_name", ""), rec.get("location", ""), rec.get("via", ""),
+                        rec.get("description", ""), rec.get("schedule_type", "Full-time"), bool(rec.get("work_from_home", False)),
+                        rec.get("salary"), rec.get("apply_link", ""), rec.get("posted_at", ""), rec.get("scraped_at") or datetime.now(),
+                        rec.get("via_platform", ""), rec.get("salary_raw"), rec.get("location_type", "On-site"), rec.get("skills_required", []),
+                        opts_json, rec.get("portal_count", 1), rec.get("salary_min_lpa"), rec.get("salary_max_lpa"),
+                        rec.get("source_query"), rec.get("source_gl", "in"), bool(rec.get("is_snapshot", False)),
+                        rec.get("serpapi_token"), rec.get("source_queries", [])
+                    ]
+                    con.execute(upsert_sql, params)
 
-                query = f"""
-                    INSERT INTO jobs (
-                        job_id, title, company_name, location, via,
-                        description, schedule_type, work_from_home,
-                        salary, apply_link, posted_at, scraped_at,
-                        via_platform, salary_raw, location_type, skills_required,
-                        apply_options, portal_count, salary_min_lpa, salary_max_lpa,
-                        source_query, source_gl, is_snapshot
-                    ) VALUES (
-                        ?, ?, ?, ?, ?,
-                        ?, ?, ?,
-                        ?, ?, ?, {scraped_at_clause},
-                        ?, ?, ?, ?,
-                        ?, ?, ?, ?,
-                        ?, ?, ?
-                    )
-                    ON CONFLICT (job_id) DO UPDATE SET
-                        title = excluded.title,
-                        company_name = excluded.company_name,
-                        location = excluded.location,
-                        via = excluded.via,
-                        description = excluded.description,
-                        schedule_type = excluded.schedule_type,
-                        work_from_home = excluded.work_from_home,
-                        salary = excluded.salary,
-                        apply_link = excluded.apply_link,
-                        scraped_at = CASE WHEN excluded.is_snapshot THEN excluded.scraped_at ELSE now() END,
-                        via_platform = excluded.via_platform,
-                        salary_raw = excluded.salary_raw,
-                        location_type = excluded.location_type,
-                        skills_required = excluded.skills_required,
-                        apply_options = excluded.apply_options,
-                        portal_count = excluded.portal_count,
-                        salary_min_lpa = excluded.salary_min_lpa,
-                        salary_max_lpa = excluded.salary_max_lpa,
-                        source_query = excluded.source_query,
-                        source_gl = excluded.source_gl,
-                        is_snapshot = excluded.is_snapshot;
-                """
-                params = [
-                    job_id, title, company_name, location, via,
-                    description, schedule_type, work_from_home,
-                    salary, apply_link, posted_at
-                ]
-                if custom_scraped_at:
-                    params.append(custom_scraped_at)
-                params.extend([
-                    via_platform, salary_raw, location_type, skills_required,
-                    apply_options_json, portal_count, salary_min_lpa, salary_max_lpa,
-                    job_source_query, job_source_gl, bool(is_snapshot)
-                ])
-
-                con.execute(query, params)
-                inserted_count += 1
-
-        return inserted_count
+                con.execute("COMMIT;")
+                return len(merged_map)
+            except Exception:
+                con.execute("ROLLBACK;")
+                raise
 
     def load_snapshots_if_empty(self, snapshots_dir: Optional[str] = None) -> int:
         """
@@ -321,6 +581,7 @@ class DatabaseManager:
             return 0
 
         total_seeded = 0
+        all_normalized = []
         for s_file in snapshot_files:
             try:
                 with open(s_file, "r", encoding="utf-8") as f:
@@ -332,7 +593,6 @@ class DatabaseManager:
                 # Import parser dynamically to avoid circular import
                 from app.serpapi_client import parse_indian_salary_to_lpa, extract_salary_from_extensions
 
-                normalized_jobs = []
                 for item in raw_jobs:
                     # Detected extensions & raw extensions
                     ext = item.get("detected_extensions") or {}
@@ -365,13 +625,22 @@ class DatabaseManager:
                     combined_text = f"{item.get('title', '')} {item.get('description', '')} {highlights_text}"
                     skills = extract_skills_from_text(combined_text)
 
-                    normalized_jobs.append({
-                        "job_id": item.get("job_id") or f"{item.get('company_name')}_{item.get('title')}",
-                        "title": item.get("title", "Untitled Role"),
-                        "company_name": item.get("company_name", "Unknown Company"),
-                        "location": item.get("location", ""),
+                    raw_token = item.get("job_id")
+                    title = item.get("title", "Untitled Role")
+                    company_name = item.get("company_name", "Unknown Company")
+                    loc = item.get("location", "")
+                    desc = item.get("description", "")
+                    canonical_id = generate_canonical_job_id(title, company_name, loc, desc)
+                    q_str = q_meta.get("q", "")
+
+                    all_normalized.append({
+                        "job_id": canonical_id,
+                        "serpapi_token": raw_token,
+                        "title": title,
+                        "company_name": company_name,
+                        "location": loc,
                         "via": item.get("via", "Direct"),
-                        "description": item.get("description", ""),
+                        "description": desc,
                         "schedule_type": sched,
                         "work_from_home": bool(wfh),
                         "location_type": "Remote" if wfh else "On-site",
@@ -380,21 +649,24 @@ class DatabaseManager:
                         "apply_link": apply_link,
                         "posted_at": posted,
                         "captured_at": captured_at,
+                        "scraped_at": captured_at,
                         "apply_options": apply_opts,
                         "portal_count": portals,
                         "salary_min_lpa": salary_min,
                         "salary_max_lpa": salary_max,
-                        "source_query": q_meta.get("q", ""),
+                        "source_query": q_str,
+                        "source_queries": [q_str] if q_str else [],
                         "source_gl": q_meta.get("gl", "in"),
                         "is_snapshot": True,
                         "skills_required": skills,
                         "highlights_text": highlights_text
                     })
 
-                total_seeded += self.upsert_jobs(normalized_jobs, is_snapshot=True)
             except Exception as e:
                 print(f"Error loading snapshot {s_file}: {e}")
 
+        if all_normalized:
+            total_seeded = self.upsert_jobs(all_normalized, is_snapshot=True)
         return total_seeded
 
     def get_cached_search(self, cache_key: str, ttl_hours: int = 24) -> Optional[Dict[str, Any]]:

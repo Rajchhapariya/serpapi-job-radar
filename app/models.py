@@ -59,6 +59,8 @@ class JobItem(BaseModel):
     source_query: Optional[str] = None
     source_gl: Optional[str] = None
     is_snapshot: bool = False
+    serpapi_token: Optional[str] = None
+    source_queries: Optional[List[str]] = None
 
 
 class AnalyticsResponse(BaseModel):

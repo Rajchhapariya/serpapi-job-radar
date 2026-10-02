@@ -152,7 +152,7 @@ def test_upsert_duplicate_conflict_handling(temp_db):
     records = temp_db.get_jobs(company="Alpha Corp")
     assert len(records) == 1
     assert records[0]["title"] == "Senior Python Dev"
-    assert records[0]["salary"] == "INR 14,00,000"
+    assert records[0]["salary"] == "INR 6,00,000"  # Non-null salary preserved per Phase 1.7 merge rules
 
 
 def test_query_filtering_location_remote(temp_db):
@@ -771,10 +771,12 @@ def test_snapshot_seeding_idempotence(tmp_path):
     assert seeded == 1
 
     with manager.get_connection() as con:
-        row = con.execute("SELECT is_snapshot, scraped_at, salary_min_lpa FROM jobs WHERE job_id = 'snap_job_1'").fetchone()
-        assert row[0] is True
-        assert "2026-10-01" in str(row[1])
-        assert row[2] == 12.0
+        row = con.execute("SELECT job_id, is_snapshot, scraped_at, salary_min_lpa FROM jobs WHERE serpapi_token = 'snap_job_1' OR job_id = 'snap_job_1'").fetchone()
+        assert row is not None
+        snap_id = row[0]
+        assert row[1] is True
+        assert "2026-10-01" in str(row[2])
+        assert row[3] == 12.0
 
     # 2. Second run: table is not empty -> skips seeding
     seeded_again = manager.load_snapshots_if_empty(snapshots_dir=snap_dir)
@@ -782,17 +784,18 @@ def test_snapshot_seeding_idempotence(tmp_path):
 
     # 3. Live upsert of an existing snapshot row changes is_snapshot to False
     live_job = {
-        "job_id": "snap_job_1",
-        "title": "Snapshot Data Engineer (Updated Live)",
+        "job_id": snap_id,
+        "title": "Snapshot Data Engineer",
         "company_name": "SnapCorp",
         "location": "Hyderabad",
         "is_snapshot": False
     }
     manager.upsert_jobs([live_job], is_snapshot=False)
     with manager.get_connection() as con:
-        row_after = con.execute("SELECT is_snapshot, title FROM jobs WHERE job_id = 'snap_job_1'").fetchone()
+        row_after = con.execute("SELECT is_snapshot, title FROM jobs WHERE job_id = ?", [snap_id]).fetchone()
+        assert row_after is not None
         assert row_after[0] is False
-        assert row_after[1] == "Snapshot Data Engineer (Updated Live)"
+        assert row_after[1] == "Snapshot Data Engineer"
 
 
 def test_cache_hit_bypasses_network_call():
@@ -1006,6 +1009,293 @@ def test_latency_split_metrics():
     assert "query_ms" in data
     assert isinstance(data["query_ms"], (int, float))
     assert data.get("ingest_ms") is None
+
+
+def test_dedup_same_job_different_serpapi_tokens(temp_db):
+    """
+    Tests that the same job posted under 2 different SerpApi tokens merges into
+    1 row with both queries stored in source_queries.
+    """
+    job_1 = {
+        "title": "Staff Backend Engineer",
+        "company_name": "Nimbus Cloud Corp",
+        "location": "Bengaluru, India",
+        "description": "Designing high-scale distributed systems using Python and DuckDB.",
+        "serpapi_token": "token_serp_alpha",
+        "source_query": "Backend Engineer Bengaluru",
+        "apply_options": [{"title": "LinkedIn", "link": "https://linkedin.com/job1"}]
+    }
+    job_2 = {
+        "title": "Staff Backend Engineer",
+        "company_name": "Nimbus Cloud Corp",
+        "location": "Bengaluru, India",
+        "description": "Designing high-scale distributed systems using Python and DuckDB.",
+        "serpapi_token": "token_serp_beta",
+        "source_query": "Python Engineer Bengaluru",
+        "apply_options": [{"title": "Indeed", "link": "https://indeed.com/job1"}]
+    }
+
+    inserted_1 = temp_db.upsert_jobs([job_1])
+    assert inserted_1 == 1
+
+    inserted_2 = temp_db.upsert_jobs([job_2])
+    assert inserted_2 == 1
+
+    jobs = temp_db.get_jobs(company="Nimbus Cloud Corp")
+    assert len(jobs) == 1
+    record = jobs[0]
+    assert record["source_queries"] == ["Backend Engineer Bengaluru", "Python Engineer Bengaluru"]
+    assert record["source_query"] == "Backend Engineer Bengaluru"
+    assert record["portal_count"] == 2
+    assert record["serpapi_token"] == "token_serp_alpha"
+
+
+def test_dedup_apply_options_union_and_portal_count(temp_db):
+    """
+    Tests that apply_options merges by publisher title, keeping the first link per publisher,
+    and portal_count equals the length of the union.
+    """
+    job_a = {
+        "title": "Principal Data Platform Architect",
+        "company_name": "VectorScale Inc",
+        "location": "Hyderabad, India",
+        "description": "Architecting petabyte-scale data lakes with Spark and DuckDB.",
+        "serpapi_token": "token_vector_01",
+        "apply_options": [
+            {"title": "LinkedIn", "link": "https://linkedin.com/jobs/view/1001"},
+            {"title": "Company Careers", "link": "https://vectorscale.io/careers/1001"}
+        ]
+    }
+    job_b = {
+        "title": "Principal Data Platform Architect",
+        "company_name": "VectorScale Inc",
+        "location": "Hyderabad, India",
+        "description": "Architecting petabyte-scale data lakes with Spark and DuckDB.",
+        "serpapi_token": "token_vector_02",
+        "apply_options": [
+            {"title": "LinkedIn", "link": "https://linkedin.com/jobs/view/different_link"},
+            {"title": "Indeed", "link": "https://indeed.com/viewjob?jk=2002"},
+            {"title": "Glassdoor", "link": "https://glassdoor.com/job/3003"}
+        ]
+    }
+
+    temp_db.upsert_jobs([job_a])
+    temp_db.upsert_jobs([job_b])
+
+    records = temp_db.get_jobs(company="VectorScale Inc")
+    assert len(records) == 1
+    job = records[0]
+
+    import json
+    opts = json.loads(job["apply_options"]) if isinstance(job["apply_options"], str) else job["apply_options"]
+    assert len(opts) == 4
+    assert job["portal_count"] == 4
+
+    # Verify first link per publisher is preserved
+    linkedin_opts = [o for o in opts if o.get("title") == "LinkedIn"]
+    assert len(linkedin_opts) == 1
+    assert linkedin_opts[0]["link"] == "https://linkedin.com/jobs/view/1001"
+
+
+def test_dedup_non_null_salary_preserved_on_merge(temp_db):
+    """
+    Tests that existing non-null salary (salary_raw, salary_min_lpa, salary_max_lpa)
+    is preserved when merged with an incoming job that has null or different salary.
+    Also tests taking incoming salary when existing is null.
+    """
+    # 1. Existing has non-null salary, incoming has null
+    job_sal = {
+        "title": "ML Research Scientist",
+        "company_name": "DeepCognition",
+        "location": "Bengaluru, India",
+        "description": "Training transformer models and LLM evaluators.",
+        "serpapi_token": "dc_token_1",
+        "salary_raw": "₹30–45 LPA",
+        "salary_min_lpa": 30.0,
+        "salary_max_lpa": 45.0
+    }
+    job_nosal = {
+        "title": "ML Research Scientist",
+        "company_name": "DeepCognition",
+        "location": "Bengaluru, India",
+        "description": "Training transformer models and LLM evaluators.",
+        "serpapi_token": "dc_token_2",
+        "salary_raw": None,
+        "salary_min_lpa": None,
+        "salary_max_lpa": None
+    }
+    temp_db.upsert_jobs([job_sal])
+    temp_db.upsert_jobs([job_nosal])
+
+    rec = temp_db.get_jobs(company="DeepCognition")[0]
+    assert rec["salary_raw"] == "₹30–45 LPA"
+    assert rec["salary_min_lpa"] == 30.0
+    assert rec["salary_max_lpa"] == 45.0
+
+    # 2. Existing has null salary, incoming has non-null salary -> incoming is taken
+    job_null_first = {
+        "title": "DevOps Architect",
+        "company_name": "CloudOps Alpha",
+        "location": "Pune, India",
+        "description": "Kubernetes orchestration and multi-region failover.",
+        "serpapi_token": "co_token_1",
+        "salary_raw": None
+    }
+    job_sal_second = {
+        "title": "DevOps Architect",
+        "company_name": "CloudOps Alpha",
+        "location": "Pune, India",
+        "description": "Kubernetes orchestration and multi-region failover.",
+        "serpapi_token": "co_token_2",
+        "salary_raw": "₹22–28 LPA",
+        "salary_min_lpa": 22.0,
+        "salary_max_lpa": 28.0
+    }
+    temp_db.upsert_jobs([job_null_first])
+    temp_db.upsert_jobs([job_sal_second])
+
+    rec2 = temp_db.get_jobs(company="CloudOps Alpha")[0]
+    assert rec2["salary_raw"] == "₹22–28 LPA"
+    assert rec2["salary_min_lpa"] == 22.0
+    assert rec2["salary_max_lpa"] == 28.0
+
+
+def test_dedup_live_upsert_over_snapshot_clears_is_snapshot(temp_db):
+    """
+    Tests that a live upsert over an existing snapshot row sets is_snapshot = FALSE.
+    """
+    snapshot_job = {
+        "title": "Site Reliability Engineer",
+        "company_name": "InfraCore",
+        "location": "Bengaluru, India",
+        "description": "Managing Prometheus, Grafana, and Kubernetes clusters.",
+        "serpapi_token": "sre_snap_token",
+        "is_snapshot": True
+    }
+    temp_db.upsert_jobs([snapshot_job], is_snapshot=True)
+
+    rec_before = temp_db.get_jobs(company="InfraCore")[0]
+    assert rec_before["is_snapshot"] is True
+
+    # Live search arrives with same canonical job
+    live_job = {
+        "title": "Site Reliability Engineer",
+        "company_name": "InfraCore",
+        "location": "Bengaluru, India",
+        "description": "Managing Prometheus, Grafana, and Kubernetes clusters.",
+        "serpapi_token": "sre_live_token",
+        "is_snapshot": False
+    }
+    temp_db.upsert_jobs([live_job], is_snapshot=False)
+
+    rec_after = temp_db.get_jobs(company="InfraCore")[0]
+    assert rec_after["is_snapshot"] is False
+
+
+def test_dedup_migration_from_old_schema_backfills_source_queries(tmp_path):
+    """
+    Tests migration from the OLD schema where source_queries was absent,
+    verifying ALTER TABLE adds columns and backfills source_queries from source_query.
+    """
+    import duckdb
+    db_file = str(tmp_path / "legacy_schema_test.duckdb")
+
+    with duckdb.connect(db_file) as con:
+        con.execute("""
+            CREATE TABLE jobs (
+                job_id VARCHAR PRIMARY KEY,
+                title VARCHAR NOT NULL,
+                company_name VARCHAR NOT NULL,
+                location VARCHAR,
+                source_query VARCHAR
+            );
+        """)
+        con.execute("""
+            INSERT INTO jobs (job_id, title, company_name, location, source_query)
+            VALUES ('legacy_job_42', 'Legacy ETL Engineer', 'Pioneer Inc', 'Chennai', 'Python ETL Engineer');
+        """)
+
+    manager = DatabaseManager(db_path=db_file)
+    with manager.get_connection() as con:
+        row = con.execute("SELECT job_id, serpapi_token, source_queries FROM jobs WHERE job_id = 'legacy_job_42'").fetchone()
+        assert row is not None
+        assert row[0] == "legacy_job_42"
+        assert row[1] is None  # serpapi_token safe null
+        assert row[2] == ["Python ETL Engineer"]  # backfilled from source_query
+
+
+def test_dedup_snapshot_seeding_idempotent(tmp_path):
+    """
+    Tests that snapshot seeding loads exactly once and subsequent calls do nothing.
+    """
+    import json
+    db_file = str(tmp_path / "seed_idempotency.duckdb")
+    manager = DatabaseManager(db_path=db_file)
+
+    snap_dir = str(tmp_path / "snapshots")
+    os.makedirs(snap_dir, exist_ok=True)
+    snap_content = {
+        "slug": "idempotent_test",
+        "captured_at": "2026-10-01T12:00:00Z",
+        "query_params": {"q": "Test Query"},
+        "jobs": [
+            {
+                "job_id": "seed_token_1",
+                "title": "Idempotent Engineer",
+                "company_name": "Idempotent Corp",
+                "location": "Pune",
+                "description": "Testing repeatable seeding."
+            }
+        ]
+    }
+    with open(os.path.join(snap_dir, "test.json"), "w", encoding="utf-8") as f:
+        json.dump(snap_content, f)
+
+    count_1 = manager.load_snapshots_if_empty(snapshots_dir=snap_dir)
+    assert count_1 == 1
+
+    # Second call must do nothing and return 0
+    count_2 = manager.load_snapshots_if_empty(snapshots_dir=snap_dir)
+    assert count_2 == 0
+
+    with manager.get_connection() as con:
+        total = con.execute("SELECT COUNT(*) FROM jobs").fetchone()[0]
+        assert total == 1
+
+
+def test_dedup_regression_wfh_and_anywhere_location(temp_db):
+    """
+    Tests regression that 'Work from home' in extensions or location 'Anywhere'
+    always produces location_type = 'Remote' and work_from_home = True.
+    """
+    jobs = [
+        {
+            "title": "Distributed Systems Engineer",
+            "company_name": "RemoteFirst Tech",
+            "location": "India",
+            "description": "High performance computing in Go.",
+            "extensions": ["Full-time", "Work from home", "3 days ago"]
+        },
+        {
+            "title": "Fullstack Cloud Developer",
+            "company_name": "Nomad Global",
+            "location": "Anywhere",
+            "description": "React and Node.js microservices."
+        },
+        {
+            "title": "Data Pipeline Engineer",
+            "company_name": "Anywhere Solutions",
+            "location": "Remote, India",
+            "description": "DuckDB analytics engine."
+        }
+    ]
+
+    temp_db.upsert_jobs(jobs)
+    all_jobs = temp_db.get_jobs()
+    assert len(all_jobs) == 3
+    for j in all_jobs:
+        assert j["location_type"] == "Remote"
+        assert j["work_from_home"] is True
 
 
 

@@ -362,13 +362,22 @@ class SerpApiClient:
                                     highlights_parts.extend([str(i) for i in items])
                     highlights_text = " ".join(highlights_parts)
 
+                    from app.database import generate_canonical_job_id
+                    raw_token = item.get("job_id")
+                    title = item.get("title", "Untitled Role")
+                    company_name = item.get("company_name", "Unknown Company")
+                    loc = item.get("location", location)
+                    desc = item.get("description", "")
+                    canonical_id = generate_canonical_job_id(title, company_name, loc, desc)
+
                     normalized_jobs.append({
-                        "job_id": item.get("job_id") or f"{item.get('company_name')}_{item.get('title')}",
-                        "title": item.get("title", "Untitled Role"),
-                        "company_name": item.get("company_name", "Unknown Company"),
-                        "location": item.get("location", location),
+                        "job_id": canonical_id,
+                        "serpapi_token": raw_token,
+                        "title": title,
+                        "company_name": company_name,
+                        "location": loc,
                         "via": item.get("via", "Direct"),
-                        "description": item.get("description", ""),
+                        "description": desc,
                         "schedule_type": schedule_type,
                         "work_from_home": bool(work_from_home),
                         "location_type": "Remote" if work_from_home else "On-site",
@@ -381,6 +390,7 @@ class SerpApiClient:
                         "portal_count": portal_count,
                         "posted_at": posted_at,
                         "source_query": query,
+                        "source_queries": [query] if query else [],
                         "source_gl": gl,
                         "is_snapshot": False,
                         "highlights_text": highlights_text
