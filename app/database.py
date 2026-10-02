@@ -235,7 +235,7 @@ class DatabaseManager:
                     "recommended_jobs": []
                 }
 
-            skill_conditions = " OR ".join([f"LOWER(description) LIKE '%{s.lower()}%'" for s in matched])
+            skill_conditions = " OR ".join(["LOWER(description) LIKE ?" for _ in matched])
             query = f"""
                 SELECT job_id, title, company_name, location, via, apply_link, salary, schedule_type
                 FROM jobs
@@ -243,7 +243,8 @@ class DatabaseManager:
                 ORDER BY scraped_at DESC
                 LIMIT 6
             """
-            cursor_rec = con.execute(query)
+            params = [f"%{s.lower()}%" for s in matched]
+            cursor_rec = con.execute(query, params)
             recommended = self._rows_to_dicts(cursor_rec)
 
         score = int((len(matched) / len(TRACKED_SKILLS)) * 100)

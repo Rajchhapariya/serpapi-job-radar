@@ -224,3 +224,63 @@ def test_serpapi_client_network_error_graceful_recovery():
         assert res["source"] == "fallback_on_error"
         assert len(res["jobs"]) == len(MOCK_JOBS)
         assert "Simulated connection timeout" in res["message"]
+
+
+def test_security_headers_present():
+    from fastapi.testclient import TestClient
+    from app.main import app
+
+    client = TestClient(app)
+    response = client.get("/")
+
+    assert response.headers.get("X-Content-Type-Options") == "nosniff"
+    assert response.headers.get("X-Frame-Options") == "DENY"
+    assert response.headers.get("X-XSS-Protection") == "1; mode=block"
+    assert "default-src 'self'" in response.headers.get("Content-Security-Policy", "")
+
+
+def test_seo_robots_txt():
+    from fastapi.testclient import TestClient
+    from app.main import app
+
+    client = TestClient(app)
+    response = client.get("/robots.txt")
+
+    assert response.status_code == 200
+    assert "User-agent: *" in response.text
+    assert "Sitemap:" in response.text
+
+
+def test_seo_sitemap_xml():
+    from fastapi.testclient import TestClient
+    from app.main import app
+
+    client = TestClient(app)
+    response = client.get("/sitemap.xml")
+
+    assert response.status_code == 200
+    assert "application/xml" in response.headers.get("content-type", "")
+    assert "<urlset" in response.text
+
+
+def test_search_input_validation_boundary():
+    from fastapi.testclient import TestClient
+    from app.main import app
+
+    client = TestClient(app)
+    # Query with illegal control characters
+    bad_payload = {"query": "python<script>alert(1)</script>", "location": "India"}
+    response = client.post("/api/search", json=bad_payload)
+    assert response.status_code == 422  # Unprocessable Entity (strict regex boundary)
+
+
+def test_resume_matcher_payload_boundary():
+    from fastapi.testclient import TestClient
+    from app.main import app
+
+    client = TestClient(app)
+    # Oversized payload exceeding 50,000 characters
+    oversized = "Python " * 10000
+    response = client.post("/api/match-resume", json={"resume_text": oversized})
+    assert response.status_code == 422  # Unprocessable Entity (exceeds max_length=50000)
+
