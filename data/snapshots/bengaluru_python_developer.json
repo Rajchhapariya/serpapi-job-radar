@@ -1,0 +1,379 @@
+{
+  "slug": "bengaluru_python_developer",
+  "captured_at": "2026-10-02T19:01:42.120452+00:00",
+  "latency_ms": 1737,
+  "query_params": {
+    "q": "Python Developer",
+    "location": "Bengaluru, Karnataka, India",
+    "gl": "in",
+    "hl": "en",
+    "engine": "google_jobs"
+  },
+  "jobs_count": 10,
+  "jobs": [
+    {
+      "title": "Python Developer",
+      "company_name": "HPE",
+      "location": "Bengaluru, Karnataka",
+      "via": "HPE Careers - Hewlett Packard Enterprise (HPE)",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Python+Developer&htidocid=LZihsdWCKb2dPWJrAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_-NqZeTSDKgsycjPU3BJLUvNyS9ILVJ41DBZISs_SaE4NbEoOUMBKOeen5-ekyplnVFSUlBspa9fXJyjl15ckliSmayXnJ-rn5-XmpRfoQ_UVAwi4oszEotSC3ISS1LjjUwNKvQK8tK1pD0CXBUy8xScUvPSE3NKi0p1FLwTi_ISSxKzEwElrU-riAAAAA&shmds=v1_ARwrE23bIZ6SnjvGEc_Y6-FfZB0We9OOdDBPpF8iNtbIxpSwZA&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Python+Developer&htidocid=LZihsdWCKb2dPWJrAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAb1BMVEX___8AAADU1NTX19cApoBZWVn6-vppaWkAonpBup3Y8uzl-PRawaeNjY0Lr420tLRfX1_d3d1MTEzNzc3j4-N9g4ElJSVGRkbHx8d5eXkvLy-VlZULCwutrq5Jv6UvtpYAm288PDy8vb2fn5_u8vF8mx8GAAAA5ElEQVRIie2T2Q6CMBBFO1PBBRdERJRFRf__G520dii0IeFBn3oeCNzMadJbKkQgEAj8lRhlzh9HifTMpeHIuQXGKkOAjEUAoDSFnrPJLdCI0Uhc2lNFPEu8RIoLBanOIybLJ0T8BiUlNFcAOOWgXnMknkxyBTj4WyXxVu00Ve2IFUAjRLu2uG-MOGAkFup9v7BYTYmNREKWGajdkbhiHiw-u4Omq93jgE6LSc9UOT2N0KKvHM9xZKli-XqLeSIOh0jcMm0yIZ4c0deq5ycvh6LVKbfqvVbfm8NsBjjbDQQCgd_yAS7VDKnY6qSAAAAAAElFTkSuQmCC.png",
+      "extensions": [
+        "3 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://careers.hpe.com/us/en/job/1210111/Python-Developer",
+      "job_title": "Python Developer",
+      "description": "Python Developer\n\n\n\n\n\n  \n\nThis role has been designed as ‘’Onsite’ with an expectation that you will primarily work from an HPE office.\n\n\n\nWho We Are:\n\nHewlett Packard Enterprise is the global edge-to-cloud company advancing the way people live and work. We help companies connect, protect, analyze, and act on their data and applications wherever they live, from edge to cloud, so they can turn insights into outcomes at the speed required to thrive in today’s complex world. Our culture thrives on finding new and better ways to accelerate what’s next. We know varied backgrounds are valued and succeed here. We have the flexibility to manage our work and personal needs. We make bold moves, together, and are a force for good. If you are looking to stretch and grow your career our culture will embrace you. Open up opportunities with HPE.\n\n\n\n\n\nJob Description:\n\n   \n\nHPE Operations is our innovative IT services organization. It provides the expertise to advise, integrate, and accelerate our customers’ outcomes from their digital transformation. Our teams collaborate to transform insight into innovation. In today’s fast paced, hybrid IT world, being at business speed means overcoming IT complexity to match the speed of actions to the speed of opportunities. Deploy the right technology to respond quickly to market possibilities. Join us and redefine what’s next for you.\n\n\n\n\n\nWhat you will do:\n\nManagement Level Definition:\n\nContributions include applying developed subject matter expertise to solve common and sometimes complex technical problems and recommending alternatives where necessary. Might act as project lead and provide assistance to lower level professionals. Exercises independent judgment and consults with others to determine best method for accomplishing work and achieving objectives.\n\n\nResponsibilities: \n\nDefine, design, and develop a scalable, web-based automation platform that supports manufacturing partners and business operations.Create and maintain functional design specifications, process workflows, system integration documentation, and connectivity architecture documentation.Perform advanced troubleshooting, root-cause analysis, and reverse engineering to resolve incidents and complex production issues.Develop and execute unit, integration, and system testing strategies to ensure solution quality, reliability, and performance.Apply strong analytical and problem-solving skills to identify risks, recommend solutions, and drive continuous improvement.Contribute to the planning, design, and implementation of complex, large-scale technology projects.Ability to work on multiple concurrent initiatives of varying size and complexity in a fast-paced, dynamic environment while maintaining high-quality deliverables.Proven track record of delivering complex enterprise software solutions from architecture through deployment and support.\nWhat you need to bring:\n\nEducation and Experience Required: \n\nBachelor's or Master's degree in Computer Science, Information Systems, Electrical Engineering, or equivalent.Typically 4-6 years experience.\nKnowledge and Skills: \n\nUsing testing tools and software packages to automate test and bring-up processes.Demonstrated expertise in designing and building scalable, HA, and high-performance applications.Experience designing, developing, and deploying Artificial Intelligence (AI) and ML solutions.Experience with Generative AI, Large Language Models (LLMs), and AI agent frameworks.Experience integrating AI capabilities into applications, APIs and business workflows. Knowledge of responsible AI principles, security, compliance, and ethical AI practices.Proficiency in Python and data science tools such as Pandas, NumPy, Jupyter NotebooksStrong hands-on experience and deep technical proficiency in the following technologies:Backend Technologies:  Python, Java, JPA, Hibernate, Django, Spring Framework / Spring Boot, LaravelFrontend Technologies:  HTML5, CSS3, JavaScript, jQueryRelational Databases: MySQL, Oracle DatabaseNoSQL Databases:  Apache HBase, MongoDBCloud & Microservices Technologies:  Docker, Kubernetes, Vert.xWeb Services & APIs:  SOAP, REST, Flask, FastAPI, NGINXmachine learning frameworks: TensorFlow, PyTorch, Scikit-learnExcellent written and verbal communication skills; mastery in English and local language.\n\n\n\nAccessibility\n\n\nHPE is committed to creating an inclusive and accessible workplace and encourages applications from all qualified individuals, including those with disabilities. If you believe you require accommodation during any stage of the application or interview process, please submit your request by completing our secure form linked here.\n\n\nNote: This option is reserved for applicants needing assistance/reasonable accommodation related to a disability.\n\n\n\n\n\nWhat We Can Offer You:\n\nHealth & Wellbeing\n\nWe strive to provide our team members and their loved ones with a comprehensive suite of benefits that supports their physical, financial and emotional wellbeing.\n\n\n\nPersonal & Professional Development\n\nWe also invest in your career because the better you are, the better we all are. We have specific programs catered to helping you reach any career goals you have — whether you want to become a knowledge expert in your field or apply your skills to another division.\n\n\n\nUnconditional Inclusion\n\nWe are unconditionally inclusive in the way we work and celebrate individual uniqueness. We know varied backgrounds are valued and succeed here. We have the flexibility to manage our work and personal needs. We make bold moves, together, and are a force for good.\n\n\n\n\n\nLet's Stay Connected:\n\nFollow @HPECareers on Instagram to see the latest on people, culture and tech at HPE. \n\n\n\n\n\n#india#operations\n\n\n\nJob:\n\nEngineeringJob Level:\n\nTCP_03    \n\n    \n\nHPE is an Equal Employment Opportunity/ Veterans/Disabled/LGBT employer. We do not discriminate on the basis of race, gender, or any other protected category, and all decisions we make are made on the basis of qualifications, merit, and business need. Our goal is to be one global team that is representative of our customers, in an inclusive environment where we can continue to innovate and grow together. Please click here: Equal Employment Opportunity.\n\nHewlett Packard Enterprise is EEO Protected Veteran/ Individual with Disabilities.\n\n   \n\nHPE will comply with all applicable laws related to employer use of arrest and conviction records, including laws requiring employers to consider for employment qualified applicants with criminal histories.\n\n   \n\nRecruitment Fraud Alert\n\n\n\nWe have become aware of an increase in fraudulent recruitment activities in which individuals impersonate our company or authorized recruitment agencies to offer fake employment opportunities. These scams may occur through false websites, emails, social media, or chat-based applications and often aim to obtain personal information or money. Please note that Hewlett Packard Enterprise (HPE), its direct and indirect subsidiaries and affiliated companies, and its authorized recruitment agencies/vendors will never charge a candidate a registration fee, hiring fee, or any other fee in connection with its recruitment and hiring process. We also never request personal information such as back account details, Social Security numbers, or national IDs via social media or chat applications.\n\n\n\nAll legitimate job opportunities will come through official company channels, and candidates are responsible for verifying the credentials of any third party claiming to represent the company. Any reliance on fraudulent communication is at the individual’s own risk, and HPE disclaims legal liability for any resulting damages. If you suspect recruitment fraud, do not share personal information or make any payments and report the incident to your local authorities immediately.",
+      "apply_options": [
+        {
+          "title": "HPE Careers - Hewlett Packard Enterprise (HPE)",
+          "link": "https://careers.hpe.com/us/en/job/1210111/Python-Developer?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobvite",
+          "link": "https://jobs.jobvite.com/ness/job/onHMAfwa?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "InetFrame Technologies",
+          "link": "https://inetframe.com/jobs/python-developer/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Foundit",
+          "link": "https://www.foundit.in/job/python-developer-onefin-bengaluru-bangalore-48758512?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Recruise",
+          "link": "https://recruiseglobal.com/professionals/open-mandate/python-developer-5309?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Global Talent Pool",
+          "link": "https://www.gtalentpool.com/job-openings-for-python-developer-bangalore-1014734.htm?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Bayt.com",
+          "link": "https://www.bayt.com/ar/india/jobs/python-developer-75254564/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Hackajob",
+          "link": "https://hackajob.com/job/245d5771-3ce5-11f1-a7b8-0a05e249917d-python-developer?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJQeXRob24gRGV2ZWxvcGVyIiwiY29tcGFueV9uYW1lIjoiSFBFIiwiaHRpZG9jaWQiOiJMWmloc2RXQ0tiMmRQV0pyQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlFtVnVaMkZzZFhKMUxFdGhjbTVoZEdGcllTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFNWVjBWSGRSWDBKNVdHcFhUbTFOUmtGUFJrNWZXalZzYzFGSVRVTlJja1ZEUlhReWNHNTVPWGRyY2tWbE9WQmtNVUpLWlY5TFZYWk9WSGswWm5wQ1JVOUtWRU5WTFVJMVYyNWFRVGREZDFsTVJGRnpRVzEyWmtZemFqbDZhMVZXUW10NVp5MXBWMmhaT1hOR05rZGpXV0V6Yms1NmNrdHRSMmRrZGxwaFozQmhWV3hwYnpRU0YyeGZMVjloZEcxNFIyTjFhSGRPTkZCcGNubHVObEZ6R2lKQlJITnlPV1pTVGpod2NrbExWMWhJYmxsVFJrUmpZbFp5TTJsb1VrZDVUV1JuIiwiZmN2IjoiMyIsImZjX2lkIjoiTFppaHNkV0NLYjJkUFdKckFBQUFBQT09In0="
+    },
+    {
+      "title": "Python Developer (Gen AI)",
+      "company_name": "AI Job Fever",
+      "location": "Bengaluru Urban, Karnataka",
+      "via": "BeBee",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Python+Developer&htidocid=zNq4InnjzDTAa0QaAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWNMQ7CMBAERZsnUF0JCMUoEg1UQYgo0NBQR5foZAfMnWU7KHT8gZrP8RJMs9XMbPaZZMX5GY0w7OlBVhx5mFXEUNZz-L7ecJUWAqHvDCSoEtGWplsTowsbpUKwuQ4RY9_lndyVMLUyqiSF_zTBoCdnMVJTrFdj7lgvFmUNx1Q9pEMPPcOOWKMd_AAX3yIv4YSeMeINf74YKj6gAAAA&shmds=v1_ARwrE21WAonWfryJmGYn0et8UozVQN2Ob0voDz0hO5HJqmBQfg&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Python+Developer&htidocid=zNq4InnjzDTAa0QaAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAYFBMVEX___8BAQEAAADNzc25ubnS0tKjo6Ourq6rq6uysrLJycmfn59ZWVmYmJj8_Pzh4eElJSUyMjLw8PBwcHCJiYna2trq6upCQkJgYGAZGRlra2tRUVHCwsIqKiqQkJB9fX088RmiAAAA20lEQVRIie2T3RKCIBBG6bNU0DRNK-3v_d8yh1gEJxCv49w4y-wBdlkZi0QikRmeTXAd1nxv0bs8AYmgOIdN4RJP2E2goTiTsQapwytUHvJtYgsSUW0SzzoNHdUYIvaYRVwskZrzW7wa2-NmiCtd5ea1gMQ4Ec73m6gAy2xM8eARO12O-mZMd9Un1kpAWaq6hrRIx3XxDmqn3gL68h7xQdlHxkb78fzioLwnMwYoQDzS7WTfX8EinYG3DKvlkU6xpMlQs80Xv6FTFMmXermgEK2zOTZVYF4kEvlLPnfWBxri0PtiAAAAAElFTkSuQmCC.png",
+      "extensions": [
+        "19 hours ago",
+        "Full–time"
+      ],
+      "source_link": "https://bebee.com/in/jobs/python-developer-gen-ai-ai-job-fever-bengaluru-east-karnataka--t7xk-860381865",
+      "job_title": "Python Developer (Gen AI)",
+      "description": "Infrrd seeks a Python Developer (Gen AI) for its Product Engineering team in Bangalore, Karnataka. The role supports product-feature implementation for an Intelligent Document Processing platform, with an emphasis on rapid debugging, scripting, data analysis, reliable integrations and deployments, and improving developer productivity through AI-first tools and automation.\n\n\nResponsibilities\n\n\n\nBuild and debug product features and resolve rollout issues across APIs, data transformations, and deployment workflows.\nDevelop\nPython utilities and services for validation, transformation, and automated execution of quality-control checklists; optimize existing code and frameworks.\n\n\n\n\nImplement GenAI workflows with LangChain and OpenAI, including prompts, tools, and safeguards for reliability and traceability. Design and tune PGVector indexing and retrieval for checklist content, policies, and artifacts. Create evaluators, test harnesses, and regression suites for LLM pipelines and generated code.\n\n\nAnalyze logs, metrics, data, prompts, and model outputs to identify root causes. Work with Product, Customer Success, and QA to reproduce issues and deliver hotfixes and safe migrations. Strengthen deployment configuration, secrets handling, and rollback strategies; maintain integration playbooks, data contracts, and procedures for compliance-sensitive workflows.\n\n\n\nRequired Qualifications And Skills\n\n\n\n4–6 years of strong Python development experience; a bachelor’s degree in computer science or engineering, or equivalent practical experience. Production-like GenAI/LLM implementation experience, strong debugging skills, and effective communication are required.\n\n\nPython 3.x; LangChain, OpenAI API, prompt engineering, tool/function calling, and safeguards; NLP and text processing with NLTK or similar tools; MongoDB modeling and query optimization; PGVector on PostgreSQL for RAG-style retrieval, including chunking and similarity tuning. The role also calls for observability, log analysis, LLM orchestration with OpenAI or Gemini, and troubleshooting configuration, data, and environment issues.\n\n\n\nPreferred And Working Knowledge\n\n\n\nMLOps, MCP servers or tool-agent patterns, FastAPI and asynchronous I/O, GitHub Actions, Docker, Python packaging and testing, REST APIs, JSON, Pandas, and mortgage, QC, or RegTech workflows are desirable. Working knowledge of Git/GitHub, Jira, Confluence, Postman or cURL, VS Code, Copilot or Cursor, and Python environment and testing tools is also listed.\n\n\n\nPythonGenerative AILarge Language ModelsLangChainOpenAI APIGeminiPrompt engineeringTool callingFunction callingRAGPGVectorPostgreSQLVector indexingVector retrievalLLM evaluationNLPNLTKText processingMongoDBData modelingQuery optimizationDebuggingObservabilityLog analysisRoot-cause analysisMLOpsMCPFastAPIAsync IOCI/CD workflows and GitHub Actions",
+      "apply_options": [
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/python-developer-gen-ai-ai-job-fever-bengaluru-east-karnataka--t7xk-860381865?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJQeXRob24gRGV2ZWxvcGVyIChHZW4gQUkpIiwiY29tcGFueV9uYW1lIjoiQUkgSm9iIEZldmVyIiwiaHRpZG9jaWQiOiJ6TnE0SW5uanpEVEFhMFFhQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlFtVnVaMkZzZFhKMUxFdGhjbTVoZEdGcllTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFNVYzNkMVkwWW04eGQzSXpZVTFuVUV0TFNXeENiM0k0VjFJMFRucDZhVk54Vm1kZlZHd3paVXhvT1c5allUUmFVSFUxTkhOWGJsUXpZVFJFYjI1dFFYTnFaRkp4WlZCc2QzRXRPRFZNTWxoWWJYSnpUblJ4TFhCeWRIQTRkalpKUlVsbFpsTkZkR3hJVEZCWFozcFhXalpQWkRGRlRYY3paMjlmZG0xcldEbFZWbmhtVjA4U0YyeGZMVjloZEcxNFIyTjFhSGRPTkZCcGNubHVObEZ6R2lKQlJITnlPV1pVUVdzd1NtcHpVRUpvUkVGVWVuSXlXQzF5T0ZwSlprcFhiRWxuIiwiZmN2IjoiMyIsImZjX2lkIjoiek5xNElubmp6RFRBYTBRYUFBQUFBQT09In0="
+    },
+    {
+      "title": "Auomation Triage Enginner - Python ( Experience: 5 yrs)",
+      "company_name": "Hitachi Global",
+      "location": "Bengaluru, Karnataka",
+      "via": "Hitachi Careers - Hitachi Global",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Python+Developer&htidocid=GuBxCod5XroajyRIAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWMMQrCQBBFsc0RrKYSFU1ESBMrhRDBJoV9mCzD7upmJuxuIOm8g4fxPp7E2PzmvfeTzyKpz4N0GK0w3L1FTVCytszkYQ_1FM0M1lCOPXlLrKiAHCYfNvB9veEhLQRCrwzMWiWiHS1PJsY-FFkWgkt1iPO5SpV0mTC1MmZzFP7TBIOeeoeRmmN-GNOe9XZ1tRGVsVA5adGBZbgQa3SDH3ZwQ88Y8Yk_yiY6WLoAAAA&shmds=v1_ARwrE231Bd4wu-esKwfn3aGU_jtsEit1W5zVPuz_UdMGPCBc3g&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Python+Developer&htidocid=GuBxCod5XroajyRIAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAY1BMVEX___8AAAC9vb1LS0vo6OimpqbJycnj4-ORkZHt7e3z8_OZmZmsrKzAwMBwcHCUlJTY2Nj5-fnR0dE3NzdXV1dRUVEdHR2GhoYICAifn59qampcXFy1tbUtLS1CQkIoKCh-fn6h-J7bAAACJElEQVRIiZ1W26KCIBAUU9GE8lpadvL_v_LELqAoITFPCMwyLnshihyoXYsONE0gsczDeDUhYcSekFMALWnJBy39kZV2RKJniTctvREDr9SLdiUWlIe0xkYTqNy8u954gWF-0RN3F-8kN-Uf-1SeU-Vy0nE3kneFj2oRmB4wkdfJ0F4Ro7pzMWdYbDMeC_BRfI3yI_v7_p_VN3-uYcsXH54t7Es_4jXwwP2R4PGySJKC44ZhzCjlSgcXK3Ch27h9a2u4k6kFtjpIDG4mD8IEKgUG3XlZOsPELIZwpJllYFckbb3lKWahzJtaeyVnXHQmjNHF6qi0djulF_NfH2L0hOGg_u2y1drqc8C5YvBEpzy0DH12u_AwuqdIxh1XGpT9TAxEtE0w1UMa1I3Kt1htocstoA6wkn0GsZwU-bok6i_EBg_ttdRGbUkUUViBYKq01FVams4ZtVOlW8tvzkH7cB2ipA6Rdis4Fay99XUYxb2zBABlsoibAdCveZgcwlQBAi0hVysnMYMIWiHI5y0TeVBt8p1S_DevtHqbPNSarxKZlJzSbBzwAxIZnLtrQMQTW569Se1haVuBBzoa3BrWZofV5k-2AAM8g6Aks42n0rK3vKfcTUe3uZ3HZXU9bpAkX4UH9WisRitnUxxPzLOVO5rd8YPQ2rb2TcqG9GWybn4PJIGE9YrVpf5PMgDFR-CPLMBpWya8gfUiAPnx08-O4Me8U-g_RWYUoDFeKyMAAAAASUVORK5CYII.png",
+      "extensions": [
+        "1 day ago",
+        "Full–time"
+      ],
+      "source_link": "https://careers.hitachi.com/auomation-triage-enginner-python-experience-5-yrs/job/IRC303586",
+      "job_title": "Auomation Triage Enginner - Python ( Experience: 5 yrs)",
+      "description": "Job DescriptionWhat Success Looks Like\n\n• Test failures are investigated quickly and accurately.\n• AI is used to accelerate triage without replacing engineering judgment.\n• Defects contain enough evidence for developers to reproduce and fix them.\n• Product defects are clearly separated from automation and infrastructure issues.\n• Recurring and flaky failures are identified and reduced.\n• Practical AI-assisted workflows are created when they provide measurable value.\n• Fixes are verified thoroughly before closure.\n• Testing risks are communicated clearly before releases.\n• The quality and reliability of automated test results continuously improve.\n\nRequirementsAbout the Role\n\nWe are looking for an Automation Triage Engineer to investigate automated test failures, identify root causes, and work with development and test teams to drive issues toward resolution. \n\nThe role combines test execution, failure analysis, defect investigation, and AI-assisted troubleshooting. The ideal candidate can distinguish between product defects, test issues, infrastructure problems, and environmental failures, while using modern AI tools to accelerate analysis and create practical workflows when needed.\n\nExperience : ~5 years of experience in software testing, test automation, or quality engineering.\n\nJob ResponsibilitiesKey Responsibilities\n\n• Execute automated test suites across platforms, configurations, and environments.\n• Monitor test results and identify failures, regressions, and recurring issues.\n• Analyze logs, error messages, screenshots, videos, traces, and other diagnostic information.\n• Use AI-assisted techniques to summarize failures, identify patterns, compare logs, suggest root causes, and accelerate triage.\n• Use tools such as Claude, GPT, or comparable AI assistants responsibly to support investigation and technical decision-making.\n• Validate AI-generated analysis against test evidence rather than treating it as definitive.\n• Classify failures as product, automation, infrastructure, configuration, network, or environment-related.\n• Reproduce failures and isolate the conditions under which they occur.\n• Investigate intermittent and non-deterministic test failures.\n• Create clear and detailed defect reports with reproduction steps, evidence, logs, and impact information.\n• Review existing defects to identify duplicates, related failures, and recurring patterns.\n• Work closely with software developers, test automation engineers, and QA teams to resolve issues.\n• Verify fixes by rerunning relevant tests and confirming expected results.\n• Identify unstable or low-value automated tests and recommend corrective actions.\n• Develop lightweight scripts, checklists, prompts, or workflow improvements when required to make triage more efficient.\n• Create practical AI-assisted workflows based on the needs of the team and the type of failure being investigated.\n• Maintain accurate investigation notes, failure records, and resolution status.\n• Participate in release-readiness reviews and communicate testing risks clearly.\n• Contribute to test strategy, failure-analysis guidelines, and team best practices.\n\nRequired Qualifications\n\n• Bachelor’s degree in Computer Science, Engineering, or a related field, or equivalent experience.\n• Hands-on experience investigating automated test failures.\n• Good understanding of software development and testing lifecycles.\n• Ability to read and understand test scripts and basic programming code.\n• Experience with Python programming language.\n• Experience working with test automation frameworks.\n• Strong debugging, analytical, and problem-solving skills.\n• Ability to analyze logs and technical diagnostic data.\n• Experience creating clear, reproducible defect reports.\n• Familiarity with Git or another version-control system.\n• Intermediate AI fluency, including practical experience using Claude, GPT, or similar AI assistants for investigation, summarization, troubleshooting, and workflow development.\n• Ability to evaluate AI output critically and verify it using technical evidence.\n• Strong written and verbal communication skills.\n• Ability to work independently and collaborate effectively across teams.\n• Self-motivated and proactive, with a strong sense of ownership.\n• Demonstrated ability to take responsibility and accountability for assigned work.\n• A go-getter attitude with the initiative to identify problems, propose solutions, and drive tasks through completion.\n• Strong follow-through, reliability, and commitment to delivering high-quality results.\n\nPreferred Qualifications\n\n• Experience with UI, integration, system, or end-to-end testing.\n• Experience with pytest, Selenium, Appium, Playwright, Cypress, Robot Framework, or similar tools.\n• Experience troubleshooting CI/CD test failures.\n• Familiarity with Linux or command-line environments.\n• Experience testing web, mobile, embedded, or connected-device products.\n• Experience analyzing intermittent failures and test flakiness.\n• Familiarity with defect-tracking and test-management tools.\n• Experience creating small automation scripts or repeatable workflows to reduce manual triage effort.\n\nWhat we offerExciting Projects: We focus on industries like High-Tech, communication, media, healthcare, retail and telecom. Our customer list is full of fantastic global brands and leaders who love what we build for them.\n\nCollaborative Environment: You Can expand your skills by collaborating with a diverse team of highly talented people in an open, laidback environment — or even abroad in one of our global centers or client facilities! \n\nWork-Life Balance: GlobalLogic prioritizes work-life balance, which is why we offer flexible work schedules, opportunities to work from home, and paid time off and holidays.\n\nProfessional Development: Our dedicated Learning & Development team regularly organizes Communication skills training(GL Vantage, Toast Master),Stress Management program, professional certifications, and technical and soft skill trainings.\n\nExcellent Benefits: We provide our employees with competitive salaries, family medical insurance, Group Term Life Insurance, Group Personal Accident Insurance , NPS(National Pension Scheme ), Periodic health awareness program, extended maternity leave, annual performance bonuses, and referral bonuses.\n\nFun Perks: We want you to love where you work, which is why we  host sports events, cultural activities, offer food on subsidies rates, Corporate parties. Our vibrant offices also include dedicated GL Zones, rooftop decks and  GL Club where you can drink coffee or tea with your colleagues over a game of table and offer discounts for popular stores and restaurants!\n\nAbout GlobalLogicGlobalLogic is a full-lifecycle product development services leader that combines chip-to-cloud software engineering expertise and vertical industry experience to help our customers design, build, and deliver their next-generation products and digital experiences. We expertly integrate design, complex engineering, and agile delivery capabilities to deliver superior business outcomes for global brands in telecom, automotive, healthcare, technology, media and entertainment, manufacturing, and semiconductor industries.\n\nHeadquartered in Silicon Valley, GlobalLogic employs over 25,000 designers and engineers across the globe. Analysts like NASSCOM and Zinnov have recognized us for being a top company in our field, and we are consistently nominated as a preferred employer by both global HR consultative firms and local job boards. By creating a work environment that is exciting and flexible, and by fostering growth through ongoing learning and development programs, we empower our employees to achieve both their professional and personal goals.\n\nAt GlobalLogic, we make amazing products — and careers.",
+      "apply_options": [
+        {
+          "title": "Hitachi Careers - Hitachi Global",
+          "link": "https://careers.hitachi.com/auomation-triage-enginner-python-experience-5-yrs/job/IRC303586?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/auomation-triage-enginner-%E2%80%93-python-experience-5-yrs-irc303586-at-globallogic-4472522664?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Trabajo.org",
+          "link": "https://in.trabajo.org/job-4112-387dccf4833eb94ba771b5624312ae7d?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "The First Labs",
+          "link": "https://www.thefirstlabs.live/j/4472522664?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/340658039/auomation-triage-enginner-python-bengaluru?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBdW9tYXRpb24gVHJpYWdlIEVuZ2lubmVyIC0gUHl0aG9uICggRXhwZXJpZW5jZTogNSB5cnMpIiwiY29tcGFueV9uYW1lIjoiSGl0YWNoaSBHbG9iYWwiLCJodGlkb2NpZCI6Ikd1QnhDb2Q1WHJvYWp5UklBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwVEhwd1oyNUxVV1pXYjBRNFMyODNOM0kwVG01QmVHbENlV2xmZG1rd2EwbEtibU52WjFOblNFRTNWMVZDUm5CMFVYaGFiM0JOZUV4TkxXZzVkWEpXUTB0RVRuRlFRVjlKVDBGclpESnBTRU50ZW5KWVRUWkRXVlJGYWxOU04wOVVXSFp1ZG5Kb05qTnJkMTl0WHpZM1ZqQnBYMmxvYzNWaFMybERPRFp0VmkxQmNqWlFkM1VTRjJ4ZkxWOWhkRzE0UjJOMWFIZE9ORkJwY25sdU5sRnpHaUpCUkhOeU9XWlJlRzgyV1doVFdsOUNOMmxHYXpka00yOVNNbmhKYjNwTWIwVjMiLCJmY3YiOiIzIiwiZmNfaWQiOiJHdUJ4Q29kNVhyb2FqeVJJQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Freelance Full-Stack Developer - Python & JavaScript",
+      "company_name": "Digital",
+      "location": "Anywhere",
+      "via": "LinkedIn",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Python+Developer&htidocid=5wKGoWsM4zmeflkJAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLMQrCQBBAUWxzBBunshCTiGCjnYQIiiDkAGGyDJs14-6yOwmx8w6ew0t5EmPzm8dPPrPkWgYiRqsIyp45rQRVBwUNxM5TgBRuT2mdhSWcccBKBeMFvq833F0DkTCoFiY-OaeZ5odWxMd9nsfImY6CYlSm3CN3lho35tMU_6lji4E8o1C93W3GzFu9WhRGG0EGY-FIViP3oV_DBYNFwQ5_EUAWY7AAAAA&shmds=v1_ARwrE20nwVHUNOZ2EM3oDtatZB31Pm9H0LhHcfCt-KodojY1aQ&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Python+Developer&htidocid=5wKGoWsM4zmeflkJAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/_9j_4AAQSkZJRgABAQAAAQABAAD_2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys_RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N__AABEIADgAOAMBIgACEQEDEQH_xAAaAAEAAwEBAQAAAAAAAAAAAAABAAIEBQMG_8QAKRAAAgIBAwIFBAMAAAAAAAAAAQIAAxESITEEMgUiQUJxE1GBkRRhof_EABsBAAMAAgMAAAAAAAAAAAAAAAABAgMEBQYH_8QAHxEAAgEEAgMAAAAAAAAAAAAAAAECAxESIQShMUJR_9oADAMBAAIRAxEAPwDy90SmkZPJ9Ie4GBJYsW3M6UelB7PzD1ED2xPtgUI7jvIODD3GPtMAH0G8YHgRgIDnXx8w3wx0nHqcTd4XalV_UNYQFPTWLgtp1Ejj8zpV29HclK2vV9MVVA1tfxj6uQdxxlf3Gka1XkOm7Y3R877ZYq4ZAUYE7AY5nR6g9G_hosSuhbWrw6q2ClgbkDJJBUfG5m5eqqXxFn6jqa7OncUhE-pnzDRltu3GG32_2OwpcmSWo_erHAUMbCoUluMAbyBsVkbbz6Kmnp6bEfRRpX6bWuXUGsEHJzq1bkj0GP7HPjV_Buvre9-jFJWhWUABtOgB8_bcfPHAhiQuan66OK6sukMpU4BwRjaSafEGDWUaXVsdPUpKnO4QAj9iSSzbpyyimzKe6H3liPND7wKKntgeRE9khG4jKLm61wK3tdkXtUsSB8CVHafmAHmMuiFgcRE6S0OMhZJto6J2CkrgSRGCVaKZlKnVKhTvCSIyXAoSvE9F6ex2UBTJJGTOo4rRso8MYuS5wMTfT0lVdZwMmMkls4-dacvLNGPIu0kkkRhP_9k.jpeg",
+      "extensions": [
+        "13 hours ago",
+        "Work from home",
+        "Full–time"
+      ],
+      "source_link": "https://in.linkedin.com/jobs/view/freelance-full-stack-developer-python-javascript-at-digital-4474706094",
+      "job_title": "Freelance Full-Stack Developer - Python & JavaScript",
+      "description": "Hire Digital is seeking a Freelance Full-Stack Developer with experience in both Python and JavaScript (Remote) to develop web applications, backend services, and integrations. You will contribute across the development lifecycle, from requirements and implementation to testing, deployment, and support.\n\nRequirements\n\n\nRESPONSIBILITIES\n\n\n\nBuild and maintain backend services using Python and JavaScriptDevelop APIs and application features using Django and/or Node.jsCreate responsive interfaces using React, Next.js, Astro, or comparable frameworksIntegrate databases, third-party APIs, and authentication servicesDeploy and support applications on AWSCollaborate through Git, code reviews, and clear technical documentationTest, troubleshoot, and improve application performance and security\n\n\nRequirements\n\nDemonstrated full-stack development experience using both Python and JavaScriptHands-on experience with Django and/or Node.jsExperience with frontend frameworks such as React, Next.js, or AstroWorking knowledge of Git and AWS, including deployment and troubleshootingExperience with REST APIs and relational databases such as PostgreSQL or MySQLUnderstanding of secure coding, authentication, authorization, and testingStrong communication skills and the ability to deliver independently in a remote environmentTypeScript, Docker, CI/CD, serverless services, and experience using AI coding tools such as Claude Code are a plus",
+      "apply_options": [
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/freelance-full-stack-developer-python-javascript-at-digital-4474706094?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJGcmVlbGFuY2UgRnVsbC1TdGFjayBEZXZlbG9wZXIgLSBQeXRob24gXHUwMDI2IEphdmFTY3JpcHQiLCJjb21wYW55X25hbWUiOiJEaWdpdGFsIiwiaHRpZG9jaWQiOiI1d0tHb1dzTTR6bWVmbGtKQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlFtVnVaMkZzZFhKMUxFdGhjbTVoZEdGcllTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFMyRk5NM2xxVVhONmNtWkRkVzFTUWpaMGFIVlBObEo2VFRaNGVFUklWMkZyWVVkb2MydENNWGhsTmkxeVREUm9XVzFSUjJwUmNsWmhablpmVmxKMU5tRnpRelo1VjJKU05FZG5WbXhSWjNaSk5GRXpSREozTVY5M1RHZE5WR0l0UW1rdFdrOWtOMHAyUjJsZlRIbEhObXd4WjNwRVJVMXlORmwxYlRsUFMyNVdVSGhXWWxZU0YyeGZMVjloZEcxNFIyTjFhSGRPTkZCcGNubHVObEZ6R2lKQlJITnlPV1pSTUc1VU0wNDRlR1pLZVZvMFVFVm5WR05vUzFCS1NHNWZhbmhSIiwiZmN2IjoiMyIsImZjX2lkIjoiNXdLR29Xc000em1lZmxrSkFBQUFBQT09In0="
+    },
+    {
+      "title": "Developer with Python, Microservice & AWS in Bangalore",
+      "company_name": "Quest Global",
+      "location": "Bengaluru, Karnataka",
+      "via": "Quest Global",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Python+Developer&htidocid=YJgBb00GJ3FQH-v-AAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_x3NPQrCQBBAYWw9gtUUYiEhEcFGK0WwEFGxsAyTZdhdXXfCzsSfzjt4FU_kSTQ2r3t83Xenu13SlQLXlODm1cHuoY5jBhtvEgulqzcEA5gfD-AjLDBaDJwIPs8XnLgCIUzGAUdYMdtAvZlTrWVaFCIht6Ko3uSGLwVHqvhe_CZpU4rDRHVApXI8Gd3zOtphf9-QKKwCVxj-ILVgk5oM1pgiKp7xCy9mf0a3AAAA&shmds=v1_ARwrE21g2_te_QXIe4Yi0kYu13aj4aDh3XTeKWiycArbXnuSfw&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Python+Developer&htidocid=YJgBb00GJ3FQH-v-AAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6abfff9641ffc8e37dfee45f/images/sEMtpkakdmgmtApU8ldvUrdj3_viWmAR5i1X3W6djRc.png",
+      "extensions": [
+        "4 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://careers.quest-global.com/global/en/job/P-123163/Developer-with-Python-Microservice-AWS-in-Bangalore",
+      "job_title": "Developer with Python, Microservice & AWS in Bangalore",
+      "description": "Job Requirements \nRole Summary\n\nDeveloper with hands-on experience in Python, Microservice & AWS\n\nKey Requirements\n\nStrong software engineering fundamentals3 to 6 total years of experience Strong experience in Python and Microservices developmentGood understanding of system design conceptsBasic understanding of AWS servicesNice to have-GenAIMust-have Skills & Experience\n\nStrong experience in Python and Microservices developmentBasic understanding of AWS services\n\nWork Experience \nKey Requirements\n\nStrong software engineering fundamentalsStrong experience in Python and Microservices developmentGood understanding of system design conceptsBasic understanding of AWS servicesNice to have-GenAI",
+      "apply_options": [
+        {
+          "title": "Quest Global",
+          "link": "https://careers.quest-global.com/global/en/job/P-123163/Developer-with-Python-Microservice-AWS-in-Bangalore?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Shine",
+          "link": "https://www.shine.com/jobs/developer-with-python-microservice-aws-in-bangalore/quest-global/19533714?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Foundit",
+          "link": "https://www.foundit.in/job/in-manager-java-full-stack-developer-with-react-data-analytics-advisory-bangalore-pwc-bengaluru-bangalore-66412812?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "JobLeads",
+          "link": "https://www.jobleads.com/in/job/in-manager-java-full-stack-developer-with-react-data-analytics-advisory-bangalore--bengaluru--e0ce121e6eacfdfabbec5d02932654332?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Glassdoor",
+          "link": "https://www.glassdoor.co.in/job-listing/lead-senior-cloud-native-developer-aws-with-java-and-gen-ai-epam-systems-JV_KO0,59_KE60,72.htm?jl=1010154949078&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/developer-with-python-microservice-aws-in-bangalore-quest-global-bengaluru-karnataka--t7xk-806655516?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "SimplyHired",
+          "link": "https://www.simplyhired.co.in/job/P2KrYkp8FGl1c_SXm05I4otMX0Uw5oCIk0IDSadg15L1ixjZBY8XhA?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Levels.fyi",
+          "link": "https://www.levels.fyi/jobs?jobId=0r91su8q4i6gs&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEZXZlbG9wZXIgd2l0aCBQeXRob24sIE1pY3Jvc2VydmljZSBcdTAwMjYgQVdTIGluIEJhbmdhbG9yZSIsImNvbXBhbnlfbmFtZSI6IlF1ZXN0IEdsb2JhbCIsImh0aWRvY2lkIjoiWUpnQmIwMEdKM0ZRSC12LUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpRbVZ1WjJGc2RYSjFMRXRoY201aGRHRnJZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTa1I2VHpGblMzWlNjMnR1Y2sxbE9YZE5abnBSY21GMExVYzNPSEJxU0RKUVVVSkRRMFZUYjI0M2VGUTFZVzU0YkU1aVdUSmlRbVJwVlhOcGFFUTRkM1k1UjFGSVEzVlZPRFpSZUc4NGRVdDJaalJmY1ZVMlVXOXdSMHcwVkZCR2QxZEtjems0YmxoV1NVUlVPVzVHZEc1bWNHMURMV0pCVURJMFFqWllVV041VTBVeFpYZ1NGMnhmTFY5aGRHMTRSMk4xYUhkT05GQnBjbmx1TmxGekdpSkJSSE55T1daUmFYTkNjbGR1WDBnNVZTMXlNbTlrUVdOSmNGQnlZbTV3ZDFCUiIsImZjdiI6IjMiLCJmY19pZCI6IllKZ0JiMDBHSjNGUUgtdi1BQUFBQUE9PSJ9"
+    },
+    {
+      "title": "AWS Integration with Python",
+      "company_name": "Wipro",
+      "location": "Bengaluru, Karnataka",
+      "via": "LinkedIn",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Python+Developer&htidocid=nB2o6qYjjAdNc3KCAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWLMQoCMRAAsb0nCMLWIhcRbbTSRsRGsLA89o6QRONuyO7h2fkG_aEvMTbDMDDVe1Qtt5czHEity6iBCR5BPZye6ot_Xx-4cgtiMXceStkzu2jHG6-aZG2MSKydaFm7uuO7YbItD6ZM8kcjHrNNEdU2i9V8qBO56eQSUmYIBDtLDmOf-xkcMRMq3vAHu33xx5UAAAA&shmds=v1_ARwrE23xQ6XIhAT4AuQvNXuJYFJS0HLpP4ibzYv9tB0M16N6gQ&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Python+Developer&htidocid=nB2o6qYjjAdNc3KCAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6abfff9641ffc8e37dfee45f/images/2Cyhjd2rfagAcf3IifCYfDTk4HS_xdawGR0gdajSBxk.jpeg",
+      "extensions": [
+        "1 day ago",
+        "Full–time"
+      ],
+      "source_link": "https://in.linkedin.com/jobs/view/aws-integration-with-python-at-wipro-4474189484",
+      "job_title": "AWS Integration with Python",
+      "description": "Job description:\n\nJob Description \n\nKey Responsibilities\n•    Design, develop, and maintain cloud-based integration solutions using AWS serverless technologies.\n•    Build and support APIs and event-driven integrations across enterprise applications.\n•    Develop reusable and scalable Python-based integration components.\n•    Integrate Oracle Fusion applications with internal and external systems.\n•    Design and maintain Oracle Service Bus (OSB) services and integrations.\n•    Develop and manage data flows using Apache NiFi.\n•    Implement messaging and event-driven architectures using SQS, SNS, and EventBridge.\n•    Collaborate with business stakeholders and technical teams to gather and translate requirements into technical solutions.\n•    Build and maintain CI/CD pipelines to automate deployment processes.\n•    Monitor, troubleshoot, and optimize integration solutions for performance, availability, and cost efficiency.\n•    Participate in code reviews and ensure adherence to development standards and best practices.\n•    Provide production support, root cause analysis, and continuous improvement recommendations.\n•    Design, develop, and maintain Infrastructure as Code (IaC) solutions using Terraform.\n•    Automate cloud infrastructure provisioning, deployment, and configuration management across AWS environments.\n•    Collaborate with DevOps teams to implement and optimize CI/CD pipelines for application and infrastructure deployments.\n\nPrimary Skills (Mandatory)\nAWS Serverless Services\n•    AWS Lambda\n•    API Gateway\n•    SQS\n•    SNS\n•    EventBridge\n•    DynamoDB\n•    S3\n•    Step Functions\n•    ECS -Fargate\nPython Development\n•    REST API development\n•    Data transformation and processing\n•    Automation scripting\n•    Unit testing and debugging\n\n \n\nMandatory Skills: Cloud Integration\n.\n\n \n\nExperience: 5-8 Years\n.\n\n \n\nReinvent your world. We are building a modern Wipro. We are an end-to-end digital transformation partner with the boldest ambitions. To realize them, we need people inspired by reinvention. Of yourself, your career, and your skills. We want to see the constant evolution of our business and our industry. It has always been in our DNA - as the world around us changes, so do we. Join a business powered by purpose and a place that empowers you to design your own reinvention.",
+      "apply_options": [
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/aws-integration-with-python-at-wipro-4474189484?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "SimplyHired",
+          "link": "https://www.simplyhired.co.in/job/rIBx7kbzALhS4Q-EGDzcUBU1MyHChr6L-3OttXBYxVOYKmvKKo8MsQ?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/aws-integration-with-python-wipro-bengaluru--fj-2392281966?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Recruit.net",
+          "link": "https://www.recruit.net/job/aws-integration-python-jobs/33FD287FDE35D84E?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBV1MgSW50ZWdyYXRpb24gd2l0aCBQeXRob24iLCJjb21wYW55X25hbWUiOiJXaXBybyIsImh0aWRvY2lkIjoibkIybzZxWWpqQWROYzNLQ0FBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpRbVZ1WjJGc2RYSjFMRXRoY201aGRHRnJZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBURmx1ZGsxelpHTmtXRzl6VkhWcVIzRlVlRkJLWjIxNmVVbHJTSFpwWTNoM1QzaEtSVjlwUm5oSWJuZzFkRXN6V1VKV2RuRnFVVkV3Ymtaa1VETjFUVGxvUTNSdVIyaE1VMjVVVUZaTFZEaEpSbXBxWkVzeVFUVjBTM1ZYUzFadWVFMWhSVEIwZEZsTWVGQmhURGh2TFhsRk9USk9MVkZ0YzFWVWJVZG1VRWh6T0hGdmFXd1NGMnhmTFY5aGRHMTRSMk4xYUhkT05GQnBjbmx1TmxGekdpSkJSSE55T1daUldqVXlVVjlsYkRaVFgxVnhhRlE0ZUhORmVsQjFWMng0VkhaUiIsImZjdiI6IjMiLCJmY19pZCI6Im5CMm82cVlqakFkTmMzS0NBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "Senior Software Engineer - Python Developer with Generative AI and Cloud Expertise",
+      "company_name": "JP Morgan Services India Pvt Ltd",
+      "location": "Bengaluru, Karnataka",
+      "via": "Apna Jobs",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Python+Developer&htidocid=LiUwxE_08X77UYi7AAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWOTUoDQRCFcZsjuHpr0RkRBNFVNCHEHxiYA4TKTNndplM1dNdMxp138IbiQWw3b_F438db_J4tDi1L0IRW3-1EibEWF4Q54QrNp3kVrHjiqEOpTsE8NiycyMLEWG5B0uMp6thjPZeJhcz4-frGh-6RmVLnURQbVRf5_MGbDfm-rnOOlctWLF3V6bFW4b3OdYHyf-yyL1eGSMa7m9vruRrEXdw9N3jT5EjQcppCxxlb6QOhmQyv1iMIHlkcxTGNl3ihJGR0oD8VXEUK5wAAAA&shmds=v1_ARwrE23K2uxhwrZe_hVfYVJ5_AOrshUPp5RGkNnlgb2uf-GiIQ&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Python+Developer&htidocid=LiUwxE_08X77UYi7AAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA1CAMAAAAjxtjyAAAAY1BMVEX___-srKzV1dWoqKivr6_7-_v4-Pjz8_O1tbWMjIzf39_q6up0dHSysrLAwMDY2NhhYWFbW1uamppoaGiDg4PKysofHx8UFBQAAAAvLy9ISEiUlJQ0NDR8fHxubm5VVVVBQUGiSwllAAAA5ElEQVRIie3R227DIAwGYI7BxoQQA82WNOne_ymHVCnttFZ7gPFdGcPvCyNE13Vd947fotTaa2gl0q9r0NurdmMvTgZazIcTIZ1NGO4FF0Fy9vdD69mn4Kcbg1pjYMIwIdecS0KWa9UpjUvL2LwtbrsSgioYfwSTsqNaZC1H9SsDZc2CsaIPl6k9SZQml-O6mz2q56A5hJBDhnpgVIGjPUa3AtYy7XwTA800x9AyBb_8IzhcndRktaIBmIyxOvq93Bg4GqVFLDDwpOsG0oAAdGdQPWacmywj_PEXb9DL_Xdd1_0X3__NC4qFQe-uAAAAAElFTkSuQmCC.png",
+      "extensions": [
+        "4 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://apna.co/job/bengaluru/software-engineer-iii-python-developer-prompt-engi-1237602269",
+      "job_title": "Senior Software Engineer - Python Developer with Generative AI and Cloud Expertise",
+      "description": "Software Engineer III - Python Developer + Prompt Engineering + Agentic AI + AWS We have an exciting and rewarding opportunity for you to take your software engineering career to the next level. As a Software Engineer III - Python Developer + Gen AI + LLM at JPMorgan Chase within the Commercial & Investment Bank, you'll serve as a seasoned member of an agile team to design and deliver trusted market-leading technology products in a secure, stable, and scalable way. You are responsible for carrying out critical technology solutions across multiple technical areas within various business functions in support of the firm’s business objectives. Job responsibilities Executes software solutions which integrate Gen AI models with Enterprise workflows, including design, development, and technical troubleshooting. Demonstrates the ability to think beyond routine or conventional approaches to build solutions or break down technical problems Builds data pipelines that clean, transform, and aggregate data from disparate sources Creates secure and high-quality production code and maintains algorithms that integrate seamlessly with appropriate systems Produces architecture and design artifacts for complex applications while being accountable for ensuring design constraints are met by software code development Gathers, analyzes, synthesizes, and develops visualizations and reporting from large, diverse data sets in service of continuous improvement of software applications and systems Proactively identifies hidden problems and patterns in data and uses these insights to drive improvements to coding hygiene and system architecture Contributes to software engineering communities of practice and events that explore new and emerging technologies Leverages enterprise-authorized AI coding assist tools within the work environment to improve code quality, delivery speed, and productivity across complex deliverables (e.g., code generation/refactoring, unit test creation, documentation), while validating outputs through peer review, automated testing, and secure coding standards; contributes learnings and reusable patterns to improve broader team effectiveness. Applies knowledge of tools within the Software Development Life Cycle toolchain, including enterprise-authorized AI-assisted development and automation capabilities, to improve the value realized by automation. Required qualifications, capabilities, and skills Formal training or certification on software engineering concepts and 3+ years applied experience Hands on software development experience with experience working with LLMs, Gen AI solution integration, RAG solutions. Hands-on practical experience in system design, application development, including building data pipelines, testing, and operational stability Experience in AI agents frameworks, Langchain, LangGraph and experience working on document-based Gen AI use cases Strong hands-on expertise with Python is a must-have, with experience in Python frameworks like Django, Flask or FastAPI. Experience in developing, debugging, and maintaining code in a large corporate environment with one or more modern programming languages and database querying languages Overall knowledge of the Software Development Life Cycle Solid understanding of agile methodologies, application resiliency, and security. Experience working with CI/CD pipelines Demonstrated knowledge of software applications and technical processes within ML and Cloud technologies. Hands-on experience using enterprise-authorized AI-assisted software development tools within the work environment (e.g., for coding, test creation, troubleshooting, or documentation) with demonstrated ability to critically evaluate, validate, and refine AI-generated outputs for correctness, performance, and security. Understanding of responsible AI use in engineering workflows, including data sensitivity considerations, secure handling of inputs/outputs, and adherence to resiliency and security expectations; ability to guide peers on safe and effective usage within team practices. Preferred qualifications, capabilities, and skills Hands-on experience in building Gen AI solutions for the enterprise Experience building solutions using AWS/similar cloud technologies Certifications in cloud technologies Familiarity with Java, shell scripting is preferred. Experience Level Senior Level",
+      "apply_options": [
+        {
+          "title": "Apna Jobs",
+          "link": "https://apna.co/job/bengaluru/software-engineer-iii-python-developer-prompt-engi-1237602269?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/senior-software-engineer-python-developer-with-generative-ai-and-cloud-expertise-jp-morgan-services---techmap_in_1237602269?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Getmereferred.com",
+          "link": "https://getmereferred.com/job-listing/python-testing-with-generative-ai-people-prime-worldwide-bengaluru-2-to-5-years-experience-8ffe1966-bbc1-4958-97be-125994f868d0?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/5263720532087406592?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Hyrewire",
+          "link": "https://hyrewire.in/jobs/python-developer-with-azure-and-ai-r17wk?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/339669740/lead-generative-ai-developer-with-aws-bengaluru?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobiglo",
+          "link": "https://in.jobiglo.com/job-python-developer-generative-ai-langchain-openai-j-6a8bae2dfab5b7d4b50a1f75?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJTZW5pb3IgU29mdHdhcmUgRW5naW5lZXIgLSBQeXRob24gRGV2ZWxvcGVyIHdpdGggR2VuZXJhdGl2ZSBBSSBhbmQgQ2xvdWQgRXhwZXJ0aXNlIiwiY29tcGFueV9uYW1lIjoiSlAgTW9yZ2FuIFNlcnZpY2VzIEluZGlhIFB2dCBMdGQiLCJodGlkb2NpZCI6IkxpVXd4RV8wOFg3N1VZaTdBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwU2pSVmVHNXNOemRmWjJKbVRXSkpVeTFCUm1OSFowdE5lRTV2TlVKMVdIZ3RVWFF6V0haRmMyd3RTbEJvVEhSaE5ITTFYM0U1ZWxob1VGSmpVbTFwU3pkMU1XUlVXRlZKUTFKeGEzbG1kWFpmVEhObFVTMURSVFJyTUVaWFJGbEtiR0pYWldwcGEybHViRzVNWVZSUWJXUjVlRWRCTUdGdlJHNUVTbUpYYjFwalpWZEpTaTBTRjJ4ZkxWOWhkRzE0UjJOMWFIZE9ORkJwY25sdU5sRnpHaUpCUkhOeU9XWlNZbmd6ZEU4MFl6WlVWVVo2TldzMk5Xa3dSRUk1T1VSRU0zTm4iLCJmY3YiOiIzIiwiZmNfaWQiOiJMaVV3eEVfMDhYNzdVWWk3QUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Copy of Python Developer",
+      "company_name": "Grid Dynamics",
+      "location": "Bengaluru, Karnataka",
+      "via": "Shine",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Python+Developer&htidocid=bms0aP9kmft5FXJGAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLsQ3CMBBAUdFmBKpraBCKAYkGOoiUgoYNoos5bIPjs3wOSjp2oGA_JiE0v3n6xWdWbE4cR-AbXMZsOUBFT_IcKcH39YY7tyCESVuYrGY2nuYHm3OUvVIivjSSMTtdau4UB2p5UNMk_zRiMVH0mKnZ7tZDGYNZLurkrlCNATunBVyAIwWDvk_9Cs6YAmZ84A_8-n7ImgAAAA&shmds=v1_ARwrE21tVlDcuVKeE7-7wiMyMuzLYCFRymUDp36GQ6ZC8aRyoQ&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Python+Developer&htidocid=bms0aP9kmft5FXJGAAAAAA%3D%3D",
+      "extensions": [
+        "4 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://www.shine.com/jobs/copy-of-python-developer/grid-dynamics/19629964",
+      "job_title": "Copy of Python Developer",
+      "description": "4+ yrs of experience in Core Backend Development: Design, build, and maintain scalable backend services and APIs using Python (FastAPI/Django/Flask).Agentic AI Implementation: Architect and develop autonomous AI agents capable of multi-step reasoning, tool use, and complex decision-making to automate business workflows.GenAI & RAG Integration: Build and optimize Retrieval-Augmented Generation (RAG) pipelines to ground LLMs in proprietary data, ensuring high accuracy and low latency.Production Deployment: Take ownership of the full software lifecyclefrom architectural design to deployment and maintenance in a production environment. Monitor system health, performance, and reliability.Tooling & Orchestration: Integrate Generative AI tools (e.g., OpenAI, Anthropic, LangChain, LlamaIndex) into existing application logic.Collaboration: Work closely with frontend engineers, data scientists, and product managers to translate complex AI capabilities into user-friendly features.\n\nResponsibilities\n\nStrong Python Proficiency: Deep understanding of Python internals, asynchronous programming, and modern web frameworks.Production Experience: Proven track record of deploying and maintaining at least one application in a production environment. You know what it takes to keep a system running (logging, monitoring, error handling).GenAI & Agentic Mindset: Hands-on experience with Generative AI tools and a conceptual understanding of how to build systems where AI models act as \"agents\" rather than just text generators.Database Skills: Proficiency with SQL (PostgreSQL, MySQL) and experience with vector databases (Pinecone, Weaviate, Milvus, or pgvector).\n\nRequirements\n\nHands-on RAG & Agent Build: Demonstrated experience specifically building RAG architectures or functional AI Agents that interact with external APIs/tools.Data Science/ML Background: Familiarity with machine learning concepts, model evaluation, or data engineering pipelines is a strong plus.Cloud Native: Experience with Docker, Kubernetes, and cloud platforms (AWS/GCP/Azure).Prompt Engineering: Advanced skills in prompt optimization and steering LLM behavior.\n\nWe offer\n\nOpportunity to work on bleeding-edge projectsWork with a highly motivated and dedicated teamCompetitive salaryFlexible scheduleBenefits package - medical insurance, sportsCorporate social eventsProfessional development opportunitiesWell-equipped office\n\nAbout Us\n\nGrid Dynamics (NASDAQ: GDYN) is a leading provider of technology consulting, platform and product engineering, AI, and advanced analytics services. Fusing technical vision with business acumen, we solve the most pressing technical challenges and enable positive business outcomes for enterprise companies undergoing business transformation. A key differentiator for Grid Dynamics is our 8 years of experience and leadership in enterprise AI, supported by profound expertise and ongoing investment in data, analytics, cloud & DevOps, application modernization and customer experience. Founded in 2006, Grid Dynamics is headquartered in Silicon Valley with offices across the Americas, Europe, and India. .",
+      "apply_options": [
+        {
+          "title": "Shine",
+          "link": "https://www.shine.com/jobs/copy-of-python-developer/grid-dynamics/19629964?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/copy-of-product-architect-dunder-mifflin-paper-bengaluru--ss-in-1d6lz6a?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJDb3B5IG9mIFB5dGhvbiBEZXZlbG9wZXIiLCJjb21wYW55X25hbWUiOiJHcmlkIER5bmFtaWNzIiwiaHRpZG9jaWQiOiJibXMwYVA5a21mdDVGWEpHQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlFtVnVaMkZzZFhKMUxFdGhjbTVoZEdGcllTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFRIa3lUbnBFYkV0bWIwbEhSREJxVkV0SGFXUTJTV0ZvT1hSNk5ERnpNMEprY0U1d1NVcEpOME0yU2sxSlRWbzRVa3RFYWkxaGIyVnRWazVHVFZRM2FGaHNWbWc1T1hwWVpFbGFSRVozVWxwT2JsZHRkRWx4UWw5bmVqVk5YMUpYV1hkUlVVVXpaVFpYVlhaM2RsVkdaMnc1U1ZCeE9XdGtZVFZwVFVoeFRqWklVRlJzYTNRU0YyeGZMVjloZEcxNFIyTjFhSGRPTkZCcGNubHVObEZ6R2lKQlJITnlPV1pVYW14ell6UXRabGhUVTFCQlgwRmllbEJNTVVFMVRWb3pZek5SIiwiZmN2IjoiMyIsImZjX2lkIjoiYm1zMGFQOWttZnQ1RlhKR0FBQUFBQT09In0="
+    },
+    {
+      "title": "Backend Developer (Python and Django)",
+      "company_name": "Ditto Insurance",
+      "location": "Bengaluru, Karnataka",
+      "via": "LinkedIn",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Python+Developer&htidocid=SD5ERYwV3fhhZ69tAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWLOwrCQBBAsc0RrKbzg2RFsFGwCAERG28QJuuw-awzYXcisfMO3sGDeRKT5hXv8ZLvLDllaFviO-T0JC8dBVjeXloJA062QXaygt_7A42UEAmDrWCsZxHnaX6sVLt4MCZGn7qoqLVNrTyMMJUymHGKE4pYYaDOo1Kx22-HtGO3XuS1qsCFYx-QLUHNkBE79H3oN3DFwKjY4h_dkVqmqQAAAA&shmds=v1_ARwrE22YXHdANe_Q_TAno8Au7pENK-4IXix86ldZtJoWjnCo-Q&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Python+Developer&htidocid=SD5ERYwV3fhhZ69tAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6abfff9641ffc8e37dfee45f/images/0wXf2jT8hzZ3nppgqMsi57VX-IDyk5sejenIBVtkjFU.jpeg",
+      "extensions": [
+        "3 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://in.linkedin.com/jobs/view/backend-developer-python-and-django-at-ditto-insurance-4471904307",
+      "job_title": "Backend Developer (Python and Django)",
+      "description": "What's Ditto?\n\nDitto’s mission is to help people make well-informed insurance decisions - from expert advisory and policy purchases to dedicated claim support. We pioneered the industry-first “No-spam” policy, and over the past five years, we’ve assisted over 700,000 users with personalised advice on health and term insurance. We carry a 4.9 rating with 32,000+ reviews on Google.\n\nDitto is part of the Finshots family (500K+ subscribers) and is backed by Zerodha, India’s largest stockbroker. We won LinkedIn’s Top Startup award in both 2022 and 2023.\n\n\n\n\nResponsibilities\n\nArchitect and build end-to-end backend services and APIs.Integrate with external systems such as insurers, payment gateways, and other partners.Ensure high observability, performance, and reliability across systems.Write clean, reusable, and maintainable code with a focus on scalability.Implement comprehensive test coverage and maintain code quality.Manage database design, migrations, scripting, and administration.\n\n\nExperience & Skills\n\n2-8 years of experience in backend development.Hands-on experience with low-level & high-level system design.Proven experience building scalable, secure backend systems (APIs, middleware, caching).Proficiency in Python, Django, Django REST Framework (DRF), PostgreSQL, Redis, Celery, and basic HTML/CSS.Experience developing RESTful APIs.Familiarity with AWS or other major cloud platforms is a plus.Strong sense of ownership, problem-solving ability, and leadership qualities.\n\n\nPerks\n\nComprehensive health and term insuranceESOPsCompensation as per industry standards\n\n\nOur Interview Process: \n\nWe value your time and aim to complete the process within 3 weeks, consisting of the following stages:\n\nThe schedule is as follows:\n\nHR Introductory RoundTech-Connect RoundLive Coding Round 1 - onlineLive Coding Round 2 -(in office)Founders round\n\n\nThis is an in-office role. Our address is: Fortuna-1, No 680, 15th Cross, J.P Nagar 2nd phase, J P Nagar, Bangalore, Bangalore South - 560078, Karnataka, India\n\n\n\n\nPlease Note: Beware of recruitment scams. Ditto does not charge any fees at any stage of the hiring process. If you receive any suspicious message claiming to be from Ditto, please verify through our official",
+      "apply_options": [
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/backend-developer-python-and-django-at-ditto-insurance-4471904307?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/backend-developer-python-and-django-ditto-insurance-bengaluru-karnataka--t7xk-859035674?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/4447783604633731072?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/340511373/backend-developer-python-and-django-bengaluru?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJCYWNrZW5kIERldmVsb3BlciAoUHl0aG9uIGFuZCBEamFuZ28pIiwiY29tcGFueV9uYW1lIjoiRGl0dG8gSW5zdXJhbmNlIiwiaHRpZG9jaWQiOiJTRDVFUll3VjNmaGhaNjl0QUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlFtVnVaMkZzZFhKMUxFdGhjbTVoZEdGcllTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFNsRjZNV1pXZUVVMGFsb3hiSFptVVVGZlQxQlhVRVJwTjNJeFduSllURTFIUkVsMlNEZ3llV3RDYVhjMVJGRkNablZXY0VsbGVWSlRVRFJDUkc0dFdYSjZTRTQyZVhSNVdrSlBSRXhNYXpjeldXOVdZMUkyT0VoNWJYa3RNa2xKV0hwall6UmtWRkpUYTBneFkyVjZNVFZNTURkRlIyazFSMGxrY2xwdGJWSlZWeTEzYnprU0YyeGZMVjloZEcxNFIyTjFhSGRPTkZCcGNubHVObEZ6R2lKQlJITnlPV1pSVlZsNU0wbHNVV3MwV0RkQmJrVk9TMjVYVlUwNFYwNXRjemxSIiwiZmN2IjoiMyIsImZjX2lkIjoiU0Q1RVJZd1YzZmhoWjY5dEFBQUFBQT09In0="
+    },
+    {
+      "title": "AI Developer with Go & Python",
+      "company_name": "Tata Elxsi",
+      "location": "Bengaluru, Karnataka",
+      "via": "BeBee",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Python+Developer&htidocid=vZCRHEiaqpja8MLUAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWLMQrCQBAAsc0TrBYLC5GcCFpopShBbCzswyYsudPz9rjdaOz8g5Xf8yXGZooZJvsMsuXmADu6k-dICR5OLRQMYzg91XKA7-sNF65ACFNtoTcFc-NpuLaqUVbGiPi8EUV1dV7zzXCgijvTT_JHKRYTRY9K5Xwx6_IYmsnojIqw9504cAG2FBr0bWqncMQU-nbFH4MrXm-cAAAA&shmds=v1_ARwrE20xFEYfz6ZnJvcKYgBfgWe1U3MyytLkCHqhgrsaUdYkmQ&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Python+Developer&htidocid=vZCRHEiaqpja8MLUAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAclBMVEX___8TabYAXLDC0-gAZLT0-PoAYLLr8ffj6_SowN7-__wAW7EAVq1rlcfA0eS-0eYATapUiMIwdLiswtxJgb7P3ewAUaza5PC3yuCguth1m8oocLc5eb1bjcSEqM14nsqQrdIARqYAO6OYtNaDpc8AQaanUJGsAAAB0UlEQVRIie2U25KkIAyGA3IQBU8IHlq7dXTe_xU34E71XDIXs7UX_lUoYD5CAhHg1q1b_7sKN81t386TK37ETY-SsiBKH1M6JrsyUuRiuzyRy7UWZFlnQ828LoRSPaSBTzvw2KHxyQd7JnHcqVdPhD4R3NB3_5ocTwHRGMMjbEZwFiHOsEgKKEiQmEDDdPXZlgJW5QVWCDoa-2WVAsLCIiihLHj0yJYkDnIaQnwAeIAucCL1IGWnCTMRNIzpJZVDjUujAHYA2_Rp8b33K6Fo0fkPvP26eJ2h6gLqzIG8BhyqrPr7ta5dgROQ1wAOLayVEMYw7CWl5Q6jpxqyOPh0gy99LAnZ9O2T79iXHxlvKqnNankTIs9Nj7k30GLljYPBV2skXjv2iqDHxWWsq6N9tqBY2Ia-UrYJKvHUSRduSE3pCEBYx0QE6esc-VWQHV4mqbvqDTI6wCGIozgxBrCiwomwABoeyn0DgW96K95gDkTM8BDPC1xFCz3rI8i_tnasZxvM1ePL46l9XnlfgdFlMXo_8sZbmPyeh-SY-eR6NUZ-OkzOaA6yXcnBJFvFnbWYJ6UkthwbB64UbpBbFFillEODrJbTgceikv4It27d-kf6A51WGoz9z70VAAAAAElFTkSuQmCC.png",
+      "extensions": [
+        "2 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://bebee.com/in/jobs/ai-developer-with-go-python-tata-elxsi-bengaluru--t7xk-859685089",
+      "job_title": "AI Developer with Go & Python",
+      "description": "Role & responsibilities\n\n\nGo and Python Developer with AI MB623JP00032471:\n\n\nJob Description\n.Design, develop, and maintain scalable and reliable applications using Go and Python.\n\nWrite clean, efficient, and well-documented code.\nDevelop back-end components and integrate them with front-end elements.\nParticipate in the entire software development lifecycle, including requirements gathering, design, development, testing, deployment, and maintenance.\nCollaborate with cross-functional teams to define, design, and develop new features.\nWrite and execute unit tests and perform debugging.\nEnsure the performance, security, and scalability of applications.\nStay up-to-date with new technologies and frameworks.\nContribute to system design and architecture.\nOptimize code for efficiency and performance.\nBuild RESTful microservices.\nWork with data storage solutions.\nImplement data security and protection measures.\nAutomate tasks using Python scripts",
+      "apply_options": [
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/ai-developer-with-go-python-tata-elxsi-bengaluru--t7xk-859685089?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobaaj",
+          "link": "https://www.jobaaj.com/job/infosys-limited-react-js-with-generative-ai-developer-bengaluru-bangalore-karnataka-0-to-1-years-1442264?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/2117722752306642944?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/340520697/ai-developer-with-go-python-bengaluru?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "NiyukJobs | AI",
+          "link": "https://niyukjobs.ai/jobs/detail/d397ea6f-831a-49a9-8ca0-a69c1bf4ccac?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBSSBEZXZlbG9wZXIgd2l0aCBHbyBcdTAwMjYgUHl0aG9uIiwiY29tcGFueV9uYW1lIjoiVGF0YSBFbHhzaSIsImh0aWRvY2lkIjoidlpDUkhFaWFxcGphOE1MVUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpRbVZ1WjJGc2RYSjFMRXRoY201aGRHRnJZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBUSFkzTXpWMVFUWXdVRGwyT0VwVWVFTjRhRkJSV0V0eGREbENOMEl0Tm1wb1gyVlVhVGt0T1dRNFIxcDJlbkJJVkRCNVpYaHlUR2RFYW05TWRsaFZUbE5MVEZkeE5IaFlPV05wVGxaWFZYVldiall0VTNGclZXdzBaVXR6YmtaeGRGVkdjVmhtWjNGMWFsQlRRa1J5TFZWQlJIVmtTV281YkhSRmFFbDZPVGc0UlhsbVRYY1NGMnhmTFY5aGRHMTRSMk4xYUhkT05GQnBjbmx1TmxGekdpSkJSSE55T1daVVprcHBUMEZ5WXpoS1IwYzJNa0V5U0MxcGVtMUxWRTlMU0RWMyIsImZjdiI6IjMiLCJmY19pZCI6InZaQ1JIRWlhcXBqYThNTFVBQUFBQUE9PSJ9"
+    }
+  ],
+  "serpapi_pagination": {
+    "next_page_token": "eyJmYyI6IkVxSUVDdUlEUVVwcFZEUjBUR2d6VFVaTlZ6QkROMDlIU0hSSmFUZzNOMkZMY21WRVJESkhNR1F6ZUY5emRWSkVaRFF5VjNWcFNTMTZhM0ZoZGxZM0xVbGFRbk5VZEhCR0xXUldSbmx1VjNacVNqSnpkR2MyTVRsTFUwNVRZVnBsUzJKT2NuaGxjMlptYkhGbFNqRm9USEl5UTJ4VFkyc3dZVU5QUXpCU00yeHliV1F5V0V4V1dVRmhjRVZpTURkdVpreDZjSFJTZG5WVmIzTnBUR3BrT1ZWV2VWbHJjbm90UzNvMFZtMVFabU5uY1ZkU2VURlNRak5KYVhaUlUwRm1hblpqV1ZScE5sZElSa0ZOTW5wcGVtdHJTakpMTFhrd1JVaHZlSEV3TFhReGJuQm9ZV3gxUkhoUVdWTTNYM0p0UW1kb2FscENTbmxVY21nemNVMVJZV0pqWVZacWFXMU9OVVZDTUcxWmMwaGhVM3BJVjNsUVVWWjVUbTVSYVc0d2RVNDVibDlqVUVnd1Z6QmtOWGxmWTNoVWVsTkRTVmMxUTJsU01FeEZUSE4yYm5kek1UVmZTbVF3YW01cVVsRk5OblZTUm1wb1JDMWhTbGQxWkZWdE9HZHNRMFJpZVVFMVUxUkpVM2h2T0docWIyRkpOMGwxVEZWbFh6WldWbmhwVHpka1FUSTBhbEpLU1c5eVMwWTRRa2xhWDFFMWRqbHFhVU5WZEc1aVdYWkpPVlpPTkZScVdWTlhhWEp5TVZnNGNXUnBYMDgwTTBOV2VGQmZUSFJOY2sxbmNFSlljVmRXU1hSWFVrUXhiemhJVkMxalIyUmFNMmd5TldaM1QxQm5PVmRpTWxoU1lrRVNGMnhmTFY5aGRHMTRSMk4xYUhkT05GQnBjbmx1TmxGekdpSkJSSE55T1daU2JVeGFOVTl2VUVsc2FrUkpMVWM1YVhGaWQyeGtVRWxXZDE5MyIsImZjdiI6IjMifQ==",
+    "next": "https://serpapi.com/search.json?engine=google_jobs&gl=in&google_domain=google.com&hl=en&location=Bengaluru%2C+Karnataka%2C+India&next_page_token=eyJmYyI6IkVxSUVDdUlEUVVwcFZEUjBUR2d6VFVaTlZ6QkROMDlIU0hSSmFUZzNOMkZMY21WRVJESkhNR1F6ZUY5emRWSkVaRFF5VjNWcFNTMTZhM0ZoZGxZM0xVbGFRbk5VZEhCR0xXUldSbmx1VjNacVNqSnpkR2MyTVRsTFUwNVRZVnBsUzJKT2NuaGxjMlptYkhGbFNqRm9USEl5UTJ4VFkyc3dZVU5QUXpCU00yeHliV1F5V0V4V1dVRmhjRVZpTURkdVpreDZjSFJTZG5WVmIzTnBUR3BrT1ZWV2VWbHJjbm90UzNvMFZtMVFabU5uY1ZkU2VURlNRak5KYVhaUlUwRm1hblpqV1ZScE5sZElSa0ZOTW5wcGVtdHJTakpMTFhrd1JVaHZlSEV3TFhReGJuQm9ZV3gxUkhoUVdWTTNYM0p0UW1kb2FscENTbmxVY21nemNVMVJZV0pqWVZacWFXMU9OVVZDTUcxWmMwaGhVM3BJVjNsUVVWWjVUbTVSYVc0d2RVNDVibDlqVUVnd1Z6QmtOWGxmWTNoVWVsTkRTVmMxUTJsU01FeEZUSE4yYm5kek1UVmZTbVF3YW01cVVsRk5OblZTUm1wb1JDMWhTbGQxWkZWdE9HZHNRMFJpZVVFMVUxUkpVM2h2T0docWIyRkpOMGwxVEZWbFh6WldWbmhwVHpka1FUSTBhbEpLU1c5eVMwWTRRa2xhWDFFMWRqbHFhVU5WZEc1aVdYWkpPVlpPTkZScVdWTlhhWEp5TVZnNGNXUnBYMDgwTTBOV2VGQmZUSFJOY2sxbmNFSlljVmRXU1hSWFVrUXhiemhJVkMxalIyUmFNMmd5TldaM1QxQm5PVmRpTWxoU1lrRVNGMnhmTFY5aGRHMTRSMk4xYUhkT05GQnBjbmx1TmxGekdpSkJSSE55T1daU2JVeGFOVTl2VUVsc2FrUkpMVWM1YVhGaWQyeGtVRWxXZDE5MyIsImZjdiI6IjMifQ%3D%3D&q=Python+Developer"
+  }
+}

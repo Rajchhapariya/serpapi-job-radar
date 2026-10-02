@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List, Optional, Any
 from pydantic import BaseModel, Field
 
 
@@ -17,7 +17,10 @@ class SearchRequest(BaseModel):
         pattern=r"^[a-zA-Z0-9\s,\.\-_/]+$",
         description="Location or country filter"
     )
+    gl: Optional[str] = Field(default="in", max_length=10, description="Country code (e.g. in, us)")
+    hl: Optional[str] = Field(default="en", max_length=10, description="Language code (e.g. en)")
     num_results: int = Field(default=20, ge=5, le=100, description="Max jobs to fetch per batch")
+    max_pages: Optional[int] = Field(default=2, ge=1, le=5, description="Max pages to traverse via next_page_token")
     date_posted: Optional[str] = Field(
         default=None,
         pattern=r"^(today|3days|week|month)$",
@@ -49,6 +52,13 @@ class JobItem(BaseModel):
     apply_link: Optional[str] = None
     posted_at: Optional[str] = None
     scraped_at: str
+    apply_options: Optional[Any] = None
+    portal_count: Optional[int] = 1
+    salary_min_lpa: Optional[float] = None
+    salary_max_lpa: Optional[float] = None
+    source_query: Optional[str] = None
+    source_gl: Optional[str] = None
+    is_snapshot: bool = False
 
 
 class AnalyticsResponse(BaseModel):

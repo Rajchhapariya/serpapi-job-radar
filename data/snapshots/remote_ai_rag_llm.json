@@ -1,0 +1,287 @@
+{
+  "slug": "remote_ai_rag_llm",
+  "captured_at": "2026-10-02T19:05:25.343969+00:00",
+  "latency_ms": 5126,
+  "query_params": {
+    "q": "AI Engineer LLM RAG",
+    "location": "India",
+    "gl": "in",
+    "hl": "en",
+    "engine": "google_jobs",
+    "ltype": "1"
+  },
+  "jobs_count": 10,
+  "jobs": [
+    {
+      "title": "AI/ML & Prompt Engineer LLM, RAG & Voice Agent",
+      "company_name": "QuantumLoopAI",
+      "location": "Anywhere",
+      "via": "Jobs By Workable",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=N69lVTcu0lz-6V28AAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLsQrCMBCAYVwLvoDTTQ4ijQguOmWQUkhBHVxLGo60pb0LyRU6-g7iC_ok1uVfPv7ss8oKXarKwBZukccgcCXfEWIEY6o9PHSx0JM7h6A9ksD39YaeG0hoo2uBCQpmP-Dm0oqEdFYqpSH3Sax0Lnc8KiZseFbLlP6pU2sjhsEK1sfTYc4D-d36PlmSaTTMQZc_ibInyJgAAAA&shmds=v1_ARwrE20BGJOMRe3acmFm4ffOduKwYbyzUl8NGWi5wgyKgsNsDg&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=N69lVTcu0lz-6V28AAAAAA%3D%3D",
+      "extensions": [
+        "Work from home",
+        "Full–time"
+      ],
+      "source_link": "https://apply.workable.com/quantumloopai/j/B7F8DA3F6C",
+      "job_title": "AI/ML & Prompt Engineer LLM, RAG & Voice Agent",
+      "description": "ABOUT QUANTUMLOOPAI\n\nQuantumLoopAI is transforming how patients access healthcare. Our AI-powered reception system, EMMA, serves millions of patients, helping GP surgeries manage demand, reduce phone queues, and ensure patients get the right care at the right time. Backed by leading healthcare investors and working with stakeholders across England, we are building the future of primary care access. As we prepare for our Series A and expand our team, we are looking for exceptional people who want to make a genuine difference to healthcare.\n\n\n\nABOUT THE ROLE\n\nAs our AI/ML & Prompt Engineer, you will own the intelligence behind EMMA — the LLM and RAG systems that power our chatbot, voice agent and telephony services. You will design, build and optimise the AI models and prompt architectures that allow EMMA to understand patient needs, retrieve accurate clinical information, and respond naturally across text and voice channels. This is a hands-on, high-impact role where your work will directly shape patient outcomes across hundreds of GP surgeries.\n\n\n\nWHAT YOU WILL DO\n\nArchitect and deploy LLM- and RAG-based systems that ingest data sources, generate accurate responses, and power both chatbot and voice agent interactions.Design, iterate and optimise prompts and voice-agent dialogue flows to maximise response relevance, reduce latency and ensure clinical safety across text and voice channels.Partner with frontend (Next.js, React) and backend (NestJS, Python) teams to integrate AI and voice agent components into our Azure-hosted microservices architecture.Instrument AI and voice-agent pipelines, analyse logs and user feedback, troubleshoot edge cases, and implement continuous-learning improvements.Stay abreast of the latest advances in LLMs, RAG, conversational AI frameworks, and (GDPR, DTAC) to inform our technical roadmap.Define and execute rigorous test plans in collaboration with QA to validate model accuracy, voice-agent performance and compliance with healthcare standards.Mentor junior engineers and advocate for best practices in MLOps, prompt engineering, voice-agent design and model governance.ESSENTIAL\n\nDemonstrable hands-on experience with prompt engineering, LLMs (e.g. GPT, LLaMA, Mistral), RAG frameworks, and voice-agent or dialogue-system design, with shipped projects or open-source contributions.Advanced proficiency in Python for ML/AI development.Experience building APIs in NestJS and familiarity with Next.js/React for frontend integration.Strong understanding of Azure services (App Services, Functions, Cognitive Services), containerisation (Docker), and relational databases (MySQL).Experience designing microservices, distributed architectures and RESTful or GraphQL APIs.Excellent written and verbal communication skills, with the ability to articulate complex AI and voice-agent concepts to technical and non-technical stakeholders.Comfortable working remotely and collaborating asynchronously with a UK-based team during UK business hours (9:00 AM to 6:00 PM GMT/BST).\n\nDESIRABLE\n\nContributions to open-source LLM or RAG tooling.Experience with MLOps pipelines, model monitoring and automated evaluation frameworks.Background in speech-to-text, text-to-speech, or telephony integration.\n\nLOGISTICS\n\nEducation: We value skills and experience over formal qualifications.Working arrangements: Fully remote from India, aligned to UK business hours (9:00 AM to 6:00 PM GMT/BST).Start date: Flexible.WHAT WE OFFER\n\nCompetitive package depending on experiencePotential share optionsProfessional development including conference attendance and CPD supportRemote working with a collaborative, supportive team\n\nHOW WE ARE DIFFERENT\n\nAt QuantumLoopAI, you will join a team that is genuinely improving primary care. We move fast, take ownership, and celebrate wins together. Our culture values:\n\n\n\nImpact over optics. We measure success by patient outcomes, not busy workTransparency. Open communication, honest feedback, shared contextOwnership. You will have real autonomy to shape your work and our productLearning. We are building something new, and we learn from every experiment\n\nDIVERSITY AND INCLUSION\n\nWe believe diverse teams build better products. We welcome applications from candidates of all backgrounds, and we are committed to creating an inclusive environment where everyone can do their best work. If you are excited about this role but do not meet every requirement, we would still love to hear from you.\n\n\n\nRECRUITMENT SAFETY NOTICE\n\nQuantumLoopAI will never ask candidates for payment or sensitive financial information during the recruitment process. All official communications come from @quantumloopai.com email addresses.\n\n\n\nCOME WORK WITH US\n\nWe would love to hear from you. Questions about this role? Contact careers@quantumloopai.com",
+      "apply_options": [
+        {
+          "title": "Jobs By Workable",
+          "link": "https://apply.workable.com/quantumloopai/j/B7F8DA3F6C?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Remote Rocketship",
+          "link": "https://www.remoterocketship.com/company/quantumloopai/jobs/ai-ml-prompt-engineer-llm-rag-voice-agent-india-remote/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "DailyRemote",
+          "link": "https://dailyremote.com/remote-job/ai-ml-prompt-engineer-llm-rag-voice-agent-5658624?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "RemoteLeaf",
+          "link": "https://remoteleaf.com/company/quantumloopai/aiml-prompt-engineer-llm-rag-voice-agent-india/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Career.io",
+          "link": "https://career.io/job/remote-prompt-engineer-healthcare-voice-agent-boston-bigrio-22bee5e5376232131aa1c6a2ea80d0bc?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Lensa",
+          "link": "https://lensa.com/job-v1/latitude/remote/machine-learning-engineer/38d535b262a9b83b31dce359ee358134?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "JobMESH",
+          "link": "https://jobmesh.io/job/fab6db01-796b-41df-b91f-f7b4ef4b27b6?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LifeworQ",
+          "link": "https://lifeworq.com/job/67717e51-72b3-4161-a081-b1a419a1f8b9?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBSS9NTCBcdTAwMjYgUHJvbXB0IEVuZ2luZWVyIExMTSwgUkFHIFx1MDAyNiBWb2ljZSBBZ2VudCIsImNvbXBhbnlfbmFtZSI6IlF1YW50dW1Mb29wQUkiLCJodGlkb2NpZCI6Ik42OWxWVGN1MGx6LTZWMjhBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0lGU1c1a2FXRSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwUzFseFdtaHhMUzFrVFhOQ1h6SmZObnBuVTFObVRVVndZVWxOVGpSaU5FMUlNbEZvYzNkb1NuWm9ObGg2VURaS1EyWlVORW8xTUdGWVJGcDNiek5ETmswelMzaGpWMU5QTjNWWk1sWk9abVp6WTFOVVVIZFFhR1ZDTVhFNE4zVnpWVFpLTlRWbGMyeHdRa3B4TFdrMGFHWjBXRkpsUVVkRVVrSTRkMDQzT0ZaNVJGSm5NMklTRjJSblJFRmhiMWRqU0dSTVVqRmxPRkEyWmpka0xWRlJHaUpCUkhOeU9XWlVSVVpKZFROMFdVMXhZMlZqUkY5aVZVWkNRVU5JZURCSVYzQkIiLCJmY3YiOiIzIiwiZmNfaWQiOiJONjlsVlRjdTBsei02VjI4QUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "AI/ML & Prompt Engineer LLM, RAG & Voice Agent",
+      "company_name": "HireQuest",
+      "location": "Anywhere",
+      "via": "HireQuest",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=aDAVdvXS_MRAqOCcAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLsQrCMBCAYVw7Oznd5CDSiOCiUwepQivq4FpiONKTNhdyJ3T0HVx9Op_EuvzLx599JllZHE1dwRzOifuosA-eAmKCqqqXcC3KkW5MDqHwGBS-rzc8-A6CNrkWOEDJ7Duc7VrVKFtjRLrci1ollzvuDQe882DGSf5ppLUJY2cVm_VmNeQx-MX0QAkvTxQFCnAij4nsDyuIrXWfAAAA&shmds=v1_ARwrE210LHU75hVMyT3qKLNO2qdXu1XWxzuWu4i6MR9OcDdegw&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=aDAVdvXS_MRAqOCcAAAAAA%3D%3D",
+      "extensions": [
+        "3 days ago",
+        "Work from home",
+        "Full–time"
+      ],
+      "source_link": "https://hirequest.7y.liveblog365.com/job/ai-ml-prompt-engineer-llm-rag-voice-agent-0ebbbbfb",
+      "job_title": "AI/ML & Prompt Engineer LLM, RAG & Voice Agent",
+      "description": "Hands-on prompt engineering, LLMs, RAG, voice-agent design; Python ML/AI; API APIs with NestJS; Next.js/React frontend; Azure, Docker, SQL; microservices; strong communication; remote across UK hours. Key Responsibilities design prompts build LLM integrate APIs Skills & Tools Python, NestJS, Next.js, React, Azure, Docker, LLMs, RAG, MLOps Job Details Category Software Development Seniority Mid Level Commitment Full Time Workplace Remote — India Languages English About reputed company Provides AI-powered patient reception systems to streamline healthcare access. — Industry Information Technology Apply To This Job",
+      "apply_options": [
+        {
+          "title": "HireQuest",
+          "link": "https://hirequest.7y.liveblog365.com/job/ai-ml-prompt-engineer-llm-rag-voice-agent-0ebbbbfb?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "MySmartPros",
+          "link": "https://www.mysmartpros.com/remotepro/job/1832525?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBSS9NTCBcdTAwMjYgUHJvbXB0IEVuZ2luZWVyIExMTSwgUkFHIFx1MDAyNiBWb2ljZSBBZ2VudCIsImNvbXBhbnlfbmFtZSI6IkhpcmVRdWVzdCIsImh0aWRvY2lkIjoiYURBVmR2WFNfTVJBcU9DY0FBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSUZTVzVrYVdFIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTalZCUkMxaWVVOHRTSGgyWkV4RGJXdEZZM3BPYkVKc2RsZHRSemN3ZG5aWllVbFpSbEF0YmpSRWJHeHZSVFIyWW10Nk1HMTFlWGxmWTIweGJqTktjRTFRZDJac1R6UTFSSFprY25WTFNsVmFWV1ZDU0VWcE4yMUhaWEUyUlRaeWVITllNM3A0Y0VoQ01sZFVOM0JYVDNwMVJsZERhbnBUZGs5RmJqVnNXV1Z2YUZsbGFGRVNGMlJuUkVGaGIxZGpTR1JNVWpGbE9GQTJaamRrTFZGUkdpSkJSSE55T1daVVlteDBaVjh0VldZMVNYWnVORkZsVHpJdGQwSnFSbFpyV1RsbiIsImZjdiI6IjMiLCJmY19pZCI6ImFEQVZkdlhTX01SQXFPQ2NBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "AI Engineer (GenAI / LLMs / RAG)",
+      "company_name": "DevUps",
+      "location": "Anywhere",
+      "via": "Torre.ai",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=8GAEVmGARtaSy3NqAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_-NqYOSydPRUcM1Lz8xLTS1S0HBPzQPy9RV8fHyLgVSQo7umwqOGyQpZ-UkKxamJRckZCvl5Cu75-ek5qVLWGSUlBcVW-vrFxTl66cUliSWZyXrJ-bn6-XmpSfkV-kBNxSAivjgjsSi1ICexJDXeyNSgQq8gL12LzSW1LLSgGAC7zRVLgwAAAA&shmds=v1_ARwrE21ecfmCPAPb54lchuGvbuf8bQ7fHm2_ljzR0OLiIckifA&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=8GAEVmGARtaSy3NqAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAnFBMVEX___8ZLFcAEkz6_P0AHU8AAEUAGk0VKVUADUgAFUsNJVO7v8oAAEIAEkoAD0mSmaoyQWj84uXGydLy8_bN0NkACUeCiZ36zNGrsL1WYX6LkqXe4eeytsLX2uEBIFD-9PXuXW_3s7vsQVntUmbyiZXrNlHweYfzmKL1qbHpFTwgM18AADr3o6z719vxgY5EUXPxZ3lyepKgprZjbYgIiHP2AAABpElEQVRIie2TW5uaMBCGM5IwOSFIAAUhu67Wbm1XKv7__9YQuz64i7Y3e8d3k4eZeTOnQMikSZMmfbmenkbNJsv-AT5vRs2FZslDbvkybq8o5MEjcLskuzvg7BG4-EZ2-49Gk6qssO9go1RzMWfGn-vMOb6_Ln9snheLIVaymZhZuIAKmBDskLoLdM7WveVn7jzb11_b42Y_AE1kQYYhXsBOo4xmErUiJocwdgGuFm3I7m2xPS6HdZYWaLtatdiDRoMt06yUKALSSmxdQIJ48JH7G26tQZbujP1wKop-KRzmKelCYIYYDrbobW-_bwajBETpFSylPNWFSwViRQwDoUgaAfdvY3f7ANy1en0FE3T9UkoF7-fSSnsilUXpI4-3q6gF8GaQEVAk56ruN0BWoWMSpNXH_fmtMfCOa48wGHjuahXgl_JZfT9x05wl8OAyqiYw2clnOUtMULajHEk1AuVcgrR9YgaS52xO896XMUCYq3GQpJRTa6k--IfWsch9hTr2vpaHEd7hejQuivj9dwxUVRTd37aCuqvNfXDSpEmT_lt_AIEYGk_9mLsrAAAAAElFTkSuQmCC.png",
+      "extensions": [
+        "Work from home",
+        "Full–time"
+      ],
+      "source_link": "https://torre.ai/post/Qwe1GNYw-devups-ai-engineer-genai-llms-rag",
+      "job_title": "AI Engineer (GenAI / LLMs / RAG)",
+      "description": "Role Overview:\n- We are seeking an AI Engineer to design and deploy generative AI solutions, including LLM-based applications and Retrieval-Augmented Generation (RAG) pipelines, to solve real business problems.\n\nKey Responsibilities:\n- Design and implement LLM-powered applications (chatbots, copilots, agents).\n- Build and optimize RAG pipelines (chunking, embeddings, retrieval, reranking).\n- Fine-tune and evaluate LLMs for domain-specific use cases.\n- Integrate AI solutions into production systems via APIs.\n- Monitor model performance, cost, and latency in production.\n\nRequirements:\n- 3+ years of experience in AI\\/ML, with 1+ year focused on GenAI\\/LLMs.\n- Strong understanding of prompt engineering and embedding-based retrieval.\n- Experience with vector databases and orchestration frameworks.\n- Familiarity with LLM evaluation and hallucination mitigation techniques.\n\nTechnical Stack \\/ Tools:\n- Python, LangChain, LlamaIndex.\n- OpenAI, Anthropic, or open-source LLMs (Llama, Mistral).\n- Vector databases (Pinecone, Weaviate, pgvector).\n- Docker, FastAPI, cloud AI services (Azure OpenAI, AWS Bedrock, GCP Vertex AI).\n\nLocation: Remote - Anywhere\n\nSkills required for this job:\n\n\nApplication Programming Interface (API)Artificial intelligence (AI)DockerGenerative artificial intelligence (Generative AI)LangChainLarge language model (LLM)LlamaIndexMLPrompt engineeringPythonRetrieval-augmented generation (RAG)Vector databases",
+      "apply_options": [
+        {
+          "title": "Torre.ai",
+          "link": "https://torre.ai/post/Qwe1GNYw-devups-ai-engineer-genai-llms-rag?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBSSBFbmdpbmVlciAoR2VuQUkgLyBMTE1zIC8gUkFHKSIsImNvbXBhbnlfbmFtZSI6IkRldlVwcyIsImh0aWRvY2lkIjoiOEdBRVZtR0FSdGFTeTNOcUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSUZTVzVrYVdFIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBUSGRsYTJOTFRtODRPVVp5UmpsdlJEQkVjRkZrY0ZGeVNXeHZlRVZMZDNGMFpHTjFVR1ZYYVhCU2RrcDZOVzlOVERsVWFsQkNlV1YyTUZVNUxXRjRSM0kyTldGdVR6SXdiMGxvWnpsbUxVcDZiVWRwV0RGQ2VVc3dOWEpDWDNGcGVUWnNWRGwzTW05MVEybEtOVXRyWkZSR01XSk1VRVZyY1ZoSE1FNW9hM2gyV0ZWb1dHc1NGMlJuUkVGaGIxZGpTR1JNVWpGbE9GQTJaamRrTFZGUkdpSkJSSE55T1daVWFsSkhRMFJLVEZaaFFVWTNiVTlIUlVoRVIzZDVUMDFPYUVsUiIsImZjdiI6IjMiLCJmY19pZCI6IjhHQUVWbUdBUnRhU3kzTnFBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "AI Engineer – LLM / RAG / Agentic AI",
+      "company_name": "Kasmoprav",
+      "location": "Anywhere",
+      "via": "DevsUnite",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=GngSfBV_o5IzJChKAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWLsQrCMBBAcbSf4HSzQyKCiw6SQYpYF3-gpOFIKuldyAXp6OrsH_olpstb3nvNZ9WczRUu5EdCzPB7f6Hr7qDhYdpK45HK6KA2i3ryAII2uwBM0DL7iJtTKCXJUWuRqLwUWwfleNJMOPCs6yQLegk2Y4q2YL8_7GaVyG_XNysTp2xff6R4lS-MAAAA&shmds=v1_ARwrE20VS6Mz2c4pehyyvX0iimjaB3JacLMwxVoSH892z_VxAw&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=GngSfBV_o5IzJChKAAAAAA%3D%3D",
+      "extensions": [
+        "Work from home",
+        "Full–time"
+      ],
+      "source_link": "https://devsunite.com/jobs/kasmoprav-ai-engineer-llm-rag-agentic-ai-remote-aug2026",
+      "job_title": "AI Engineer – LLM / RAG / Agentic AI",
+      "description": "Role OverviewWe are looking for an experienced AI Engineer with strong hands-on expertise in building and deploying LLM-powered applications, RAG systems, AI agents, document intelligence solutions, and cloud-based AI applications. This is a long-term contract opportunity for candidates who can independently design, develop, evaluate, deploy, and improve production-grade AI solutions.ResponsibilitiesDesign and implement LLM agents with tool calling, function calling, dialogue state, guardrails, and safety controls.Build high-quality RAG and retrieval pipelines involving document indexing, chunking, embeddings, vector search, hybrid retrieval, and reranking.Ingest and process complex documents and PDFs using OCR and multimodal LLM-based understanding.Design and optimize prompts, prompt templates, and few-shot examples.Conduct A/B testing and automated LLM evaluations to measure grounding, hallucination, accuracy, latency, and cost.Deploy and monitor AI applications on cloud platforms with appropriate observability.Integrate AI agents with external tools and enterprise data sources.Requirements3+ years of experience building AI / ML applications.1–2+ years of hands-on LLM and RAG experience.Strong programming expertise in Python.Hands-on experience with LangChain, LlamaIndex, and Hugging Face.Strong experience with vector databases such as Qdrant, Milvus, or Elasticsearch.Practical experience with chunking strategies, embedding tuning, and hybrid search.Experience with table extraction, document layout parsing, and OCR.Experience integrating tools using MCP or similar protocols.Hands-on cloud deployment experience with AWS, Azure, or GCP.Nice to HaveExperience with Generative AI and Agentic AI systems.Knowledge of AI agents and autonomous workflows.Experience implementing AI guardrails and safety mechanisms.Experience with LLM evaluation frameworks.Experience working in the Pharmaceutical / Life Sciences domain.SkillsPythonLangChainRAGVector DatabasesAWS",
+      "apply_options": [
+        {
+          "title": "DevsUnite",
+          "link": "https://devsunite.com/jobs/kasmoprav-ai-engineer-llm-rag-agentic-ai-remote-aug2026?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBSSBFbmdpbmVlciDigJMgTExNIC8gUkFHIC8gQWdlbnRpYyBBSSIsImNvbXBhbnlfbmFtZSI6Ikthc21vcHJhdiIsImh0aWRvY2lkIjoiR25nU2ZCVl9vNUl6SkNoS0FBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSUZTVzVrYVdFIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTMWR1WW04emFERmlPV1pmWkU1bWRIUjFjVkIzVWkxS2NYSkxkWE55YlhreVNIZHFORk51YlhGbGNGcFhSRFJCYlhSbFMyMUpXVTlyWlhSWVp6QXpibHBuUW1SamMwRnVaWGxCU2s1emNVMUdlbWhuT1dkV1gyWkdVM0Y2TXpSSVJFMUhiMkZuT0ZkRU9WTmlhbmMzUVd4b1owNVNZVE5pWXpWSVdXNU5WeTB6UTNOWWRIb1NGMlJuUkVGaGIxZGpTR1JNVWpGbE9GQTJaamRrTFZGUkdpSkJSSE55T1daVFdTMWpYekZuVmtWTFNISnJiVU5MVW5sSmFqUnZNMDFEWVZKbiIsImZjdiI6IjMiLCJmY19pZCI6IkduZ1NmQlZfbzVJekpDaEtBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "[Remote] AI Agents Engineer (LLM/ OpenAI/ RAG)",
+      "company_name": "JobEdge",
+      "location": "Anywhere",
+      "via": "JobEdge",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=ub0uljkvcKvB30Y0AAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLsQrCMBAAUFw7OTvdqA6NCC46BSmlUhG6ipS0HkkkvQu9DB39Bxe_zy9Rl7e97D3LymuDAye8ga5AW6QkUJD1hDjCsq7PCi4RSVcKGl2u4PN8wYM7EDRj74AJSmYbcHFwKUXZKyUScivJJN_nPQ-KCTue1C_Jn1acGTEGk7Dd7jZTHsmu5yfuirtF8ARH5wN-Ad4wO9ubAAAA&shmds=v1_ARwrE23B_dUsQytFNh8GtpFBdJZfFJTuj27R9cnowifrmFcByw&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=ub0uljkvcKvB30Y0AAAAAA%3D%3D",
+      "extensions": [
+        "6 days ago",
+        "Work from home",
+        "Full–time"
+      ],
+      "source_link": "https://credit.school.government.cpmposition.psycholgy.qahub.org/remote-jobs/remote-ai-agents-engineer-llm-openai-rag",
+      "job_title": "[Remote] AI Agents Engineer (LLM/ OpenAI/ RAG)",
+      "description": "Note The job is a remote job and is open to candidates in USA. Dice is hiring an AI Agent Engineer to build and deploy production-grade AI, machine learning, and LLM-powered applications. The role focuses on designing agentic workflows, integrating LLMs and enterprise systems, and implementing evaluation, observability, safety, reliability, and production deployment practices. Skills Strong experience building and deploying AI/ML or LLM-powered applications in production environments Advanced proficiency in Python and experience developing scalable software systems Hands-on experience designing and implementing AI agents and agentic workflows Experience working with LLM APIs, AI APIs, and tool/function calling Experience with OpenAI technologies, ChatGPT, or comparable LLM platforms Understanding of context management, prompt engineering, workflow orchestration, and multi-step agent execution Experience integrating AI applications with enterprise APIs, databases, services, or other business systems Strong understanding of AI/ML evaluation, testing, observability, and reliability engineering Experience implementing AI safety mechanisms, guardrails, validation, and failure-handling strategies Strong problem-solving and analytical skills with the ability to work in a fast-paced, highly collaborative environment Experience with LLM fine-tuning, RAG, embeddings, vector databases, or model optimization Experience building multi-agent or tool-using AI systems Familiarity with agent orchestration frameworks and modern AI engineering patterns Experience with cloud platforms and deploying AI workloads at scale Knowledge of MLOps, CI/CD, model monitoring, and production observability Experience developing automated evaluation frameworks for LLMs and autonomous agents Familiarity with responsible AI, security, privacy, and enterprise AI governance Benefits Remote work arrangement Company Overview Dice offers a marketplace that enables direct connections between recruiters and technologists. It was founded in 1990, and is headquartered in Centennial, Colorado, USA, with a workforce of 201-500 employees. Its website is https//www.uk.dice.com. Company H1B Sponsorship Dice has a track record of offering H1B sponsorships, with 2 in 2022, 4 in 2021, 5 in 2020. Please note that this does not guarantee sponsorship for this specific role.",
+      "apply_options": [
+        {
+          "title": "JobEdge",
+          "link": "https://credit.school.government.cpmposition.psycholgy.qahub.org/remote-jobs/remote-ai-agents-engineer-llm-openai-rag?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJbUmVtb3RlXSBBSSBBZ2VudHMgRW5naW5lZXIgKExMTS8gT3BlbkFJLyBSQUcpIiwiY29tcGFueV9uYW1lIjoiSm9iRWRnZSIsImh0aWRvY2lkIjoidWIwdWxqa3ZjS3ZCMzBZMEFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSUZTVzVrYVdFIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTMnRPVjBSMFEydFBPR0UzV0cxcWRVbEVXa294Vkc0ME5HeHBNWEJMZG1WamREVkJkV1pwTkRGa1JFdHBWWEJUVURORWVuUjJZVmhrT1VGamFEQklhakZaYWpKTVJHMUxabEIyU0ZaMVpscGhkbmhFUW1KS1NXaG9kMHAwWVZCRGRtTlpNemg2Y21VMFZuaDNXSEpaZUZOUFlqRlJPRFozZVV0eGVrOHpSRVJQTWpZNVRrY1NGMlJuUkVGaGIxZGpTR1JNVWpGbE9GQTJaamRrTFZGUkdpSkJSSE55T1daVGFYaE1VQzAxWTJSc09XNTNNa1ZuVWtwRVZEZ3pTRzR5YTNSMyIsImZjdiI6IjMiLCJmY19pZCI6InViMHVsamt2Y0t2QjMwWTBBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "Any Visa, Only on W2: AI Prompt Engineer / Agentic AI Engineer | 100% REMOTE",
+      "company_name": "JobMatch",
+      "location": "Anywhere",
+      "via": "JobMatch",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=QfV70tjeCnNZ_5rCAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_z3MPQ6CQBAF4NhyA62msTGGRRMbrCiI0YRg_C3JgpNlDcwQZgtMLLyDB_IunkRobF7xXt7nfUYeRvSAixU9h5SqBzDBdRlCtIV9y3XjICZjCbEFBZFBcrYYxn_7hEUQTOEQJ-kphu_rDXfOQVC3RTlgG2ZT4WRdOtdIqJRI5Rtxunf8gmvFhDl3qj_JEJmUusWm0g6z5Sro_IbMbLzjPNGuBy3BmazDGxx7AuUH70j-jcIAAAA&shmds=v1_ARwrE23hq_9sIFUZBnMMC4f4qwkdH2k97TpcrbfDJYRabTp5Iw&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=QfV70tjeCnNZ_5rCAAAAAA%3D%3D",
+      "extensions": [
+        "3 days ago",
+        "Work from home",
+        "Full–time"
+      ],
+      "source_link": "https://jobmatch.m5v.nichesite.org/remote-jobs/any-visa-only-on-w2-ai-prompt-engineer-agentic-ai-engineer-100-remote-0744e1ca",
+      "job_title": "Any Visa, Only on W2: AI Prompt Engineer / Agentic AI Engineer | 100% REMOTE",
+      "description": "Role AI Prompt Engineer / Agentic AI Engineer Location REMOTE • *Experience 8+ Years Any Visa, Only on W2 Best Candidate will have hands-on experience with MCP + Agentic AI + LangChain/LangGraph + RAG + Python What are they looking for? They need an AI Engineer who can build AI agents that can • Understand user questions • Reason and plan what to do • Use different tools/APIs • Search company data • Retrieve information using RAG • Complete multi-step tasks • Work with enterprise applications This is more than a Prompt Engineer . They need someone with hands-on GenAI + Agentic AI development experience . Must Have • LLM OpenAI / Azure OpenAI / Anthropic / Gemini • Prompt Engineering • Agentic AI • LangChain / LangGraph / similar • MCP hands-on • Python • RAG • Vector DB / Embeddings • APIs / Tool Calling • Azure / AWS / GCP AI Nice To Have • AI evaluation/testing • AI security/governance • Healthcare experience In One Line Python + LLM + Prompt Engineering + LangChain/LangGraph + MCP + Agentic AI + RAG + API/Tool Calling Looking forward to qualified submissions only.",
+      "apply_options": [
+        {
+          "title": "JobMatch",
+          "link": "https://jobmatch.m5v.nichesite.org/remote-jobs/any-visa-only-on-w2-ai-prompt-engineer-agentic-ai-engineer-100-remote-0744e1ca?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Haystack",
+          "link": "https://haystackapp.io/jobs/35ab1d32-353e-4635-83ff-3a3b0e1def35?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Recruit.net",
+          "link": "https://www.recruit.net/job/any-only-ai-prompt-engineer-jobs/B7B003BAEE2DC124?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "JobWave",
+          "link": "https://jobwave.a7c.talk4fun.net/remote-jobs/any-on-w2-ai-prompt-engineer-agentic-ai-engineer-100-remote-907b3e10?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Remote Drift",
+          "link": "https://remotedrift-production.up.railway.app/job/any-on-w2-ai-prompt-engineer-agentic-ai-engineer-100-remote?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBbnkgVmlzYSwgT25seSBvbiBXMjogQUkgUHJvbXB0IEVuZ2luZWVyIC8gQWdlbnRpYyBBSSBFbmdpbmVlciB8IDEwMCUgUkVNT1RFIiwiY29tcGFueV9uYW1lIjoiSm9iTWF0Y2giLCJodGlkb2NpZCI6IlFmVjcwdGplQ25OWl81ckNBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0lGU1c1a2FXRSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwU1hoSE4wVnlYMVpSTFZSa2RXdEllVXRrWjFZM1gxbFBXRFkzTUdkSU0wcDJZVFE1VTJoUmVUWmtXWFpIUjJ0RVZreDVhWFo1YzBWVmRIRllkMmt0UjIxM1RGSmpNazk2YzAwM1RHdHJNSEZrUjIxUVgyeHdka3M1ZFc1RFlYWm9ZVkIyVVVkWk0ycHNjbk5RZFRReVZsZEVhVmRSV1dkd2JXRmFiMnRuZDFkV1QweExMVklTRjJSblJFRmhiMWRqU0dSTVVqRmxPRkEyWmpka0xWRlJHaUpCUkhOeU9XWlVZMmxHWW14NVEzVkxZMHhCWWtveVNEaGZhRzVtYm5sc1FYQm4iLCJmY3YiOiIzIiwiZmNfaWQiOiJRZlY3MHRqZUNuTlpfNXJDQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Data Scientist - Classical ML, SHAP & GenAI/RAG Pipelines (Remote)",
+      "company_name": "V4c Info Systems",
+      "location": "Anywhere",
+      "via": "OneRoadmap",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=LzrX5TT4BHGGBChpAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXOMUoDURCHcWxzBKt_FaLEfSLamGo1sAkqhCyksQiTx2T3mbczy84EYucdvJIn8STG5ut-8I1-Lkbvc3JCHROLJ3Pc4DmTWYqU8fY6Rb0oVxijYimXYV1WWKWecxI2TNbcqfMVfr--8aE7GNMQW6igUm0yX85a994eQzDLRWNOnmIRtQsqvNNTOCP7z9ZaGrjP5Ly9e7g9Fb0015PNfcRS9or605w7QxI8sTSUj8Nxihca5Px-oD-8LDy2xwAAAA&shmds=v1_ARwrE22zVjA6Y0bBznYkGrG3QP96K2JkjL0OW_I_QgWT9MMzgA&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=LzrX5TT4BHGGBChpAAAAAA%3D%3D",
+      "extensions": [
+        "4 days ago",
+        "Work from home",
+        "Full–time"
+      ],
+      "source_link": "https://www.oneroadmap.io/jobs/6abaad70b1fe003bad1683a6",
+      "job_title": "Data Scientist - Classical ML, SHAP & GenAI/RAG Pipelines (Remote)",
+      "description": "Experience: 2-7 years of experience.\n\nJob Title:\nData Scientist Classical ML, SHAP & GenAI / RAG Pipelines (100% Remote)\nRole Category:\nData Science & Analytics / Machine Learning\nEmployment Type:\nFull Time, Permanent\nWork Location:\n100% Fully Remote\nJob Description\nAre you a hands-on Data Scientist with strong roots in Classical Machine Learning , Model Explainability (SHAP) , and modern LLM / RAG pipeline development ?\nAt V4C.ai , a high-growth, Databricks-funded partner company scaled to 600+ professionals , we are expanding our core Data Science and AI practices. We are looking for a Data Scientist who brings strong mathematical/statistical rigor in classical ML, clear expertise in model interpretability (SHAP/XAI), and practical exposure to generative AI workflows (LLMs, RAG).\nKey Responsibilities\nCore & Classical ML: Design, train, evaluate, and deploy classical machine learning models (Regression, Classification, Tree-based algorithms, Clustering) for complex enterprise problems.\nModel Explainability (XAI): Leverage SHAP (Shapley Additive exPlanations) , LIME, or feature importance frameworks to interpret complex model predictions and communicate insights to stakeholders.\nLLM & RAG Pipelines: Build, optimize, and maintain Retrieval-Augmented Generation (RAG) pipelines using vector databases, embedding models, and LLM frameworks (LangChain / LlamaIndex).\nData Engineering & Pipelines: Write robust, production-grade Python and SQL code to handle feature engineering, data extraction, and data preparation.\nCollaboration & Innovation: Partner with enterprise clients and internal engineering teams to deliver scalable, AI-driven solutions across Databricks and cloud ecosystems.\nRequired Skills & Qualifications\nExperience Level: 2 to 10 years of hands-on data science engineering experience (roles open from Junior/Mid-level up to Senior Data Scientist).\nCore Technical Stack: Strong proficiency in Python (NumPy, Pandas, Scikit-Learn, PyTorch/TensorFlow) and SQL .\nClassical Data Science: Solid foundation in machine learning algorithms, statistical modeling, hypothesis testing, and model evaluation metrics.\nModel Interpretability: Hands-on experience implementing SHAP for model explainability and auditing.\nGenAI / LLM Capabilities: Practical experience or strong understanding of LLMs, RAG architecture, vector stores (e.g., Pinecone, Chroma, FAISS), and prompt engineering.\nWhy Join V4C.ai?\n100% Remote Work Setup: Complete flexibility to work from anywhere.\nDatabricks-Funded Scale: Work with a fast-growing partner firm backed directly by Databricks, operating at the bleeding edge of enterprise AI.\nCutting-Edge Tech Stack: Balance core classical ML models with next-gen Claude, LLM, and Lakehouse AI architectures.\nHow to Apply / Reach Out Directly\nIf you meet the technical bar and are ready to work on enterprise-grade AI & Data Science solutions, reach out directly:\nEmail: Send your resume to Ganesh@v4c.ai and mention subject as \"Data Scientist naukri\"\nLinkedIn: Connect and message directly at Ganesh Manoharan on LinkedIn\n\nKey skills: Data Science, Python, SQL, generative ai, Machine Learning.\n\nRole: Data Scientist\nIndustry Type: IT Services & Consulting\nDepartment: Data Science & Analytics\nEmployment Type: Full Time, Permanent\nRole Category: Data Science & Machine Learning\nEducation: UG: Any Graduate",
+      "apply_options": [
+        {
+          "title": "OneRoadmap",
+          "link": "https://www.oneroadmap.io/jobs/6abaad70b1fe003bad1683a6?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEYXRhIFNjaWVudGlzdCAtIENsYXNzaWNhbCBNTCwgU0hBUCBcdTAwMjYgR2VuQUkvUkFHIFBpcGVsaW5lcyAoUmVtb3RlKSIsImNvbXBhbnlfbmFtZSI6IlY0YyBJbmZvIFN5c3RlbXMiLCJodGlkb2NpZCI6Ikx6clg1VFQ0QkhHR0JDaHBBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0lGU1c1a2FXRSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwVEZOMVFUZ3dSbUpRUmtkdmVuZENRa1JDTUZkdldqRllURWxIUzJ0VFZXazJablJ5YTJvMFpERXhhMmd4VFZoTGRETXhTVU42VjFOdlpFTjBVbVp5YTFRME1XbHJOV1JtTlhjNVZucENZMjlhWlMxMloyRlFNRzAwVUZaRGFWQnZWbWxCVWtJNWREWlpYMUp5UzJoWU1UUndZMDFwWnpKV2RTMVBPRWs1Y3pnd09UZ3RURThTRjJSblJFRmhiMWRqU0dSTVVqRmxPRkEyWmpka0xWRlJHaUpCUkhOeU9XWlNlbHBGYURSRVRVUk5TVWxwT1daVGJIbDBNRTFNY1VGeWIxWjMiLCJmY3YiOiIzIiwiZmNfaWQiOiJMenJYNVRUNEJIR0dCQ2hwQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Any on W2: AI Prompt Engineer / Agentic AI Engineer | 100% REMOTE",
+      "company_name": "remotepromsp",
+      "location": "Anywhere",
+      "via": "Remote Jobs USA",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=YDkfnfR3YK-NjQHmAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_-PayMgV5ZhXqZCfpxBuZKXg6KkQUJSfW1Ci4JqXnpmXmlqkoK_gmJ6aV5KZDJKEi9YoGBoYqCoEufr6h7gqPGqYrJCVn6RQnJpYlJwBMsw9Pz89J1XKOqOkpKDYSl-_uDhHL724JBFojl5yfq5-fl5qUn6FPlBTMYiIL85ILEotyEksSY03MjWo0CvIS9cSK0rNzS9JLQA6qLhAITNPwakosSozBwBujJKItAAAAA&shmds=v1_ARwrE22A42n0ICHxtSlrT5YWohqkgie6wT5U-a4AX9ksG2K4Bg&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=YDkfnfR3YK-NjQHmAAAAAA%3D%3D",
+      "extensions": [
+        "2 days ago",
+        "Work from home",
+        "Full–time"
+      ],
+      "source_link": "https://remoterush.mysmartpros.com/job/4599418",
+      "job_title": "Any on W2: AI Prompt Engineer / Agentic AI Engineer | 100% REMOTE",
+      "description": "Role: AI Prompt Engineer / Agentic AI Engineer Location: REMOTE Experience: 8+ Years Any on W2 Best Candidate will have hands-on experience with MCP + Agentic AI + reputed company/LangGraph + RAG + Python What are they looking for? They need an AI Engineer who can build AI agents that can: • Understand user questions • Reason and plan what to do • Use different tools/APIs • Search company data • Retrieve information using RAG • Complete multi-step tasks • Work with enterprise applications This is more than a Prompt Engineer. They need someone with hands-on GenAI + Agentic AI development experience. Must Have: • LLM: reputed company / Azure reputed company / reputed company / reputed company • Prompt Engineering • Agentic AI • reputed company / LangGraph / similar • MCP – hands-on • Python • RAG • reputed company DB / Embeddings • APIs / Tool Calling • Azure / AWS / reputed company Cloud Platform AI Nice to Have: • AI evaluation/testing • AI security/governance • Healthcare experience In one line: Python + LLM + Prompt Engineering + reputed company/LangGraph + MCP + Agentic AI + RAG + API/Tool Calling Looking forward to qualified submissions only. Apply tot his job Apply To this Job",
+      "apply_options": [
+        {
+          "title": "Remote Jobs USA",
+          "link": "https://remoterush.mysmartpros.com/job/4599418?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBbnkgb24gVzI6IEFJIFByb21wdCBFbmdpbmVlciAvIEFnZW50aWMgQUkgRW5naW5lZXIgfCAxMDAlIFJFTU9URSIsImNvbXBhbnlfbmFtZSI6InJlbW90ZXByb21zcCIsImh0aWRvY2lkIjoiWURrZm5mUjNZSy1OalFIbUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSUZTVzVrYVdFIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBURTk0U21jMFIycEdOMDV1UjJKdmJGb3RYMlZ4TFhGRk1GWTBNM1JJWWpZNFIycHdYemxUTFRaM1FVd3lORkpJUkZSWVJtOW5iMGx1WDBoaWRFOWZWVlZuTVdKS2NsWkNlalkzTkY4elZYRnJaVEI1U1hSM05qSnNNMUJpTUZadE1rZzNXSEZXYURoS1dWTTFhWFpEZVVsTWNHZFVMVEl5YmtJM05saGhlbFJJTW5CeFEyNFNGMlJuUkVGaGIxZGpTR1JNVWpGbE9GQTJaamRrTFZGUkdpSkJSSE55T1daU2ExQnhPWEZLV1hneU1GVmtjRlJ1U2swM1NWRkVVM0ZoWW01QiIsImZjdiI6IjMiLCJmY19pZCI6IllEa2ZuZlIzWUstTmpRSG1BQUFBQUE9PSJ9"
+    },
+    {
+      "title": "Python & FastAPI Engineer (AI/ML & LLM)",
+      "company_name": "Vrinda International",
+      "location": "Anywhere",
+      "via": "Built In",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=nVCBv2aIH62kjYXdAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLMQrCMBSAYVx7BKc3iYo2IrjoYgeVQgsdxLW8to8kkr6UJEjdvIP38FCexLj8y8-XfCbJsXoGZRlmcEYfsiqHE0vNRA7mWS7KIp6iKBfwfb3hbhvwhK5VEMnFWmloelAhDH4vhPcmlT5g0G3a2l5YpsaOIiL_T-0VOhoMBqq3u82YDiyX65vT3CHkHMhxpJbRgGYosVP4QIf9Cq5kkCUy_gAaHK4QsQAAAA&shmds=v1_ARwrE22gLawL4P-dv6HQHOZbJXyG30fGmu3Lea3WeivLaIBOJw&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=nVCBv2aIH62kjYXdAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6ac0007279ac9a77b12603f7/images/V56hjbby0czbzwm4SjJlvOcuRcO-gb0geUqxbjaadyw.png",
+      "extensions": [
+        "16 days ago",
+        "Work from home",
+        "Full–time"
+      ],
+      "source_link": "https://builtin.com/job/python-fastapi-engineer-ai-ml-llm/11234773",
+      "job_title": "Python & FastAPI Engineer (AI/ML & LLM)",
+      "description": "We're Hiring | Python & FastAPI Engineer (AI/ML & LLM)\nWe are looking for an experienced Python & FastAPI Engineer with expertise in AI/ML, LLMs, and RAG to work on cutting-edge Generative AI solutions.\n\n\n Location: Hyderabad / Bangalore (Hybrid)\n Experience: 4.5+ Years (Relevant Experience)\n CTC: Up to ₹16 LPA\n Notice Period: Immediate to 15 Days (Only candidates currently serving notice)\n Work Timings: 10:00 AM – 7:00 PM or 11:00 AM – 8:00 PM\n\n\n\n\nRequirementsRequired Skills\n✔ Strong experience in Python and FastAPI\n\n\n✔ Machine Learning (Classification, Clustering, Model Evaluation)\n\n\n✔ Deep Learning fundamentals\n\n\n✔ NLP and Text Embeddings\n\n\n✔ Large Language Models (LLMs) & Prompt Engineering\n\n\n✔ Retrieval-Augmented Generation (RAG)\n\n\n✔ Vector Databases (FAISS, Chroma, Pinecone)\n\n\n✔ Model Inference & Deployment\n\n\n✔ REST APIs & Backend Integration",
+      "apply_options": [
+        {
+          "title": "Built In",
+          "link": "https://builtin.com/job/python-fastapi-engineer-ai-ml-llm/11234773?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJQeXRob24gXHUwMDI2IEZhc3RBUEkgRW5naW5lZXIgKEFJL01MIFx1MDAyNiBMTE0pIiwiY29tcGFueV9uYW1lIjoiVnJpbmRhIEludGVybmF0aW9uYWwiLCJodGlkb2NpZCI6Im5WQ0J2MmFJSDYya2pZWGRBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0lGU1c1a2FXRSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwU1ZSd01WTjJOSGt0WVRaUE9HaHZVbXMzTFdwTWFqSldNRnBaZEMxWGFHeE1hemhxZDJ0SE9ERTVUbDh4YUhOaFoxVlJiMnRyVW1KVk4ySndPRXc0U2pJeFdFUkhTekJqUW5seVpsVXhSMlZvZGxoRmFIUmtOM3BZUmtoaWFTMW5ibkozT0RGWFlWVlBkSGxqY3kxSWFGaDVWVzQ1UkVFMFgzSk9abXhoT0hSelgyeEpiemdTRjJSblJFRmhiMWRqU0dSTVVqRmxPRkEyWmpka0xWRlJHaUpCUkhOeU9XWlNRMlJNV214dlN5MXRaRGd0VVhsd1pGOVlia0ZCWWpsbmNYSjMiLCJmY3YiOiIzIiwiZmNfaWQiOiJuVkNCdjJhSUg2MmtqWVhkQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Data Scientist Generative AI / LLM (RAG, Python, SQL)",
+      "company_name": "remotepromsp",
+      "location": "Anywhere",
+      "via": "Remote Jobs USA",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=_9OLjUX_n1nce7yhAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXMPQrCQBBAYWxzAAurKVVCVgQbrYJCEKL4c4AwWYckkuwsO4PEzjt4Bi_mSYzN674XfUbRcYeKcLUNOW1EISNHAbV5EKR7MJDnB5he0iyG01NrdjFcz_kMvq833LkEIQy2BnaQMVctTTa1qpe1MSJtUokOK5tY7gw7Krk3A5J_CqkxkG9RqViuFn3iXTUfB-pYyQfuxEPjYIsOb_gDNOohtqgAAAA&shmds=v1_ARwrE20YmK36wXZt9LF5i7UqZ2TEvRSqkSI7eV0B-f2QGx0W2g&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=_9OLjUX_n1nce7yhAAAAAA%3D%3D",
+      "extensions": [
+        "19 hours ago",
+        "Work from home",
+        "Full–time"
+      ],
+      "source_link": "https://remoterush.mysmartpros.com/job/4366090",
+      "job_title": "Data Scientist Generative AI / LLM (RAG, Python, SQL)",
+      "description": "Immediate need for a talented Data Scientist –Generative AI / LLM (RAG, Python, SQL). This is a 06+ Months Contract opportunity with long-term potential and is located in U.S (Remote). reputed company review the job description below and contact me ASAP if you are interested. Job ID:26-20143 Pay Range: $62 - $70/hour. Traveler benefits as per agency package. (Benefits vary by vendor and assignment.) Key Responsibilities: • Design and build LLM-powered applications for enterprise use reputed company • Develop RAG solutions to improve response quality and grounded outputs • Create and refine prompt engineering strategies for accuracy and consistency • Work with structured and unstructured data to support AI-driven workflows • Build scalable Python solutions and integrate models through APIs • Collaborate with engineers, analysts, and stakeholders to turn business needs into AI solutions • Evaluate model performance, reduce hallucinations, and improve system reliability • Support deployment and monitoring in cloud-based environments Key Requirements and Technology Experience: • Strong experience in Python • reputed company experience with SQL • Hands-on experience with Generative AI / LLMs • Experience with RAG, embeddings, retrieval workflows, or reputed company search • Practical knowledge of NLP • Experience with prompt engineering • Familiarity with TensorFlow or PyTorch • Experience building or supporting AI solutions in production • Strong communication and problem-solving skills • Experience with reputed company, LangGraph, reputed company, FAISS, reputed company, or similar tools • Experience with GPT, Llama, BERT, T5, or reputed company • Cloud experience with AWS, Azure, or GCP • Experience with MLOps, Docker, Kubernetes, CI/CD, or model monitoring • Background in healthcare, finance, retail, or enterprise software reputed company is a leading Healthcare Industry, and we are currently interviewing to fill this and other similar contract positions. If you are interested in this position, reputed company apply online for immediate consideration. reputed company. provides equal employment opportunities to all employees and applicants for employment and prohibits discrimination and harassment of any type without regard to race, color, religion, age, sex, national origin, disability status, genetics, protected veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by federal, state or local laws. By applying to our jobs you agree to receive calls, AI-generated calls, text messages, or emails from reputed company. and its affiliates, and contracted partners. Frequency varies for text messages. Message and data rates may apply. Carriers are not liable for delayed or undelivered messages. You can reply STOP to cancel and HELP for help. You can access our reputed company here. #St Apply tot his job Apply To this Job",
+      "apply_options": [
+        {
+          "title": "Remote Jobs USA",
+          "link": "https://remoterush.mysmartpros.com/job/4366090?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEYXRhIFNjaWVudGlzdCBHZW5lcmF0aXZlIEFJIC8gTExNIChSQUcsIFB5dGhvbiwgU1FMKSIsImNvbXBhbnlfbmFtZSI6InJlbW90ZXByb21zcCIsImh0aWRvY2lkIjoiXzlPTGpVWF9uMW5jZTd5aEFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSUZTVzVrYVdFIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBUR0V3V0VzeVFrbGhhVlpTZWpCbVVtOUxUV1JYT1dObVMzRnBRazF0YWxaelIwSnpaRE4yZUZGTFlYTjZPQzFFV2tkeVF6Vk9lRTl3UlhSS1V6ZHZZa1JXYUd4eVNETkVOVEZEVEV4dVZtTlZWakpwVG5Odk5HSlRURzgzT0Rnd1NESnRWamxhY2s5dGJqVnhXWEZRVWpRNVNUWkJWa1ZoY2kxM1RYRXhOREpwYjI5WFFWY1NGMlJuUkVGaGIxZGpTR1JNVWpGbE9GQTJaamRrTFZGUkdpSkJSSE55T1daVE5rcG5OV2RoTW1obVRYcHNZVTlWTFRsSlNGaDJNWGxMVGpSMyIsImZjdiI6IjMiLCJmY19pZCI6Il85T0xqVVhfbjFuY2U3eWhBQUFBQUE9PSJ9"
+    }
+  ],
+  "serpapi_pagination": {
+    "next_page_token": "eyJmYyI6IkVvd0RDc3dDUVVwcFZEUjBTaTEwZVZwVWMzSjJTR2QwVW1aZlFpMVVRMnBSTUcxeFpFeHZTMjlUWmxWUmVqRlFOakUwWm5SNVJreHJWWFU0YW1OS1VtcE5lRU0wV1hneVNraFBUMFoyYVV4aWJrNVZXWFo0VVVsTFNUZHdlalUxYkZsd09VeG9aMjFFYXpJMmVsSm5TME5IWldaUFRUZFhWVlZOYmt3MlRUUlROWGt3YVZCZlJWZzNRMDEyZUZOQk1uZHRlbU51Wm1oaWVqTldZWFJGU1ZWdE1uSkJNR2hhWldVNGQwOTJSREJ0ZEhZMlRuRlFNRXd0VDNKV2NEWTJVMGRpY2xKd1NsRjRSekpZYldKMlFrRlFWbEZJZVUxbVoyOTJjbHAwWmpaTWExQTBNbTlaWTJOZk4yWlFUMEUzVjJWU1NTMXhSRk5vTVdkMWJUSndkMFV3VFZFdFYyUkNZV3BLU2pOTmNFZFFNQzFyY0VOdVJVUkNVMkpZWjFVM1luWm9UM0kyY2tSMlgzRXdkV1pGYXkxTk5WbFNabUZKYWpsTlNFOWlNWEY2ZVV4bFIxWmFRVkpuVjNNdFJ6QnJjbDhTRjJSblJFRmhiMWRqU0dSTVVqRmxPRkEyWmpka0xWRlJHaUpCUkhOeU9XWlNjelJXZEVZMFFuaGZPR3BPVkZGeVJDMWlSMnBSU3poNFdsVm4iLCJmY3YiOiIzIn0=",
+    "next": "https://serpapi.com/search.json?engine=google_jobs&gl=in&google_domain=google.com&hl=en&location=India&ltype=1&next_page_token=eyJmYyI6IkVvd0RDc3dDUVVwcFZEUjBTaTEwZVZwVWMzSjJTR2QwVW1aZlFpMVVRMnBSTUcxeFpFeHZTMjlUWmxWUmVqRlFOakUwWm5SNVJreHJWWFU0YW1OS1VtcE5lRU0wV1hneVNraFBUMFoyYVV4aWJrNVZXWFo0VVVsTFNUZHdlalUxYkZsd09VeG9aMjFFYXpJMmVsSm5TME5IWldaUFRUZFhWVlZOYmt3MlRUUlROWGt3YVZCZlJWZzNRMDEyZUZOQk1uZHRlbU51Wm1oaWVqTldZWFJGU1ZWdE1uSkJNR2hhWldVNGQwOTJSREJ0ZEhZMlRuRlFNRXd0VDNKV2NEWTJVMGRpY2xKd1NsRjRSekpZYldKMlFrRlFWbEZJZVUxbVoyOTJjbHAwWmpaTWExQTBNbTlaWTJOZk4yWlFUMEUzVjJWU1NTMXhSRk5vTVdkMWJUSndkMFV3VFZFdFYyUkNZV3BLU2pOTmNFZFFNQzFyY0VOdVJVUkNVMkpZWjFVM1luWm9UM0kyY2tSMlgzRXdkV1pGYXkxTk5WbFNabUZKYWpsTlNFOWlNWEY2ZVV4bFIxWmFRVkpuVjNNdFJ6QnJjbDhTRjJSblJFRmhiMWRqU0dSTVVqRmxPRkEyWmpka0xWRlJHaUpCUkhOeU9XWlNjelJXZEVZMFFuaGZPR3BPVkZGeVJDMWlSMnBSU3poNFdsVm4iLCJmY3YiOiIzIn0%3D&q=AI+Engineer+LLM+RAG"
+  }
+}

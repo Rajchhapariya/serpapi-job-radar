@@ -1,0 +1,468 @@
+{
+  "slug": "bengaluru_ai_llm_engineer",
+  "captured_at": "2026-10-02T19:16:57.749506+00:00",
+  "latency_ms": 2824,
+  "query_params": {
+    "q": "AI Engineer LLM RAG",
+    "location": "Bengaluru, Karnataka, India",
+    "gl": "in",
+    "hl": "en",
+    "engine": "google_jobs"
+  },
+  "jobs_count": 10,
+  "jobs": [
+    {
+      "title": "AI Ops Engineer",
+      "company_name": "Circana",
+      "location": "Bengaluru, Karnataka",
+      "via": "Careers At Circana",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=7T_f_srZClPEuoFaAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLMQoCMRAAQGzvCTZuKSKJCDZaqYiIhU849sKS5Iy7IZuDKy3t_aEvUZvppnlNmvn-ArescGIfmajA5_mGXjpQwuICCMNZxCea7kKtWbfWqibjtWKNzjh5WGHqZLS_pH9aDVgoJ6zUrjer0WT2i9kxFoeMEBkOxB7TUIYlXLEwVrzjF6yf6uiLAAAA&shmds=v1_ARwrE21pIZL8mGl6Y16TgXzz0t4s43kfZPj9LDO_Q0VzJ18F9g&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=7T_f_srZClPEuoFaAAAAAA%3D%3D",
+      "extensions": [
+        "5 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://jobs.circana.com/careers/job/1133915912470-ai-ops-engineer-bangalore-ka-india",
+      "job_title": "AI Ops Engineer",
+      "description": "AI DevOps Engineer \n\nLet's be unstoppable together!\n\n Circana is a leading provider of technology, AI, and data solutions for consumer packaged goods companies, manufacturers, and retailers. Our predictive analytics and Liquid Data® platform help clients measure market share, uncover consumer behavior, and drive growth--powered by six decades of expertise and an expansive, high-quality data set.\n\nAt Circana, we are fueled by our passion for continuous learning and growth, we seek and share feedback freely, and we celebrate victories both big and small in an environment that is flexible and accommodating to our work and personal lives. We're a global company dedicated to fostering inclusivity and belonging. We value and celebrate the unique experiences, cultures, and viewpoints that each individual brings. By embracing a wide range of backgrounds, skills, expertise, and beyond, we create a stronger, more innovative environment for our employees, clients, and communities. With us, you can always bring your full self to work. Join our inclusive, committed team to be a challenger, own outcomes, and stay curious together. Circana is proud to be Certified™ by Great Place To Work®. This prestigious award is based entirely on what current employees say about their experience working at Circana. Learn more at www.circana.com.\n\nRole Overview\n\nWe are seeking an experienced Senior DevOps Engineer to design, implement, automate, and support enterprise infrastructure and application delivery platforms across both on-premises and hyperscaler cloud environments. This role will be responsible for driving DevOps practices, CI/CD automation, Infrastructure as Code (IaC), platform reliability, and operational excellence in hybrid infrastructure landscapes.\n\nThe ideal candidate will possess deep expertise in cloud and data center technologies, automation, container platforms, and production support. This individual will partner closely with Infrastructure, Application Development, Security, Architecture, and Operations teams to deliver scalable, secure, and highly available technology solutions.\n\nJob Responsibilities\n\nDevOps, Platform Engineering & Automation\n\n  * Design, build, and maintain enterprise DevOps platforms supporting software development and infrastructure teams.\n  * Develop and manage CI/CD pipelines utilizing Jenkins, Azure DevOps, or similar tools.\n  * Implement Infrastructure as Code (IaC) using Ansible, or equivalent technologies.\n  * Automate application deployment, infrastructure provisioning, configuration management, patching, and operational workflows.\n  * Drive continuous improvement initiatives focused on deployment speed, reliability, security, and operational efficiency.\n\n\n\nOn-Premise Infrastructure Operations\n\n  * Support enterprise data center infrastructure including virtualized environments, compute, storage, networking, and backup solutions.\n  * Manage Linux-based environments supporting business-critical applications.\n  * Integrate on-premises systems with cloud platforms to support hybrid operational models.\n  * Participate in infrastructure lifecycle management, upgrades, patching, disaster recovery testing, and capacity planning.\n\n\n\nAI & Frontier Technology Platform Support\n\n  * Deploy, automate, and support AI/ML infrastructure platforms and services in cloud and on-premises environments.\n  * Support AI engineering teams with scalable environments for model training, inference, experimentation, and deployment.\n  * Manage infrastructure supporting generative AI, large language models (LLMs), AI copilots, vector databases, and AI orchestration frameworks.\n  * Establish operational monitoring, security controls, compliance, and reliability standards for AI solutions.\n\n\n\nHybrid Cloud & Hyperscaler Support\n\n  * Design, deploy, and support workloads across Microsoft Azure and Google Cloud Platform (GCP).\n  * Manage and optimize hybrid cloud environments integrating on-premises infrastructure with cloud services.\n  * Support cloud governance, security standards, identity management, cost optimization, and operational best practices.\n  * Partner with cloud vendors and internal teams to troubleshoot and resolve complex platform issues.\n  * Develop cloud migration, modernization, and platform engineering strategies.\n\n\n  * Design and support containerized application platforms using Kubernetes, OpenShift, AKS, EKS, or GKE.\n  * Manage cluster administration, networking, security, scalability, and operational health.\n\n\n\nMonitoring, Reliability & Production Support\n\n  * Implement and maintain enterprise monitoring, logging, and observability solutions.\n  * Support production systems with a focus on availability, performance, and resiliency.\n  * Participate in incident management, root cause analysis, problem management, and on-call support rotations.\n  * Develop operational runbooks and support procedures for critical platforms.\n  * Apply Site Reliability Engineering (SRE) principles to improve system availability and reduce operational risk.\n\n\n  * Ensure compliance with organizational security policies, audit requirements, and regulatory standards.\n  * Support disaster recovery, business continuity, and resiliency initiatives.\n\n\n\n Requirements\n\n  * Bachelor's degree in Computer Science, Information Technology, Engineering, or a related field.\n  * 7+ years of experience in DevOps, Infrastructure Engineering, Cloud Engineering, or Platform Operations.\n  * Strong experience supporting both on-premises infrastructure and cloud-based environments.\n  * Extensive hands-on experience with Jenkins administration, pipeline development, automation, and integration.\n  * Experience with CI/CD platforms such as Jenkins and Azure DevOps\n  * Experience implementing Infrastructure as Code Ansible.\n  * Strong Linux administration experience.\n  * Hands-on experience with Kubernetes, Docker, and container orchestration platforms.\n  * Experience supporting Azure or GCP environments.\n  * Strong scripting and automation skills using PowerShell, Python, Bash, or similar languages.\n  * Experience with enterprise monitoring tools such as Grafana, Prometheus, or Azure Monitor.\n  * Strong troubleshooting, problem-solving, and communication skills.\n\n\n\nPreferred Qualifications\n\n  * Multi-cloud experience across Azure and GCP.\n  * Azure DevOps Engineer Expert, Azure Solutions Architect or related certifications.\n  * Experience managing large-scale hybrid cloud transformations.\n  * Knowledge of platform engineering and self-service infrastructure models.\n  * Experience supporting retail, distribution, supply chain, or large-scale customer-facing platforms.\n\n\n\nCore Competencies\n\n  * DevOps & Platform Engineering\n  * Jenkins Administration & CI/CD Automation\n  * Hybrid Cloud Operations\n  * Hyperscaler Cloud Support (Azure, GCP)\n  * On-Premises Infrastructure Management\n  * Infrastructure as Code (IaC)\n  * Kubernetes & Container Platforms\n  * Enterprise Monitoring & Observability\n  * Automation & Continuous Improvement\n\n\n\n Circana Behaviors\n\nBeyond technical skills, experience, and role-specific attributes, these shared behaviors are fundamental to our culture and success. We seek individuals who consistently demonstrate and champion these behaviors in their daily work:\n\n  * Stay Curious: Being hungry to learn and grow, always asking the big questions.\n  * Seek Clarity: Embracing complexity to create clarity and inspire action.\n  * Own the Outcome: Being accountable for decisions and taking ownership of our choices.\n  * Center on the Client: Relentlessly adding value for our customers.\n  * Be a Challenger: Never complacent, always striving for continuous improvement.\n  * Champion Inclusivity: Fostering trust in relationships engaging with empathy, respect, and integrity.\n  * Commit to each other: Contributing to making Circana a great place to work for everyone.\n\n\n\nLocation: This position can be located in the following area(s): Bangalore, Karnataka, India (Hybrid).\n\nAn offer of employment may be conditional upon successful completion of a background check in accordance with local legislation and our candidate privacy notice. Your current employer will not be contacted without your permission.",
+      "apply_options": [
+        {
+          "title": "Careers At Circana",
+          "link": "https://jobs.circana.com/careers/job/1133915912470-ai-ops-engineer-bangalore-ka-india?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/ai-ops-engineer-at-skit-ai-4344432903?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Shine",
+          "link": "https://www.shine.com/jobs/ai-ops-engineer/standard-chartered-india/19395060?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Built In",
+          "link": "https://builtin.com/job/ai-ops-engineer/11389480?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "SimplyHired",
+          "link": "https://www.simplyhired.co.in/job/QqjnuQvapijdRm9W0kG0ZUpU-hZ_rnn6bOivHDDV0LipxLgcgvkN9g?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Glassdoor",
+          "link": "https://www.glassdoor.co.in/job-listing/jv?jl=1010276181102&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/ai-ops-engineer-standard-chartered-bank-bengaluru-karnataka--t7xk-789073144?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Getmereferred.com",
+          "link": "https://getmereferred.com/in/job-listing/ai-ops-engineer-diligente-technologies-inkabengaluru-2-to-5-years-experience-663bc14e-1e12-46db-b0be-b9968e0e7174?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBSSBPcHMgRW5naW5lZXIiLCJjb21wYW55X25hbWUiOiJDaXJjYW5hIiwiaHRpZG9jaWQiOiI3VF9mX3NyWkNsUEV1b0ZhQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlFtVnVaMkZzZFhKMUxFdGhjbTVoZEdGcllTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFRGRlZTMnhhVFd3d1gxUnFiSGhHTjFwVk5HVTRia0YwWW1OMU9EWnFjRmw0WjJwaVpFOWhMVFpuYUdoNFYybzBWMk10TXpVeGVsZ3hTV0ZhVjJjeU0yVmZTMHBWTUZGemVscHhZazVrWjIxcFJtOXhNbXhyTjNOU2FETlhlRk5ZUzBwWGVEUkdSazV4Y1V0bk5Ua3RVRnBEUWtGcmFURnBhMmh3Ymw5b1MzSkRXazgxYWxRU0YwdG5VRUZoY3pkdFRrMVBaalZPYjFCNE5WTkhMVkU0R2lKQlJITnlPV1pTVlZSMVVrc3RVMnhWT0dKMFozVXdWbWR6WjJKSVpVNUNYM2gzIiwiZmN2IjoiMyIsImZjX2lkIjoiN1RfZl9zclpDbFBFdW9GYUFBQUFBQT09In0="
+    },
+    {
+      "title": "Lead AI Engineer – Agentic Systems (Pharma / Life Sciences Domain is mandatory)",
+      "company_name": "TalentQuell",
+      "location": "Bengaluru, Karnataka",
+      "via": "BeBee",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=pLzlvQ4AcfTZ8nDdAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_x3OMU5DMRAEUNHmCFQjpQEUfSMkGqiCghBKClDSRxtn8Xewd7-8_lLScQfuxSE4CQ7NdDNvJj8Xk8OKaY_5K54lRGEu-P36xjyw1OixPlnlbLh666lkgsMqfjDWPrJ4Niw0UxREQybZU9Vyuv4fOOgOxlR8DxW8qIbEl499rYM9OGeWumCVGtF5zU6Fd3p0rWTn2FrTeEhUeXt3f3vsBgk30w2ldup95JTQzCeWQGks4wxLKkKVPukPonAbvtEAAAA&shmds=v1_ARwrE20hB2ybEl_CRmOuQ5lZlxyJ9Z-dfWsoHZd88izR-V4dWA&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=pLzlvQ4AcfTZ8nDdAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAZlBMVEURERH___8AAAD8_PxTU1MPDw8JCQnPz88xMTF0dHTf39-ZmZmxsbHZ2dmlpaU7Ozvy8vKRkZHo6Ohqamo2Nja3t7fJycnAwMAXFxddXV16enoqKiogICAlJSVjY2NOTk5GRkaJiYnlBdRTAAAB0klEQVRIidWWa3eCMAyGmxdbFAW5KCrT6f7_n1xaLisWXMsHd5YvnlP70LdJmkTQQhPvB6OFJrDQxH80QM6s2-buQZFBTXGX1LJaOSRiSj8mfIUtpUlvJa2djyPOo6hypTD4I7SaBFMktHMCpEEppPkgNpNgAmSU3DABqqu52ywo8Um0Gcs1IKIMr0AhcUuf5Hbg7jUohGK55do61A-UfBg-I1uuFyhxWqGXKwNAtScqoIzcA8LAkmpo70bUtGf6glVBuZZ7Tulo5PqCDe75IHeNEBCoKZaDXH-QQ2nkCi33hACQo8lyt73cwh_Ur76Te4koDgFZ7hflDyVxjSkIFDiUVLX3DQElmtY_quaU8AeBE8U6gVYcER_nyLM-RuLR5cCWyr3_szJ-0VknYh1Gz4cs20igjYTOc98KMJbpm-QslbPtPjwOs-5XAWqqlZaZ98_REzxHvcxDUOlgj_Km6yDTH-RSb1WNMci1_AU4qlM2eFQ3_pl3zlimBfKAkmG-6XDraJ46XQtWRbHdq1kw64LugKafq7k7lo7MHvylsTodrgezwU5T4DE5OMfp9cYexPKzA8q5MWs8rkwMJtNTjv7DtrlNAbZ4elwttD8Yrd8OfgPtJCJbUJibCgAAAABJRU5ErkJggg.png",
+      "extensions": [
+        "2 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://bebee.com/in/jobs/lead-ai-engineer-agentic-systems-pharma-life-sciences-domain-is-mandatory-talentquell-bengaluru-karn--t7xk-860055222",
+      "job_title": "Lead AI Engineer – Agentic Systems (Pharma / Life Sciences Domain is mandatory)",
+      "description": "5–7 years in software or ML engineering; 2+ years building and shipping production LLM or agentic AI systems.\n\n\nHands-on proficiency with at least two agentic frameworks (LangGraph, LangChain, AutoGen, CrewAI); you have debugged framework internals, not just followed tutorials.\n\n\nDirect SDK experience: Anthropic Claude API (tool use, streaming), OpenAI Assistants API, or Vertex AI Agent Builder.\nPython mastery:\nproduction-quality code, type annotations, unit and integration tests, packaging, and performance profiling.\nRAG pipeline depth:\nembedding model selection, vector stores (Pinecone, Weaviate, pgvector), hybrid retrieval, RAGAS or custom evaluation harnesses.\nCloud deployment:\nAWS, Azure, or GCP. Docker, Kubernetes, IaC basics (Terraform or CDK), CI/CD pipelines.\nAgent observability:\nLangSmith, Helicone, or equivalent — you have diagnosed latency, cost, and quality issues in production traces.\n\n\nWorking knowledge of pharma commercial data: Rx/claims, NPI-level analytics, brand performance metrics.\n\n\nExperience operating in regulated data environments: GxP, 21 CFR Part 11, HIPAA- compliant data handling.",
+      "apply_options": [
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/lead-ai-engineer-agentic-systems-pharma-life-sciences-domain-is-mandatory-talentquell-bengaluru-karn--t7xk-860055222?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/lead-ai-engineer-%E2%80%93-agentic-systems-pharma-life-sciences-domain-is-mandatory-at-talentquell-4472319228?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJMZWFkIEFJIEVuZ2luZWVyIOKAkyBBZ2VudGljIFN5c3RlbXMgKFBoYXJtYSAvIExpZmUgU2NpZW5jZXMgRG9tYWluIGlzIG1hbmRhdG9yeSkiLCJjb21wYW55X25hbWUiOiJUYWxlbnRRdWVsbCIsImh0aWRvY2lkIjoicEx6bHZRNEFjZlRaOG5EZEFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpRbVZ1WjJGc2RYSjFMRXRoY201aGRHRnJZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTMlZwVTBGSWFXVnphWE5LWlZOV2RVNWtSbEJIUjNKS1FYTlNhV2xOTkhaWFEwOUVlakJ5YlZGbk9XeFpkaTFoWDB3d1VqVmtNeTFxVGpBeWMydEhOM2RJYjNBd1VFdExPR0V4VnpCdFJURXlhWEJHU1RWbk5qWnBVelJ1ZVdsM1ZHMWZlR0ZOYUVWUFVUTXRXbDkxWlVrNGQzRlhjV1JPU1MxNVZuWXRPRnBVTXpoeU9FTVNGMHRuVUVGaGN6ZHRUazFQWmpWT2IxQjROVk5ITFZFNEdpSkJSSE55T1daVGRGTk9lbmw2U21kSU1uSlhaMEpwZFZkdmQzRTRUMkZVZUdKUiIsImZjdiI6IjMiLCJmY19pZCI6InBMemx2UTRBY2ZUWjhuRGRBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "Director AI/ML Engineering",
+      "company_name": "UnitedHealth Group",
+      "location": "Bengaluru, Karnataka",
+      "via": "UnitedHealth Group Jobs",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=Cl-H_LG-9jJSgy9pAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLsQrCMBAAUFz7CU43F2lEcdFJUaqoo3O51iOJxruQXKGj_-Dux_kl6vK2V7xHxXzrE3UqCdYHcz7Bjq1nouTZwuf5gpu0kAlT50AYahEbaLxyqjEvjck5VDYrqu-qTh5GmFoZzC_lP012mCgGVGpmi-lQRbZleWGvdN0TBnVQJ-kjeIYNscXQp34CR0yMinf8AlbqWoChAAAA&shmds=v1_ARwrE22b4IbuWKjPClUakc35yGigRLECAweeDQDcZyS5ehiUYg&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=Cl-H_LG-9jJSgy9pAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAdVBMVEUsc-8tc-8wdfD____b5_wAYu0zePAscvElcO4AZO0AXOwAXuyowfckb-8Xau0AYe7D1fqauPXS4Pvh7P0AUuwAVu2QsPXK2vtQiPHs9P5Ui_ELZ-1mlfJEgu9Cf_BxnPO40PmCqPP1-v4AR-u0yfd6ovNfkfN2jZSeAAACHUlEQVRIie2X2bKjIBBA2URQQZYIIgSXGP__EweTOw9TM1WZm6r7lralWOpIS3cjAoreEgoQeEtQuWr4bakfIATf5QryAOF37YQf8AN-wB8CAUNF4bkdnI9BECL0SFVQn93wHCrlI-EBKtn_bCJAk0BJRAEj4oxzLiXn4rzZeGV5FJxHVHOBhESxqiKLSMoTZDOpxtCbWSzNko0h2hkya29cq3TVqdKloiBzXF27GGPyzlcnCihmU11tv9kmXOxYkdSaNLRm7re86Kj3idx6NlvTahWlU3yyN7fLL3C0FVHTCfYkVSqQ7O_Vsu7BhH3EpGs8xVwvURRwxCZ0X-CQbWWpJRd75QX0qW38PJi0uMHtI7lUHCuc3N48Zxz0Y8ZabJ11MlxIuISpt6kyxK_eqNCoYqoasVKHaZ1xm0_O8yk0epEUUAD5RCWkxSU1rQFFDNBMUc4RoLL4qNRy8Y_IZzcrWz967uNnALDiqYeeHuPHmkXksgalQFIgDniM8OlG8Fv_jhzuibP94hcmF69bfcSFL36XL0OO4l5WEcdu77rBJnNvcYOHvZMvQHZsnM0cJ3KQI3advzdbjzNxr0CQcVn8Bl_DjaR-d34-wTS_NrW841pA7vUc5o1qcw-lJf6VHX-CkCd3FRMAUxwdFfJYhRgZeg0CyBgDrOQUqEVJKVbimZX6a_A_5AN-wA_4Y-C7B923j9ZvSfkev_n78As23She1_v_UQAAAABJRU5ErkJggg.png",
+      "extensions": [
+        "3 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://careers.unitedhealthgroup.com/job/bengaluru/director-ai-ml-engineering/34088/101367704704",
+      "job_title": "Director AI/ML Engineering",
+      "description": "Optum is a global organization that delivers care, aided by technology to help millions of people live healthier lives. The work you do with our team will directly improve health outcomes by connecting people with the care, pharmacy benefits, data and resources they need to feel their best. Here, you will find a culture guided by inclusion, talented peers, comprehensive benefits and career development opportunities. Come make an impact on the communities we serve as you help us advance health optimization on a global scale. Join us to start Caring. Connecting. Growing together.\n\n \n\nPrimary Responsibilities:\n\nDefine and drive the AI/ML strategy and roadmap aligned to business and healthcare prioritiesOversee end-to-end AI/ML solution delivery, ensuring scalability, reliability, and impactLead adoption of advanced AI capabilities including NLP, deep learning, predictive analytics, and GenAIEnsure delivery excellence across programs with focus on quality, timelines, and outcomesBuild, lead, and mentor high-performing AI/ML teamsEstablish clear roles, responsibilities, and performance expectationsFoster a culture of innovation, continuous learning, and engineering excellenceDrive talent strategy, including hiring, onboarding, and retentionAct as a trusted advisor to stakeholders and clientsCollaborate with cross-functional leaders to align priorities and executionManage client relationships and value realizationPresent strategic insights and program updates to executive audiencesLead AI initiatives using healthcare data (EHR, claims, clinical text) to drive transformationEnsure adherence to healthcare regulations, data privacy, and compliance standards (HIPAA)Establish engineering best practices, MLOps, governance, and KPI tracking to ensure performance and complianceComply with all applicable Company policies, procedures, and business directives, changes including those relating to work location, team assignments, work schedules, and flexible work arrangementsRequired Qualifications:\n\nBachelor's or Master's degree in Computer Science, AI/ML, Data Science, Engineering, or related field (Master's preferred)10+ years of overall experience, with significant experience in AI/ML engineering and solution deliveryHealthcare Domain ExperienceDemonstrated experience working with healthcare data and systems (EHR, claims, clinical data)Solid understanding of:Knowledge of healthcare compliance and data privacy frameworks (HIPAA)Healthcare workflows and industry use casesInteroperability standards (HL7, FHIR - good to have)Proven track record of leading teams and delivering large-scale AI/ML programs \n\nAt UnitedHealth Group, our mission is to help people live healthier lives and make the health system work better for everyone. We believe everyone - of every race, gender, sexuality, age, location and income - deserves the opportunity to live their healthiest life. Today, however, there are still far too many barriers to good health which are disproportionately experienced by people of color, historically marginalized groups and those with lower incomes. We are committed to mitigating our impact on the environment and enabling and delivering equitable care that addresses health disparities and improves health outcomes - an enterprise priority reflected in our mission.",
+      "apply_options": [
+        {
+          "title": "UnitedHealth Group Jobs",
+          "link": "https://careers.unitedhealthgroup.com/job/bengaluru/director-ai-ml-engineering/34088/101367704704?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Built In",
+          "link": "https://builtin.com/job/director-ai-ml-engineering/11467910?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/director-ai-ml-engineering-at-optum-india-4474151468?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/director-ai-ml-engineering-optum-bengaluru--techmap_in_190826924063?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "SimplyHired",
+          "link": "https://www.simplyhired.co.in/job/1gg2e9LmgJYypsqiJQ5e8I6NUr4NVzRXTOXHKnzjkaROSLsiUE1Gfg?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Getmereferred.com",
+          "link": "https://getmereferred.com/job-listing/director-ai-ml-engineering-optum-bengaluru-5-to-10-years-experience-371722e8-d56a-4a7a-9d7a-a6175bbcbae4?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Exclusive Job Portal For Data & AI Jobs! - Exclusive Job Portal For Data & AI Jobs!",
+          "link": "https://www.dataaijobs.com/job-detail/director-aiml-engineering-unitedhealth-group-8-to-10-years?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobaaj",
+          "link": "https://www.jobaaj.com/job/optum-director-ai-ml-engineering-bengaluru-bangalore-karnataka-0-to-1-years-1272597?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEaXJlY3RvciBBSS9NTCBFbmdpbmVlcmluZyIsImNvbXBhbnlfbmFtZSI6IlVuaXRlZEhlYWx0aCBHcm91cCIsImh0aWRvY2lkIjoiQ2wtSF9MRy05akpTZ3k5cEFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpRbVZ1WjJGc2RYSjFMRXRoY201aGRHRnJZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBUR3RpYUZCT01ERmlZME5MU0VOR1gxWjNiWE5wTUUwd2VYZENWeko1VVhaNk5tMVhORTEyWTFsRFdUVkxaVE5VUkdSQlZuVldibUpwYWpsSWRWZG9Wa3AzUVROR2RITlNkelZVYzBWRU5HSnNja2xaU1ZoeFlXUTRSMlZtZFZadk4yZFRMVWxhZUVreFJuUkhRelpZTmxsMmJVTldSV05yUW1wMGMyWkRZMkZPUnpCTGJHSVNGMHRuVUVGaGN6ZHRUazFQWmpWT2IxQjROVk5ITFZFNEdpSkJSSE55T1daU2JFRnlOa3R0UldKMlFUQXRWM0pKTjBsSmQzTTJXVWwxWVZGUiIsImZjdiI6IjMiLCJmY19pZCI6IkNsLUhfTEctOWpKU2d5OXBBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "Lead Fullstack Engineer- Advanced AI",
+      "company_name": "TARGET",
+      "location": "Bengaluru, Karnataka",
+      "via": "Target",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=aojKIhfervJrtUlZAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXMMQ6CQBBA0dhyBAsztVHWmNhoKDBBYrQy9GRYJguyzpKdxVB6B1tP50nE5nfvR59ZlFwJazgN1kpA3UHGpmUiv4a0fiJrqiE9w_f1hrurQAi9bsAx5M4ZS_NDE0Ive6VEbGymRWh1rN1DOabKjWpC8k8pDXrqLQYqt7vNGPdslosiveVZAS3DkdigHfywggt6xoAd_gClkQSKnwAAAA&shmds=v1_ARwrE214EWfSwE2lYR1VgMmQ4k25xn-Bmnj1ha2xuKGvTQLeUA&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=aojKIhfervJrtUlZAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6ac00329b24c5da6615067b5/images/aVl_752Wr-ndMtrPcZ6SR7MBp0jFwG0Ehv4rK9WhTo8.jpeg",
+      "extensions": [
+        "5 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://indiajobs.target.com/job/bengaluru/lead-fullstack-engineer-advanced-ai/34386/99859092176",
+      "job_title": "Lead Fullstack Engineer- Advanced AI",
+      "description": "About Us\n\n\n\nAs a Fortune 50 company with more than 400,000 team members worldwide, Target is an iconic brand and one of America's leading retailers.\n\nJoining Target means promoting a culture of mutual care and respect and striving to make the most meaningful and positive impact. Becoming a Target team member means joining a community that values different voices and lifts each other up. Here, we believe your unique perspective is important, and you'll build relationships by being authentic and respectful.\n\n\n\nOverview about TII\n\n\n\nAt Target, we have a timeless purpose and a proven strategy. And that hasn’t happened by accident. Some of the best minds from different backgrounds come together at Target to redefine retail in an inclusive learning environment that values people and delivers world-class outcomes. That winning formula is especially apparent in Bengaluru, where Target in India operates as a fully integrated part of Target’s global team and has more than 5,000 team members supporting the company’s global strategy and operations.\n\n\n\nPyramid Overview\n\n\n\nA role with Target Data Science & Engineering means the chance to help develop and manage state of the art predictive algorithms that use data at scale to automate and optimize decisions at scale. Whether you join our Statistics, Optimization or Machine Learning teams, you’ll be challenged to harness Target’s impressive data breadth to build the algorithms that power solutions our partners in Marketing, Supply Chain Optimization, Network Security and Personalization rely on.\n\n\n\nTeam Overview\n\n\n\nTarget’s Advanced AI team builds end-to-end AI/ML systems that create meaningful business value across the enterprise. These systems may be powered by LLMs, classical machine learning, or deep learning models, and are designed as scalable, reliable, production-grade applications, including agentic architectures where they add clear value.\n\n\n\nRole Overview\n\n\n\nAs a Lead Full-Stack Engineer for Advanced AI, you will help design, build, deploy, and maintain the application layers, services, APIs, and user experiences that bring AI/ML capabilities into core business workflows. You will work closely with AI/ML Engineers, Data Scientists, product partners, platform teams, security teams, and business stakeholders to turn complex AI capabilities into practical, intuitive, and scalable applications.\n\nIn this role, you will provide hands-on technical leadership for full-stack engineering initiatives across Advanced AI applications. You will contribute to architecture and design decisions, build maintainable production-quality code, design and develop APIs and services, create user-facing application experiences, and help establish strong engineering practices across development, testing, deployment, observability, documentation, and ongoing support. You will help ensure applications are secure, reliable, accessible, performant, maintainable, and aligned to Target’s enterprise standards for infrastructure, platform architecture, data handling, and operational readiness.\n\nYou will also partner with AI/ML Engineers, Lead and Principal Engineers, and engineering leaders to shape technical approaches, identify implementation risks, resolve roadblocks, and support the evolution of reusable application patterns for AI-powered products. This role requires strong product thinking, curiosity, and continuous learning, including staying current with modern full-stack engineering practices and developments in AI, LLM-powered applications, agentic systems, and enterprise AI patterns. A successful Lead Full-Stack Engineer will help deliver production-grade AI applications that create measurable business value while raising the technical quality and capability of the broader team.\n\n\n\nAbout You\n\n4-year degree or equivalent experience.\n\n8+ years of hands-on software engineering experience, including experience building and operating production applications.\n\nStrong experience building full-stack applications, including user-facing experiences, backend services, APIs, integrations, and data-driven workflows.\n\nStrong proficiency with modern backend and frontend development. Experience with Python is strongly preferred, and experience with TypeScript, JavaScript, Java, Kotlin, Go, or similar languages is helpful.\n\nExperience with modern web application frameworks, API design, service-oriented architectures, data integration patterns, and production application development.\n\nExperience building applications that integrate with AI/ML capabilities, including model APIs, LLM-powered workflows, retrieval-augmented generation, agentic systems, intelligent automation, or data science outputs.\n\nStrong understanding of system design, application architecture, security, performance, scalability, reliability, accessibility, observability, testing, and production deployment considerations.\n\nExperience building scalable, maintainable, and well-tested services, APIs, data pipelines, integrations, applications, or platforms.\n\nExperience with version control, CI/CD, code review practices, documentation, operational monitoring, and production support.\n\nAbility to translate ambiguous business and user needs into clear technical approaches and collaborate with cross-functional partners to deliver practical solutions.\n\nStrong communication skills, with the ability to explain technical concepts clearly to engineers, AI/ML Engineers, Data Scientists, product partners, business stakeholders, and leaders.\n\nAbility to mentor engineers, contribute to technical direction, and raise the quality of full-stack engineering practices within a team.\n\nSelf-driven and results-oriented, with strong ownership, sound judgment, and the ability to move quickly while maintaining high technical standards.\n\nCollaborative team player with a commitment to continuous learning, knowledge sharing, and building reliable AI-powered applications that create business value.\n\n\n\nKnow More About Us here:\n\nLife at Target- https://india.target.com/\n\nBenefits- https://india.target.com/life-at-target/workplace/benefits\n\nCulture- https://india.target.com/life-at-target/belonging",
+      "apply_options": [
+        {
+          "title": "Target",
+          "link": "https://indiajobs.target.com/job/bengaluru/lead-fullstack-engineer-advanced-ai/34386/99859092176?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/lead-fullstack-engineer-advanced-ai-target-bengaluru--ss-in-18f6bph?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/sr-fullstack-engineer-advanced-ai-at-target-4474334262?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobstore",
+          "link": "https://www.jobstore.com/in/job/l27467349/lead-fullstack-engineer-advanced-ai-job?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "India Jobs Expertini",
+          "link": "https://in.expertini.com/job/sr-fullstack-engineer-advanced-ai-bangalore-target-e7ba4fcbd544488eb1a70f37df257f61105/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Protocol Jobs",
+          "link": "https://app.protocoljobs.ai/job/details?id=6ab0e513dc3e4db3b1dc5147&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "PrepIntro",
+          "link": "https://www.prepintro.com/job/sr-fullstack-engineer-advanced-ai-target/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "MyInternships.in",
+          "link": "https://myinternships.in/jobs/target-is-hiring-lead-fullstack-engineer-advanced-ai-bengaluru-aa1492?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJMZWFkIEZ1bGxzdGFjayBFbmdpbmVlci0gQWR2YW5jZWQgQUkiLCJjb21wYW55X25hbWUiOiJUQVJHRVQiLCJodGlkb2NpZCI6ImFvaktJaGZlcnZKcnRVbFpBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwU1hWd2IzUm9lREF0TFVKNE0zWkdZVEY2VTJsRExXMXlObVU0VFRSUlJYRnhkVm80TVRKNlpVNWpibkpsWVdONldDMVpSMGhLVEZGZlNGSmxSVXBRWVRRNFJYaG1TVGc1VEd0bFdWcEtXVlZMTm5WeVgyMTFUSGxvTjNkYVNrWnZjSFl6Y1VKbGNXMVBOalZ4YVVWclUzVjVjalpxWVc1aFlUUlpUMHRuVTFndE9URnJTRUVTRjB0blVFRmhjemR0VGsxUFpqVk9iMUI0TlZOSExWRTRHaUpCUkhOeU9XWlNXRXhNZFdkcU5sTklWblphYjNsSmJXNDVZV1kwVkhjNFN6ZG4iLCJmY3YiOiIzIiwiZmNfaWQiOiJhb2pLSWhmZXJ2SnJ0VWxaQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "AI Client Success Lead",
+      "company_name": "DotKonnekt",
+      "location": "Bengaluru, Karnataka",
+      "via": "BeBee",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=zD6oVyEDKX1lzEPUAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLOwrCQBAAUGxzBKvBUmRXBBut_IBI7DxAmKzDJmadCTsTSOkZ9IaeRG1e94rXpPC7MxxSS2xwHUIgVbgQ3uDzfMNdalDCHBoQhpNITDTdNma9brxXTS6qobXBBXl4Yapl9L-kfyptMFOf0KharZej6znOZ0exUpipM2gZ9sQR05CHBZSYGQ07_AKCIH1LlQAAAA&shmds=v1_ARwrE2378qXex4UrNqJ6FEXddO9mGA9XIdFM9eZ-mqcxlUdeJQ&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=zD6oVyEDKX1lzEPUAAAAAA%3D%3D",
+      "extensions": [
+        "6 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://bebee.com/in/jobs/ai-client-success-lead-dotkonnekt-bengaluru--jobted-d8a4a73a6d6b02c0b465d124cdac110f",
+      "job_title": "AI Client Success Lead",
+      "description": "DotKonnekt is an AI company used by brands and retailers to leapfrog with AI.\n\n\nUsing\nDotKonnekt AI Studio, we build and launch enterprise AI applications — including Sangria, our domain-specific AI experience platform that seamlessly blends content and commerce. Sangria leverages rich, organic context to guide users naturally from discovery to purchase, scaling conversions for the brands we work with. You will be the person clients trust to grow their organic presence, run their content engine, and connect every channel back to measurable results.\n\n\nResponsibilities - Manage client relationships end-to-end — onboarding, weekly check-ins, QBRs, and everything in between. You are the client's primary point of contact. (includes nurturing clients for referrals, testimonials)\n\n\nDrive organic growth using SEO and AEO playbook — keyword research, content gap analysis, on-page recommendations, and visibility in Google AI Overviews and LLM surfaces.Use AI to do more, faster — build agentic workflows to generate briefs, repurpose content, and surface ranking opportunities at scale.Track and report on what matters — organic traffic, rankings, content performance, and campaign ROI. Build dashboards clients actually look forward to.Spot growth opportunities within existing accounts and surface expansion ideas based on client goals and DotKonnekt's AI Studio capabilities.\nRequired Skills - You have 3+ years in a client-facing growth, SEO, or content role — agency experience is a strong plus.\n\n\nYou know SEO deeply — on-page, technical basics, content strategy, and how rankings actually move.You understand AEO: how LLMs surface content, what it takes to appear in AI Overviews, and how to write for both humans and machines.You have used AI tools to build and deploy workflows that help get things done — not just experimented with them once.You are comfortable in analytics — GA4, Search Console, Ahrefs, SEMrush, or equivalent.You manage multiple accounts without letting things slip — organized, proactive, and communicating before problems escalate.You can translate data into a clear story for clients who want results, not jargon.\nPreferred Skills - Experience running or managing paid search or social campaigns (Google Ads, Meta).\n\n\nFamiliarity with AI image and video generation tools (Midjourney, HeyGen, Higgsfield, or equivalent) and how to apply them in a brand content workflow.Background in retail, fashion, or e-commerce — understanding how content connects to conversion.",
+      "apply_options": [
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/ai-client-success-lead-dotkonnekt-bengaluru--jobted-d8a4a73a6d6b02c0b465d124cdac110f?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/2420227332007526400?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Trabajo.org",
+          "link": "https://in.trabajo.org/job-2927-3d60aca4baabe0669ee40af285026f78?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/335559657/lead-client-success-bengaluru?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBSSBDbGllbnQgU3VjY2VzcyBMZWFkIiwiY29tcGFueV9uYW1lIjoiRG90S29ubmVrdCIsImh0aWRvY2lkIjoiekQ2b1Z5RURLWDFsekVQVUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpRbVZ1WjJGc2RYSjFMRXRoY201aGRHRnJZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTMk41VDNCc2RuaEVUWEk0VjNWclNsVlVUSFE1V0VNeE9XRlZNRGhCVTNRdFZVeHRSa0ZsYkdOa1NHcGZlV0ZYTm1kemVVa3plVWxqTmt4U2FIZzJiVVprTkVremVXSlRlbEpaYlY5WVNrTm9ibTFKVVVjeVdVbGFhRTVoTkhVemRWbHNhbmw1ZDFFMk0yZzNVemRvVmxKWldYaHVNR28yVlhsRlh6RlJVMWxOTTBkaFJtVVNGMHRuVUVGaGN6ZHRUazFQWmpWT2IxQjROVk5ITFZFNEdpSkJSSE55T1daUlZWcEhTSEpwWHpSWlJEWkpaazAzWmtaVGFISmxMV1V4ZUd0UiIsImZjdiI6IjMiLCJmY19pZCI6InpENm9WeUVES1gxbHpFUFVBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "AI Architect",
+      "company_name": "Arrow Electronics",
+      "location": "Bengaluru, Karnataka",
+      "via": "Arrow Electronics Jobs",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=0ETwn0QL83xo_61WAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWNMQrCQBAAsc0TrLaxUCQngo1WJ4iIjwibY7mcnrvhdoMp_YGFP_QlxmaKgWGq96xa-Av4ErpkFAy-rw_cpAUlnBwIw1kkZpofOrNe986p5jqqoaVQB3k4YWpldFOkfzTaYaE-o1Gz3W3Guue4WvpS5AmnPC2KcAoKieFIHDEPZVjDFQuj4R1_x903BZIAAAA&shmds=v1_ARwrE21kGby9vsWxHmBtRT9NREisLfG0Ne4oY_Bnu_cRJZlHIQ&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=0ETwn0QL83xo_61WAAAAAA%3D%3D",
+      "extensions": [
+        "2 days ago"
+      ],
+      "source_link": "https://careers.arrow.com/tw/tc/job/R241207/AI-Architect",
+      "job_title": "AI Architect",
+      "description": "Position:AI Architect\n\n\n\nJob Description:A highly skilled and motivated AI Architect for designing, developing, and implementing artificial intelligence (AI) solutions within an organization. The role focuses on leveraging AI & GenAI technologies, machine learning (ML), natural language processing (NLP), computer vision, and predictive analytics to solve complex business problems and drive innovation. The AI Architect bridges the gap between business objectives and technology, ensuring that AI systems align with the organization's strategic goals.\n\n\n\nWhat we're looking for:\n\nEducation: Bachelor’s or Master’s degree in Computer Science, Artificial Intelligence, Data Science, or a related field. Advanced degree preferred.\n\nExperience: Minimum of 5 years of experience in AI projects, data science, or a related field.\n\nSkills:\n\nExpertise in AI & GenAI technologies, frameworks, and methodologies (e.g., supervised/unsupervised learning, deep learning, NLP, computer vision).\n\nProficiency in programming languages like Python, .Net\n\nStrong understanding of cloud technologies (Azure & GCP), APIs, and microservices.\n\nProven experience in managing technical projects, preferably in AI, machine learning, or data-driven technologies.\n\nKnowledge of big data processing tools (e.g., Hadoop, Apache Spark).\n\nHands on experience with tools and platforms used in AI development (e.g., Azure AI Foundry, Ollama, DataBricks etc.).\n\nExperience in architecting AI Solutions using on premise and Cloud technologies.\n\nExperience with agile methodologies and tools (e.g., Jira, Trello) for managing technical projects.\n\nDemonstrated ability to manage multiple projects simultaneously and prioritize effectively.\n\nStrong problem-solving, analytical, and communication skills.\n\nKnowledge of AI ethics and regulatory compliance frameworks.\n\nProficiency with data engineering and cloud architecture principles.\n\n\n\nWhat you'll be doing:Define and design AI architecture, frameworks, and strategies to meet organizational needs.\n\nEvaluate and select AI tools, platforms, and frameworks to develop innovative solutions.\n\nSupervise or contribute to the development, training, and optimization of Large as well as small language models.\n\nEnsure seamless integration of AI solutions with existing business processes while ensuring that the solution complies with Arrow’s internal policies and guidelines.\n\nDesign AI solutions that are scalable, secure, and maintainable over time.\n\nStay updated on the latest advancements in AI and machine learning to propose innovative solutions.\n\nStrong understanding & knowledge about Microsoft Azure cloud and deploying PaaS & SaaS applications on Azure\n\nStrong architecture background especially in AI Solutions and Cloud technologies.\n\nCollaborate with external vendors and partners to leverage their expertise and solutions.\n\nProject Planning and ExecutionDefine project scope, goals, and deliverables that align with business objectives.\n\nDevelop detailed project plans, timelines, and milestones for AI development and deployment initiatives for the inhouse GenAI platform.\n\nCollaborate with business units for ROI determination and identify KPI’s for measuring ROI for each project.\n\nManage day-to-day project activities to ensure successful execution and timely delivery.\n\nAnticipate potential risks and challenges in AI projects (e.g., data limitations, algorithm performance issues, regulatory concerns).\n\nProactively implement risk mitigation strategies and contingency plans.\n\nEnsure that AI projects comply with data privacy regulations, industry standards, and ethical guidelines.\n\nPromote responsible use of AI technologies across all projects.\n\n\n\nTeam Collaboration and CoordinationAct as the primary liaison between AI research teams, data scientists, engineers, product managers, and business stakeholders.\n\nFacilitate regular meetings and communications between business units and IT to discuss AI project progress, challenges, and opportunities.\n\nPlan and coordinate work between onsite and offshore AI teams.\n\nFoster collaboration among team members and remove obstacles to productivity.\n\n\n\n\n\nAbout Arrow:\n\nArrow Electronics, Inc. (NYSE: ARW), an award-winning Fortune 148 and one of Fortune Magazine’s Most Admired Companies. Arrow guides innovation forward for over 220,000 leading technology manufacturers and service providers. With 2025 sales of USD $30.9 billion, Arrow develops technology solutions that improve business and daily life. Our broad portfolio that spans the entire technology landscape helps customers create, make and manage forward-thinking products that make the benefits of technology accessible to as many people as possible. Learn more at www.arrow.com.\n\nOur strategic direction of guiding innovation forward is expressed as Five Years Out, a way of thinking about the tangible future to bridge the gap between what's possible and the practical technologies to make it happen. Learn more at https://www.fiveyearsout.com/. \n\n\n\n\n\n\n\nLocation:IN-KA-Bangalore, India (SKAV Seethalakshmi) GESC\n\n\n\nTime Type:Full time\n\nJob Category:Information Technology",
+      "apply_options": [
+        {
+          "title": "Arrow Electronics Jobs",
+          "link": "https://careers.arrow.com/tw/tc/job/R241207/AI-Architect?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobs At Alstom",
+          "link": "https://jobsearch.alstom.com/job/Bangalore-AI-Architect-KA/1424297033/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Zimmer Biomet Careers",
+          "link": "https://careers.zimmerbiomet.com/us/en/job/12209/AI-Architect?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Luxoft",
+          "link": "https://career.luxoft.com/jobs/ai-architect-25939?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Hirist",
+          "link": "https://www.hirist.tech/j/ai-architect-1661917?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Symphoni Hr",
+          "link": "https://symphonihr.com/careers/jobs/g8l3ISs7KU7x/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/ai-architect-at-capco-4445703762?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Instahyre",
+          "link": "https://www.instahyre.com/job-428601-ai-architect-at-impact-analytics-bangalore/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBSSBBcmNoaXRlY3QiLCJjb21wYW55X25hbWUiOiJBcnJvdyBFbGVjdHJvbmljcyIsImh0aWRvY2lkIjoiMEVUd24wUUw4M3hvXzYxV0FBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpRbVZ1WjJGc2RYSjFMRXRoY201aGRHRnJZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTVFF5ZWxSdmJGSnVPVkJQVGtGb1VWVnFVWFJZZVRBeWFuSXdUVkJHYUhVeU1VeEdSWFkzWTI1YWNqZGZkMjlCZDJSVFZFbDViRm8yYTFCc2JVZEhhalZtUkdkT2IxRkljVkZWVUdOWU1HNUlUV0ZNVjBaVVpFSlZhM1pZTTAxUFJFNWFaVkpEWlZCQ2VEaFROVk5NUkRRMGNqbFlNMkV4WW1aNkxYQmtWMmRDY0VKa1ZYUVNGMHRuVUVGaGN6ZHRUazFQWmpWT2IxQjROVk5ITFZFNEdpSkJSSE55T1daU2JXMXFiV2RQVGpObU1rdDVSRTVSUVdacU16aDFSMFJrY3pKUiIsImZjdiI6IjMiLCJmY19pZCI6IjBFVHduMFFMODN4b182MVdBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "Lead AI Delivery Engineer",
+      "company_name": "SymphonyAI",
+      "location": "Bengaluru, Karnataka",
+      "via": "SymphonyAI",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=rlDVE0zbXsVLFH2LAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXNMQrCMBSAYVx7BKeHo0giBRedFEVENw9QXusjiabvhSSVdvMO4gU9iXX5t4-_-EyK8kJ4g-0J9uTdk-IABzaOiSJ8X2-4Sw2JMDYWhOEoYjxNNzbnkNZap-SVSRmza1QjrRamWno9ovRPlSxGCh4zVeVq2avAZj67Dm2wwsP4dAw7YoO-i90CzhgZMz7wB63bX5CYAAAA&shmds=v1_ARwrE22qocY3YaToHyplW3hTw2lLD6d2_srMlOGqoyjffsCAdA&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=rlDVE0zbXsVLFH2LAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6ac00329b24c5da6615067b5/images/D_bAXA7s4uEuo0uTuuN7f7cak2KIykBy5Sm8-AHrRhQ.png",
+      "extensions": [
+        "Full–time"
+      ],
+      "source_link": "https://jobs.symphonyai.com/jobs/3118?lang=en-us",
+      "job_title": "Lead AI Delivery Engineer",
+      "description": "Introduction\n\n\n\nOverview:\nSymphonyAI Industrial is a leader in AI-driven solutions designed to enhance the health, reliability, and operational performance of industrial assets and processes. Our innovative IRIS platform integrates Predictive AI, Generative AI, and Agentic AI to provide real-time insights, predictive intelligence, and prescriptive recommendations for asset-intensive industries. We are seeking an experienced Lead AI Delivery Engineer to ensure the successful implementation of these solutions for industrial customers on a global scale.\n\n \nJob Description\n\nResponsibilities:\n\n \n\nCustomer Engagement & Solution Delivery\n\nCollaborate with clients to understand their needs and deliver tailored AI solutions to meet their objectives.Manage solution delivery timelines and ensure alignment with customer expectations.AI & Machine Learning Implementation\n\nLead the implementation of AI and machine learning models using industry-standard tools and frameworks.Apply advanced analytics and data science techniques to optimize solution delivery.Agentic AI & Generative AI Delivery\n\nDrive the deployment of Agentic AI and Generative AI solutions, leveraging the IRIS platform's capabilities.Integrate cutting-edge AI technologies to enhance customer operations.Project Leadership & Stakeholder Management\n\nLead project teams through the AI solution delivery lifecycle, ensuring stakeholder alignment and satisfaction.Communicate effectively with internal and external stakeholders to facilitate project success.Customer Success & Post-Deployment Support\n\nProvide post-deployment support to ensure sustained customer success and solution optimization.Troubleshoot and resolve any issues that arise post-implementation.Technical Leadership\n\nMaintain a deep understanding of AI technologies and trends to guide solution development and delivery.Mentor and develop team members to build technical expertise and delivery capability.Required Skills & Qualifications:\n\nBachelor's or Master's degree in Engineering, Computer Science, Artificial Intelligence, Data Science, Statistics, Mathematics, or related discipline.8+ years of experience in customer-facing technology delivery, industrial software implementation, or AI project delivery.3+ years of hands-on experience in AI, Machine Learning, Advanced Analytics, Data Contextualization, or Data Science projects.Proficiency in Python and libraries such as Scikit-learn, TensorFlow, PyTorch, Keras, NumPy, and Pandas.Experience with Generative AI, Agentic AI, RAG, Vector Databases, and Multi-Agent Systems.Familiarity with tools like LangChain, LangGraph, CrewAI, AutoGen, Semantic Kernel, OpenAI Assistants, MCP.Expertise in cloud-based AI platforms: Azure AI, Azure OpenAI, AWS Bedrock, Google Vertex AI, Databricks.Data visualization skills using Power BI, Tableau, Plotly, and Matplotlib.Preferred Skills & Qualifications:\n\nExperience in Predictive Maintenance, Reliability Engineering, and Asset Performance Management.Knowledge of Digital Twins, Industrial IoT Platforms, and Enterprise Generative AI Deployments.Understanding of LLMOps and MLOps practices.Compensation & Benefits:\n\nComprehensive benefits package, including health insurance, retirement plans, and paid time off.Opportunities for professional growth and development within a leading AI technology company.Diversity & Inclusion Statement:\nWe are committed to building a diverse and inclusive team and encourage candidates from all backgrounds to apply.\n\n \nAbout Us\n\nSymphonyAI is building the leading enterprise AI SaaS company for digital transformation across the most critical and resilient growth industries, including retail, consumer packaged goods, financial crime prevention, manufacturing, media, and IT service management. Since its founding in 2017, SymphonyAI today serves 1500+ Enterprise customers globally and has grown to 3,000 talented leaders, data scientists, and other professionals across over 30 countries.",
+      "apply_options": [
+        {
+          "title": "SymphonyAI",
+          "link": "https://jobs.symphonyai.com/jobs/3118?lang=en-us&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Angel And Genie",
+          "link": "https://angelandgenie.com/jobs/senior-project-manager-ai-delivery/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Foundit",
+          "link": "https://www.foundit.in/job/lead-ai-delivery-engineer-symphonyai-bengaluru-bangalore-65582235?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "SimplyHired",
+          "link": "https://www.simplyhired.co.in/job/sFHxz4lCo3d72JXQMcGbGqTWQdJv-DW4DT2L3yd1BSjXpUaD6K2xgw?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jooble",
+          "link": "https://in.jooble.org/jdp/-4607820964256537422?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/project-delivery-lead-jones-lang-lasalle-property-consultants-bengaluru--t7xk-852925679?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Simplify",
+          "link": "https://simplify.jobs/p/cb5dd1a1-8356-4c42-8369-1dd5df76ee04/Lead-AI-Delivery-Engineer?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/lead-ai-delivery-engineer-at-symphonyai-4454000697?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJMZWFkIEFJIERlbGl2ZXJ5IEVuZ2luZWVyIiwiY29tcGFueV9uYW1lIjoiU3ltcGhvbnlBSSIsImh0aWRvY2lkIjoicmxEVkUwemJYc1ZMRkgyTEFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpRbVZ1WjJGc2RYSjFMRXRoY201aGRHRnJZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTemRLYUZwVFJ6UTRkRFZsUW10U1dIaHBTMUUwY2toR1gyOUdWVGR5TTNsbFZtbGxSRlpDVHkwMmRXZEZWV1kwVmpoV1JsSnlXVlUzZGpSMVdHZFdNalZLVm5Wc1R6TlVWWGxXT1c4MFJsaGFhM0V6VlZkaVUwZHJPVzlMTURReFZHMW9kMWhmV21OalJ6bGpha2ROVTFKbGVtRnJaVkJ4V1V4cmJVUXdObTVrYVdKc1YxRVNGMHRuVUVGaGN6ZHRUazFQWmpWT2IxQjROVk5ITFZFNEdpSkJSSE55T1daU1oxQklMVVYxWVVwRFMzcElTbTVpUzFWQ2JXOVdkVmcxZEd4biIsImZjdiI6IjMiLCJmY19pZCI6InJsRFZFMHpiWHNWTEZIMkxBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "Engineer III, Artificial Intelligence",
+      "company_name": "Thermo Fisher Scientific",
+      "location": "Bengaluru, Karnataka",
+      "via": "Thermo Fisher Scientific Jobs",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=eufFfxSg_hOEsxSnAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_x2NQQrCMBAA8doneNqzlKYIXhQEBZXgUe9lG9ZkNd2UJIUe_YMP8U--xOplmMswxXtWbA9iWYgiaK1L2MXMNzaMHrRk8p4tiSH4PF9wDy0kwmgcBIFTCNbTfONy7tNaqZR8ZVPGzKYyoVNBqA2jmqL0Q5McRuo9ZmqWq3qserGL-uoodgGOnCaBi2GS_x9YYE9i0Q9xKOGMUTDjA7-siBGmsgAAAA&shmds=v1_ARwrE22g-VeK0DxzTrN6E8HhHERhjTTFwMVSrxxkpGJdkgqYEw&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=eufFfxSg_hOEsxSnAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAmVBMVEX____sAAD95ub7z8__-fn__Pz4-Pi7u7v5urvtAAv4tLX1jY7zeXv-8PDo6Ojx8vLBwcG1tbX71NT839_tFxzzdHbuKy_vNTj4rq_vOTzyYmT3p6juHyL0gIH6yMng4OBmZmYeHh5vb2_2mJnzbnD2n6DxVFfwSk3wQ0b6wcLLzMypqamCgoJcXFw8PDygoKBSUlKSkpIxMTGJUQ7XAAABsklEQVRIie1Sa3ObMBC8k4RBYPESLxsEMa_YsR23_f8_ridwOumH9Hs67IyWRXe7JxgBbNiwYcN3AOMEnep_1Rlfypx9LgyYZXIsx6-MuczQR4-UkMHfpbEAKPc-1epaMI9xT1dcTRrU5AMYdED5Tjp5UARVC6KuHe1p9jQeDgbbOQ-KChsj51yOc8MwmF_BNIHHccBBVoezQX425uxL5H8mAk7ZMZcmqwBrjanfTCg8VKYxLceqnANWDEqaZhxlIDl8MtayYvWE-sNYW6OwR-V4ubRZUA6MPK2eJqms8ZgBNKOD1b5pXn1MaXaKaYWqKOUechTQ4oRn9LOA4eVYNEcfF6MQAEqAcoBpcGiLlHIECfsL7JM2hVbPJr02WbyFlqM3ot2OqOvCRUVWhx1tWRV1HawKFgXwEl-t-5bQa-KSvCeU4Z6gj2CXnBLqfbdtbkLc07o9rjYfHr3tPi0hi_HHgya6_e1m461nof4Rr8bdy_MC7OCdGu8hCUhs6s8lIrmebO4veNJ9ae7XmGWiG7vrMDpqaD_3ao8admBDIP6geP0ftMIkib66oRs2bNjwn-A30sMe2S5QPlwAAAAASUVORK5CYII.png",
+      "extensions": [
+        "6 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://jobs.thermofisher.com/global/en/job/R-01352086/Engineer-III-Artificial-Intelligence",
+      "job_title": "Engineer III, Artificial Intelligence",
+      "description": "Work Schedule\n\nStandard (Mon-Fri)\n\nEnvironmental Conditions\n\nOffice\n\nJob Description\n\n\n\nAbout Company:\n\nThermo Fisher Scientific Inc. is the world leader in serving science, with annual revenue exceeding $40 billion. Our Mission is to enable our customers to make the world healthier, cleaner and safer. Whether our customers are accelerating life sciences research, solving sophisticated analytical challenges, improving patient diagnostics and therapies or growing efficiency in their laboratories, we are here to support them. Our distributed team of more than 100,000 colleagues delivers an outstanding combination of innovative technologies, purchasing convenience and pharmaceutical services through our industry-leading brands, including Thermo Scientific, Applied Biosystems, Invitrogen, Fisher Scientific, Unity Lab Services, Patheon and PPD.\n\n\n\nWhat will you do?\n\nWe are seeking a hands-on Senior AI Engineer to design, build, and deploy scalable AI driven and data intensive solutions supporting multiple initiatives. This role will focus on Generative AI enabled applications and enterprise workflow automation.\n\nYou will work closely with product owners, business stakeholders, and architects to convert business use cases into production ready AI and data solutions.\n\n\n\nKey Responsibilities\n\nDevelop and deploy GenAI powered applications, including RAG based solutions and agentic workflows.Build and maintain Python based microservices and APIs (FastAPI preferred).Develop and optimize data models for analytics and AI use cases.Contribute to CI/CD pipelines, DevOps best practices, and release management.Collaborate with cross-functional teams to ensure alignment between business needs and technical solutions.Support production systems, performance tuning, and continuous improvements.\n\nRequired Qualifications:\n\n7+ years of experience in backend development and AI solutions delivery.Strong programming expertise in Python.Hands-on experience with SQL.Experience working on AWS or Azure cloud platforms.Exposure to building or integrating LLM/RAG based solutions.Experience with Git based workflows, CI/CD, and unit testing.Strong problem solving and analytical skills.Experience with containerization (Docker/Kubernetes).\n\nGood to have skills\n\nFamiliarity with Databricks, Snowflake or Delta Lake.Understanding of integrating AI services with automation platforms.\n\nEducation\n\nBachelor’s or Master’s degree in Computer Science, Engineering, Data Science, or equivalent experience.\n\n\n\nOur Mission is to enable our customers to make the world healthier, cleaner, and safer. Watch as our colleagues explain 5 reasons to work with us. As one team of 1,20,000 colleagues, we share a common set of values - Integrity, Intensity, Innovation and Involvement - working together to accelerate research, solve complex scientific challenges, drive technological innovation and support patients in need.\n\nThermo Fisher Scientific is an EEO/Affirmative Action Employer and does not discriminate based on race, color, religion, sex, sexual orientation, gender identity, national origin, protected veteran status, disability or any other legally protected status.",
+      "apply_options": [
+        {
+          "title": "Thermo Fisher Scientific Jobs",
+          "link": "https://jobs.thermofisher.com/global/en/job/R-01352086/Engineer-III-Artificial-Intelligence?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Shine",
+          "link": "https://www.shine.com/jobs/artificial-intelligence-engineer/digitalxnode/19389298?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/artificial-intelligence-engineer-at-infosys-4415496950?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Foundit",
+          "link": "https://www.foundit.in/job/artificial-intelligence-engineer-hcl-techbee-bengaluru-bangalore-48714902?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/artificial-intelligence-engineer-clanx-bengaluru-karnataka--t7xk-851629474?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jooble",
+          "link": "https://in.jooble.org/jdp/-1161379848851060382?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Job Hai",
+          "link": "https://www.jobhai.com/manufacturing-artificial-intelligence-engineer-job-in-ernst-young-llp-ey-india-goraguntepalya-bangalore-4-to-6-years-1790343295-8411842-jid?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Apna Jobs",
+          "link": "https://apna.co/job/bengaluru/ai-engineer-1404410561?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJFbmdpbmVlciBJSUksIEFydGlmaWNpYWwgSW50ZWxsaWdlbmNlIiwiY29tcGFueV9uYW1lIjoiVGhlcm1vIEZpc2hlciBTY2llbnRpZmljIiwiaHRpZG9jaWQiOiJldWZGZnhTZ19oT0VzeFNuQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlFtVnVaMkZzZFhKMUxFdGhjbTVoZEdGcllTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFMxZE1SMWRxVFd4WFp6TjRjMXBwVUdOMk9WWkNXRms1TFdVeGNqSmhNemQxVmtVeVVrVkNialJVTTFKV1dEaGFaM0ZoVlc1cFQyWmplbDlTTFdnelYxVlRVMkkzTkRsZldHdHRlRmxYUkhwMVgwOTBPVXgzWnpsR2VqUTRPRVp5VFhGemQxVTJkV2RXYUVWNFZEaFZSbWs1Y2tkdFIzRlBPRkExU1UxSmFWOVpkSGh6VHpnU0YwdG5VRUZoY3pkdFRrMVBaalZPYjFCNE5WTkhMVkU0R2lKQlJITnlPV1pVV2tVMlJVVjBjVXBNZFdkbE4wd3lUSE5VZFcxVlJUVTBVMEZSIiwiZmN2IjoiMyIsImZjX2lkIjoiZXVmRmZ4U2dfaE9Fc3hTbkFBQUFBQT09In0="
+    },
+    {
+      "title": "GenAI - Principal Architect",
+      "company_name": "Cognizant",
+      "location": "Bengaluru, Karnataka",
+      "via": "Cognizant Careers",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=2pseyTKBdMMLE8nqAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLMQrCQBBAUWxzBKuxFc2KaKNVtAhi4w3CZBk2G9eZZXcCwco7CB7QkxibXzz4xWdW7Gri6gJruCXP1kcMUCXbeSWr8H29oZcWMuFkIAy1iAs0P3aqMR-MyTmULiuqt6WVhxGmVkYzTfmfJneYKAZUarb7zVhGdsvFWRz7J7KCZzgROwxDGlZwxcSoeMcfvxiC8pkAAAA&shmds=v1_ARwrE20i742aWQY92RcIhdK9JmpqaRHCnlB3QHIsmwReFMlXCA&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=2pseyTKBdMMLE8nqAAAAAA%3D%3D",
+      "extensions": [
+        "Full–time"
+      ],
+      "source_link": "https://careers.cognizant.com/global-en/jobs/00068834911/genai-principal-architect/",
+      "job_title": "GenAI - Principal Architect",
+      "description": "Senior Architect – Generative & Agentic AI\nAbout the role\n\nAs a Senior Architect – Generative & Agentic AI, you will make an impact by defining and delivering enterprise-scale AI architectures that drive business transformation and innovation. You will be a valued member of the AI & Digital Engineering team and work closely with business leaders, AI strategists, and engineering teams to design scalable, secure, and high-performing AI solutions.\n\nIn this role, you will:Define and own enterprise-wide architecture for Generative AI and Agentic AI solutions aligned with business goalsDesign end-to-end AI systems, from model selection and context engineering to application integration and deploymentLead development of reusable frameworks, accelerators, and multi-agent architectures for enterprise use casesDrive prototyping, PoCs, and MVP initiatives to validate AI solutions across industriesEstablish governance, standards, and best practices for AI lifecycle, ethics, security, and performanceWork modelAt Cognizant, we strive to provide flexibility wherever possible, while supporting a healthy work-life balance through various wellbeing programs. Based on this role’s business requirements, this is an onsite position requiring 5 days a week in a Cognizant office in Chennai, Bangalore, or Hyderabad.\n\nThe working arrangements for this role are accurate as of the date of posting and may evolve based on project and client requirements.\n\nWhat you need to have to be considered15+ years of IT experience, including 5+ years in AI/ML and hands-on experience in Generative AI / Agentic AIStrong expertise in designing and implementing Generative AI and multi-agent systems at enterprise scaleProven experience in enterprise architecture, including frameworks such as TOGAF or ZachmanHands-on experience with cloud AI platforms such as AWS (SageMaker, Bedrock), Azure AI (Studio/Foundry), or Google Vertex AIExperience defining AI governance models, compliance frameworks, and enterprise AI strategiesAbility to design scalable architectures integrating AI platforms across enterprise ecosystemsStrong stakeholder management skills with experience working with senior leadershipThese will help you stand outExposure to enterprise GenAI solutions such as Salesforce Einstein GPT, ServiceNow Now Assist, SAP Joule, Workday AI, or Oracle AI ServicesExperience with hybrid and multi-cloud AI deployment modelsKnowledge of AI observability, agent lifecycle management, and interoperability standardsExperience mentoring architects and leading high-performing AI engineering teamsActive participation in AI communities, industry forums, or thought leadership initiativesWhy consider this role?We're excited to meet professionals who are passionate about shaping the future of AI and driving real-world impact through innovation. Even if you don’t meet every requirement, we encourage you to apply and bring your unique perspective to the role.",
+      "apply_options": [
+        {
+          "title": "Cognizant Careers",
+          "link": "https://careers.cognizant.com/global-en/jobs/00068834911/genai-principal-architect/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Glassdoor",
+          "link": "https://www.glassdoor.co.in/job-listing/genai-principal-architect-cognizant-technology-solutions-JV_IC2940587_KO0,25_KE26,56.htm?jl=1010156821565&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Adzuna",
+          "link": "https://www.adzuna.in/details/5754024322?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jooble",
+          "link": "https://in.jooble.org/jdp/2057215304562437161?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Hirist",
+          "link": "https://www.hirist.tech/j/genai-architect-python-1668794?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Job Search At Monster Thailand",
+          "link": "https://www.monster.co.th/job/genai-principal-architect-cognizant-consulting-bengaluru-bangalore-55515425?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/genai-principal-architect-cognizant-bangalore-urban--techmap_in_4424355362?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/7476575643916828672?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJHZW5BSSAtIFByaW5jaXBhbCBBcmNoaXRlY3QiLCJjb21wYW55X25hbWUiOiJDb2duaXphbnQiLCJodGlkb2NpZCI6IjJwc2V5VEtCZE1NTEU4bnFBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwU2pCdVVWZFpTbVUxVjA5d1dsaGpjemh5Ums5MGRXUlFNVFIwUW1OT1dteGpRVm94V0U0M1drMDRYM2xtYWw5VGNXaHBORlpoV2poR2NVdzVjM3BxVFVSWGRrODVUek53WWs5eGNqSlNTSFJsTW13eFEySnZlVWRtUVY5SFRTMU5WVlV4UW1kdWVYVnNjazlHZGpFNFgxVlNkMU5mYjNkMlZrVlJORzlGVFRaT1ZrZEpZbTBTRjB0blVFRmhjemR0VGsxUFpqVk9iMUI0TlZOSExWRTRHaUpCUkhOeU9XWlRZVkJFTFVKRUxWSkdVVzk0Tm1aV1QyTnlUV1ZKY1Vod2JEUkIiLCJmY3YiOiIzIiwiZmNfaWQiOiIycHNleVRLQmRNTUxFOG5xQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "AI Strategy & Operations",
+      "company_name": "Navi",
+      "location": "Bengaluru, Karnataka",
+      "via": "LinkedIn",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=AI+Engineer+LLM+RAG&htidocid=dEHxpk5dRm-vPTtTAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_-PqY-QydPRUCC4pSixJTa9UUFPwL0gFsjPz84oVHjVMVsjKT1IoTk0sSs5QyM9TcM_PT89JlbLOKCkpKLbS1y8uztFLLy4Bqk_WS87P1c_PS03Kr9AHaioGEfHFGYlFqQU5QLPjjUwNKvQK8tK1ZPwSyzIVMvMUnFLz0hNzSotKdRS8E4vyEksSsxMBMFflHpEAAAA&shmds=v1_ARwrE230Wk-KDg2jKJklJ1sejueQ0SG2iORsCEVDFWy98JHGuQ&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=AI+Engineer+LLM+RAG&htidocid=dEHxpk5dRm-vPTtTAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6ac00329b24c5da6615067b5/images/VJMF6wfay5XmFP4WPq8zIqfa4plzmmgTQ-kvQr58DA4.jpeg",
+      "extensions": [
+        "21 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://in.linkedin.com/jobs/view/ai-strategy-operations-at-navi-4464863453",
+      "job_title": "AI Strategy & Operations",
+      "description": "AI Strategy & Operations (AISO) \n\nLocation: Bangalore \n\n\n\n\nAbout the Team \n\nNavi’s GenAI team is transforming how AI powers financial services in India. We are embedding advanced AI that directly impacts millions of users across Lending, Payments, Insurance, and Investments. As a cross-functional team of engineers, researchers, and product leaders, we work at the intersection of cutting-edge AI and real business problems—shipping fast, learning constantly, and scaling what works. \n\n\n\n\nAbout the Role \n\nThe Associate Manager - AISO (AI Strategy & Operations) role is a position focused on executing prompt engineering, testing, and debugging tasks for AI powered applications. The role supports the development and maintenance of AI chatbots and automation use cases under guidance from senior team members. \n\n\n\n\nMust Haves \n\n● Strong written and verbal communication skills in English \n\n● High attention to detail and quality \n\n● Logical reasoning and structured thinking \n\n● Ability to analyze text outputs and identify inconsistencies or logical gaps \n\n● Strong problem-solving skills with a practical, solution-oriented mindset \n\n● Ability to learn new tools, workflows, and AI concepts quickly \n\n● Comfort working in ambiguous and iterative environments \n\n● Bachelor’s degree in any discipline (Preferred backgrounds: Economics, English, Psychology, Marketing, Social Sciences)\n\n \n\nPreferred Skills \n\n● Exposure to AI tools, chatbots, or LLM-based platforms \n\n● Strong comprehension and critical analysis skills \n\n● Ability to break down complex problems into structured evaluation scenarios \n\n● Familiarity with structured documentation and reporting\n\n\n\n\nWhat You’ll Do \n\n● Develop and iterate prompts for AI based applications. \n\n● Test AI outputs across multiple scenarios, edge cases, and user journeys \n\n● Identify prompt-level failures, hallucinations, and inconsistent behavior \n\n● Analyze interaction logs and transcripts to improve bot accuracy \n\n● Execute bulk testing using internal tools \n\n● Document findings, improvements, and version updates clearly \n\n● Collaborate with AI Scientists, Product Managers, and Engineers to implement improvements \n\n\n\n\nWhat We Expect From You \n\n● High ownership and a proactive approach to solving problems \n\n● Strong written clarity and ability to reason through ambiguity \n\n● Comfort with fast-changing environments and an agile mindset \n\n● Curiosity about AI systems and how large language models behave \n\n● Structured thinking under pressure \n\n● A mindset of continuous improvement and learning \n\n\n\n\nAbout Navi\n\nWe are on a mission to make finance simple, accessible and affordable for a billion Indians. Guided by a strong customer-first approach, we are building tech-first solutions that work at scale. Our offerings include a range of financial products and services across Loans, Insurance, Mutual Funds, Digital Gold and UPI.\n\nFounded by Sachin Bansal & Ankit Agarwal in 2018, we are one of India’s fastest-growing financial services organisations. But we’re just getting started!\n\nTo know more about us, our work, people, culture, values etc., check out navi.com/careers.\n\n\n\n\nOur Culture\n\nAt Navi, we’re a place where ambition meets opportunity and ideas turn into impact quickly. We empower people with high ownership from the start, encouraging them to solve meaningful problems and build with excellence. Teams here work in an environment that values speed, collaboration and craftsmanship, while celebrating learning, growth and shared wins along the way. Whether you’re shaping the future of fintech products or driving innovation behind the scenes, life at Navi means being part of a high-energy, talent-driven workplace where your contributions truly make a difference.\n\nWe’re guided by our own operating system - The Navi OS - a set of principles that shape how we work and win together. You can explore them at navi.com/careers/values-at-navi to see what drives us every day.\n\nIf this feels like you, Navi is the place to grow, thrive and make a real impact.",
+      "apply_options": [
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/ai-strategy-operations-at-navi-4464863453?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Foundit",
+          "link": "https://www.foundit.in/job/ai-strategy-operations-navi-bengaluru-bangalore-66792289?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Cutshort",
+          "link": "https://cutshort.io/job/Strategy-Operations-Generalist-Visuals-Documentation-Bengaluru-Bangalore-Rajneethi-Management-Consultancy-Yp1g25Pp?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Getmereferred.com",
+          "link": "https://getmereferred.com/in/job-listing/analyst-associate-ai-operations-strategy-together-inkabengaluru-to-3-years-experience-2162930e-7e0d-4855-9445-ab6b6f4f40c7?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Adzuna",
+          "link": "https://www.adzuna.in/details/5770458084?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jooble",
+          "link": "https://in.jooble.org/jdp/-2682629873535735422?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobaaj",
+          "link": "https://www.jobaaj.com/job/together-analyst-associate-ai-operations-strategy-bengaluru-bangalore-karnataka-1-to-3-years-1502228?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBSSBTdHJhdGVneSBcdTAwMjYgT3BlcmF0aW9ucyIsImNvbXBhbnlfbmFtZSI6Ik5hdmkiLCJodGlkb2NpZCI6ImRFSHhwazVkUm0tdlBUdFRBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwUzJGVU5XZFlPVmhGUWs1eWFtSXdkV0Z1YzNWMlpFRXpSMlZHV0dvME9USnFOak00VjFSTFowZFRUMjAwTlZGeFZHRlhSMTlrTFY5SFQwZEZjV1p6VFRaQ04yZHFkRjlCTTFKVmRVdzRWV1Z6ZVhwWlZrWmxZMlF3YmtGZldWRmhWSE5XZW5CM1NVRjFiVWwwVEdwSGRWQnpjRTg0VnpOSVNHWm5ZelZ4WVZwMlgwZDFWVzhTRjB0blVFRmhjemR0VGsxUFpqVk9iMUI0TlZOSExWRTRHaUpCUkhOeU9XWlNVMGRDWVZVMWMycEpUVXBxU2tGNVNWcHNTMXBTU0hSNlRtUm4iLCJmY3YiOiIzIiwiZmNfaWQiOiJkRUh4cGs1ZFJtLXZQVHRUQUFBQUFBPT0ifQ=="
+    }
+  ],
+  "serpapi_pagination": {
+    "next_page_token": "eyJmYyI6IkVvd0VDc3dEUVVwcFZEUjBTM0ZxU2pSRVUyTjZiMlJQWkVnd1MyOVhlazh0WVVWeU0wZEZNVkpaTVVoZlMzUTBibkJ0TlhoUlRuRm1OMjFrWWpkVGFEWXdSRXd5TlhoMWVGbE1RVVJFZFV0cGJWYzFUMkp4TkRSV1ZXWXliMlI0TVRCU2NITjVPVEJRYjNGbGFHZElhbWw2YWtsV1JteHZVMk5sTkVrd2FHZzJYMFpwTWtReU1uRkxlRE5rYWpOZmRXWjJRelpGYW5JNGVGSXRjMjlxWkc1dk5HaElTRGxuVWpkbVJ6bFdhbGQyWkRaNFZFeERPRTFrZVZjM1FVazFUamxZTkZWWFZtcDZUbkpSVkZGeE0wdDRORGcyTlhORlMxRTViMjFUTUV4RmFUSlFSRzVtUTBOVU5IcFhWbXhVV2xoR2NETkVURGhuYWpGS2RpMDFhbTh4V0dkRFgwNDJTVFZmVlVFdFdFdFBTa1ptTmtWQ1lsOXNjSEp4YjJoSFFucERkMWROTjB0cFN6Wk9hMHhJYzNNeGQzcEJjM0pDY3pkME1XSlNkMjU1UmxacFNsWjNkWEJGYWpkQlgwOXpTbDlWYmpkTU9EVllkV2xKYzFaQ1FrOVZSVzVUZWpGWWEwZFFTV2xDT0VaRlUxRnhlbFZFVkVKVlREYzJPV2RzUmpoMFVHTnpWRkl3YkROcVJGWlRaVEJPUlZWSFIwMTZkSHBYUTNwNU1UTklObWxaZEcxQ1kwUm1kMjVSY1ZkblFqQnFhRU5sU1dkbVVITm9UR3g2WDAxRGFETmxTbkp5Y2xkeFpVOW1Tek51UnhJWFMyZFFRV0Z6TjIxT1RVOW1OVTV2VUhnMVUwY3RVVGdhSWtGRWMzSTVabE5JWlRZNFQyMUhZMGwwVEV4VlVIcENNbUpWTkU1Q1lWUlhXRkUiLCJmY3YiOiIzIn0=",
+    "next": "https://serpapi.com/search.json?engine=google_jobs&gl=in&google_domain=google.com&hl=en&location=Bengaluru%2C+Karnataka%2C+India&next_page_token=eyJmYyI6IkVvd0VDc3dEUVVwcFZEUjBTM0ZxU2pSRVUyTjZiMlJQWkVnd1MyOVhlazh0WVVWeU0wZEZNVkpaTVVoZlMzUTBibkJ0TlhoUlRuRm1OMjFrWWpkVGFEWXdSRXd5TlhoMWVGbE1RVVJFZFV0cGJWYzFUMkp4TkRSV1ZXWXliMlI0TVRCU2NITjVPVEJRYjNGbGFHZElhbWw2YWtsV1JteHZVMk5sTkVrd2FHZzJYMFpwTWtReU1uRkxlRE5rYWpOZmRXWjJRelpGYW5JNGVGSXRjMjlxWkc1dk5HaElTRGxuVWpkbVJ6bFdhbGQyWkRaNFZFeERPRTFrZVZjM1FVazFUamxZTkZWWFZtcDZUbkpSVkZGeE0wdDRORGcyTlhORlMxRTViMjFUTUV4RmFUSlFSRzVtUTBOVU5IcFhWbXhVV2xoR2NETkVURGhuYWpGS2RpMDFhbTh4V0dkRFgwNDJTVFZmVlVFdFdFdFBTa1ptTmtWQ1lsOXNjSEp4YjJoSFFucERkMWROTjB0cFN6Wk9hMHhJYzNNeGQzcEJjM0pDY3pkME1XSlNkMjU1UmxacFNsWjNkWEJGYWpkQlgwOXpTbDlWYmpkTU9EVllkV2xKYzFaQ1FrOVZSVzVUZWpGWWEwZFFTV2xDT0VaRlUxRnhlbFZFVkVKVlREYzJPV2RzUmpoMFVHTnpWRkl3YkROcVJGWlRaVEJPUlZWSFIwMTZkSHBYUTNwNU1UTklObWxaZEcxQ1kwUm1kMjVSY1ZkblFqQnFhRU5sU1dkbVVITm9UR3g2WDAxRGFETmxTbkp5Y2xkeFpVOW1Tek51UnhJWFMyZFFRV0Z6TjIxT1RVOW1OVTV2VUhnMVUwY3RVVGdhSWtGRWMzSTVabE5JWlRZNFQyMUhZMGwwVEV4VlVIcENNbUpWTkU1Q1lWUlhXRkUiLCJmY3YiOiIzIn0%3D&q=AI+Engineer+LLM+RAG"
+  }
+}

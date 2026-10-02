@@ -1,0 +1,392 @@
+{
+  "slug": "bengaluru_data_engineer",
+  "captured_at": "2026-10-02T19:02:13.936032+00:00",
+  "latency_ms": 2620,
+  "query_params": {
+    "q": "Data Engineer Python SQL",
+    "location": "Bengaluru, Karnataka, India",
+    "gl": "in",
+    "hl": "en",
+    "engine": "google_jobs"
+  },
+  "jobs_count": 10,
+  "jobs": [
+    {
+      "title": "Data Engineer - (Snowflake, Python, SQL & React)",
+      "company_name": "Dentsu",
+      "location": "Bengaluru, Karnataka",
+      "via": "SimplyHired",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Data+Engineer+Python+SQL&htidocid=W1QnJFLnFKIXMuRUAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXOPQrCQBBAYWxzBAuZSlRiIoKNdhIR0cKfA4RJGDcx60zYnWDsvIOX8FyexNi87oMXfHrBLkFF2LApmcjBFEYXlsfVYkUhHJ9aCIdwOR1gCGfCXMfwfb3hJhl4QpcXIAxbEWOpvypUa7-MY-9tZLyilnmUyz0WpkzauEP-n9QX6Ki2qJTOF7M2qtlMBgmx-gZKhjWxQdu4JoQ9Ou7-KvwBCEKiyqsAAAA&shmds=v1_ARwrE212838yy8Yuh6ksBr5pIE6cBM7HONLQdeOGZRHr42U0kA&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Data+Engineer+Python+SQL&htidocid=W1QnJFLnFKIXMuRUAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/_9j_4AAQSkZJRgABAQAAAQABAAD_2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys_RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N__AABEIADgAOAMBIgACEQEDEQH_xAAbAAEAAwADAQAAAAAAAAAAAAAAAwQHAQIGBf_EACsQAAEEAgEDAwQBBQAAAAAAAAEAAgMEBRESBhMhFDFBMlFhgVIHImJxof_EABUBAQEAAAAAAAAAAAAAAAAAAAAB_8QAFBEBAAAAAAAAAAAAAAAAAAAAAP_aAAwDAQACEQMRAD8AxFERVBERAREQEREBdxFIYTN239oO4l_E8d_bf3X0ulKdTIdS4qlkXcali5FHMd620uAI38b9t_G1s82Mis4mPF5zCV8JjT1UyFkUUJibNEGO4kkn-7kQG8gisDXaKN8zwyJrnvJ0GtGyf9Bbtl8DhnZrCwS9PRwuGdbXLxiPSwyQFjz2ztxEp20HkP8AigxbMdav4rIxYjG4-xS6udjWPpQdrnEI3EB3nyd68qDD3NLHFrgQQdEHxorhbTjaLLfW2ffneko4pWRaqujxTp42gyv1NJADykLtfUP4_ChzfSLX0uqqtXEUrOTrZGnwbjqhHCNzGF3FnlzAfJI39_hUY4i9Z_ValVxvX-Wp0K0VavG6LhFEwNa3cTCdAfkk_tER5NWrOTv24hFbu2Z4xrTJZnPA17eCVVRBcly2SmMRlyFt5hO4i6d57Z_x8-P0ovWWePH1EvHud3XcOu5_P3-r8-6gRBfGayoteqGTuixx4d71L-fH7b3vX4UdfJ36s0s1a7Zhll33JIpnNc_fvyIPn9qoiCSeeazK6WxK-WV31PkcXOPx5JXC6IgIiICIiAiIgIiIP__Z.jpeg",
+      "extensions": [
+        "4 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://www.simplyhired.co.in/job/qmHAmU--bNn6I9ZdQq3eiutD09laqKh6D7HLKzo0569WP8v5vRBFSA",
+      "job_title": "Data Engineer - (Snowflake, Python, SQL & React)",
+      "description": "Job Description:\n\n\nSr. Software Data engineer (Snowflake, Python & SQL, React)\nQualifications\nBachelor’s degree in Computer Science, Information Technology, Software Engineering, Data Science, or a related technical field.\n4+ years of experience in Software Development, Data Engineering, or Data Platform Development.\nStrong proficiency in Python, SQL, and Snowflake development.\nHands-on experience designing and implementing ETL/ELT pipelines, Data Warehouses, and Data Lakes.\nExperience building modern web applications using React.js and JavaScript/TypeScript.\nWorking knowledge of Generative AI, LLMs, RAG architectures, AI agents, and AI-powered application development.\nExperience with Snowflake Tasks, Streams, Stored Procedures, Snowpark, and Dynamic Tables.\nStrong understanding of Data Modeling, Data Governance, and Data Quality principles.\nExperience with Git, CI/CD pipelines, Agile/Scrum methodologies, and automated testing frameworks.\nExposure to cloud platforms such as AWS, including services like S3, Lambda, Glue, ECS, or Bedrock.\nExcellent analytical, problem-solving, and stakeholder management skills.\nStrong verbal and written communication skills with the ability to work effectively across cross-functional teams.\nKey Responsibilities\nDesign, develop, and maintain scalable data engineering solutions using Python, SQL, and Snowflake.\nBuild and optimize ETL/ELT pipelines for processing large-scale structured and unstructured datasets.\nDevelop modern web applications and data-driven interfaces using React.\nLeverage AI/ML technologies, including Generative AI and LLM integrations, to solve business problems and improve operational efficiency.\nWork within Agile development teams, actively participating in sprint planning, stand-ups, retrospectives, and code reviews.\nDesign and implement Snowflake data architectures, including Tasks, Streams, Dynamic Tables, and performance optimization.\nCollaborate with business stakeholders to understand requirements and deliver scalable, data-driven solutions.\nImplement CI/CD pipelines and DevOps best practices for application and data platform deployments.\nEstablish and enforce coding standards, testing strategies, monitoring, and data governance practices.\nMentor junior developers and provide technical leadership across projects.\nAnalyze business and customer data to generate insights for decision-making and audience targeting initiatives.\nWork with cross-functional teams including Product, Analytics, AI, and Engineering to deliver end-to-end solutions.\nRequired Skills\nStrong experience in Python for data engineering, automation, API development, and backend services.\nAdvanced SQL development and performance tuning expertise.\nHands-on experience with Snowflake including:\nTasks\nStreams\nStored Procedures\nSnowpark\nDynamic Tables\nData Sharing\nPerformance Optimization\nStrong understanding of Data Warehousing, ETL/ELT, Data Modeling, and Data Lake architectures.\nExperience building front-end applications using React.js, JavaScript/TypeScript, HTML, and CSS.\nExperience integrating AI solutions, including Generative AI, LLM APIs, vector databases, RAG architectures, and intelligent automation.\nExperience with REST APIs, microservices, and cloud-native application development.\nStrong knowledge of Agile methodologies, Git, CI/CD, and DevOps practices.\nExcellent communication and stakeholder management skills.\nAbility to translate business requirements into scalable technical solutions.\n\n\n\nLocation:\n\n\nDGS India - Bengaluru - Manyata N1 Block\n\n\nBrand:\n\n\nMerkle\n\n\nTime Type:\n\n\nFull time\n\n\nContract Type:\n\n\nPermanent",
+      "apply_options": [
+        {
+          "title": "SimplyHired",
+          "link": "https://www.simplyhired.co.in/job/qmHAmU--bNn6I9ZdQq3eiutD09laqKh6D7HLKzo0569WP8v5vRBFSA?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jooble",
+          "link": "https://in.jooble.org/rjdp/4980965073110621330?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/data-engineer-python-aws-db-sql-trigent-software-bengaluru--ss-in-ggwk0w?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Glassdoor",
+          "link": "https://www.glassdoor.co.in/job-listing/jv?jl=1010278067252&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Sorce",
+          "link": "https://www.sorce.jobs/jobs/data-engineer-sql-sutherland-j1_yEKKGdCCSh5I4hbk35h4Twy7eCrIxKul0W46M8tE27DFFXiULw?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Find Your Next Job In AdTech",
+          "link": "https://adtechtalent.com/jobs/data-engineer-19?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEYXRhIEVuZ2luZWVyIC0gKFNub3dmbGFrZSwgUHl0aG9uLCBTUUwgXHUwMDI2IFJlYWN0KSIsImNvbXBhbnlfbmFtZSI6IkRlbnRzdSIsImh0aWRvY2lkIjoiVzFRbkpGTG5GS0lYTXVSVUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpRbVZ1WjJGc2RYSjFMRXRoY201aGRHRnJZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTemwzV0dsM2RXNXJOVXB1Tkhwd1VrUlRSRFpJVVRsYU1WTmxjVXQxYVhkTmVHeERjVTFVYW1OM1dsVk5SRXBUTlRkdVdFazVNMlZOUlZkUE5rWklVWGhUWVVsR2RHbE1UVGhxYjA5QmJGVnBOR1I1YjNkcE1IVk1kMHB4WldSalNGbFNaRGRoU1ZJeGFEWnZXbGhUYWpKTlZuY3ljVVk0WWxodWFHRldZV1UxY2pCS1RrSVNGM1JmTFY5aGRWUTFSRGcyU1d0UVNWQjZiM0owWjFFMEdpSkJSSE55T1daVFYwSnFRWGhFYW1aUGVsRTVMVEpmVTBRMWNYY3plbXhzYzAxQiIsImZjdiI6IjMiLCJmY19pZCI6IlcxUW5KRkxuRktJWE11UlVBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "Azure Data Engineer--ADF,Databricks,Python ,Snowflake ,Denodo,SQL.",
+      "company_name": "Tata Consultancy Services",
+      "location": "Bengaluru, Karnataka",
+      "via": "Foundit",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Data+Engineer+Python+SQL&htidocid=65pgGGdlDqWYFVGuAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWOMW7CQBBFlZYjpJoaLXYSKQ2pAEOKUBCZjgKNl2G9eJmxdtYEUuUOnCuXyEliN6_4el96o9-H0W723UWCAhPCkp1nojiZzIqVGaYqetuo2dxSLQymZPk6BmwITEEsBzHl5zqDv587nKQCJYy2ht58F3GBHt_qlFqd5rlqyJwmTN5mVs65MFVyzfuTDthrjZHagIn2L69P16xlN37eDk0LYe1CQrY3KClevCUFzzAndhi62Bn4wMi92uA_KNUZyNAAAAA&shmds=v1_ARwrE217C41UC41fShJiiPkPtw4ktxVQGnR2DmvBKznIH0zcZg&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Data+Engineer+Python+SQL&htidocid=65pgGGdlDqWYFVGuAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAA1BMVEX___-nxBvIAAAAGklEQVRIie3BMQEAAADCoPVPbQo_oAAAAL4GDHgAAYf3oeUAAAAASUVORK5CYII.png",
+      "extensions": [
+        "5 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://www.foundit.in/job/azure-data-engineer-adf-databricks-python-snowflake-denodo-sql-tata-consultancy-services-bengaluru-bangalore-69200622",
+      "job_title": "Azure Data Engineer--ADF,Databricks,Python ,Snowflake ,Denodo,SQL.",
+      "description": "Exp Must 8+ Location of Requirement Noida, Bangalore, Hyderabad, Pune, Mumbai, Kolkata\n\n\n\n\n\nRole Name Role Name Data Engineer\n\n2 Technical Skill Set Required ADF,Databricks,Python ,Snowflake ,Denodo,SQL.\n\n3 Total No of Requirements\n\n4 Required Experience Range 5-15 Years\n\n5 Location of Requirement Noida, Bangalore, Hyderabad, Pune, Mumbai, Kolkata\n\n\n\nDesired Competencies (Technical/Behavioral Competency)\n\nMust-Have SQL,Python,Databricks,Azure Data factory\n\nGood-to-Have Snowflake, Powe BI, Denodo\n\nCertifications\n\nRequired DP203, DP 700, AI 900,\n\n\n\n\n\nSN Role descriptions / Expectations from the Role\n\n1 As a Data Engineer, responsible for designing, developing and maintaining robust data pipelines and architectures to support advanced analytics and business intelligence initiatives.\n\n2 Build and Optimize ETL/ELT process using Python and SQL.\n\n3 Develop and maintain Snowflake data models and warehouse solutions.\n\n4 Implement Denodo data virtualization for unified and agile data deliver Data Engineer\n\n\n\n\n\nResponsibilities\n\n\n\n\n\nAs a Data Engineer , responsible for designing, developing and maintaining robust data pipelines and architectures to support advanced analytics and business intelligence initiatives.Build and Optimize ETL/ELT process using Python and SQL.Develop and maintain Snowflake data models and warehouse solutions.Implement Denodo data virtualization for unified and agile data deliver\n\n\n\nQualifications\n\n\n\n\n\nRequired Skills\n\n\n\n\n\nTechnical Skill Set Required ADF, Databricks, Python, Snowflake, Denodo, SQL.Desired Competencies (Technical/Behavioral Competency) Must-Have SQL, Python, Databricks, Azure Data factoryRequired Experience Range 5-15 Years\n\n\n\nPreferred Skills\n\n\n\n\n\nGood-to-Have Snowflake, Powe BI, DenodoCertifications Required DP203, DP 700, AI 900, SN",
+      "apply_options": [
+        {
+          "title": "Foundit",
+          "link": "https://www.foundit.in/job/azure-data-engineer-adf-databricks-python-snowflake-denodo-sql-tata-consultancy-services-bengaluru-bangalore-69200622?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Foundit",
+          "link": "https://www.foundit.com.ph/job/azure-data-engineer-adf-databricks-python-snowflake-denodo-sql-tata-consultancy-services-bengaluru-bangalore-69200622?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/azure-data-engineer-adf-databricks-python-snowflake-denodo-sql-at-tata-consultancy-services-4470405174?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/azure-data-engineer-adfdatabrickspython-snowflake-denodosql-tata-consultancy-services-bengaluru--fj-2375680546?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/4282559442572017664?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/337445843/azure-data-engineer-adf-databricks-python-snowflake-denodo-sql-bengaluru?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBenVyZSBEYXRhIEVuZ2luZWVyLS1BREYsRGF0YWJyaWNrcyxQeXRob24gLFNub3dmbGFrZSAsRGVub2RvLFNRTC4iLCJjb21wYW55X25hbWUiOiJUYXRhIENvbnN1bHRhbmN5IFNlcnZpY2VzIiwiaHRpZG9jaWQiOiI2NXBnR0dkbERxV1lGVkd1QUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlFtVnVaMkZzZFhKMUxFdGhjbTVoZEdGcllTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFMzTnhlSGR2YkUxaWRtZHplUzFSZEdaUlVXeGtZa1JEVVRkNE5XeHlOakV6TVdWdk0zVlpUazl2U0Zkb1ZITmhhRmszTUZodlZuQlFYMDF6TWxCWmJVWkNUVWxJUm1sM1dYVnBaVEExUkc1TmRFbHRPR3hIV2tOb1UxTlNZa2haVEMxNVNVbFhUbkp4ZWtadmJuRTVXV0pQTlhkVU1USTFhSEpZT0ZkSlpUVnRTMll4VTFvU0YzUmZMVjloZFZRMVJEZzJTV3RRU1ZCNmIzSjBaMUUwR2lKQlJITnlPV1pUVTJNMlVXeDRObHBSWWxOQ1VERldiblp6V25Gd04yeHFUR0ZuIiwiZmN2IjoiMyIsImZjX2lkIjoiNjVwZ0dHZGxEcVdZRlZHdUFBQUFBQT09In0="
+    },
+    {
+      "title": "Data Engineer (Python, SQL, PySpark & AWS) For Bangalore",
+      "company_name": "Apptad",
+      "location": "Bengaluru, Karnataka",
+      "via": "BeBee",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Data+Engineer+Python+SQL&htidocid=sEkAfQBtB4H7_7FBAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWOOw6CQBBAY8sRLMxURg0BY2KjFcRPoQWEwpIMOFkQnNnsLgl03sGLeCZPIjave3nP-0y89IAO4ciqZiIDi2RwlbAPWXr1IRkyjaaBOUS3bAknMRAjK2zFEHxfb3hIAZbQlBUIw1lEtTTdV85puwtDa9tAWYeuLoNSnqEwFdKHo2T_yG2FhnSLjvLNdt0HmtVqFmnt8A41Q0z_VGc6Hy5oePxs8AeYRwxsswAAAA&shmds=v1_ARwrE230bJnmwn9vUWufsEzJQj6WgsqSA7vY1SwvhYe7Fo6AeQ&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Data+Engineer+Python+SQL&htidocid=sEkAfQBtB4H7_7FBAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAq1BMVEX____i4-jBw8zs7fDn6Ozf4OVfZH3Fx9Hv8PPZ2-Gkp7Seoa_4-PoABEMoMVi3usSqrbnKzNQAAD7_mgD_zIX_1Jv_687_2qPU2OL__vf_lgD_89j_-dyKkKQAACf_4bj_1ZSxt8ZRWnlKUXFBR2h2e5D_9OL_riiVmagwOV7_pAD_vV0AADIhK1UXI09scIcAFEcMHEwAADn_szrUt5PYx6_s5Nr_t0n__e6yaQWtAAABkUlEQVRIie2Sa0-DMBSGTy9QSru1ZXcnznVlFuaAbV72_3-ZoO6SGE38pgkPCem5vH1PDgB0dHR0_COGo_FkGqJf62Y3g_ltehf_VrcY3s-XVmK6-oixw983Z5faYrR-AB6DiIl_n9bm9lST7736KlipU218Uyw2EmnwWt1lTSJ65D0Kwjlnoq0tU6jqFHC-VaVk-ap_FsJmDJAyVDVX-qCJRQhWgK-x35FdxnNdpYQ8ahX30V6r5CycHUYFFTqfah-adj_93Vbk4EOA2tQE4iwTYBIAX5kSIL84rhcTYCY2lCtCGtsnSkkvEIlOS1KGeKd0rejex8nzS-LF_uJYvMJRY-Ej4L3GcbJp9-FjZ0Mky8qJZvgt5s7hzZHb0J2F6-LwOjhKDjbje3-ew1ftnhL6w2eccXaYaQc0ENElq0QrrH4SAjcPQ8qMNfrbFnn1vmZQ8NR__nKG4eZRZsnaEzNaYRYpxZZsqnG7xGvhfC0pfGYiFDFEKUKEEUoQCZoT5REiiMkAccS_-nZ0dHT8Ud4A58se0CAh5bMAAAAASUVORK5CYII.png",
+      "extensions": [
+        "11 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://bebee.com/in/jobs/data-engineer-python-sql-pyspark-aws-for-bangalore-apptad-bengaluru--t7xk-849107094",
+      "job_title": "Data Engineer (Python, SQL, PySpark & AWS) For Bangalore",
+      "description": "Skills- Data Engineer (Python, Spark, SQL,AWS)\n\n\nWe're looking for a skilled Data Engineer to design, build, and maintain scalable data pipelines that power analytics, reporting, and machine learning initiatives. You'll work extensively with PySpark for large-scale data processing and the AWS ecosystem to build reliable, cloud-native data infrastructure.\n\n\nKey Responsibilities\n\nDesign, develop, and maintain ETL/ELT pipelines using PySpark for batch and streaming data processing\nBuild and manage data lake and data warehouse solutions on AWS (S3, Redshift, Glue, EMR, Athena, Lake Formation)\nDevelop and orchestrate workflows using AWS Step Functions, Apache Airflow, or AWS Glue Workflows\nOptimize Spark jobs for performance, cost, and scalability (partitioning, caching, cluster tuning)\nIngest data from multiple sources (APIs, databases, flat files, streaming platforms like Kafka/Kinesis)\nImplement data quality checks, validation frameworks, and monitoring/alerting for pipeline health\nCollaborate with data analysts, data scientists, and business stakeholders to understand data requirements\nDesign and maintain data models (star/snowflake schemas) for analytics use cases\nWrite clean, well-documented, testable code following engineering best practices (CI/CD, version control)\nEnsure data security, governance, and compliance (IAM policies, encryption, access controls)\nTroubleshoot and resolve production data pipeline issues",
+      "apply_options": [
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/data-engineer-python-sql-pyspark-aws-for-bangalore-apptad-bengaluru--t7xk-849107094?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "JobLeads",
+          "link": "https://www.jobleads.com/in/job/data-engineer-python-sql-pyspark-aws-for-bangalore--bengaluru--eaa73771d462ce08540512b1a9e530072?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEYXRhIEVuZ2luZWVyIChQeXRob24sIFNRTCwgUHlTcGFyayBcdTAwMjYgQVdTKSBGb3IgQmFuZ2Fsb3JlIiwiY29tcGFueV9uYW1lIjoiQXBwdGFkIiwiaHRpZG9jaWQiOiJzRWtBZlFCdEI0SDdfN0ZCQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlFtVnVaMkZzZFhKMUxFdGhjbTVoZEdGcllTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFMzUjZSVGxoWlROMlNYWTJUa1V6V0doQlUxaFVjV2hWY0dGbGJtcExkRzVLU1RkS1YyOUtRakpYYmxsUVYybFlRM050YzJWT1p6QjBiMVE0TUhwRU4yRmhWWHBWV0VOaU1VZHFUMGhIZEVGU05FNUlkVWN6Y1cxcFNHUlNVSEZHZEhJMmFUWmplbkF6WW1wclpsSlFjSFZmWmtOeGMwUnVkSFJ0UzBkM04zVllXa2xGTmt3U0YzUmZMVjloZFZRMVJEZzJTV3RRU1ZCNmIzSjBaMUUwR2lKQlJITnlPV1pSYkZsYVpWaDNhMHBxWWpCdVVHbG5kM0Z5Y1RSZldYaFNXWE5SIiwiZmN2IjoiMyIsImZjX2lkIjoic0VrQWZRQnRCNEg3XzdGQkFBQUFBQT09In0="
+    },
+    {
+      "title": "Data Engineer (4+ Years) | Remote | Immediate to 15 days Joiners only",
+      "company_name": "YMinds.AI",
+      "location": "Bengaluru, Karnataka",
+      "via": "LinkedIn",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Data+Engineer+Python+SQL&htidocid=PdT0g0wfWnZXJI2PAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWOTQ4BQRCFY-sIVmXnLzMIG1aECGJjZ0PKTKWn6amadLWExMIdXMhZnETbvHx5yZf36p9a_bjAgLBkY5nIQ2vUhQOh1zY8YU-lBIqwLkvKLUYOAoMx5PhQ2EhUvIKwe8D39YaLnEGjmxWxg5WIcdSYFiFUOklTVZcYDRhslmRSpsJ0lnsaJf3HSQv0VLk4chqO-_ekYtNpHnaWc01ma7AMc2KD7uZvPdii5_j7ij9UEt9QwwAAAA&shmds=v1_ARwrE20txgiiJwjemLwS8g46zv82pMIsuLh0KW5c5nmtTGoUlg&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Data+Engineer+Python+SQL&htidocid=PdT0g0wfWnZXJI2PAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6abfffb560cbefb21f34d6b3/images/CLZKwRxanNTEzDNU9E6WJgqLNtuVCG641cI8C3tfg64.jpeg",
+      "extensions": [
+        "9 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://in.linkedin.com/jobs/view/data-engineer-4%2B-years-remote-immediate-to-15-days-joiners-only-at-yminds-ai-4470901223",
+      "job_title": "Data Engineer (4+ Years) | Remote | Immediate to 15 days Joiners only",
+      "description": "Our client is seeking an experienced Data Engineer with 4+ years of experience in data engineering, with strong hands-on expertise in Python, PySpark, SQL, and cloud platforms such as AWS, Azure, or GCP. The ideal candidate should have a solid understanding of data engineering concepts and experience developing and optimizing data solutions. Strong communication skills are mandatory. \n\n\n\n\nKey Responsibilities\n\nDesign, develop, and optimize data solutions based on business and technical requirements.Apply data engineering concepts to build and maintain effective data solutions.Develop data processing and engineering solutions using Python and PySpark.Write, optimize, and maintain SQL scripts for data processing and analysis.Work with cloud services across AWS, Azure, or GCP.Contribute to the development and optimization of data engineering solutions.Collaborate effectively with teams and stakeholders through strong verbal and written communication.\n\n\nRequired Skills\n\n4+ years of experience in Data Engineering.Strong hands-on experience with Python.Strong hands-on experience with PySpark.Strong knowledge and hands-on experience with SQL scripting.Strong understanding of data engineering concepts.Strong hands-on knowledge of cloud services on AWS, Azure, or GCP.Strong communication skills — mandatory.\n\n\nNice-to-Have Skills\n\nKnowledge of Generative AI.Understanding of Large Language Models (LLMs).\n\n\nAbout YMinds.AI\n\nYMinds.AI is a technology-focused organization helping businesses leverage modern technology and data-driven solutions. We connect skilled technology professionals with opportunities to work on innovative projects and contribute to the evolving digital and AI ecosystem.\n\n\n\n\nKeywords\n\nData Engineer, Data Engineering, Python, PySpark, SQL, SQL Scripting, AWS, Azure, GCP, Cloud Computing, Data Solutions, Data Engineering Concepts, Generative AI, Large Language Models, LLM\n\n\n\n\nHashtags\n\n#DataEngineer #DataEngineering #Python #PySpark #SQL #AWS #Azure #GCP #CloudComputing #GenerativeAI #LLM #ArtificialIntelligence #TechJobs #Hiring #DataJobs #YMindsAI",
+      "apply_options": [
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/data-engineer-4%2B-years-remote-immediate-to-15-days-joiners-only-at-yminds-ai-4470901223?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Shine",
+          "link": "https://www.shine.com/jobs/gcp-data-engineer-immediate-to-days-bengaluru/dentsu-global-services/19355894?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/aws-data-engineer-4-years-remote-immediate-to-15-days-joiners-only-ymindsai-bengaluru--talent-637293371069508876?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Getmereferred.com",
+          "link": "https://getmereferred.com/in/job-listing/aws-data-engineer-4-years-remote-immediate-to-15-days-joiners-only-ymindsai-bengaluru-4-to-6-years-experience-1b1db0fc-f569-4fb0-9394-ca6a3abb985d?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "AI Jobs Map",
+          "link": "https://aijobsmap.com/jobs/4470901223/data-engineer-4-years-remote-immediate-to-15-days-joiners-only-at-yminds-ai?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "MyJobAlerts",
+          "link": "https://myjobalerts.in/viewjob/aws-data-engineer-4-years-remote-immediate-to-15-days-joiners-only-242909179?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/337413292/data-engineer-4-years-remote-immediate-to-15-days-joiners-only-bengaluru?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEYXRhIEVuZ2luZWVyICg0KyBZZWFycykgfCBSZW1vdGUgfCBJbW1lZGlhdGUgdG8gMTUgZGF5cyBKb2luZXJzIG9ubHkiLCJjb21wYW55X25hbWUiOiJZTWluZHMuQUkiLCJodGlkb2NpZCI6IlBkVDBnMHdmV25aWEpJMlBBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwU1VrMllWUmhNRmx5VGpFMFlXMUJabHBIVFhGelIzaGtWRmszTTBZMFIydDVTVVZ5ZVVwd1R6WkxiMFphWTNjME9FeG1SMVV0YTAxWk9UTkpYMGhLU0VWTFlXSnFkbFZXU2xsSVlscGpXbFZ3T1VkTlJXUjJiblpNWVU4dExVZENXVWw0U1ROaVVqQjNWbWhmUnpKMWJuVnpWME5GVVhGNU5YcE9hR3BxY0VGdWIxVmFXbFlTRjNSZkxWOWhkVlExUkRnMlNXdFFTVkI2YjNKMFoxRTBHaUpCUkhOeU9XWlNRVzk1UmxoS2QyWTNPVTlXVXpWU1lVUmZVRnBTTFhReWRrMVIiLCJmY3YiOiIzIiwiZmNfaWQiOiJQZFQwZzB3ZlduWlhKSTJQQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Machine Learning Engineer - Python and SQL",
+      "company_name": "Early Career",
+      "location": "Bengaluru, Karnataka (+1 other)",
+      "via": "Citi Careers",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Data+Engineer+Python+SQL&htidocid=Me7ohh7hoHTcEOM7AAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWOQQrCMBREcdsjuPoLV6KJCG50ZykurKB4gPIbP0k0_pQkhXbnHbyE5_Ikxs3A8GaYKT6TojyhMpYJasLAljVUrLOnAEs4j8l4BuQbXC81fF9vuPsWYo4qA5kcvNeOpjuTUhe3UsbohI4Jk1VC-af0TK0fZC7FvzTRYKDOYaJmvVkNomM9n1UY3AhlJnnUMuyJNbo-9As45k-Y8IE_2QO8aasAAAA&shmds=v1_ARwrE23sjRdRUboKhugcfbwRQ3a-L1K4gMDba86u-O9y7c0M-A&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Data+Engineer+Python+SQL&htidocid=Me7ohh7hoHTcEOM7AAAAAA%3D%3D",
+      "extensions": [
+        "4 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://jobs.citi.com/job/pune/machine-learning-engineer-python-and-sql/287/101320623824",
+      "job_title": "Machine Learning Engineer - Python and SQL",
+      "description": "About the Role\n\nThe Specialized Analytics Analyst  is an emerging professional role within the TTS Analytics organization. The role requires applying data science, machine learning, and Generative AI techniques to solve complex business problems, generate actionable insights, and deliver scalable analytical solutions. The individual will work closely with business, product, operations, and technology partners to translate data into measurable business outcomes.\n\nAbout TTS Analytics\n\nThe Treasury & Trade Servces (TTS) Analytics team provides advanced analytical solutions and strategic insights to Product, Pricing, Client Experience, and Sales teams across the global TTS business.\n\nOur mission is to leverage data, advanced analytics, machine learning, and Generative AI to:\n\nImprove client experience and engagementDrive acquisition, cross-sell, retention, and revenue growthIdentify business opportunities through data-driven insightsBuild and scale AI-powered solutions that generate measurable business impactKey Responsibilities\n\nThe successful candidate will:\n\nAdvanced Analytics & Data Science\n\nAnalyze large and complex datasets to identify patterns, trends, risks, and business opportunities.Develop analytical frameworks to solve business problems related to client experience, pricing optimization, customer acquisition, cross-sell, and retention.Translate ambiguous business requirements into structured analytical and data science solutions.Machine Learning Development\n\nDesign, develop, validate, and deploy machine learning models Deliver models that generate measurable business value and support decision-making.Develop and enhance Generative AI applications leveraging: Design, build, and maintain scalable ETL/ELT pipelines and data workflows supporting analytics and AI initiatives.Partner with data engineering teams to improve data quality, lineage, governance, and platform scalability.\nStakeholder Management\n\nCollaborate with business, product, operations, technology, and data teams to prioritize initiatives and deliver impactful solutions.Present analytical findings, model outcomes, and recommendations effectively to both technical and non-technical stakeholders, including senior management.Required Qualifications\n\nEducation\n\nBachelor's or Master's degree in Computer Science, Data Science, Statistics, Engineering, Mathematics, or a related quantitative discipline.Experience\n\n3 to 5 years of experience in Data Science, Machine Learning, Advanced Analytics, or related disciplines.Experience working within banking, financial services, or other highly regulated industries is preferred.Demonstrated experience deploying production-grade machine learning or AI solutions.Technical Skills\n\nProgramming & Data Management\n\nStrong proficiency in Python (required)Advanced SQL skillsExperience with PySpark and large-scale data processingMachine Learning & Statistics\n\nHands-on experience with:\n\nSupervised and unsupervised learning techniquesStatistical modeling and hypothesis testingExperiment design and A/B testingScikit-learnXGBoost and/or LightGBMETL/ELT pipeline developmentData modelingCI/CD implementation for ML workloadsModel monitoring and performance managementVersion control and deployment frameworksCore Competencies\n\nAnalytical Excellence\n\nStrong analytical and problem-solving skills.Ability to identify trends, patterns, and actionable insights from structured and unstructured data.Ability to formulate analytical methodologies and independently execute complex analyses.Communication & Collaboration\n\nStrong verbal and written communication skills.Ability to influence stakeholders through data-driven recommendations.Comfortable working in cross-functional and matrixed organizations.Execution & Ownership\n\nDetail-oriented with strong organizational skills.Ability to manage multiple priorities and deliver in a fast-paced environment.Strong sense of accountability and ownership for outcomes.\n------------------------------------------------------\n\nJob Family Group: Decision Management------------------------------------------------------\n\nJob Family:Specialized Analytics (Data Science/Computational Statistics)------------------------------------------------------\n\nTime Type:Full time------------------------------------------------------\n\nMost Relevant Skills Please see the requirements listed above.------------------------------------------------------\n\nOther Relevant Skills For complementary skills, please see above and/or contact the recruiter.------------------------------------------------------\n\nCiti is an equal opportunity employer, and qualified candidates will receive consideration without regard to their race, color, religion, sex, sexual orientation, gender identity, national origin, disability, status as a protected veteran, or any other characteristic protected by law.\n\n \n\nIf you are a person with a disability and need a reasonable accommodation to use our search tools and/or apply for a career opportunity review Accessibility at Citi.\n\nView Citi’s EEO Policy Statement and the Know Your Rights poster.",
+      "apply_options": [
+        {
+          "title": "Citi Careers",
+          "link": "https://jobs.citi.com/job/pune/machine-learning-engineer-python-and-sql/287/101320623824?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Hirist",
+          "link": "https://www.hirist.tech/j/tiger-analytics-machine-learning-engineer-1672863?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Shine",
+          "link": "https://www.shine.com/jobs/tiger-analytics-machine-learning-engineer/hiristtech/19568822?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jooble",
+          "link": "https://in.jooble.org/rjdp/7456837876804929965?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/ai-engineer-generative-ai-and-machine-learning-ernst-young-llp-ey-india-bengaluru--techmap_in_1867240839?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Getmereferred.com",
+          "link": "https://getmereferred.com/job-listing/machine-learning-engineer-aiops-and-genai-harman-bengaluru-6-to-8-years-experience-6a44996a-5062-4911-88db-10e0d19a293a?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobaaj",
+          "link": "https://www.jobaaj.com/job/nielseniq-machine-learning-engineer-retail-analytics-bangalore-1-to-2-years-703673?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/6238296509025091584?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJNYWNoaW5lIExlYXJuaW5nIEVuZ2luZWVyIC0gUHl0aG9uIGFuZCBTUUwiLCJjb21wYW55X25hbWUiOiJFYXJseSBDYXJlZXIiLCJodGlkb2NpZCI6Ik1lN29oaDdob0hUY0VPTTdBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwUzFwcWJFUmtNMVJrYzFwcWVYWkpWbVpYY1ZsbGNteFFVMWMzVEdONVNYWm1aRzlFYkY5MGVFSlRVM2xmY0c0NWRGbENMWFEzVDBkRmNHSlJVa1ZvYlZGU1NHZzBSMjFyVldkSWNWRkNVVTFJWTNCclNtbHlhVGxMWW5GRmNrRlpjbXh4VTJKV2VrTnBlV3RoYWxSV1F6Sm1jakZTTjBwWWJVSlBkV2RJVDFCRmMwSm9ZbllTRjNSZkxWOWhkVlExUkRnMlNXdFFTVkI2YjNKMFoxRTBHaUpCUkhOeU9XWlNkSEZtWmkxMmFGTkJVM2xWY0ZOdWEzbEJORXhUT0ZWRVJIRm4iLCJmY3YiOiIzIiwiZmNfaWQiOiJNZTdvaGg3aG9IVGNFT003QUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Data Engineer – Python & GCP",
+      "company_name": "VRINDA INTERNATIONAL",
+      "location": "Chennai, Tamil Nadu",
+      "via": "LinkedIn",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Data+Engineer+Python+SQL&htidocid=Ir7nzOPdXZIexItoAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_x3LMQrCMBSAYVx7BKc3Oag0IoigU2lLKUgspbiW1xqSSPpSmgh18w4ewZt5EqvLP3zwB-9ZsE_QI6QkNQkxwOf5guLhlSVYQBYXf7jZBpzAoVUweWatNGJ-VN737sCYcyaUzqPXbdjajlkSjR3ZNLlfaqdwEL1BL-rtbjOGPcnl6lLmPIkg51Va8qjKzzw6gSaIlSBCvYYKO22A4_X-BW9x8zKmAAAA&shmds=v1_ARwrE204YRm0uGsYqW3Kf2URahScjhESk6Z3mXIUwGHJ6KphkQ&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Data+Engineer+Python+SQL&htidocid=Ir7nzOPdXZIexItoAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6abfffb560cbefb21f34d6b3/images/9BLLVt-wEQroB7zMHnhht6Akj2JZB3m2GNKS2LhGICM.jpeg",
+      "extensions": [
+        "2 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://in.linkedin.com/jobs/view/data-engineer-%E2%80%93-python-gcp-at-vrinda-international-4472552403",
+      "job_title": "Data Engineer – Python & GCP",
+      "description": "Job Summary \n\n\nWe are seeking a skilled Data Engineer specializing in Python and Google Cloud Platform (GCP) to join our IT Services division. In this pivotal role, you will design, build, and maintain scalable data pipelines that drive business intelligence and operational efficiency. The position demands a deep understanding of cloud-native data architectures, ensuring seamless data integration and high-performance processing within the GCP ecosystem. This opportunity is ideal for a professional with substantial hands-on experience who is eager to leverage advanced analytics to solve complex data challenges.\n\n\nKey Responsibilities \n\n\n Architect and implement robust data ingestion, transformation, and loading workflows using Python and GCP services.  \n Develop and optimize SQL queries to extract, manipulate, and analyze large datasets efficiently.  \n Collaborate with cross-functional teams to define data requirements and deliver high-quality data solutions.  \n Monitor data pipeline performance, troubleshoot issues, and ensure data integrity and security across the platform.  \n Maintain and enhance existing data infrastructure to support growing business needs and scalability.  \n Document technical designs, processes, and best practices to ensure knowledge sharing and operational continuity.  \n\n\nRequirements\n\nRequirements:\n Experience: 5.5 to 8 years of professional experience in data engineering roles.  \n Technical Proficiency: Advanced expertise in Python programming for data manipulation and automation.  \n Database Skills: Strong command of SQL for complex querying and data modeling.  \n Cloud Platform: Proven hands-on experience with Google Cloud Platform (GCP) data services and tools.  \n Domain Knowledge: Solid background in data engineering principles, including ETL/ELT processes and data warehousing.",
+      "apply_options": [
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/data-engineer-%E2%80%93-python-gcp-at-vrinda-international-4472552403?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/6655432254027726848?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Scovai",
+          "link": "https://app.scovai.com/tr/jobs/bf2853d9-efb6-453c-beb9-92113f9558cb/chennai-data-engineer-python-gcp-vrinda-international?tab=all&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEYXRhIEVuZ2luZWVyIOKAkyBQeXRob24gXHUwMDI2IEdDUCIsImNvbXBhbnlfbmFtZSI6IlZSSU5EQSBJTlRFUk5BVElPTkFMIiwiaHRpZG9jaWQiOiJJcjduek9QZFhaSWV4SXRvQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlFtVnVaMkZzZFhKMUxFdGhjbTVoZEdGcllTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFNrUkRlV2R1VWtjMlFXZzRTalUwWWpac1NXdDRUbEJrTjFoVGVHdDBURnBwT0ZVeVRqbHJka1ZmYjJwUGNFdDVZbnBKZUVKME5rRnJZVE55VmtWeFJrNVNkRU5KZEc1NVJtOVRieTFUV0hGNU9HTTVOMFZRUTNsWFdFcE9UalpPZFVONlQwZHpZMjlPWVRsa1NERXlPR2xFZDB0VU1uWkZZbGhMY1RCa1NWaHlSRUkyY1ZRU0YzUmZMVjloZFZRMVJEZzJTV3RRU1ZCNmIzSjBaMUUwR2lKQlJITnlPV1pVU0dGS1VIRjFXbWRUTmw5aVFVWXdkRGM0ZDJWV2FVMVVaM1JuIiwiZmN2IjoiMyIsImZjX2lkIjoiSXI3bnpPUGRYWklleEl0b0FBQUFBQT09In0="
+    },
+    {
+      "title": "Python SQL Data Engineer",
+      "company_name": "Clock Edge Technologies Pvt Lt",
+      "location": "Karnataka",
+      "via": "Indeed",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Data+Engineer+Python+SQL&htidocid=ab26GLDFf7AQOl2yAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWOMQrCQBAAsc0TrLZWyKlgo6UGC1NEtA-bc7mLOXfD3SKx8w_Wfs6XGJupZmCyzyRbVk_1wnA-lbBHRSjYtUwU4ft6w00aSITRehidg4gLNN161T5tjEkp5C4pamtzK3cjTI0MZozSH3XyGKkPqFSv1osh79nN5rsgtoPi6gguZD1LENdSguqhUCq0DEeMPJ50-APocCaNoAAAAA&shmds=v1_ARwrE20n_J0eifO091JkkNjLNRW3hCU1UowxSsnw3PzcX-68Tw&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Data+Engineer+Python+SQL&htidocid=ab26GLDFf7AQOl2yAAAAAA%3D%3D",
+      "extensions": [
+        "22 days ago",
+        "Contractor"
+      ],
+      "source_link": "https://in.indeed.com/viewjob?jk=86a62be153080b3e",
+      "job_title": "Python SQL Data Engineer",
+      "description": "Python SQL Data Engineer\n\n\nClient: Cognizant\n\n\nVMS ID: CGEMJP00353411\n\n\nExperience: 6–8 Years (6.5+ Years relevant)\n\n\nIndustry: Financial Services\n\n\nLocation: Bangalore\n\n\nBudget: 15 LPA\n\n\nMandatory / Key Skills:\n\n\nPySpark\n\n\nAdvanced SQL\n\n\nETL/ELT\n\n\nData Engineering\n\n\nData Integration\n\n\nData Warehousing\n\n\nDimensional Modeling\n\n\nRelational Databases\n\n\nData Pipelines\n\n\nCloud – Azure / AWS / GCP\n\n\nGit / Version Control\n\n\nData Quality, Governance & Security\n\n\nPerformance Tuning\n\n\nAPI / Database / Flat File integration\n\n\nStrong Analytical & Problem-Solving Skills\n\n\nStakeholder Management\n\n\nEducation: Bachelor's degree in Computer Science, IT, Engineering, or related field.\n\n\nPay: Up to ₹1,500,000.00 per year\n\n\nWork Location: In person",
+      "apply_options": [
+        {
+          "title": "Indeed",
+          "link": "https://in.indeed.com/viewjob?jk=86a62be153080b3e&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJQeXRob24gU1FMIERhdGEgRW5naW5lZXIiLCJjb21wYW55X25hbWUiOiJDbG9jayBFZGdlIFRlY2hub2xvZ2llcyBQdnQgTHQiLCJodGlkb2NpZCI6ImFiMjZHTERGZjdBUU9sMnlBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwU1ZOWFVsOUlSSGRETUdNM1NHeDJXVWh0YjBockxXOWZPR0pFVVhaMlRITnliV2RtYlRnMFowNXhja1JhUjJSbldVVlRSbTB6VkVWSVpWQkhTMHcyU2s5bFFUSk5NRVJVWmtKUU0wWnFVRFJFUTJwTFNYUjBlWGhMY0c0eU1uVXpRa0l0WlZaYWRFaHpWVGs0VFU5cFJFSkpkVmxzUjFseFdqTlVVVGxrWTFkdFIyRllSRFVTRjNSZkxWOWhkVlExUkRnMlNXdFFTVkI2YjNKMFoxRTBHaUpCUkhOeU9XWlJPV2RZUWpKU0xYRTFaV3hoZUd0cVVIbElRblo1YzAxTWVEZEIiLCJmY3YiOiIzIiwiZmNfaWQiOiJhYjI2R0xERmY3QVFPbDJ5QUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Senior Data Engineer (Azure Databricks & PySpark, Python)",
+      "company_name": "Uplers",
+      "location": "Bengaluru, Karnataka",
+      "via": "Platform.uplers.com",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Data+Engineer+Python+SQL&htidocid=d-hOtrx614aTTmhTAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_x2OQYrCQBBFma1HmIXUSkYJySDMRleK4sKNGGYdKqHotGmrmqoOqKu5w5zEK3kSo5vP48GDP7p_jI4lsReFDSaELTvPRApfq1uv9Ja1-qYzmMDhWkbULhsgtcJTePz9w0lqMEJtWhCGnYgL9LlsU4q2KAqzkDtLmHyTN3IuhKmWSzFE9prKWlSKARNV85_vSx7Zzca_MZAaeIY1scPQa5_BHpWHMx0-AVJGZo-0AAAA&shmds=v1_ARwrE209JHJz_0Y1X9wfd4-n5ajymRsfG6RyNJI3S1c0sSc-Sw&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Data+Engineer+Python+SQL&htidocid=d-hOtrx614aTTmhTAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAZlBMVEX82i4FBwgAAAcAAAP_3S__4S__3y8ABAgAAADhwyr_4zD00y20nCLMsSaSfx1sXhYlIQyhjB_UuCjCqCXpyisfHAssKA2vlyGAcBpMQxI-Nw-8oyQNDQl7axlYTROpkyEzLQ1fUxS_IhwbAAABiElEQVRIie2V0ZKCMAxFa9IU2gpIcV2LCvr_P7mlyI6VgrAz-8Z9o3om9yYlMLZp0ybGndZDgrjMMinEGkoQHffFFzqdvmlpKVLH6nxKEWDnBGjZZ7-cSGd5jU-oF9oPbgUxk1vnDpJdIGxnSE7sUsA71D_BdRLkSt4g8Of-Dpgm_RGaiZQkmzSgOuhatFKxQ3eMl3hJKjGshfAoJVOCM9V4cB8FKU_DYHfDSPTmtDeCWcwqlyHnmqh-fzPoDhLUsYKixbD7UEsiEr0Z9AcqCu7fwC6jzavOHVnvNI_fOh2OYeiqnzomkxEHPyO2IMYzHxGiEbuSu1FJBx5oiGin3g9RpZGSrpXzEZ3ULWIWM9IwF7ETt2OzUGcF-ClOYg7UhwjZX0Ro5lYAP14jDeotxy_qbE1fEOYwT9axcc71dCB5gcmIg8npv4haHNn9kHAg5f0NxWLZVuWihFe_2Cz-BJA-D6sugfS8Yv9z0mW3XB3-MEu3_1OCtKkuRtP6T5ULK_5Abdr0H_oBR3QOft1pxsMAAAAASUVORK5CYII.png",
+      "extensions": [
+        "11 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://platform.uplers.com/talent/all-opportunities/HR1179017591671791",
+      "job_title": "Senior Data Engineer (Azure Databricks & PySpark, Python)",
+      "description": "Experience: 3.00 + years \n            Salary: Confidential (based on experience)\nShift: (GMT+05:30) Asia/Kolkata (IST) \n            Opportunity Type: Hybrid (Bengaluru) \n            Placement Type: Full time Permanent Position \n(*Note: This is a requirement for one of Uplers' client - Qubist Solutions LLC) \n\n            What do you need for this opportunity?            \n\n            Must have skills required:            \n            Azure DataBricks, PySpark, Python, SQL, Azure Data Factory, ADLS Gen2, Delta Lake, Azure Event Hubs, Apache Kafka, Unity catalog, Azure Purview, Databricks certifications            \n\n            Qubist Solutions LLC is Looking for:                      Location: Bangalore / Bengaluru, India (Hybrid)\n\nRole: Full-Time\n\nExperience Level: Mid–Senior Level (3–7+ Years)\n\nAbout the Role\n\nWe are seeking an experienced and passionate Data Engineer specializing in Azure Databricks, PySpark, and Python to join our data engineering team in Bangalore. In this role, you will design, build, and optimize scalable data pipelines, leverage modern lakehouse architectures, and transform raw data into actionable enterprise insights.\n\nKey Responsibilities\n\nPipeline Development: Design, construct, test, and maintain robust batch and real-time ETL/ELT pipelines using PySpark and Azure Databricks.Architecture & Optimization: Build and manage data lakehouse platforms leveraging Delta Lake; optimize Spark jobs for performance, memory, runtime efficiency, and cost.Azure Integration: Seamlessly integrate Databricks with Azure ecosystem components including Azure Data Lake Storage (ADLS Gen2), Azure Data Factory (ADF), Azure Synapse, and Azure Key Vault.Data Quality & Governance: Enforce data quality standards, monitoring, and security models using Databricks Unity Catalog and enterprise access controls.DevOps & Automation: Build CI/CD deployment pipelines using Azure DevOps or GitHub Actions for continuous integration and delivery of data workloads.Collaboration: Partner with data architects, data analysts, and business stakeholders to translate functional requirements into scalable technical solutions.Required Qualifications & Skills\n\nCore Tech Stack: Proven expertise in Python, PySpark, and Azure Databricks.Data Engineering Experience: Strong hands-on experience building end-to-end data pipelines and implementing Delta Lake architectures.Orchestration & Storage: Proficiency with Azure Data Factory (ADF) and ADLS Gen2.Database & Querying: Strong proficiency in SQL and deep understanding of relational/non-relational database concepts and data modeling (Kimball, Data Vault).Version Control & CI/CD: Hands-on experience with Git and Azure DevOps/Jenkins for code versioning and automated deployments.Problem Solving: Strong analytical, debugging, and query optimization capabilities.Good to Have (Preferred)\n\nCertifications: Microsoft Certified: Azure Data Engineer Associate (DP-203) or Databricks Certified Data Engineer Professional.Streaming Data: Experience with Spark Structured Streaming, Azure Event Hubs, or Apache Kafka.Data Governance: Hands-on experience with Unity Catalog or Azure Purview.What We Offer\n\nCompetitive salary and performance bonusesFlexible hybrid work cultureComprehensive health and wellness benefitsContinuous learning opportunities and certification sponsorshipsHow to Apply\n\nIf you are passionate about building modern data platforms at scale, drop your updated CV at communications@qubistsolutions.com or apply directly via this post!\n\n#Hiring #JobOpening #DataEngineer #AzureDatabricks #PySpark #Python #BangaloreJobs #BengaluruJobs #DataEngineering #AzureDataEngineer #BigData #ETL #DeltaLake #CloudData #AzureJobs #TechJobsIndia #Careers #DataJobs #WorkInBangalore #HiringDataEngineers #IndiaJobs #DataArchitecture #DevOps #SoftwareEngineering\n\n\n\n\n                    \n            How to apply for this opportunity?                        Step 1: Click On Apply! And Register or Login on our portal.            Step 2: Complete the Screening Form & Upload updated Resume            Step 3: Increase your chances to get shortlisted & meet the client for the Interview!                        \nAbout Uplers:\n            Our goal is to make hiring reliable, simple, and fast. Our role will be to help all our talents find and apply for relevant contractual onsite opportunities and progress in their career. We will support any grievances or challenges you may face during the engagement.            \n\n            (Note: There are many more opportunities apart from this on the portal. Depending on the assessments you clear, you can apply for them as well).            \n            So, if you are ready for a new challenge, a great work environment, and an opportunity to take your career to the next level, don't hesitate to apply today. We are waiting for you!",
+      "apply_options": [
+        {
+          "title": "Platform.uplers.com",
+          "link": "https://platform.uplers.com/talent/all-opportunities/HR1179017591671791?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/senior-data-engineer-azure-databricks-pyspark-python-qubist-solutions-llc-bengaluru--techmap_in_4469915644?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Getmereferred.com",
+          "link": "https://getmereferred.com/in/job-listing/data-engineer-azure-migration-modernization-intellistaff-services-pvt-ltd-inkabengaluru-2-to-5-years-experience-1d75ca13-eea7-4b98-b277-198b99b9aa39?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Olibr",
+          "link": "https://olibr.com/jobs/senior-data-engineer-azure-databricks-pyspark-python-qubist-solutions-llc-6rg90?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/8399582395208040448?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/337288245/senior-data-engineer-azure-databricks-pyspark-bengaluru?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "NiyukJobs | AI",
+          "link": "https://niyukjobs.ai/jobs-at-in2in-global-technology-and-consulting-private-lim?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJTZW5pb3IgRGF0YSBFbmdpbmVlciAoQXp1cmUgRGF0YWJyaWNrcyBcdTAwMjYgUHlTcGFyaywgUHl0aG9uKSIsImNvbXBhbnlfbmFtZSI6IlVwbGVycyIsImh0aWRvY2lkIjoiZC1oT3RyeDYxNGFUVG1oVEFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpRbVZ1WjJGc2RYSjFMRXRoY201aGRHRnJZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTbDlLVWtORWNHODFWVXBuY1cxclpqRkZTV0puTFhCQ1JFeFlMVEpOVFRWemRteHZOR0pKZW5VdFdqaDNZWEJqYUZONVFsZDJWVXA1VlRaRVNGaFZXV3h4ZEZWWVNrbFFVSEV0U1hkc1dsQndTR0ZZVFVWbVR5MTVXV1JvTTNoTGRHOVNWWGhrYlhZM2FsRkdWREl3UmkweE5tVlpUbVpmWkVKeFEyWnpMVTB0VjJVdFozWVNGM1JmTFY5aGRWUTFSRGcyU1d0UVNWQjZiM0owWjFFMEdpSkJSSE55T1daUlVYcFZUMVJ0ZUZOUWJ6aFJNa1ZDYlU5TFpEaExOMnMzWjB4MyIsImZjdiI6IjMiLCJmY19pZCI6ImQtaE90cng2MTRhVFRtaFRBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "Data Engineer(Python/AWS/SQL)",
+      "company_name": "LSEG",
+      "location": "Bengaluru, Karnataka",
+      "via": "Jooble",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Data+Engineer+Python+SQL&htidocid=dq9jZfTjlxA7CzAPAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXOsQrCMBCAYVz7COJwo4o0Iuigk2LpYAelg2O5liOpxruQpFA336Fv6JNYl3_74E-GSbI7Y0TIWLdM5OfXdzTC6ngvVXkrFvD9DPCQGgKhbwwIQy6iLU0PJkYX9kqFYFMdIsa2SRt5KWGqpVcjCv9UwaAnZzFStdmu-9SxXs6KMsuhZTgRa7Sd71ZwQc_jyhN_vyUipJYAAAA&shmds=v1_ARwrE21iY-C_faVgaK_dKZ07_lLJqljpHB3MbBrHshWuQNrWFg&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Data+Engineer+Python+SQL&htidocid=dq9jZfTjlxA7CzAPAAAAAA%3D%3D",
+      "extensions": [
+        "11 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://in.jooble.org/jdp/-3605072913728050932",
+      "job_title": "Data Engineer(Python/AWS/SQL)",
+      "description": "Future Talent: Python Software Engineer \n\n(Talent Community - India)\n\n Location:  Bengaluru / Hyderabad \n\n Position Type:  Future Opening - Talent Pipeline \n\n The Opportunity \n\n Join FTSE Russell and help build the services, libraries, and applications that power indices trusted by financial institutions worldwide. We are growing a community of engineers who care about software craftsmanship, clean code, and shipping software that matters. \n\n Python is our primary language and our preference, but strong engineering judgement matters more than a particular language. If your production experience is in Java, C#, C, C++, Scala, Go, or Rust and you are motivated to work in Python, we would like to hear from you. \n\n This is a hands-on software development opportunity. You will design, code, test, deploy, and support modern software in an AWS environment. The systems handle significant volumes of financial data, but the core craft we are hiring for is software engineering. \n\n What You'll Do (When You Join Us)\n\n As a Python Software Engineer, you will help build our next-generation index data platform and take ownership from problem definition through production support. \n\n Design & Build \n\n Write production code, primarily in Python, across services, APIs, libraries, and command-line tools that are modular, well tested, and maintainable.  Design and build software components end to end, from breaking down a problem through deployment and support in production.  Create data models and integrations across Aurora PostgreSQL and object storage, with careful attention to schema design, evolution, and backwards compatibility.  Build software that processes data at scale on AWS using services such as Lambda, S3, containerised services, Glue, and EMR Serverless where appropriate. \n\n Engineer for Quality \n\n Apply modern engineering practices including version control, trunk-based development, CI/CD, code review, refactoring, and automated unit, integration, and contract testing.  Build observability in from the start through structured logging, metrics, tracing, and meaningful alerting.  Debug your own problems, fix them properly, and take responsibility for the quality and reliability of what you deliver. \n\n Collaborate & Contribute \n\n Contribute to design and architecture discussions and help evolve shared engineering standards.  Work directly with product and business teams to turn requirements into working software.  Review code, pair when useful, share knowledge, and learn the financial indices domain. \n\n What You'll Bring \n\n Essential - this is the bar: \n\n A track record of building and shipping production applications, services, or libraries that other people depended on and that you maintained and evolved over time.  Strong production Python, or equivalent depth in Java, C#, C, C++, Scala, Go, or Rust, together with genuine motivation to become fluent in Python.  The ability to write clean, maintainable, testable, and extensible code. In Python, this includes type hints, ruff, mypy, black, and a strong pytest habit, or equivalent discipline in your current language.  Strong software engineering fundamentals, including modular design, sensible abstractions, dependency management, packaging, error handling, and judgement about when not to add another layer.  A hands-on mindset and a desire to remain close to the code.  Practical experience with Git-based workflows, code review, and CI/CD.  Strong relational database experience, ideally Aurora PostgreSQL, including schema design, query writing, and understanding database behaviour under the hood.  Working knowledge of a cloud platform, ideally AWS, including S3, Lambda, containers, and IAM fundamentals.  Comfort with data-shaped problems such as batch processing, ETL, and schema evolution, or a strong willingness to learn.  An interest in business context and close stakeholder partnership.  Experience working collaboratively in Agile teams. \n\n Nice to Haves \n\n Helpful experience, but not a requirement: \n\n Apache Spark, PySpark, or other large-scale distributed processing technologies.  Big-data workloads and datasets that do not fit on one machine.  Scala, Java, C++, Go, or Rust used for performance-sensitive or high-throughput software.  Apache Iceberg, Delta Lake, similar open table formats, or lakehouse architecture.  Databricks, Snowflake, or comparable data platforms.  CI/CD tooling such as GitLab CI, Jenkins, or GitHub Actions.  Infrastructure as code using Terraform or AWS CDK.  Data quality frameworks such as Great Expectations or Deequ.  Curiosity about financial markets, index data, or investment analytics.  Experience in investment banking, asset or portfolio management, or a product-led company. \n\n What You'll Bring To Our Engineering Culture \n\n Build With Purpose - Start with why, define the problem clearly, and deliver meaningful outcomes.  Customer Driven - Work backwards from customer needs and use continuous feedback.  Technically Courageous - Tackle complex problems, push boundaries, and keep raising the engineering bar.  Learn and Be Curious - Continuously learn, experiment, and share knowledge.  Act as Owner - Take responsibility for quality, reliability, and long-term value.  Lead with Data - Use precise evidence to guide decisions, identify risks, and learn from outcomes.  Dive Deep - Stay close to the details, investigate discrepancies, and correct course quickly.  Build Responsibly, Deliver Incrementally - Prioritise scalable, secure, reliable solutions and improve them through feedback.  Collaborate to Achieve - Communicate openly, work respectfully, and value how work is done as much as what is delivered. \n\n How We Hire \n\n Our process is skills-focused and structured to be fair and consistent. Candidates for mainstream coding roles typically complete a technical assessment, such as Codility, followed by interviews exploring applied technical skills, software design thinking, and our Engineering Principles. \n\n Why Connect Now \n\n Skip the Line:  Talent community members may be prioritised for fast-track evaluation when a suitable Python software engineering role opens. \n\n Exclusive Insights:  Receive invitations to relevant architecture roundtables, engineering webinars, and technical roadmap sessions. \n\n Career Alignment:  We will contact you for opportunities aligned with your interests across backend services, APIs, cloud engineering, data-intensive software, or platform engineering. \n\n How To Join \n\n Upload your CV with a short note covering: \n\n The software engineering challenges you most enjoy solving.  Your strongest production language and your interest in working with Python.  Your preferred areas, such as APIs, backend services, cloud, distributed processing, data platforms, or platform engineering. \n\n We will review your profile and connect for an informal conversation to understand your interests and potential role alignment. \n\n Build software that matters. Join a team that values innovation, quality, ownership, and continuous improvement. \n\n Career Stage: \n\n Manager \n\n London Stock Exchange Group (LSEG) Information: \n\n Join us and be part of a team that values innovation, quality, and continuous improvement. If you're ready to take your career to the next level and make a significant impact, we'd love to hear from you. \n\n LSEG is a leading global financial markets infrastructure and data provider. Our purpose is driving financial stability, empowering economies and enabling customers to create sustainable growth. \n\n Our purpose is the foundation on which our culture is built. Our values of  Integrity, Partnership  ,  Excellence  and  Change  underpin our purpose and set the standard for everything we do, every day. They go to the heart of who we are and guide our decision making and everyday actions. \n\n Working with us means that you will be part of a dynamic organisation of 25,000 people across 65 countries. However, we will value your individuality and enable you to bring your true self to work so you can help enrich our diverse workforce. \n\n We are proud to be an equal opportunities employer. This means that we do not discriminate on the basis of anyone's race, religion, colour, national origin, gender, sexual orientation, gender identity, gender expression, age, marital status, veteran status, pregnancy or disability, or any other basis protected under applicable law. Conforming with applicable law, we can reasonably accommodate applicants' and employees' religious practices and beliefs, as well as mental health or physical disability needs. \n\n You will be part of a collaborative and creative culture where we encourage new ideas. We are committed to sustainability across our global business and we are proud to partner with our customers to help them meet their sustainability objectives. Our charity, the LSEG Foundation provides charitable grants to community groups that help people access economic opportunities and build a secure future with financial independence. Colleagues can get involved through fundraising and volunteering. \n\n LSEG offers a range of tailored benefits and support, including healthcare, retirement planning, paid volunteering days and wellbeing initiatives. \n\n Please take a moment to read this privacy notice carefully, as it describes what personal information London Stock Exchange Group (LSEG) (we) may hold about you, what it's used for, and how it's obtained, your rights and how to contact us as a data subject. \n\n If you are submitting as a Recruitment Agency Partner, it is essential and your responsibility to ensure that candidates applying to LSEG are aware of this privacy notice.",
+      "apply_options": [
+        {
+          "title": "Jooble",
+          "link": "https://in.jooble.org/jdp/-3605072913728050932?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/data-engineer-python-aws-sql-at-lseg-4462928857?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/data-engineerpython-aws-sql-lseg-bengaluru--fj-2391949413?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "ICareers.com",
+          "link": "https://www1.icareers.com/job/data-engineerpythonawssql/85919943/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "SimplyHired",
+          "link": "https://www.simplyhired.co.in/job/5TmB0uXEIQYb3mErLPLfgu0hAe0ktWAkixmBi9Mv_Ri_rffbANnSlA?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Canary Wharfian",
+          "link": "https://www.canarywharfian.co.uk/jobs/london-stock-exchange/data-engineerpythonawssql/9947c135-73ac-4472-b7ce-04281e7cba1e?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "AllFinJobs.com",
+          "link": "https://www.allfinjobs.com/en-in/jobs/data-engineerpythonawssql-lseg/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Get To Interview",
+          "link": "https://gettointerview.com/jobs/data-engineerpythonawssql-at-lseg-7876529?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEYXRhIEVuZ2luZWVyKFB5dGhvbi9BV1MvU1FMKSIsImNvbXBhbnlfbmFtZSI6IkxTRUciLCJodGlkb2NpZCI6ImRxOWpaZlRqbHhBN0N6QVBBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwU1doSWJUWk5UVlpLYlZKTWJqWm9hbTFLTnpCVVMzUmpOME5LZVZNdE4xWnRWRzFZWTI1bFdFNW1WMHRZTkdwSmVWVlhNbkpMWWtOV1VWQm1OMDFZWTB4VlpGWmxRV2xpUW05VmJVWmlOVWR2YWxoelgwRklaV05mZVZVelFpMUpObUZ3UVZCSFExVlNUV2w0WjFwaExYZDVNSHBNV0d4S2JsUkNRMFp4ZW1aUGIyRjJkVGNTRjNSZkxWOWhkVlExUkRnMlNXdFFTVkI2YjNKMFoxRTBHaUpCUkhOeU9XWlNZa2hDVnpOVVUySmFWV2M1TFZoUWMwMHpXbEJSYjB0WVkyaDMiLCJmY3YiOiIzIiwiZmNfaWQiOiJkcTlqWmZUamx4QTdDekFQQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Data Engineer - (Snowflake, Python, SQL & React)",
+      "company_name": "Dentsu",
+      "location": "Karnataka",
+      "via": "Indeed",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=Data+Engineer+Python+SQL&htidocid=Q3yE0-FQzRDQZq0sAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXOsQ7BUBSA4Vi72kxnEqR6RWJhrYgwoA8gpzfHbbXOae49ojbvYPZynkQt__Ylf_TpRdsUFWHNrmQiD1MYZSyPS40VxXB4aiEcQ3bcwxBOhFbH8H294So5BEJvCxCGjYirabAqVJuwNCaEOnFBUUubWLkZYcqlNR0K_5xDgZ6aGpXO88WsTRp2k35KrOEOJcMOPXdTFf4A3VEYG6AAAAA&shmds=v1_ARwrE22HEHPw50TE5PK4IuLlKSBAWpY_x-29XFyRK0BrNIRC2Q&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=Data+Engineer+Python+SQL&htidocid=Q3yE0-FQzRDQZq0sAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAZlBMVEUDBAYAAAD___-NjY6pqanR0dGSkpLn5-cAAAQhISIVFRYNDw7U1NSlpaXGxsb5-flhYWFHR0iEhIROTk7z8_MaGxq-vr48PT1-fn4qKyvc3N2xsbGenp7t7e4kJSVsbW1WVlZ1dXUrob7rAAABLklEQVRIie2S3XKDIBCFPUciUYMoEn-iic37v2QXJ5mYNO30tlPOBTu7y7ewC0kSFRUV9V8E4BehN5zLSiT7-9Zg0WY1fi4gGXgeZc0L2RTc4GQ0q5fcgl8qoOy8JwvUZ3KXw1lN6h4prT-gqEhrMHNAa6stuYem7izLkVQHVgL4TnMnVp86dDxVZw1Fh1aC2wNr8XEmDKe-sVYAgwu92BkhkY24vAUd0xWUOwUJoJCvoJG-ZglZ9w2Y3cCpXpZlA85hIq06STUlPTYvYE_fNJYYqNuxnjZg1S5QWdvLAAy7y_AMJpjWKx5lDiIvz6CkRysFZbjYhWAlpwUdnsA9riq7uhKojUlHNOkHCjeIq9QVeTrJCjTTNLjl5Stg1c0-3vruPXK_-INRUVFRf1-f-AkOBRrTKPEAAAAASUVORK5CYII.png",
+      "extensions": [
+        "3 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://in.indeed.com/viewjob?jk=b8348454a0401a18",
+      "job_title": "Data Engineer - (Snowflake, Python, SQL & React)",
+      "description": "Job Description:\n\n\n  Sr. Software Data engineer (Snowflake, Python & SQL, React)\n  Qualifications\n \n  Bachelor’s degree in Computer Science, Information Technology, Software Engineering, Data Science, or a related technical field.\n  4+ years of experience in Software Development, Data Engineering, or Data Platform Development.\n  Strong proficiency in Python, SQL, and Snowflake development.\n  Hands-on experience designing and implementing ETL/ELT pipelines, Data Warehouses, and Data Lakes.\n  Experience building modern web applications using React.js and JavaScript/TypeScript.\n  Working knowledge of Generative AI, LLMs, RAG architectures, AI agents, and AI-powered application development.\n  Experience with Snowflake Tasks, Streams, Stored Procedures, Snowpark, and Dynamic Tables.\n  Strong understanding of Data Modeling, Data Governance, and Data Quality principles.\n  Experience with Git, CI/CD pipelines, Agile/Scrum methodologies, and automated testing frameworks.\n  Exposure to cloud platforms such as AWS, including services like S3, Lambda, Glue, ECS, or Bedrock.\n  Excellent analytical, problem-solving, and stakeholder management skills.\n  Strong verbal and written communication skills with the ability to work effectively across cross-functional teams.\n \n  Key Responsibilities\n \n  Design, develop, and maintain scalable data engineering solutions using Python, SQL, and Snowflake.\n  Build and optimize ETL/ELT pipelines for processing large-scale structured and unstructured datasets.\n  Develop modern web applications and data-driven interfaces using React.\n  Leverage AI/ML technologies, including Generative AI and LLM integrations, to solve business problems and improve operational efficiency.\n  Work within Agile development teams, actively participating in sprint planning, stand-ups, retrospectives, and code reviews.\n  Design and implement Snowflake data architectures, including Tasks, Streams, Dynamic Tables, and performance optimization.\n  Collaborate with business stakeholders to understand requirements and deliver scalable, data-driven solutions.\n  Implement CI/CD pipelines and DevOps best practices for application and data platform deployments.\n  Establish and enforce coding standards, testing strategies, monitoring, and data governance practices.\n  Mentor junior developers and provide technical leadership across projects.\n  Analyze business and customer data to generate insights for decision-making and audience targeting initiatives.\n  Work with cross-functional teams including Product, Analytics, AI, and Engineering to deliver end-to-end solutions.\n \n  Required Skills\n \n  Strong experience in Python for data engineering, automation, API development, and backend services.\n  Advanced SQL development and performance tuning expertise.\n  Hands-on experience with Snowflake including: \n   \n    Tasks\n    Streams\n    Stored Procedures\n    Snowpark\n    Dynamic Tables\n    Data Sharing\n    Performance Optimization\n   \n  Strong understanding of Data Warehousing, ETL/ELT, Data Modeling, and Data Lake architectures.\n  Experience building front-end applications using React.js, JavaScript/TypeScript, HTML, and CSS.\n  Experience integrating AI solutions, including Generative AI, LLM APIs, vector databases, RAG architectures, and intelligent automation.\n  Experience with REST APIs, microservices, and cloud-native application development.\n  Strong knowledge of Agile methodologies, Git, CI/CD, and DevOps practices.\n  Excellent communication and stakeholder management skills.\n  Ability to translate business requirements into scalable technical solutions.\n \n \n\n\n \n\n    Location:\n\n DGS India - Bengaluru - Manyata N1 Block \n \n\n\n  Brand:\n\n Merkle \n \n\n\n  Time Type:\n\n Full time \n \n\n\n  Contract Type:\n\n Permanent",
+      "apply_options": [
+        {
+          "title": "Indeed",
+          "link": "https://in.indeed.com/viewjob?jk=b8348454a0401a18&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEYXRhIEVuZ2luZWVyIC0gKFNub3dmbGFrZSwgUHl0aG9uLCBTUUwgXHUwMDI2IFJlYWN0KSIsImNvbXBhbnlfbmFtZSI6IkRlbnRzdSIsImh0aWRvY2lkIjoiUTN5RTAtRlF6UkRRWnEwc0FBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpRbVZ1WjJGc2RYSjFMRXRoY201aGRHRnJZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTelJtUTFSaWVsVlBOMjUwTW1WS1oyY3lVbkJMY0dNeWJrOHpZM1ozZDJ4d1FWbGhaVWw2VkZOclJsOVFiRWh4U1ZwMk1FaGhVekJTVVdSeFVrRnBNQzFKZG1KWVpVb3phMDUxYUZOVU9GSlliVFZCVWpaUWJUTkdlSFp4U1VKRGFUYzFabHA2YTNkWWRpMWhNbkpKV0dwUWFTMXFNVlJ1ZUVKS05FOVpjblJOY0VKRlZ6TVNGM1JmTFY5aGRWUTFSRGcyU1d0UVNWQjZiM0owWjFFMEdpSkJSSE55T1daU2RFTXhOMGxVTWpGUVIxWlJiM05qVUVKc1RYTTVaV0pyVmpCMyIsImZjdiI6IjMiLCJmY19pZCI6IlEzeUUwLUZRelJEUVpxMHNBQUFBQUE9PSJ9"
+    }
+  ],
+  "serpapi_pagination": {
+    "next_page_token": "eyJmYyI6IkVxSUVDdUlEUVVwcFZEUjBTV042VHpjdFYzSktjME51YVdkQlZIQkVWbmx0TUhCNmVqTlNTVlJJT0VNM05XNVdVQzEzZVhCSFVrbDNiMlJNYTJkQk9WTXdaV28xWTJsRVYyWk5RMVpGTlVRMWJtczFlbmcyZEdoV2FFNXJjRVYzVGpGemNURTRaVEYyZUZCd1NrMXRhM2hsVVdKSldqRmxUbEpLU1RoVFNVOXRhbXhmYVhjMldtUmlTRTgzTVZaaFZ6WktNMVJEVEdOd1QzbEJTa2Q0VDNobkxWQkVWbmR3WldwaGNUQnpaM0o2Wm5SMVZ6QjNOWFpuVUhjelRTMUdYeTA0U0U1dVpYSnJhVmxPV1doSGMwVnhVR0ZCVjFrMVZGVnJOamRpUXpZMVJYTnRTelpFUkZSdFExRmFRbkJtWTFKZmEyRlhNelpxV0dSMVJIUjJkVzlYWWxSelpuZzNRbE5PT1U1M1JsOWpVREJ1YW1KNlZFYzVXREJHVUV4bldtZFZlUzF5WDBneExUbFBTemx3YTI5dk4yVktkMFpVYTNab1gwVk9RMkpsUzNoS1ZVWkhkVzlqVjFaaVIxRkRXaTFFWXpKa1QyTktXVVJaWkRSSVJXTm5PVmR3TTBKblpUYzJOVjlTWHpkblRuSllVRGhMWkdsVVlrbzVWbE5tUm5sRVh6ZDJNSEpxZFdoalIxUkphMVpHV0hWWE5tTjVTWFpTTVRJeFVVdFVibGRWVFdOa2NFcGFVSEprWDFkNk5qVTBOM1JoV1RSeVdsUXpRazFDVkMwNVlXRlZhbXBaV21OUlNGYzVhMWw0TVdsYWREUjFNbFIyYVdWRExYQkdjbEUwZWtaNlRXY1NGM1JmTFY5aGRWUTFSRGcyU1d0UVNWQjZiM0owWjFFMEdpSkJSSE55T1daVUxXVmFjakkwZUZSeE1VeGFYMXBRWlhGTmFtaHRVMlZwWVdaUiIsImZjdiI6IjMifQ==",
+    "next": "https://serpapi.com/search.json?engine=google_jobs&gl=in&google_domain=google.com&hl=en&location=Bengaluru%2C+Karnataka%2C+India&next_page_token=eyJmYyI6IkVxSUVDdUlEUVVwcFZEUjBTV042VHpjdFYzSktjME51YVdkQlZIQkVWbmx0TUhCNmVqTlNTVlJJT0VNM05XNVdVQzEzZVhCSFVrbDNiMlJNYTJkQk9WTXdaV28xWTJsRVYyWk5RMVpGTlVRMWJtczFlbmcyZEdoV2FFNXJjRVYzVGpGemNURTRaVEYyZUZCd1NrMXRhM2hsVVdKSldqRmxUbEpLU1RoVFNVOXRhbXhmYVhjMldtUmlTRTgzTVZaaFZ6WktNMVJEVEdOd1QzbEJTa2Q0VDNobkxWQkVWbmR3WldwaGNUQnpaM0o2Wm5SMVZ6QjNOWFpuVUhjelRTMUdYeTA0U0U1dVpYSnJhVmxPV1doSGMwVnhVR0ZCVjFrMVZGVnJOamRpUXpZMVJYTnRTelpFUkZSdFExRmFRbkJtWTFKZmEyRlhNelpxV0dSMVJIUjJkVzlYWWxSelpuZzNRbE5PT1U1M1JsOWpVREJ1YW1KNlZFYzVXREJHVUV4bldtZFZlUzF5WDBneExUbFBTemx3YTI5dk4yVktkMFpVYTNab1gwVk9RMkpsUzNoS1ZVWkhkVzlqVjFaaVIxRkRXaTFFWXpKa1QyTktXVVJaWkRSSVJXTm5PVmR3TTBKblpUYzJOVjlTWHpkblRuSllVRGhMWkdsVVlrbzVWbE5tUm5sRVh6ZDJNSEpxZFdoalIxUkphMVpHV0hWWE5tTjVTWFpTTVRJeFVVdFVibGRWVFdOa2NFcGFVSEprWDFkNk5qVTBOM1JoV1RSeVdsUXpRazFDVkMwNVlXRlZhbXBaV21OUlNGYzVhMWw0TVdsYWREUjFNbFIyYVdWRExYQkdjbEUwZWtaNlRXY1NGM1JmTFY5aGRWUTFSRGcyU1d0UVNWQjZiM0owWjFFMEdpSkJSSE55T1daVUxXVmFjakkwZUZSeE1VeGFYMXBRWlhGTmFtaHRVMlZwWVdaUiIsImZjdiI6IjMifQ%3D%3D&q=Data+Engineer+Python+SQL"
+  }
+}

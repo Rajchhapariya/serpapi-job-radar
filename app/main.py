@@ -1,22 +1,40 @@
+from contextlib import asynccontextmanager
+from app.serpapi_client import serpapi_client
+from app.database import db_manager
+from app.models import SearchRequest, ResumeMatchRequest, SQLQueryRequest
 import os
 import io
 import csv
 import json
 import time
+import hashlib
 from collections import defaultdict
 from fastapi import FastAPI, HTTPException, Query, Request, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, PlainTextResponse, Response, JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
-from typing import Optional
+from typing import Optional, Tuple
+from dotenv import load_dotenv
 
-from app.models import SearchRequest, ResumeMatchRequest, SQLQueryRequest
-from app.database import db_manager
-from app.serpapi_client import serpapi_client
+# Explicitly load .env from project root
+ENV_PATH = os.path.join(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))), ".env")
+load_dotenv(ENV_PATH)
+
 
 START_TIME = time.time()
 
-from contextlib import asynccontextmanager
+# Quota Guard and Budget configuration
+try:
+    _budget_val = os.getenv("SEARCH_BUDGET_PER_RUN", "50")
+    SEARCH_BUDGET_PER_RUN = int(_budget_val) if _budget_val.lower() not in [
+        "unknown", "unlimited", "0"] else 0
+except Exception:
+    SEARCH_BUDGET_PER_RUN = 50
+
+CACHE_TTL_HOURS = int(os.getenv("CACHE_TTL_HOURS", "24"))
+process_searches_made = 0
+
 
 # Sliding-window in-memory rate limiter for expensive search operations
 # Allows max 15 search queries per minute per client IP
@@ -25,12 +43,43 @@ SEARCH_WINDOW_SECONDS = 60
 ip_request_history = defaultdict(list)
 
 
+def get_search_cache_key(query: str, location: str, gl: str, hl: str, date_posted: Optional[str]) -> str:
+    raw = f"{query.strip().lower()}|{location.strip().lower()}|{(gl or 'in').strip().lower()}|{(hl or 'en').strip().lower()}|{date_posted or ''}"
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()
+
+
+def check_quota_guard() -> Tuple[bool, Optional[str]]:
+    """
+    Checks Account API plan_searches_left with a reserve of 15 searches.
+    The per-process search budget is used as secondary guard.
+    """
+    quota = serpapi_client.get_account_quota()
+    if quota and quota.get("plan_searches_left") is not None:
+        plan_left = quota["plan_searches_left"]
+        if plan_left <= 15:
+            return False, f"SerpApi account reserve limit reached ({plan_left} searches remaining on plan, reserve threshold is 15)."
+
+    if SEARCH_BUDGET_PER_RUN > 0 and process_searches_made >= SEARCH_BUDGET_PER_RUN:
+        return False, f"Process search budget exhausted ({process_searches_made}/{SEARCH_BUDGET_PER_RUN} calls executed in this run)."
+
+    return True, None
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    # 1. Load snapshots if table is empty (idempotent)
+    db_manager.load_snapshots_if_empty()
+
+    # 2. Pre-cache account quota in background for fast health checks
+    serpapi_client.get_account_quota()
+
+    # 3. If table is still empty, fallback to seed
     analytics = db_manager.get_analytics()
     if analytics["total_jobs"] == 0:
-        result = serpapi_client.fetch_jobs(query="Software Engineer Python", location="India", num_results=10)
-        db_manager.upsert_jobs(result["jobs"])
+        result = serpapi_client.fetch_jobs(
+            query="Software Engineer Python", location="India", num_results=10)
+        if result.get("jobs"):
+            db_manager.upsert_jobs(result["jobs"])
     yield
 
 
@@ -95,7 +144,8 @@ async def custom_http_exception_handler(request: Request, exc: StarletteHTTPExce
         if request.url.path.startswith("/api/") or "application/json" in accept:
             return JSONResponse(
                 status_code=404,
-                content={"error": "Not Found", "detail": exc.detail, "path": request.url.path}
+                content={"error": "Not Found",
+                         "detail": exc.detail, "path": request.url.path}
             )
         page_404 = os.path.join(STATIC_DIR, "404.html")
         if os.path.exists(page_404):
@@ -113,7 +163,8 @@ async def custom_500_exception_handler(request: Request, exc: Exception):
     if request.url.path.startswith("/api/") or "application/json" in accept:
         return JSONResponse(
             status_code=500,
-            content={"error": "Internal Server Error", "detail": str(exc), "path": request.url.path}
+            content={"error": "Internal Server Error",
+                     "detail": str(exc), "path": request.url.path}
         )
     page_500 = os.path.join(STATIC_DIR, "500.html")
     if os.path.exists(page_500):
@@ -164,40 +215,169 @@ def serve_sitemap():
 def health_check():
     uptime_seconds = int(time.time() - START_TIME)
     analytics = db_manager.get_analytics()
+    cached_quota = serpapi_client.get_cached_quota_sync()
+    
+    quota_ok = None
+    if cached_quota and "plan_searches_left" in cached_quota and cached_quota["plan_searches_left"] is not None:
+        quota_ok = cached_quota["plan_searches_left"] > 15
+    elif not serpapi_client.api_key or serpapi_client.api_key.startswith("your_"):
+        quota_ok = None
+
     return {
         "status": "healthy",
-        "serpapi_configured": bool(serpapi_client.api_key and not serpapi_client.api_key.startswith("your_")),
-        "database": db_manager.db_path,
         "indexed_jobs_count": analytics["total_jobs"],
-        "uptime_seconds": uptime_seconds
+        "uptime_seconds": uptime_seconds,
+        "serpapi_configured": bool(serpapi_client.api_key and not serpapi_client.api_key.startswith("your_")),
+        "quota_ok": quota_ok
+    }
+
+
+@app.get("/api/quota")
+def get_quota():
+    quota = serpapi_client.get_account_quota()
+    cleaned_quota = None
+    if quota:
+        cleaned_quota = dict(quota)
+        cleaned_quota.pop("account_email", None)
+    return {
+        "quota": cleaned_quota,
+        "process_searches_made": process_searches_made,
+        "search_budget_per_run": SEARCH_BUDGET_PER_RUN
     }
 
 
 @app.post("/api/search")
 def search_jobs(req: SearchRequest):
+    global process_searches_made
+    cache_key = get_search_cache_key(
+        req.query, req.location, req.gl or "in", req.hl or "en", req.date_posted)
+
+    # 1. Check cache first
+    t_read = time.perf_counter()
+    cached = db_manager.get_cached_search(cache_key, ttl_hours=CACHE_TTL_HOURS)
+    read_ms = round((time.perf_counter() - t_read) * 1000, 2)
+    if cached:
+        return {
+            "source": "cache",
+            "message": cached.get("message", "Serving cached query results."),
+            "retrieved_count": len(cached.get("jobs", [])),
+            "stored_count": 0,
+            "serpapi_ms": 0,
+            "serpapi_cached": None,
+            "serpapi_time_taken_s": None,
+            "ingest_ms": None,
+            "query_ms": read_ms,
+            "notice": cached.get("notice")
+        }
+
+    # 2. Check quota guard before live call
+    allowed, notice = check_quota_guard()
+    if not allowed:
+        t_stale = time.perf_counter()
+        stale = db_manager.get_cached_search(cache_key, ttl_hours=999999)
+        stale_ms = round((time.perf_counter() - t_stale) * 1000, 2)
+        if stale:
+            return {
+                "source": "cache",
+                "message": "Search budget reached. Serving historical cached data.",
+                "notice": notice,
+                "retrieved_count": len(stale.get("jobs", [])),
+                "stored_count": 0,
+                "serpapi_ms": 0,
+                "serpapi_cached": None,
+                "serpapi_time_taken_s": None,
+                "ingest_ms": None,
+                "query_ms": stale_ms
+            }
+        raise HTTPException(
+            status_code=429,
+            detail=f"Search quota budget reached: {notice}"
+        )
+
+    # 3. Live SerpApi Call
     result = serpapi_client.fetch_jobs(
         query=req.query,
         location=req.location,
+        gl=req.gl or "in",
+        hl=req.hl or "en",
         num_results=req.num_results,
+        max_pages=req.max_pages or 2,
         date_posted=req.date_posted
     )
-    inserted = db_manager.upsert_jobs(result["jobs"])
-    return {
-        "source": result["source"],
-        "message": result["message"],
-        "retrieved_count": len(result["jobs"]),
-        "stored_count": inserted
-    }
+    calls = result.get("calls_made", 1)
+    process_searches_made += calls
+    serpapi_ms = result.get("serpapi_ms", 0)
+    serpapi_cached = result.get("serpapi_cached")
+    serpapi_time_taken_s = result.get("serpapi_time_taken_s")
+
+    if result.get("jobs"):
+        t_ingest = time.perf_counter()
+        inserted = db_manager.upsert_jobs(
+            result["jobs"],
+            is_snapshot=False,
+            source_query=req.query,
+            source_gl=req.gl or "in"
+        )
+        ingest_ms = round((time.perf_counter() - t_ingest) * 1000, 2)
+
+        # Store in cache
+        db_manager.set_cached_search(
+            cache_key,
+            {
+                "query": req.query,
+                "location": req.location,
+                "gl": req.gl or "in",
+                "hl": req.hl or "en",
+                "date_posted": req.date_posted
+            },
+            {
+                "jobs": result["jobs"],
+                "message": result["message"]
+            }
+        )
+
+        return {
+            "source": "live",
+            "message": result["message"],
+            "retrieved_count": len(result["jobs"]),
+            "stored_count": inserted,
+            "serpapi_ms": serpapi_ms,
+            "serpapi_cached": serpapi_cached,
+            "serpapi_time_taken_s": serpapi_time_taken_s,
+            "ingest_ms": ingest_ms,
+            "query_ms": None
+        }
+    else:
+        if result.get("source") in ["live", "live_serpapi"]:
+            return {
+                "source": "live",
+                "message": "No job listings matched your search criteria on Google Jobs.",
+                "retrieved_count": 0,
+                "stored_count": 0,
+                "serpapi_ms": serpapi_ms,
+                "serpapi_cached": serpapi_cached,
+                "serpapi_time_taken_s": serpapi_time_taken_s,
+                "ingest_ms": None,
+                "query_ms": None
+            }
+        raise HTTPException(
+            status_code=502,
+            detail=result.get(
+                "message", "Upstream SerpApi query failed. Please verify API key and network connectivity.")
+        )
 
 
 @app.get("/api/jobs")
 def get_jobs(
     keyword: Optional[str] = Query(default=None, max_length=100),
-    location_type: Optional[str] = Query(default=None, pattern="^(Remote|On-site|Hybrid)$"),
+    location_type: Optional[str] = Query(
+        default=None, pattern="^(Remote|On-site|Hybrid)$"),
     company: Optional[str] = Query(default=None, max_length=100),
     has_salary: Optional[bool] = None,
-    from_date: Optional[str] = Query(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$"),
-    to_date: Optional[str] = Query(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$"),
+    from_date: Optional[str] = Query(
+        default=None, pattern=r"^\d{4}-\d{2}-\d{2}$"),
+    to_date: Optional[str] = Query(
+        default=None, pattern=r"^\d{4}-\d{2}-\d{2}$"),
     sort_by: str = Query(default="newest", pattern="^(newest|company|title)$"),
     limit: int = Query(default=50, ge=1, le=100),
     offset: int = Query(default=0, ge=0)
@@ -208,6 +388,7 @@ def get_jobs(
             detail="Invalid date range: from_date cannot be later than to_date"
         )
 
+    t_read = time.perf_counter()
     records = db_manager.get_jobs(
         keyword=keyword,
         location_type=location_type,
@@ -219,12 +400,18 @@ def get_jobs(
         limit=limit,
         offset=offset
     )
-    return {"jobs": records, "count": len(records)}
+    query_ms = round((time.perf_counter() - t_read) * 1000, 2)
+    return {"jobs": records, "count": len(records), "query_ms": query_ms, "ingest_ms": None}
 
 
 @app.get("/api/analytics")
 def get_analytics():
-    return db_manager.get_analytics()
+    t_read = time.perf_counter()
+    res = db_manager.get_analytics()
+    query_ms = round((time.perf_counter() - t_read) * 1000, 2)
+    res["query_ms"] = query_ms
+    res["ingest_ms"] = None
+    return res
 
 
 @app.post("/api/match-resume")
@@ -239,21 +426,26 @@ def execute_sql(req: SQLQueryRequest):
     except ValueError as ve:
         raise HTTPException(status_code=400, detail=str(ve))
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"DuckDB SQL Execution Error: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"DuckDB SQL Execution Error: {str(e)}")
 
 
 @app.get("/api/export")
 def export_jobs(
     format: str = Query(default="csv", pattern="^(csv|json)$"),
     keyword: Optional[str] = Query(default=None, max_length=100),
-    location_type: Optional[str] = Query(default=None, pattern="^(Remote|On-site|Hybrid)$"),
-    from_date: Optional[str] = Query(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$"),
-    to_date: Optional[str] = Query(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$"),
+    location_type: Optional[str] = Query(
+        default=None, pattern="^(Remote|On-site|Hybrid)$"),
+    from_date: Optional[str] = Query(
+        default=None, pattern=r"^\d{4}-\d{2}-\d{2}$"),
+    to_date: Optional[str] = Query(
+        default=None, pattern=r"^\d{4}-\d{2}-\d{2}$"),
     has_salary: Optional[bool] = None,
     limit: int = Query(default=500, ge=1, le=1000)
 ):
     if from_date and to_date and from_date > to_date:
-        raise HTTPException(status_code=422, detail="from_date cannot be later than to_date")
+        raise HTTPException(
+            status_code=422, detail="from_date cannot be later than to_date")
 
     records = db_manager.get_jobs(
         keyword=keyword,
@@ -268,7 +460,8 @@ def export_jobs(
         return Response(
             content=json.dumps(records, indent=2, default=str),
             media_type="application/json",
-            headers={"Content-Disposition": "attachment; filename=serpapi_jobs_radar.json"}
+            headers={
+                "Content-Disposition": "attachment; filename=serpapi_jobs_radar.json"}
         )
 
     # CSV Export
@@ -287,4 +480,3 @@ def export_jobs(
         media_type="text/csv",
         headers={"Content-Disposition": "attachment; filename=serpapi_jobs_radar.csv"}
     )
-

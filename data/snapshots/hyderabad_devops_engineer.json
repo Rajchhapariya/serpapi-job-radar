@@ -1,0 +1,404 @@
+{
+  "slug": "hyderabad_devops_engineer",
+  "captured_at": "2026-10-02T19:03:23.234398+00:00",
+  "latency_ms": 7369,
+  "query_params": {
+    "q": "DevOps Engineer",
+    "location": "Hyderabad, Telangana, India",
+    "gl": "in",
+    "hl": "en",
+    "engine": "google_jobs"
+  },
+  "jobs_count": 10,
+  "jobs": [
+    {
+      "title": "DevOps Engineer with Selenium Automation",
+      "company_name": "Infosys",
+      "location": "Hyderabad, Telangana",
+      "via": "Apna Jobs",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=TouL-2ppst9a6DExAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWLMQ6CQBAAY8sTbNzaGDAmNlqRaNTKQnuywHqcOXYvt4dC5x98gV_zJWIzxWQm-UySfEePs1fYs7FMFOBpYwMXcsS2ayHvorQYrTB8X2-4SwlKGKoGRnMQMY6m2yZGr5ssU3Wp0TjmVVpJmwlTKX02TvpHoQ0G8g4jFav1sk89m_nsxDfRQcEyHIeaApZYL-BKDtkg4w_jF2xgpAAAAA&shmds=v1_ARwrE21yHkRTd6KA1aCSNbwLdgVtNiOJtufe7R4f0HwW3XUtzg&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=TouL-2ppst9a6DExAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAAWCAMAAACi_q9qAAAAYFBMVEX___-VttoQdL2wyOMbdr7T4O-mwd_F1uq90eesxeIAbro-hcT6_P0AcLsfeL5vn89lmc3f6PPm7fbu8_kAarl5pdKOstjM3O0xf8H1-PxPjcdIicagvd4AZbeDrNVak8rwfxevAAABoklEQVQ4jZWUjXakIAyFA4I_oAFEEJQd3_8tFxW7nR5buznH0bmTLyFXGDD1DO8Rq1S3PTxFN_h3wQjt9R_zCFaMvAu4FzLjf4PzwB-ZD9B2HEzyaQTrNTpyxiud640tId2_arFNqbUnyEVyQi8DraLagnbupXFYVBA6e0QmlTzSy4n8lSghC4j4yhpHOkJHs8s2hL1bTSVU0-56RCwLFPsPvS8g04eaWJeTG4CV2SK8VChP7XFfl88zcnoa1NITbOhlmAzybGXpQXAmfwIdvV4jCSGshzHq0FwIevwelOwq2zC1IdvymJy6PKqIAZkz34EBL3CfvpKMrWOuFqHOMEGkKt6DC-s_Ou52zwsyW9Ea8OwVUN6Dnl7vm7Cq3D0wydciq-zxHWgGVzICLb2DAo-yLXIc6lsQXNmwhNalNyYYMYA5z2AUzT0Iy7AXJ8LBovJcUWE8YDORvDXslmdsZQKer8MKWWUPj6JEsFXkjQRkEJROOqe3IkLcBoE4uR_OeT835yp7M_MjT6r902b9-e_hczTilwf1a8j1OecuDHlv-BekZRaxexCGagAAAABJRU5ErkJggg.png",
+      "extensions": [
+        "2 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://apna.co/job/hyderabad/devops-cicd-with-selenium-automation-1548285161",
+      "job_title": "DevOps Engineer with Selenium Automation",
+      "description": "Devops/CICD with Selenium Automation • Primary skills:Technology->DevOps->Continuous Testing,Technology->DevOps->Continuous delivery - Continuous deployment and release Design, develop, and maintain CI/CD pipelines for automated application deployment. Integrate Selenium automation test suites into CI/CD workflows. Automate build, test, deployment, and release processes. Configure and manage source code repositories and branching strategies. Develop and maintain Infrastructure as Code (IaC) solutions. Implement automated testing as part of the DevOps lifecycle. Monitor application performance, build health, and deployment success. Troubleshoot pipeline failures, test failures, and deployment issues. Collaborate with Development, QA, and Operations teams to improve release processes. Ensure compliance with DevOps best practices, security standards, and governance policies. Generate deployment reports, automation reports, and quality metrics. Required Skills DevOps & CI/CD Strong experience with DevOps methodologies and CI/CD practices. Hands-on experience with: Jenkins Azure DevOps GitHub Actions GitLab CI/CD Bamboo Experience in: Continuous Integration Continuous Delivery Continuous Deployment Release Management Selenium Automation Hands-on experience with Selenium WebDriver. Experience developing and maintaining automation frameworks. Strong knowledge of: TestNG JUnit Cucumber (BDD) Maven/Gradle Experience executing automated regression and smoke test suites through CI/CD pipelines.",
+      "apply_options": [
+        {
+          "title": "Apna Jobs",
+          "link": "https://apna.co/job/hyderabad/devops-cicd-with-selenium-automation-1548285161?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEZXZPcHMgRW5naW5lZXIgd2l0aCBTZWxlbml1bSBBdXRvbWF0aW9uIiwiY29tcGFueV9uYW1lIjoiSW5mb3N5cyIsImh0aWRvY2lkIjoiVG91TC0ycHBzdDlhNkRFeEFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpTSGxrWlhKaFltRmtMRlJsYkdGdVoyRnVZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTMkV0WkVkWU5HMWpaME50Y2paZmRXWnphMHh0VkhGVmNVaHJiWEZ2YmxoWVFsUkNORVZRZEdnNVozcDJjVGhCTm5sTk1HSTRNamgwV25sdWJIVTJjalpYTTJOM2JXTmZabTR3YWpaTWJGcHRSMnh0VTJOdE9XUkRPR0U1YWt0emJIRnRVbE54TTNkM2J6bEliV0ZUZFc5VlpHVlJjMTkwZGkxWGRraExlak5tYUVveVUyNFNGeTFmTFY5aGNGTkxTSFI1ZUhCMFVWQXRXVWQyZFVGdkdpSkJSSE55T1daVE0yTk5SVFJyYlVObWJVZGhWelp0Um5KUmRFcG1URlZTUmxoUiIsImZjdiI6IjMiLCJmY19pZCI6IlRvdUwtMnBwc3Q5YTZERXhBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "DevOps Engineer Manager _Aws Certified",
+      "company_name": "PwC Acceleration Center India",
+      "location": "Hyderabad, Telangana",
+      "via": "LinkedIn",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=y4uhE3wn5STx-yOzAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWOMQ7CMBAERZsnUF2NUIyQ0kCBUEBAgaCgjy7O4RiZc-SzSOj4A2_hQ7wE0-wWq9nd7DPKVht6nDqBLRvLRAGOyGiSV-teoKQQ7dVSA9_XG26-BiEMugXPsPPeOBov2xg7WSgl4nIjEaPVufZ35ZlqP6gEyV8qaTFQ5zBSNS9mQ96xmRTnvoS11uQoJDC1lsQxrR-4sQiWYf9sUlRjM4ULOWST7v0AYlBXVbgAAAA&shmds=v1_ARwrE21o7qA3iKGHzxDpEYlww2zCY_k-MJTdLsJT3PXsG3UKjQ&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=y4uhE3wn5STx-yOzAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6abffff6d114dfbe8a1d5be1/images/OMZO89sI-xvGdTnZoUwB7zRY0tXQ5sn5kD0oeNmDkDQ.jpeg",
+      "extensions": [
+        "2 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://in.linkedin.com/jobs/view/devops-engineer-manager-aws-certified-at-pwc-acceleration-center-india-4472505581",
+      "job_title": "DevOps Engineer Manager _Aws Certified",
+      "description": "Greetings from Pwc!\n\n\n\n\nRole- Devops Engineer( Mandatory skills AWS, AI ,MLOPS & LLMops, Kubernetes)Certification mandatory\n\nLocation- Hyderabad & Bangalore\n\nExperience Required (9--13years)\n\nAws or Azure or Devops Certification mandatory\n\n\n\n\nIf interested Share cv on bommakanti.sai.vaidehi@pwc.com or WhatsApp on 6304776536 with below details\n\n\n\n\nTotal experience-\n\nRelevant Experience-\n\nCurrent location-\n\nPreferred location-\n\nCurrent CTC-\n\nExpected CTC\n\n\n\n\nManager – Forward Deployment Engineer (DevOps, AI Deployment)\n\nAI Deployment & DevOps Engineering | Forward Deployed Engineering\n\nJob Summary\n\nAn engineering leader who owns how AI solutions are deployed into enterprise environments across a set of accounts. You will own delivery, standards, and the customer relationship, and set the direction for building, securing, and operating AI applications in production on AWS.\n\nKey Responsibilities\n\nOwn the delivery of AI deployment work across your accounts, including scope, quality, timelines, and standards.Set direction and standards for CI/CD, Infrastructure as Code, cloud architecture, security, and MLOps/LLMOps.Lead the responsible integration of AI solutions into legacy and regulated enterprise environments at scale.Act as senior escalation and decision-maker on complex or high-stakes deployments.Build reusable accelerators and patterns that raise deployment quality across the practice.Build, lead, and grow the team through hiring, coaching, and development.Own senior customer relationships and communicate progress, risks, and value.Surface delivery friction and product gaps to leadership as structured field intelligence.Required Qualifications\n\nExtensive DevOps or platform engineering experience, including leading teams and owning delivery at scale.Current depth in AWS, Kubernetes, CI/CD, and Infrastructure as Code.Proven enterprise integration experience with security, identity, and governance constraints.Proven ownership of delivery outcomes and senior customer relationships.A clear strategy for productionising AI at scale (LLMOps/MLOps), including responsible AI, backed by delivery experience.Strong leadership and communication skills; decisive under pressure.Preferred Qualifications\n\nAWS enterprise-scale architecture experience.Enterprise AI and data platforms (Palantir Foundry, Databricks, Snowflake).A background in consulting or managed services.Experience in regulated industries.A leadership or delivery certification (e.g., PMP, SAFe).AWS Certified Solutions Architect – Professional and/or AWS Certified DevOps Engineer – Professional.Technical Skills & Tools\n\nCloud & platform: AWS (Bedrock, SageMaker, EKS, Lambda, IAM), KubernetesDelivery & IaC: CI/CD (GitHub Actions, GitLab CI, ArgoCD), TerraformAI productionisation: LLMOps / MLOps, model serving, evaluation, responsible AI, governanceSecurity & compliance: IAM, secrets management, network security, data governanceGood to have: Enterprise AI and data platforms (Palantir Foundry, Databricks, Snowflake), MLflowSoft Skills & Competencies\n\nLeadership of both a team and a customer relationship.Stakeholder and customer management.Decisive under pressure.Coaching and people development.Experience Required\n\n9–12 years, including team and delivery leadership.\n\nReporting & Team\n\nLeads a team of forward-deployed engineers embedded with customers, within our Forward Deployed Engineering practice.\n\nLocation & Work Model\n\nLocation: Anywhere in India, with a preference for Bengaluru or Hyderabad.Work model: Forward-deployed and customer-facing; embedded within an enterprise client's team.Working hours: Overlap with client business hours (including US / EST), with occasional deployment support.",
+      "apply_options": [
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/devops-engineer-manager-aws-certified-at-pwc-acceleration-center-india-4472505581?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/devops-engineer-manager-aws-certified-pwc-acceleration-center-india-hyderabad--fj-2391564720?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/5618709337267503104?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/340658962/devops-engineer-manager-aws-certified-hyderabad?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEZXZPcHMgRW5naW5lZXIgTWFuYWdlciBfQXdzIENlcnRpZmllZCIsImNvbXBhbnlfbmFtZSI6IlB3QyBBY2NlbGVyYXRpb24gQ2VudGVyIEluZGlhIiwiaHRpZG9jaWQiOiJ5NHVoRTN3bjVTVHgteU96QUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlNIbGtaWEpoWW1Ga0xGUmxiR0Z1WjJGdVlTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFNWRXRXRGxDWXpVek1ERjVhV0l6VkdnMWFHdHNPQzEwZEdaTlRUQm1hWFZDTFV4RmFsaHBOemx5ZDJjd1NGRlNjR1YwZUUxTVZ6bHdXRk41ZEZaRk1VcHNVRXRQVURNeWFEbElTR1JmWWtjeFUzbENSVXR3U2xaMU0wMXpTR2h2YWxKQ1FqSm1NRlJuTmpaQ2MyTm9kMlpMTWxOU1dFRlRTWEJ5WDFKNFYzcHJlVGRhUTJjU0Z5MWZMVjloY0ZOTFNIUjVlSEIwVVZBdFdVZDJkVUZ2R2lKQlJITnlPV1pVYURCSllWbHpWR0ZYTkMxeVluUjZkbFJqYkRFNWJYTldiR0ozIiwiZmN2IjoiMyIsImZjX2lkIjoieTR1aEUzd241U1R4LXlPekFBQUFBQT09In0="
+    },
+    {
+      "title": "Lead - AWS Devops",
+      "company_name": "Anblicks",
+      "location": "Hyderabad, Telangana",
+      "via": "LinkedIn",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=CdMXlDQrul0-2doaAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLsQrCMBAAUFz7CU43F21EcNGpIOjgpuBYLsmRVONd6AWpm7ujf-iXqMvbXvWaVPWB0MMc2vMRtnSXrPB5vuEiFpRwcBGEYScSEk03sZSsa2NUUxO0YOld4-RmhMnKaH5J_3QacaCcsFC3XC3GJnOooWWbendV6Bn2D08DWvQzOFFCDsj4Bbh_8aeOAAAA&shmds=v1_ARwrE22qrJXZc-2mwt3w3-8N-ezzGnZCKNs5m-XfHihGBzPsMw&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=CdMXlDQrul0-2doaAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/_9j_4AAQSkZJRgABAQAAAQABAAD_2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys_RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N__AABEIADgAOAMBIgACEQEDEQH_xAAaAAEAAgMBAAAAAAAAAAAAAAAAAgYBBAcF_8QAKRAAAQQCAQIGAQUAAAAAAAAAAQACAxEEBRIhMRMUIkFRcRUGMkJSYf_EABcBAQEBAQAAAAAAAAAAAAAAAAACAQT_xAAfEQEBAAICAQUAAAAAAAAAAAAAAQIREiExAwQTYXH_2gAMAwEAAhEDEQA_AO4oiICIiAiIgIiINLZbXX6uNsmxzIcdrjTfEfRd9D3U9fssLZw-Nr8qHIjBoujeDR-D8Ln_AOv9BI7cDZOGTsnZFRY-uhHEji2zyk_izoSel26rHdaX6Sbn63LyMr8INflNifwx48h8gy2Bj3UWlzj6XBnqH9q7lZJ6l71Nfvbryw9r8cmOVuet-Op9OrrFi6tVaTczRSxwYu1xs4ztjPiNa0-EXTRx2A09qkJAN9W9ysS5E42zYsnYiAY0ksHm3MYC4OZDIAbHEO6n26hp6fF8a4uS1WLq0sKpDOkyHwZL3Me5zoo2yNFCVnmwwPH-Ob1-OvuFFudk5jNTkMy4MjOfOX-Sc4MbBJ4EvoJALhR9JJBNg9B2TjW8ouCKua7bTSbHCimyg8TRujdE0MD2ztMnic29SGjhTSCRYN3YKwss0S7e9k40GUwsyImSNLS0hwsEEUR9ELV1Wj1mo5_jMGDGMn7zG2i77PdeginU8rmeUlxl6qIjY2-LQLNmgjmNcCHAEHuCFJFqWKCwGNDi4NFnua7qSII8G8uXEcqq66opIgIiICIiAiIgIiIP_9k.jpeg",
+      "extensions": [
+        "3 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://in.linkedin.com/jobs/view/lead-aws-devops-at-anblicks-4473208073",
+      "job_title": "Lead - AWS Devops",
+      "description": "Job Description – Lead AWS DevOps Engineer\n\nRole: Lead AWS DevOps Engineer\n\nExperience: 9–12 Years\n\nLocation: Hyderabad / Ahmedabad\n\nEmployment Type: Full-time\n\nJob Summary\n\nWe are looking for a Lead AWS DevOps Engineer with strong hands-on experience in AWS cloud, DevOps automation, CI/CD, Infrastructure as Code, and cloud architecture. The candidate will lead DevOps initiatives, drive automation and cloud best practices, and work closely with development, architecture, security, and business teams.\n\nKey Responsibilities\n\nLead the design, implementation, and management of scalable, secure, and highly available AWS infrastructure.Define and implement DevOps and CI/CD strategies across multiple applications and environments.Design and manage CI/CD pipelines using Jenkins, GitHub Actions, GitLab CI/CD, AWS CodePipeline/CodeBuild, or similar tools.Lead Infrastructure as Code initiatives using Terraform and/or CloudFormation.Design and manage AWS services including EC2, S3, VPC, IAM, RDS, Lambda, ECS/EKS, ALB/NLB, Route 53, CloudWatch, etc.Lead containerization and orchestration initiatives using Docker and Kubernetes/EKS.Implement automation for infrastructure provisioning, configuration management, deployments, and operational processes.Establish best practices for AWS security, IAM, networking, monitoring, logging, and cost optimization.Design solutions for high availability, disaster recovery, scalability, and performance.Troubleshoot complex production issues and provide technical guidance to engineering and operations teams.Drive DevSecOps practices, including security scanning, vulnerability management, secrets management, and compliance automation.Mentor and guide DevOps engineers and conduct technical reviews.Collaborate with architects, developers, QA, security, and infrastructure teams to improve delivery processes.Identify opportunities to improve reliability, deployment frequency, automation, and operational efficiency.Participate in technical discussions, architecture reviews, and production support activities.\n\nSkills Required\n\n9+ years of experience in DevOps/Cloud Engineering with strong AWS expertise.Strong hands-on experience with AWS cloud architecture and services.Excellent experience in CI/CD pipeline implementation and automation.Strong expertise in Terraform and Infrastructure as Code.Hands-on experience with Docker and Kubernetes/AWS EKS.Strong knowledge of AWS networking – VPC, subnets, routing, security groups, NACLs, load balancers, and Route 53.Strong understanding of IAM, security, encryption, and secrets management.Experience with Linux administration and troubleshooting.Strong scripting/programming skills in Python, Shell, or Bash.Experience with monitoring and logging using CloudWatch, Prometheus, Grafana, ELK, or similar tools.Strong understanding of Git and source-control management.Proven experience in technical leadership and mentoring.",
+      "apply_options": [
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/lead-aws-devops-at-anblicks-4473208073?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Levels.fyi",
+          "link": "https://www.levels.fyi/jobs?jobId=0ft33xn4849x7&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/lead-software-engineer-devops-aws-jpmorgan-chase-bank-hyderabad--t7xk-814009898?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/6965128670566416384?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/340213122/lead-aws-devops-hyderabad?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJMZWFkIC0gQVdTIERldm9wcyIsImNvbXBhbnlfbmFtZSI6IkFuYmxpY2tzIiwiaHRpZG9jaWQiOiJDZE1YbERRcnVsMC0yZG9hQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlNIbGtaWEpoWW1Ga0xGUmxiR0Z1WjJGdVlTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFNtVkpaRTVMUTFnNVMzRnZaVUk1TFRoaFFtbElNakJhWDBsZk1HeDJVblpuU2twUFZERTFUVkkyYUVsUFlqVlViVmR0YURKcVdGZERXQzF6YW5vd2NFRXRPVEkwWmtsSk1GazNiV2htV2xWdFJrRjBPSE5DVWw5M1YzZzNjRWhVTWw5NFZtTlplWEJFZFd4RVR6Wk9lSEZwTkUxV01YQnliWEJvYVZoQ2JEWm5aak5yWmtRU0Z5MWZMVjloY0ZOTFNIUjVlSEIwVVZBdFdVZDJkVUZ2R2lKQlJITnlPV1pVZG10WlNscEJiSEZ0ZWxvdFZ5MVljRlJyYWs1dldFaG9UVTlSIiwiZmN2IjoiMyIsImZjX2lkIjoiQ2RNWGxEUXJ1bDAtMmRvYUFBQUFBQT09In0="
+    },
+    {
+      "title": "Junior DevOps Engineer at Fortuna Entertainment Group, Hyderabad",
+      "company_name": "Fortuna Entertainment Group",
+      "location": "Hyderabad, Telangana",
+      "via": "JobsInHyd",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=IEcbm2-TWdIhnhHtAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_32NMQrCQBAAsc0TrLaWkIhio60asbGxsQqbZLmcXHaPu43Ezj_4Lj_hS4yVnc0UA8Mkr0lyOfZsJcCWbicfYcfGMlEAVNhL0J5xdEpB0XJHrFAE6X0Kh3tDASts4P14wlUqiIShbkEYChHjaLppVX1c53mMLjNRUW2d1dLlwlTJkI9R_KKMLQbyDpXKxWo-ZJ7NbPnnDpZ__xTO5JANMn4AJWkoYtAAAAA&shmds=v1_ARwrE22z5qYISZRpiv3KAOXne3J_W07q7-7FlaX3_JZqhdE-Ww&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=IEcbm2-TWdIhnhHtAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6abffff6d114dfbe8a1d5be1/images/M8A1rBmNc0M9r93HtpfpIZWBTZtopF2vrsC6ajjSLzg.jpeg",
+      "extensions": [
+        "3 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://jobsinhyd.in/job/junior-devops-engineer-fortuna-hyderabad/",
+      "job_title": "Junior DevOps Engineer at Fortuna Entertainment Group, Hyderabad",
+      "description": "Fortuna Entertainment Group is hiring a Junior DevOps Engineer for its Hyderabad team. The role supports day-to-day BI platform operations, with a focus on monitoring data pipelines, ensuring business reports are delivered on time, handling production incidents and supporting operational improvements. The position is suitable for candidates with 0–2 years of experience in DevOps, Data Operations, BI Operations, Production Support or a related technical role. A Bachelor's or Master's degree is required. The role involves working with Azure Data Factory, SQL and data engineering concepts. What You'll Do Monitor Azure Data Factory and Databricks pipelines and jobs, identify failures or delays, and perform initial troubleshooting. Check that daily data workloads complete successfully and business reports are generated and delivered on time. Monitor report delivery SLAs and flag potential delays before they affect business users. Handle production incidents, perform initial root-cause analysis and coordinate with technical teams to resolve issues. Communicate pipeline failures, incidents, report status and delays to relevant stakeholders. Maintain monitoring and incident documentation and follow operational procedures. Identify recurring operational problems and support automation and other improvements to BI platform operations. What You Need Bachelor's or Master's degree. 0–2 years of experience in DevOps, Data Operations, BI Operations, Production Support or a related technical role. Strong knowledge of Azure Data Factory and SQL. Understanding of data engineering concepts. Basic understanding of data warehousing and ETL/ELT concepts. English language proficiency at least at B2 level. Work Arrangement The position offers hybrid working arrangements, including work from home, along with flexible working hours. Skills DevOps, Azure Data Factory, SQL, Databricks, Data Engineering, Data Operations, BI Operations, Production Support, Data Warehousing, ETL, ELT, Incident Management What to Prepare Review Azure Data Factory pipelines, jobs and common pipeline failures. Practice SQL queries and troubleshooting data-related issues. Revise ETL/ELT, data warehousing and basic data engineering concepts. Prepare examples of troubleshooting, incident handling or production support work from your projects or previous experience. Be ready to explain how you would monitor a failed data pipeline and communicate the issue to stakeholders.",
+      "apply_options": [
+        {
+          "title": "JobsInHyd",
+          "link": "https://jobsinhyd.in/job/junior-devops-engineer-fortuna-hyderabad/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJKdW5pb3IgRGV2T3BzIEVuZ2luZWVyIGF0IEZvcnR1bmEgRW50ZXJ0YWlubWVudCBHcm91cCwgSHlkZXJhYmFkIiwiY29tcGFueV9uYW1lIjoiRm9ydHVuYSBFbnRlcnRhaW5tZW50IEdyb3VwIiwiaHRpZG9jaWQiOiJJRWNibTItVFdkSWhuaEh0QUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlNIbGtaWEpoWW1Ga0xGUmxiR0Z1WjJGdVlTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFRGUkZYMkpDTkhVemRIVTRlalV5T1ZWc1VsTXdSR1E0Y2tWclVtRlVSall5TFVKR1ZUTnRXSHBJVkdGM1MwbEVTamxCVDFOTFh6bDVSMFV3VVVOWlpHZEJjVUpVZW1OMFFtTnJRVU0zV2tNd1NUSlBSelpDTjNkM2QzUjZlRk0wWTBneU0wbDFaemhMZEU1b1ZVeFdiRmxOZERoWVJISlVlazE1UTIxc1NFVkZZVGsyZFRRU0Z5MWZMVjloY0ZOTFNIUjVlSEIwVVZBdFdVZDJkVUZ2R2lKQlJITnlPV1pVZDFSMFJpMW9jMVZqV0VReFYyTjZWMDg1ZUVaVFZXbHJZMHhSIiwiZmN2IjoiMyIsImZjX2lkIjoiSUVjYm0yLVRXZElobmhIdEFBQUFBQT09In0="
+    },
+    {
+      "title": "DevOps Engineer - Golang",
+      "company_name": "Saransh Inc",
+      "location": "Hyderabad, Telangana",
+      "via": "LinkedIn",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=Z2aNDQc8aBVa7uhsAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWNMQrCQBAAsc0TrBbsRHMq2JhWUSsL7cPmstxFzt3j9pDY-Qfxg77EpJlmGKb4Tor1np6XqHBg1zFRgiUcJSA7-L0_cJcGlDBZD8KDEBdoWvmco-6MUQ2l04y5s6WVhxGmRnozRDqiVo-JYsBM9Wa76svIbj67YkJWD2e20DGcXi0lbLBdwI3GLzL-AREbmNGYAAAA&shmds=v1_ARwrE20gsuiW1_76MDLDdWvnu7n_I53AMNupPhRCr8ySuWKTfw&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=Z2aNDQc8aBVa7uhsAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6abffff6d114dfbe8a1d5be1/images/-9GZTatVXA-kwVZpvbKqG5IWu5U94-h-Jjn2R3Txrb4.jpeg",
+      "extensions": [
+        "4 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://in.linkedin.com/jobs/view/devops-engineer-golang-at-saransh-inc-4471261663",
+      "job_title": "DevOps Engineer - Golang",
+      "description": "Hiring for DevOps Engineer - Golang with Top MNC Banking Client | Immediate Joiners \n\n\n\n\nRole: DevOps Engineer + Golang \n\nLocation: Hyderabad\n\nExperience: 6+ Years\n\nNotice Period: Immediate Joiners with in a week Only\n\nWork Mode: As per project requirement\n\nJob Summary\n\nWe are looking for an experienced DevOps + Golang Engineer with strong hands-on expertise in Golang programming, AWS, Kubernetes, Terraform, CI/CD, and cloud-native technologies.\n\nThe ideal candidate should have strong development and DevOps experience, with the ability to design, automate, deploy, and manage highly available and scalable cloud infrastructure and microservices-based applications.\n\nMandatory Skills\n\nGolang – MandatoryHands-on experience with at least one additional programming/scripting language such as Python or ShellAWS – MandatoryKubernetes – MandatoryTerraform – MandatoryDockerCI/CD – Jenkins / GitLab CIPostgreSQLREST APIsMicroservicesKafkaStrong experience in cloud infrastructure automation and deploymentKey Technical Skills\n\nGolang & Development\n\nStrong hands-on experience in Golang developmentExperience developing scalable and production-grade applications/services using GoGood understanding of REST APIs, microservices, and distributed systemsExperience with Spring Boot and Java-based microservices is preferredExperience with Python and/or Shell scriptingAWS & Cloud\n\nStrong hands-on experience with AWS services, including:\n\nEC2LambdaS3RDSGlue JobsEKSECSExperience provisioning and managing AWS infrastructure using TerraformKnowledge of CloudFormation is an added advantageGood understanding of cloud security, reliability, availability, observability, and cost optimizationExperience designing highly available and scalable AWS environmentsDevOps & CI/CD\n\nDesign, implement, and manage scalable CI/CD pipelinesHands-on experience with:JenkinsGitLab CIDockerKubernetesTerraformAutomate infrastructure provisioning and application deploymentsImplement container orchestration using AWS EKS/ECSExperience with monitoring, logging, alerting, and production troubleshootingKubernetes & Infrastructure\n\nStrong understanding of Kubernetes architecture and administrationExperience deploying and managing containerized applicationsHands-on experience with EKSInfrastructure as Code using TerraformExperience with high availability, disaster recovery, backup, and infrastructure optimizationDatabase & Messaging\n\nStrong experience with PostgreSQLExperience managing enterprise-level databases with high availability and 24/7 reliabilityKnowledge of database optimization, backup, and disaster recoveryHands-on experience with Apache Kafka and event-driven architecturesArchitecture & Engineering Responsibilities\n\nDesign and implement scalable, secure, and highly available cloud-native solutionsTranslate business requirements into reliable technical solutionsConsider performance, security, reliability, availability, observability, compliance, and cost optimization while designing solutionsEstablish and enforce architectural standards, design patterns, and governance processesDrive technical and architectural decisions across development, DevOps, QA, and security teamsDesign and implement high-availability and disaster-recovery solutionsMonitor production environments and drive performance and reliability improvementsEnsure cloud infrastructure follows security and compliance standardsAutomate repetitive operational and infrastructure tasksBanking Domain\n\nGood understanding of banking/financial services technology is preferredKnowledge of data architecture, analytics, and AI/ML applications in banking is an added advantageAwareness of regulatory, security, and compliance requirements impacting banking applications and cloud environmentsCollaboration & Leadership\n\nCollaborate closely with Development, QA, Security, Data, and Infrastructure teamsMentor and guide junior engineers and development teamsEstablish technical best practices and engineering standardsStay updated with emerging cloud, DevOps, AI/ML, and banking technologiesContribute to technology strategy and continuous improvement initiativesPreferred Certifications\n\nAWS Certified Solutions ArchitectTOGAFOther relevant AWS, Cloud, Kubernetes, or DevOps certifications\n\n\nInterested Please share me your updated resume to\n\nshalini.v@saranshinc.com",
+      "apply_options": [
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/devops-engineer-golang-at-saransh-inc-4471261663?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Lever",
+          "link": "https://jobs.lever.co/BlueMatrix/1d1e0ec9-2c36-409b-aae2-30678a654e0f?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Shine",
+          "link": "https://www.shine.com/jobs/devops-engineer-python-telangana/hucon-solutions/19366661?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Hirist",
+          "link": "https://www.hirist.tech/j/globant-gcp-devops-engineer-1647193?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jooble",
+          "link": "https://in.jooble.org/jdp/-2810759287292957628?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Expertini",
+          "link": "https://hyderabad.in.expertini.com/job/devops-engineer-junior-hyderabad-centific-638356907781264634/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/semiconductor-devops-engineer-2795-sunrise-biztech-systems-hyderabad--t7xk-842390303?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Getmereferred.com",
+          "link": "https://getmereferred.com/in/job-listing/sr-engineer-devops-4b-genpact-intshyderabad-2-to-5-years-experience-a2f3bba4-f73c-431d-aab7-3e714fe973fa?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEZXZPcHMgRW5naW5lZXIgLSBHb2xhbmciLCJjb21wYW55X25hbWUiOiJTYXJhbnNoIEluYyIsImh0aWRvY2lkIjoiWjJhTkRRYzhhQlZhN3Voc0FBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpTSGxrWlhKaFltRmtMRlJsYkdGdVoyRnVZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTbWcwUW5nMmNXRkRiSG90ZFRSdmJrNXNObXhQUjNRMWMwMWlaVE5PVWtSRVUwa3lSalZNZFdKdVIwRndaMkpHWHpBemRrNXNjMFpYVkU5QllqTXhVRzUwUWw5bU9GSm1OVUZUYUc1NlYxVTVOVFpsVGw5b1JtMVVUV3hSUlhJelVtUnJjV0ZmWVd3eFVITldka3R4Um5oalFVUmZVM3BJVjNoQ2FHVnBZVXBmYjI1RlVrRVNGeTFmTFY5aGNGTkxTSFI1ZUhCMFVWQXRXVWQyZFVGdkdpSkJSSE55T1daUlJHRTRZVUo2ZEU1a1dESXpRV3AxTmt4TFJUWk1UM05RYm1GQiIsImZjdiI6IjMiLCJmY19pZCI6IloyYU5EUWM4YUJWYTd1aHNBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "Senior Software Engineer - Devops",
+      "company_name": "Gap Inc.",
+      "location": "Hyderabad, Telangana",
+      "via": "Gap Inc.",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=FDNgsh5lPMoRM9mPAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXMMQ7CMAxAUbH2CEyeESQIiaWsoMJc9spNTVoU7CiOoGzcgZHbcRLK8rf3i8-sKGviQRLUcskPTAQH9gMTJVjBnu4SFb6vN1ylBSVMrgdhqER8oPmuzzlqaa1qMF4z5sEZJzcrTK2MdkL6T6P9dI4BMzWb7Xo0kf0CKoxwYmdgYDg-O0rYYreEMwVkj4w_lhpJNZ4AAAA&shmds=v1_ARwrE20s8iYgFyEUQUbQyi7zV7DsbwMj_4MOqQYPQe_-DftUFQ&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=FDNgsh5lPMoRM9mPAAAAAA%3D%3D",
+      "extensions": [
+        "5 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://www.gapinc.com/en-in/Jobs/W70/57/Senior-Software-Engineer-Devops",
+      "job_title": "Senior Software Engineer - Devops",
+      "description": "About the roleThe Build team at Gap Inc. plays a key role in enabling engineering teams to deliver software efficiently and reliably. As a Software Engineer on the Build team, you will help support and improve the CI/CD infrastructure, tools, and processes used across the organization.\n\nWhat you'll do\n\nResponsibilities:\n\n·       Supporting and maintaining CI/CD systems used by engineering teams.\n\n·       Building and improving tools that simplify build and deployment workflows.\n\n·       Partnering with platform and product teams to enhance developer experience.\n\n·       Reducing friction in build and deployment processes so teams can focus on delivering features.\n\n·       Assist in maintaining and improving build systems and CI/CD pipelines.\n\n·       Help identify issues in build and deployment workflows and contribute to solutions that improve reliability and reduce build times.\n\n·       Follow established best practices for source control, builds, and deployments, and contribute to improving them over time.\n\n·       Learn and experiment with new build tools and technologies, sharing insights with the team.\n\n·       Participate in code reviews and collaborate with teammates on shared solutions.\n\n·       Write and maintain scripts or small tools to improve developer workflows.\n\n·       Work with other platform teams (Ship, Schedule, Observe) to support overall engineering goals.\n\n·       Participate in an on-call rotation with support from senior team members.\n\n·       Help monitor build systems and contribute to resolving incidents and improving stability.\n\n·       Contribute to documentation to help teams use build and deployment tools effectively.\n\nWho you are\n\n·     4+yrs of software engineering experience, with some exposure to CI/CD or build system.\n\n·       You have hands-on development experience building and maintaining applications or services and understand basic software development practices.\n\n·       You are comfortable working with Git and standard version control workflows.\n\n·       You have some experience with CI/CD tools (e.g., GitHub Actions, Jenkins) or are eager to learn.\n\n·       You are familiar with at least one programming language (e.g., Terraform, Python, Java, or Go).\n\n·       You have basic exposure to Docker or containerized applications.\n\n·       You are familiar with cloud platforms (GCP or Azure) at a foundational level.\n\n·       You have basic Linux knowledge and can troubleshoot simple issues.\n\n·       You are eager to learn, ask questions, and collaborate with teammates.\n\n·       You can write clear and simple technical documentation.\n\n·       You are comfortable working in a team environment and taking ownership of small to medium-sized tasks.\n\n \n\nCore up-front tools/skillsets\n\nCI/CD tools: GitHub Actions, Jenkins (basic pipeline knowledge)Programming/Scripting: Python, Java, or Go, TerraformVersion Control: Git (branching, PR workflows)Containers: Docker; basic Kubernetes conceptsCloud: GCP/Azure (foundational knowledge)Build Tools: Maven, Gradle, npm (basic usage)OS Skills: Linux fundamentals and troubleshootingCollaboration: documentation, team communication",
+      "apply_options": [
+        {
+          "title": "Gap Inc.",
+          "link": "https://www.gapinc.com/en-in/Jobs/W70/57/Senior-Software-Engineer-Devops?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Built In",
+          "link": "https://builtin.com/job/senior-software-engineer-devops/11390835?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Fashion United",
+          "link": "https://fashionunited.in/fashion-jobs/senior-software-engineer-devops-hyderabad-2021977?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Glassdoor",
+          "link": "https://www.glassdoor.co.in/job-listing/senior-software-engineer-devops-redpin-JV_IC2865319_KO0,31_KE32,38.htm?jl=1010229561057&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/senior-software-engineer-devops-at-gap-inc-4473098415?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Levels.fyi",
+          "link": "https://www.levels.fyi/jobs?jobId=13hl78rbxuefb&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jooble",
+          "link": "https://in.jooble.org/jdp/-5209918562689332778?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Mployee.me",
+          "link": "https://www.mployee.me/jobs/view/senior-software-engineer-devops-in-hyderabad-at-gap-inc--jid--R21705728168/s1?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJTZW5pb3IgU29mdHdhcmUgRW5naW5lZXIgLSBEZXZvcHMiLCJjb21wYW55X25hbWUiOiJHYXAgSW5jLiIsImh0aWRvY2lkIjoiRkROZ3NoNWxQTW9STTltUEFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpTSGxrWlhKaFltRmtMRlJsYkdGdVoyRnVZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTbXRFUjJOSFVYazJkbXRaZEZOWVVXUkROelZmVUVwMk1qTnhRM05wTjBWaFIwaEJSblJpYWxKNWJHNW9SMWRGYzBOVGFFOW5ibTB5TW1wUWRWSk9TRFp0Vm1sNVJuRkRSMHhTZFVvemNESjBNRnB6T0RkNVRVd3hOemhVUm5ndE5uaFFaM0ZDVTJSRU1URm1VRTVmVG1ad2VsRlhWalJPTmpsR1ozaG9aVWxXUVV4S1dsY1NGeTFmTFY5aGNGTkxTSFI1ZUhCMFVWQXRXVWQyZFVGdkdpSkJSSE55T1daVVVWVmhRbU5TV0dwc05rbzJTRmhCTTNaV2JHOWhTRlkxYTJ4biIsImZjdiI6IjMiLCJmY19pZCI6IkZETmdzaDVsUE1vUk05bVBBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "Salesforce + DevOps Engineer",
+      "company_name": "Andor Tech",
+      "location": "Hyderabad, Telangana",
+      "via": "Mployee.me",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=2fohstL0_4uzSfJuAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWMMQrCQBAAsc0TrBZLlZwIabQKKNpZaB82l_Vycu4et4fEzj_Y-D5fYmymGJgpPpOiOmMgvUqyBAvY0eMUFfbsPBMl-L7ecJMWlDDZHoThIOICTbd9zlE3xqiG0mnG7G1p5W6EqZXBjJH-0WiPiWLATM26Wg1lZDef1dxJgguNS89wfHaUsMVuOaqA7JDxByLCAVSbAAAA&shmds=v1_ARwrE20saP_8K_JedX5Q9QS1-MH1AJIfmmTWIZk_PUYhhyzejA&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=2fohstL0_4uzSfJuAAAAAA%3D%3D",
+      "extensions": [
+        "4 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://www.mployee.me/jobs/view/salesforce-devops-engineer-in-hyderabad-at-andor-tech--jid--447272426235373/s1",
+      "job_title": "Salesforce + DevOps Engineer",
+      "description": "📢 Exciting Opportunity | Salesforce + DevOps Engineer | Hyderabad\n\n\n\n\nAndor Tech is hiring a Salesforce + DevOps Engineer for deployment with a leading global financial markets and data infrastructure organization.\n\nWe are seeking professionals who can effectively bridge the gap between Salesforce solutions and DevOps automation, with hands-on experience in building and maintaining CI/CD pipelines and deployment processes.\n\n\n\n\n📍 Location: Hyderabad\n\n💼 Experience: 2+ Years\n\n📆 Project Duration: 6 Months\n\n🏢 Work Model: 3 Days Work From Office (WFO)\n\n🕘 Shift Timing: 9:00 AM to 6:00 PM\n\n\n\n\nRequired Skills\n\n✅ Salesforce Administration/Development\n\n✅ DevOps Practices & Methodologies\n\n✅ GitLab\n\n✅ Jenkins\n\n✅ CI/CD Pipeline Implementation\n\n✅ Python and/or Bash Scripting\n\n✅ AWS \n\n\n\n\nInterview Process\n\n1️⃣ Codility Assessment (DevOps)\n\n2️⃣ Technical Discussion\n\n3️⃣ Face-to-Face Interview\n\nWhat We Are Looking For\n\n\n\n\n📧 Interested candidates can share their updated CV to: sankar.a@andortech.com/anusha.shetty@andortech.com\n\n\n\n\n#Hiring #Salesforce #DevOps #GitLab #Jenkins #CICD #Python #BashScripting #AWS #HyderabadJobs #TechCareers #AndorTech #SalesforceDeveloper #DevOpsEngineer #CloudComputing #NowHiring #CareerOpportunity #ITJobs #HiringAlert #ApplyNow",
+      "apply_options": [
+        {
+          "title": "Mployee.me",
+          "link": "https://www.mployee.me/jobs/view/salesforce-devops-engineer-in-hyderabad-at-andor-tech--jid--447272426235373/s1?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "JobLeads",
+          "link": "https://www.jobleads.com/in/job/salesforce-devops-engineer--hyderabad--e604e733755d8c42662959d500303d33d?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Coding Cadre",
+          "link": "https://codingcadre.com/jobs/devops-node-engineer-stackline-cloud-hyderabad/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJTYWxlc2ZvcmNlICsgRGV2T3BzIEVuZ2luZWVyIiwiY29tcGFueV9uYW1lIjoiQW5kb3IgVGVjaCIsImh0aWRvY2lkIjoiMmZvaHN0TDBfNHV6U2ZKdUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpTSGxrWlhKaFltRmtMRlJsYkdGdVoyRnVZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTa2xEVjJOVkxWWjNNM0pEUnpWa01GbFlWVlJsWkUxTmNEazFOak50ZDFKR1FUWlVWelJtZEc5MWIyRnpTRFJGWVV0b1MxbHlWRFpMY0ZNdFZYaHdMVmRrVlVKeVoyMXBTRnB1UTBjM1YwTlZha0ZSYlhWdmJEbHNkVEJtY2tWWFNESldlSFpsTm1SUmFFaFdaakZRTldVM2ExZzVhak56ZUc5SE4xcGpUV3RZV210RFdUQVNGeTFmTFY5aGNGTkxTSFI1ZUhCMFVWQXRXVWQyZFVGdkdpSkJSSE55T1daVWIwSldNMHAwV0MxQ2RGVmtNR1ZVVVVsM2FubG9jR3M0ZFdkUiIsImZjdiI6IjMiLCJmY19pZCI6IjJmb2hzdEwwXzR1elNmSnVBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "API Platform & DevOps Engineer",
+      "company_name": "Infosys",
+      "location": "Hyderabad, Telangana",
+      "via": "LinkedIn",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=VSXwhG23BnNh4E-lAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXNMQrCQBBAUWxzBBunshDJiiCCVoKiqUxhHybJZBPZzCw7iySdd7Dwfp5EbX73-Ml7kmwPeQa5w9hI6GEOR3pcvcKJbcdEAT7PF9ylBCUMVQvCcBaxjqb7NkavO2NUXWo1YuyqtJLeCFMpg_kh_afQFgP534GK9WY1pJ7tYpZxIzoqdAyXsaaAJdZLuJFDtsj4BcTVraSaAAAA&shmds=v1_ARwrE207iH6vw_6tL3YhnEMX9lCLy5QBVsB3c2cBdV-5YQjHPw&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=VSXwhG23BnNh4E-lAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/_9j_4AAQSkZJRgABAQAAAQABAAD_2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys_RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N__AABEIADgAOAMBEQACEQEDEQH_xAAbAAEAAgIDAAAAAAAAAAAAAAAAAgMFBgEEB__EACgQAAICAgEDBAEFAQAAAAAAAAECAAMEERIFIVETMUGRFCIjQnGBBv_EABgBAQEAAwAAAAAAAAAAAAAAAAABAgME_8QAJhEBAAIBAQgBBQAAAAAAAAAAAAECEQMSITFBUZGhwXEiIzPR8P_aAAwDAQACEQMRAD8A9xgICAgICAgICAgICAgICBSuVS2W-KH_AHkrWxl0eysSAftT9S4nGWO1G1s80MvNpxOPrF9tviqVs7HXudKCdRFZngWvFeLsAyMnO4FYuT1_R2efHlrXxLjmmYzhZIpA1LrCiz_rFrZmCuuIGCsV2OWR27fE6tP8Pf04dWM6-Pj2xXUcdB1TOprr2lHrqgA5GqvjjM3H-ubkDyZurP0RPXHtovX7lojln0yPU6Kq-o4NHRcmhK3rL3UWWk03Aa4BiD2J_V3774nYIE1UnNLTeP226tcXrGnPz0noqxcrJvx7On0suIrXetWbnJr4cyDVzB7g2KwGv4n2-JbVrExad_8Ace3lK2tMTSN2_Pnh38Nk6Dcl2EQuOuOa7GR60fmgYHvxb5H140JzakYtxy7NGc14YZKYNpAiUUnZUb86hMHBd70N-dQYVfiY3Bk_Hq4MeTLwGifJlzPVNmvREYOOLLnasObgqsGGxxX2GvHcn_TLtSmxXMyvRFrUKihVHYADQExZRGEoUgICAgICAgICAgICAgIH_9k.jpeg",
+      "extensions": [
+        "3 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://in.linkedin.com/jobs/view/api-platform-devops-engineer-at-infosys-4471596746",
+      "job_title": "API Platform & DevOps Engineer",
+      "description": "IBM DataPower, Event Gateways, GitLab Pipelines, Terraform, Ansible, AWS\n\n\n\n Design, deploy, and administer IBM DataPower API Gateway and Event Gateway platforms in production environments. Configure and manage API security policies, authentication, authorization, SSL/TLS certificates, and traffic management. Develop, maintain, and optimize CI/CD pipelines using GitLab for application and infrastructure deployments. Automate infrastructure provisioning and configuration management using Terraform and Ansible. Manage and support AWS cloud infrastructure, including compute, networking, storage, and security services. Implement Infrastructure as Code (IaC) standards and DevOps best practices across environments. Monitor API gateway performance, troubleshoot issues, and ensure high availability and reliability. Configure API publishing, routing, transformation, rate limiting, and monitoring capabilities. Collaborate with development teams to enable secure API deployment and lifecycle management. Integrate API platforms with enterprise authentication systems, monitoring tools, and logging solutions. Perform platform upgrades, patching, capacity planning, and performance tuning activities. Automate operational tasks, deployments, and environment provisioning to improve efficiency. Ensure compliance with security, governance, and organizational standards. Troubleshoot production incidents, perform root cause analysis (RCA), and implement preventive measures. Support containerized and cloud-native workloads deployed on AWS platforms. Create and maintain technical documentation, SOPs, architecture diagrams, and operational runbooks. Participate in change management, release management, and production support activities. Work closely with infrastructure, security, and application teams to deliver scalable and resilient API solutions. Monitor system health, application logs, and deployment metrics to ensure SLA adherence. Provide L2/L3 support and participate in on-call support for critical business applications and API services.",
+      "apply_options": [
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/api-platform-devops-engineer-at-infosys-4471596746?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/senior-engineer-platform-api-canadiansme-small-business-magazine-hyderabad-telangana--t7xk-818747239?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Shine",
+          "link": "https://www.shine.com/jobs/api-platform-devops-engineer/infosys-limited/19686994?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Getujobs",
+          "link": "https://www.getujobs.com/job-listing/5569/api-platform-devops-engineer/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Mployee.me",
+          "link": "https://www.mployee.me/jobs/view/api-platform-devops-engineer-in-hyderabad-at-infosys--jid--447159674607857/s1?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "JobSpri",
+          "link": "https://www.jobspri.com/jobs/api-platform-devops-engineer-infosys?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBUEkgUGxhdGZvcm0gXHUwMDI2IERldk9wcyBFbmdpbmVlciIsImNvbXBhbnlfbmFtZSI6IkluZm9zeXMiLCJodGlkb2NpZCI6IlZTWHdoRzIzQm5OaDRFLWxBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laU0hsa1pYSmhZbUZrTEZSbGJHRnVaMkZ1WVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwUzNwbFN5MUpZbTFEZDFvM2RtODNjbnBRUkhSSE4wbFdha2xFT1RSaVozSkdXa1I1Y25wSFEzSmthRFl5WDI1SE1tWklVV2x6YzJ4clgwVXRha1ZzUkROM2NrUlNOSFEzYkROUlltY3lZamhWVjJGVFdUazNhRW93VG05WWIzaExZVXhCU2pCVlUxcGlWRmgyZEU1U1pXMVllVUYxV1VOR1FXNVZUV1pWWDBWVGFqWnhRbFlTRnkxZkxWOWhjRk5MU0hSNWVIQjBVVkF0V1VkMmRVRnZHaUpCUkhOeU9XWlJXbGw0ZFVseWJGTjZUWG8yV1V0YWVrMVdZMjl0ZWtGbk0wRjMiLCJmY3YiOiIzIiwiZmNfaWQiOiJWU1h3aEcyM0JuTmg0RS1sQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Manager - Cloud and Devops Engineer",
+      "company_name": "PepsiCo",
+      "location": "Hyderabad, Telangana",
+      "via": "PepsiCo Careers",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=yCuWv8_dCVPVqPLrAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWOMQrCQBAAsc0TbNxaNCeCjdpF0UawsA-b3HI5OXeP21Ni5x9sfZ0vMTbTDANTfEbF9oSMjhLMoQpyt4BsYUcPiQp7dp5pcN_XG67SgBKmtgNhOIi4QONNl3PUtTGqoXSaMfu2bOVmhKmR3gyR_lFrh4liwEz1crXoy8huOjlTVF8JeIbj01LCBu0MLhSQ3XD1A6WgCgufAAAA&shmds=v1_ARwrE22Q6eEDbn8RQwG-loo_Y6HJbKIiaG5agwe8Vn5DZY_o_g&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=yCuWv8_dCVPVqPLrAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6abffff6d114dfbe8a1d5be1/images/DEzlTO1x2D1TbigY1MqJBFFQjnUbisX0VwDr4QgWSLQ.png",
+      "extensions": [
+        "Full–time"
+      ],
+      "source_link": "https://www.pepsicojobs.com/india/jobs/465065?lang=en-us",
+      "job_title": "Manager - Cloud and Devops Engineer",
+      "description": "Overview\n\nWe are seeking a highly motivated Cloud & DevOps/SRE Engineer to join our Infrastructure Engineering team. The ideal candidate will be responsible for designing, deploying, and supporting cloud infrastructure across AWS and Azure using Infrastructure as Code (IaC) principles. This role involves building and maintaining CI/CD pipelines, automating operational processes, supporting Kubernetes-based workloads, enhancing platform reliability, and driving continuous improvements across cloud and DevOps ecosystems. The candidate will collaborate with cross-functional teams to deliver scalable, secure, and resilient solutions.\n\n \nResponsibilities\n\nDeploy, manage, and optimize cloud infrastructure on AWS and Azure using Terraform and Infrastructure-as-Code best practices.Monitor, troubleshoot, and resolve incidents related to cloud infrastructure and platform services.Design, develop, and maintain CI/CD pipelines to support application build, test, and deployment workflows.Manage containerized workloads using Kubernetes and related technologies such as Helm, ArgoCD, and Flux.Develop automation and tooling using Python, Bash, or other programming languages to improve operational efficiency.Configure monitoring and alerting solutions and participate in incident response and root cause analysis.Ensure CI/CD pipelines remain reliable, secure, and continuously optimized.Integrate and support Jira workflows, automation, and tooling that improve engineering productivity.Evaluate, onboard, and integrate third-party SaaS solutions into existing environments.Create and maintain technical documentation, operational runbooks, disaster recovery plans, and standard operating procedures.Collaborate with development, security, and infrastructure teams to implement scalable and secure platform solutions.Support cloud governance, compliance, and cloud security posture management initiatives. \nQualifications\n\nRequired Qualifications2+ years of experience working with AWS and/or Azure cloud platforms.Hands-on experience with Infrastructure as Code (Terraform), including module development and management.Experience with source control platforms such as Git, GitHub, or GitLab.Experience creating and maintaining CI/CD pipelines using GitHub Actions, GitLab CI, Jenkins, or similar tools.Experience deploying and managing Kubernetes workloads in production environments.Proficiency in scripting and automation using Bash, Python, or other object-oriented programming languages.Solid understanding of Software Development Lifecycle (SDLC) and DevOps principles.Experience with monitoring and observability tools such as Datadog, Splunk, Prometheus, or similar platforms.Basic database administration and SQL query experience with PostgreSQL, MySQL, or other relational databases.Preferred QualificationsExperience with Azure services such as AKS, ACR, Key Vault, Entra ID, and Virtual Networks.Experience with AWS services such as EKS, ECR, IAM, and VPC.Knowledge of Cloud Security Posture Management (CSPM) practices and security best practices.Experience with GitOps tools such as ArgoCD and Flux.Familiarity with Agile methodologies, Jira, automated testing, and continuous integration practices.Bachelor’s or Master’s degree in Computer Science, Software Engineering, Information Technology, or a related field; equivalent DevOps/Cloud certifications or bootcamp training may also be considered.Nice to HaveAzure Administrator, Azure DevOps Engineer, or AWS Associate-level certifications.Experience supporting highly available, enterprise-scale cloud platforms.Knowledge of security scanning, compliance automation, and Infrastructure Security best practices.",
+      "apply_options": [
+        {
+          "title": "PepsiCo Careers",
+          "link": "https://www.pepsicojobs.com/india/jobs/465065?lang=en-us&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Glassdoor",
+          "link": "https://www.glassdoor.co.in/job-listing/manager-cloud-and-devops-engineer-pepsico-JV_IC2865319_KO0,33_KE34,41.htm?jl=1010235479906&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Shine",
+          "link": "https://www.shine.com/jobs/manager-cloud-and-devops-engineer/pepsico/19536183?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "SimplyHired",
+          "link": "https://www.simplyhired.co.in/job/7h_1M-4ujS1ybhHPjXh592U3ziOiY9cz14LZDl0ET_T0bfHnHH39Ig?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/manager-cloud-and-devops-engineer-pepsico-hyderabad--ss-in-u3iez?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Joinrs",
+          "link": "https://www.joinrs.com/en/jobs/4199918?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/manager-cloud-and-devops-engineer-at-pepsico-4453422972?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Levels.fyi",
+          "link": "https://www.levels.fyi/jobs?jobId=105497793384063686&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJNYW5hZ2VyIC0gQ2xvdWQgYW5kIERldm9wcyBFbmdpbmVlciIsImNvbXBhbnlfbmFtZSI6IlBlcHNpQ28iLCJodGlkb2NpZCI6InlDdVd2OF9kQ1ZQVnFQTHJBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laU0hsa1pYSmhZbUZrTEZSbGJHRnVaMkZ1WVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwVEdOS1VGWkxXbTFHZDJacGNuTlRlVGhHTlRkSlFYSmFUREpGWVc5RWFEZGhOa05hVVV0MFdEVXdabmRuZFZreU5YUllaMUozTjJacVlpMTBiVU5NYzJJNWFtNW9iMUZPTm1ock9WbE9NSE5WTW5Cc01VVlNSMGxsY0Y4MGRGZzFOamhDWVVkbU9HaEdZa1F5YUhaelRtRkJWbVkzWm10bWVsUnBNRVUzVkZkc05HODVTVm9TRnkxZkxWOWhjRk5MU0hSNWVIQjBVVkF0V1VkMmRVRnZHaUpCUkhOeU9XWlNZV1p3YjNWRFUyMXJPSEI0WmtKRE5EbGlkbTh3V1RrelptRm4iLCJmY3YiOiIzIiwiZmNfaWQiOiJ5Q3VXdjhfZENWUFZxUExyQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Cloud DevOps Engineer Global - DevOps Tooling & Pipelines",
+      "company_name": "Southwest Airlines",
+      "location": "Hyderabad, Telangana",
+      "via": "Southwest Careers - Southwest Airlines",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=bjIMz2146TirGG1tAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_zWNMQrCQBBFsc0RrKayCJqIYKOVqGinqH2YJMNmZZ1ZdlaNnXfwPF7Gk6iIzefB4_GTZyfZzZ2ca1jQZeMVlmwsEwVYOSnRweAvDiLOsoEebK2nD5LC6_6Ao5SghKFqQBhWIsZRd9rE6HWS56ouMxox2iqr5JQLUylt_on0O4U2GMg7jFSMxsM282zSdC_n2FxJI8xs-D1ZhvWtpoAl1n04kEM2yPgGoq80CsAAAAA&shmds=v1_ARwrE21q7hcFw-VFHpC3RiLl1yBhOqBjZlke3Yu7e_CY_crciQ&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=bjIMz2146TirGG1tAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6abffff6d114dfbe8a1d5be1/images/tf-2q62QHHmEmiYS3DHaxP6DprnS72jkxnvxD0E2bFU.png",
+      "extensions": [
+        "16 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://careers.southwestair.com/in/en/job/R-2026-71562/Cloud-DevOps-Engineer-Global-DevOps-Tooling-Pipelines",
+      "job_title": "Cloud DevOps Engineer Global - DevOps Tooling & Pipelines",
+      "description": "Department:\n\nTechnology\n\n\n\nOur Company Promise\n\n\nWe are committed to provide our Employees a stable work environment with equal opportunity for learning and personal growth. Creativity and innovation are encouraged for improving the effectiveness of Southwest Airlines. Above all, Employees will be provided the same concern, respect, and caring attitude within the organization that they are expected to share externally with every Southwest Customer.\n\n\n\n\n\nJob Description:\n\nAbout Us\n\n\n\nAt Southwest Airlines, we believe that flying should feel like freedom. For over 50 years, we’ve been connecting people to what matters most with low fares, legendary hospitality, and a heart for service. Our culture is built on the principles of fun, friendliness, and family, making us one of the most admired workplaces in the world. \n\n\n\nIf you’re passionate about making a difference, love working in a fast-paced environment, and want to help millions of travelers reach their destinations with a smile, Southwest Airlines is the place for you. Here,  your career can truly take flight. \n\n\n\nJob Summary\n\nSouthwest’s DevOps Tooling & Pipelines Pod builds and runs the platforms that help teams create, secure, store, and deploy software. Its enterprise services include Nexus Repository, SonarQube, Amazon ECR, CI/CD pipelines, cloud-native deployment platforms, and automation that accelerates delivery while strengthening software supply chain controls.\n\nAs Cloud DevOps Engineer, you’ll help build and support secure, reusable platform capabilities across Git-based or Jenkins pipelines, AWS, Docker, Kubernetes or ECS, and Infrastructure as Code. You’ll contribute to automated quality gates, vulnerability and secrets management, access controls, developer self-service, and reliable platform operations. Along the way, you’ll develop hands-on experience solving observability, performance, availability, and deployment challenges that directly affect engineering teams across Southwest.\n\nDesign and build enterprise cloud infrastructure automation, pipeline automation and cloud capabilities used by the enterprise. Partner with application, security, and architecture teams to build re-usable and secure cloud infrastructure to be used by business applications. Knowledge of cloud computing industry trends and apply that knowledge to continually innovate and evolve the enterprise cloud platform.\n\nResponsibilities\n\nOperate in a DevOps culture and team, responsible for architecture, design, development, implementation, and ongoing operations of new and emerging technology platformsImplement automation tools and frameworks for automatic code deployment (CI/CD)Lead the design, development, and evolution of cloud infrastructureEstablish and/or follow procedures and standards to ensure high quality and quantity of workEstablish or follow prioritization processes to drive work and has a sense of urgency about getting work completedConsult with stakeholders to specify requirements and solutions which address business challenges and opportunitiesServe as a subject matter expert in cloud infrastructure, performing design reviews and consulting with your teams to ensure design best practicesMaintain business continuity and disaster recovery processesParticipate in system and acceptance testing to ensure that systems are functionally appropriate, technically sound, and well-integratedTest and implement system and enhancements using techniques that preserve system integrityMay perform other job duties as directed by Employee's Leaders\n\nKnowledge, Skills and Abilities\n\nKnowledge of AWS Infrastructure as a Service Automation tools like Cloud FormationKnowledge of AWS compute, data sources, security technologiesKnowledge of infrastructure-as-code (IAC)Skilled in deployment strategies using Docker for containerizationSkilled in monitoring toolsAbility to mentor and guide team members' learning, including introducing new ideas and technologiesAbility to anticipate business needs and lead a team towards identifying and solving cross-domain problemsEducation\n\nRequired: Bachelor's degree in Computer Science, Engineering, Information Systems or related field and/or equivalent formal training\n\nExperience\n\nRequired: Intermediate-level experience, fully functioning broad knowledge in Cloud software or DevOps2-5 years of relevant work-related experienceGit-based CI/CD pipelines\n\nAWS; SAST; DAST;\n\nSCA vulnerability management; secrets management; RBAC; Docker; Kubernetes; EKS; ECS; Terraform; CloudFormation\n\nPreferred:\n\nSonarQube\n\nNexus Repository\n\nJFrog Artifactory\n\nAmazon ECR\n\nSBOM\n\nOSSM\n\nSoftware supply chain security\n\n\n\nOther Qualifications\n\nMust meet confidentiality expectations as to confidential, proprietary and sensitive Company informationAbility to work extended hours as needed\n\nSouthwest Airlines is an Equal Opportunity Employer.\nPlease print/save this job description because it won't be available after you apply.",
+      "apply_options": [
+        {
+          "title": "Southwest Careers - Southwest Airlines",
+          "link": "https://careers.southwestair.com/in/en/job/R-2026-71562/Cloud-DevOps-Engineer-Global-DevOps-Tooling-Pipelines?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Capgemini Careers",
+          "link": "https://careers.capgemini.com/job/Hyderabad-Cloud-Delivery-Engineer-Terraform-&-Ansible/1428548833/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "SimplyHired",
+          "link": "https://www.simplyhired.co.in/job/tXCjyGzbYPvTHtXDDUpGZDUVogMOOM2RglE7ZctRjuw7lIuahj-GVw?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Mployee.me",
+          "link": "https://www.mployee.me/jobs/view/cloud-devops-engineer-global-devops-tooling-pipelines-in-hyderabad-at-southwest-airlines-446781101922120/s1?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/cloud-delivery-engineer-terraform-ansible-at-capgemini-4466021781?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/cloud-delivery-engineer-terraform-ansible-capgemini-hyderabad--fj-2370727302?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Olibr",
+          "link": "https://olibr.com/jobs/cloud-devops-engineer-global-devops-tooling-pipelines-southwest-airlines-fk79x?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Pivot",
+          "link": "https://mypivot.work/job/cloud-devops-engineer-global-devops-tooling-pipelines-at-southwest-airlines-hyde-6aad21f443cf576a239dfa7d?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJDbG91ZCBEZXZPcHMgRW5naW5lZXIgR2xvYmFsIC0gRGV2T3BzIFRvb2xpbmcgXHUwMDI2IFBpcGVsaW5lcyIsImNvbXBhbnlfbmFtZSI6IlNvdXRod2VzdCBBaXJsaW5lcyIsImh0aWRvY2lkIjoiYmpJTXoyMTQ2VGlyR0cxdEFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpTSGxrWlhKaFltRmtMRlJsYkdGdVoyRnVZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBUREJoTWxseVQwdDFNbXBxZUZaQlUxZ3pVVFJNYkZKVmRHNXpPVGhPZFROalVXdENZamh3ZG5WcmJ6RnJTVUpvVnpJd1JFbzVTMlJOYnpoWmN6aHdUVGxqZGxkWFpqVnNPVVpwTUhkc1drTmpUbDlmYmpSbmQzRkdkRGc1WVVGRFZVVlFSWHAxT0c1UmJGOWlVbEZvY2xSc1JVSjVPVXB4VWtSeFl6ZDNUbk4zYWxCdVJ6SVNGeTFmTFY5aGNGTkxTSFI1ZUhCMFVWQXRXVWQyZFVGdkdpSkJSSE55T1daVFRrdGZRMjVQVFRCa2NXVjRhbFkzZWtKd1pFNHRiMDExZWtkQiIsImZjdiI6IjMiLCJmY19pZCI6ImJqSU16MjE0NlRpckdHMXRBQUFBQUE9PSJ9"
+    }
+  ],
+  "serpapi_pagination": {
+    "next_page_token": "eyJmYyI6IkVxSUVDdUlEUVVwcFZEUjBTbVZDWTE4MmJHb3RabFZrTkVVd1QxZG9WazV5WW5GZk5qZERZVEZyYjI1SVNtTmZSM2xQUWs1V1ptWnplbmR4T0dOWFYyUmlVMUpMT0UxVlJXUk5XbTFSVmpCdmNWZFNlWGxEVTBOSlUzcG9NMmhLZWtwbU5FNTFNbEp1Um1GWk1VWlJXV2xXUldOSVozbGhja1pqTWs1eFRVbExiMXB0UzNsRlJucEVWRGw2UkhSMFIyNUhNbWgwV2pGelUzQjBaVWhOUVc1amVVNTNSbVI1WWs1NWRTMVVMVlJKTWtKd1dUQTNlVlV3ZW1ZeFoyVTBhSFV0WVRsWlVuaDVaVVJETnpSSE1WRnRVVEJYZWs5SFlraHNXR3BtWlRSdE1FMTZUVUpIWlRabFRDMXdTa2RHVkRsYVQwNTFjVGhXZHpKSlNUWndlVlJSVVhkbGQyNDNiSEpVZUZabFQxbHNiV1kxVVVkWGFuTk5Wa2wyWkhwclkyUjVPR2d6TURSaFNuVkRWVEpJU1hGS1ZYaFNRa0pRZWpoQlQxZFNSRFZGVm5GQlRUVjJja0YwWldOak0wMDJibU4xYVRGRmJWSnFXWGM0Y0U0eE1YSklaMlp5U1Y5MldESjVaV3AyY0hnNFUydEtMVnB0YlhkWFFVdEJkemswUWxaaE1HTldORlp2Y1ZJM05IcEJXVkl3TFhoU1RqbHFWa2R3ZUhwTU5UZzFSMmx4U0VObFMzbFlXbVozUTNsNFJFVklkell6TkRKQ01IazNNbGhJZFVKMlNsaFFkMWswZG1OMmFYSnRhREJhZW5aWGNVMVdWelJyUkZKb2J6WnpVbEIyYzA1MlZHY1NGeTFmTFY5aGNGTkxTSFI1ZUhCMFVWQXRXVWQyZFVGdkdpSkJSSE55T1daU05GSjNURVpuUzJWWFRWUlZiV0pXTmpKV01XdEVja2xJT1ZSUiIsImZjdiI6IjMifQ==",
+    "next": "https://serpapi.com/search.json?engine=google_jobs&gl=in&google_domain=google.com&hl=en&location=Hyderabad%2C+Telangana%2C+India&next_page_token=eyJmYyI6IkVxSUVDdUlEUVVwcFZEUjBTbVZDWTE4MmJHb3RabFZrTkVVd1QxZG9WazV5WW5GZk5qZERZVEZyYjI1SVNtTmZSM2xQUWs1V1ptWnplbmR4T0dOWFYyUmlVMUpMT0UxVlJXUk5XbTFSVmpCdmNWZFNlWGxEVTBOSlUzcG9NMmhLZWtwbU5FNTFNbEp1Um1GWk1VWlJXV2xXUldOSVozbGhja1pqTWs1eFRVbExiMXB0UzNsRlJucEVWRGw2UkhSMFIyNUhNbWgwV2pGelUzQjBaVWhOUVc1amVVNTNSbVI1WWs1NWRTMVVMVlJKTWtKd1dUQTNlVlV3ZW1ZeFoyVTBhSFV0WVRsWlVuaDVaVVJETnpSSE1WRnRVVEJYZWs5SFlraHNXR3BtWlRSdE1FMTZUVUpIWlRabFRDMXdTa2RHVkRsYVQwNTFjVGhXZHpKSlNUWndlVlJSVVhkbGQyNDNiSEpVZUZabFQxbHNiV1kxVVVkWGFuTk5Wa2wyWkhwclkyUjVPR2d6TURSaFNuVkRWVEpJU1hGS1ZYaFNRa0pRZWpoQlQxZFNSRFZGVm5GQlRUVjJja0YwWldOak0wMDJibU4xYVRGRmJWSnFXWGM0Y0U0eE1YSklaMlp5U1Y5MldESjVaV3AyY0hnNFUydEtMVnB0YlhkWFFVdEJkemswUWxaaE1HTldORlp2Y1ZJM05IcEJXVkl3TFhoU1RqbHFWa2R3ZUhwTU5UZzFSMmx4U0VObFMzbFlXbVozUTNsNFJFVklkell6TkRKQ01IazNNbGhJZFVKMlNsaFFkMWswZG1OMmFYSnRhREJhZW5aWGNVMVdWelJyUkZKb2J6WnpVbEIyYzA1MlZHY1NGeTFmTFY5aGNGTkxTSFI1ZUhCMFVWQXRXVWQyZFVGdkdpSkJSSE55T1daU05GSjNURVpuUzJWWFRWUlZiV0pXTmpKV01XdEVja2xJT1ZSUiIsImZjdiI6IjMifQ%3D%3D&q=DevOps+Engineer"
+  }
+}

@@ -1,0 +1,434 @@
+{
+  "slug": "bengaluru_devops_engineer",
+  "captured_at": "2026-10-02T19:02:10.309832+00:00",
+  "latency_ms": 15433,
+  "query_params": {
+    "q": "DevOps Engineer",
+    "location": "Bengaluru, Karnataka, India",
+    "gl": "in",
+    "hl": "en",
+    "engine": "google_jobs"
+  },
+  "jobs_count": 10,
+  "jobs": [
+    {
+      "title": "Devops Engineer - SDE 2 (Bengaluru)",
+      "company_name": "Jupiter",
+      "location": "Bengaluru, Karnataka",
+      "via": "Shine",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=hD2G1T1MGiFxWMgWAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_z3NMQrCQBBAUWxzBBunVNGsCDZqJQmClh4gTMKwWV1nlp2NpPQOtp7Okxgbm999XvYeZfuCHhIUSraOiSIs4VKUsIbpgdii72I3g8_zBVepQQlj04IwHEWsp_GuTSno1hhVn1tNmFyTN3I3wlRLb4ZJf6m0xUjBY6JqvVn1eWA7n5y64NJAOoY_toAzRsaEN_wCYjCYyp8AAAA&shmds=v1_ARwrE22He9TbRYO10YGF4N2kcPfiGANEX52mzf4OfEJydsZZYw&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=hD2G1T1MGiFxWMgWAAAAAA%3D%3D",
+      "extensions": [
+        "16 hours ago",
+        "Full–time"
+      ],
+      "source_link": "https://www.shine.com/jobs/devops-engineer-sde-2-bengaluru/jupiter/19685245",
+      "job_title": "Devops Engineer - SDE 2 (Bengaluru)",
+      "description": "Our journey so far\n\nJupiter was founded in 2019 by Jitendra Gupta. Best known as Citrus Pays founder, Jiten found himself wondering why personal finance experiences were not customer-centric when everything else like food ordering and entertainment were. Thats how our journey began in 2019, with a simple, powerful idea: to create a modern, customer-centric experience that empowers individuals when it comes to their money. \n\nFrom our humble beginnings, we've strived relentlessly to make managing money easier. In 2021 when we launched we had a waitlist with over 100,000 people eager to experience the world of Jupiter - and within 10 months we crossed 1 million users. Today, we have 2.8 million+ happy users on Jupiter.\n\nOur Insights feature today tells how much and where youve been spending automatically, even on your other savings accounts! Our Edge CSB Bank RuPay credit card is getting a lot of love for its head-turning transparent design, not to mention it being a rewarding experience. Our No-Penalty SIP and Daily SIP at Rs 10/- has helped scale our investments business and we have over 100,000 users investing on our platform to fulfill their money aspirations.\n\nWe've embraced cutting-edge technology, harnessed the power of data analytics, and assembled a diverse team of creative thinkers and industry experts who share our vision for a more accessible, transparent, and inclusive financial ecosystem. Were now looking for like-minded folks to join the crew.\n\nWho we're looking for\n\nWe are looking for a highly skilled SDE 2 DevOps engineer, focusing on AWS infrastructure. The ideal candidate will be responsible for designing, implementing, and managing scalable, secure, and highly available cloud-based architectures. \n\nRoles & Responsibilities\n\n Design, build, and maintain highly scalable and secure AWS infrastructure.\n\n Automate infrastructure provisioning, deployment, and monitoring using IaC tools like Terraform or CloudFormation.\n\n Optimize CI/CD pipelines for productive and reliable deployments.\n\n Implement robust monitoring, logging, and alerting solutions using Prometheus, Grafana, ELK Stack, etc.\n\n Ensure security best practices for cloud environments including IAM, VPC configurations, and network security.\n\n Troubleshoot production issues and implement solutions to improve reliability and performance.\n\n Collaborate with engineering teams to improve DevOps culture and drive operational excellence.\n\nWhat is needed for this role\n\n3+ years of experience in DevOps, SRE, or Cloud Engineering.\n\n Strong expertise in AWS services such as EC2, S3, RDS, Lambda, ECS/EKS, VPC, IAM, Route 53, CloudFront, etc.\n\n Proficiency in Infrastructure as Code (IaC) tools like Terraform, CloudFormation, or Pulumi.\n\n Hands-on experience with CI/CD pipelines using GitHub Actions, Jenkins, or similar.\n\n Strong knowledge of Kubernetes and container orchestration.\n\n Experience with monitoring and logging tools (Prometheus, Grafana, ELK, CloudWatch, etc.).\n\n Scripting and automation experience with Python, Bash, or Go.\n\n Knowledge of security best practices for cloud environments.\n\n Strong problem-solving skills and a passion for automation and scalability.\n\nNice to Have\n\n Experience in a fintech/startup environment. \n\n Knowledge of database management and caching solutions.\n\n Exposure to multi-cloud environments (GCP, Azure).\n\nWhy you should work with us\n\n We like people who behave like owners and see projects through to completion.\n\n We take pleasure in tackling meaningful problems and crafting delightful customer experiences.\n\n We appreciate healthy conflict, ownership and commitment  we value consent over consensus.\n\n We constantly raise the bar. If you crave continuous learning and growth, Jupiter is the right place. .",
+      "apply_options": [
+        {
+          "title": "Shine",
+          "link": "https://www.shine.com/jobs/devops-engineer-sde-2-bengaluru/jupiter/19685245?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/85764791037067264?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/340149308/devops-engineer-sde-2-bengaluru?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEZXZvcHMgRW5naW5lZXIgLSBTREUgMiAoQmVuZ2FsdXJ1KSIsImNvbXBhbnlfbmFtZSI6Ikp1cGl0ZXIiLCJodGlkb2NpZCI6ImhEMkcxVDFNR2lGeFdNZ1dBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwVEhrNVRFMVpibVF0YjNFek1EWm9TbTlKUzA5Qk1HRmpRMVJwVW5acFFXSjFTbUpWVkhSYVJUSnlkWEl0TUhWWk1IUllRazVvVDNBNWFERlJlbFpQZWpBdFZTMXRiR2x6UkRORFlrUTFTMXBsV0V0VVVVSnBiR3M1V0ZsMVNIWktRVkpsVFRSbFZtUk1YMGhrUXkxS2NrUjZTVXQ1Y1hkWlVWUkdjMjVhZEd4MlZWaE9jM2tTRjNOMkxWOWhjRzFmUlY5NVRuTmxUVkF6YzI1WGIxRXdHaUpCUkhOeU9XWlVTbEJWZG1WVkxUVkxkazk0WjFSaVpVcHpTVzFSVDJkalRUaG4iLCJmY3YiOiIzIiwiZmNfaWQiOiJoRDJHMVQxTUdpRnhXTWdXQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Oracle CPQ Devops Engineer",
+      "company_name": "Johnson Controls International",
+      "location": "Bengaluru, Karnataka",
+      "via": "Johnson Controls Careers",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=eU3jJF56Da1Iz8flAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWMsQ3CMBAARZsRqL5GKEYgKKAjIAQUwATRJ3rZAfNv-R2Ukh3YgrGYhKS55nSXfUfZ4hKx9gTF9QY7eklQ2LNtmCjC7_2Bu1SghLF2IAwHEetpvHEpBV0bo-pzqwlTU-e1PI0wVdKZPtIBpTqMFDwmKufLWZcHtpPVSRxrPyuEUxSvcOREkfuJMHpoGLbEFn0b2ymccTD4wD-SUBL7rQAAAA&shmds=v1_ARwrE23sYlJ5jH6i77gEVB8Zm75JV5bDrIa4hv8ac7GvCMmm5g&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=eU3jJF56Da1Iz8flAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6abfffa5f6e9268bad395792/images/zQRTJdo_0Nc9HvoSn45dSIuA5Xb7m4XLcRA6vkrWA0Y.png",
+      "extensions": [
+        "3 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://jobs.johnsoncontrols.com/job/WD30281145",
+      "job_title": "Oracle CPQ Devops Engineer",
+      "description": "Oracle CPQ Devops Engineer\n\nWe are seeking a skilled Oracle CPQ Devops Engineer with around 2-3 years of experience to join our team. The ideal candidate should be expereinced in Oracle CPQ  and provide strong support in DevOps operations, ensuring smooth deployments, incident resolution, and system reliability.\n\nKey Responsibilities\n==============================\nDevOps Support: Analyze production issues, perform root cause analysis (RCA), Collaborate with DevOps teams to streamline CI/CD pipelines, automate deployments, and monitor system performance.\nIncident Resolution: Troubleshoot and resolve production incidents, ensuring SLAs are met.\nSystem Integration: Work with cross-functional teams to integrate CPQ with ERP, CRM and other enterprise systems.\nDocumentation: Maintain technical documentation, including configuration guides, troubleshooting steps, and deployment processes.\nContinuous Improvement: Identify opportunities to optimize CPQ processes and enhance system efficiency.\nKnowlede & Experience in CPQ areas like : BML scripts, Pricing rules and formulas, Configuration models, Approval workflows\n\nRequired Skills & Experience\n==============================\n2-3 years of experience in Oracle CPQ.\nStrong knowledge of DevOps practices (CI/CD, automation, monitoring tools).\nExperience with incident management and root cause analysis.\nExcellent problem-solving and communication skills.\n\nPreferred Qualifications\n==============================\nExperience with Oracle CPQ Cloud.\nProficiency in HTML, CSS, JavaScript, BML and BMQL (Big Machine Language)\nExposure to Agile methodologies and collaborative team environments.\nKnowledge of JSON, REST/SOAP APIs for system integrations.\nCertifications related to Oracle CPQ are a plus.",
+      "apply_options": [
+        {
+          "title": "Johnson Controls Careers",
+          "link": "https://jobs.johnsoncontrols.com/job/WD30281145?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Built In",
+          "link": "https://builtin.com/job/oracle-cpq-devops-engineer/11435520?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Apna Jobs",
+          "link": "https://apna.co/job/bengaluru/oracle-cpq-devops-engineer-1064386759?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/oracle-cpq-devops-engineer-at-johnson-controls-4472645262?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Shine",
+          "link": "https://www.shine.com/jobs/oracle-cpq-devops-engineer/johnson-controls-international/19685344?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Bayt.com",
+          "link": "https://www.bayt.com/en/india/jobs/oracle-cpq-devops-engineer-75254827/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/oracle-cpq-devops-engineer-johnson-controls-ltd-bengaluru--techmap_in_1370782332?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "SimplyHired",
+          "link": "https://www.simplyhired.co.in/job/8V_lE7WMwi2J_MBA8oBU_hnZX1mykLBEPRMrp-uQQ1oQnsbS9El5gg?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJPcmFjbGUgQ1BRIERldm9wcyBFbmdpbmVlciIsImNvbXBhbnlfbmFtZSI6IkpvaG5zb24gQ29udHJvbHMgSW50ZXJuYXRpb25hbCIsImh0aWRvY2lkIjoiZVUzakpGNTZEYTFJejhmbEFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpRbVZ1WjJGc2RYSjFMRXRoY201aGRHRnJZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTa3BzYlVoVVUwbFJMWFZEVWpCSVRqUnpXa3BXY1VWVU5IUndZV2N3UzNWNlptWmFWR1ZtYXpJM00wWm9ORXd6ZVZkT2NHUnJhMkkyWmtGTFMyaFFUalpJZFdSamJUaGlSbGx3TVRaWE1qQlVaSEJLVG05UVltRklOWHBDTFd4dmNXdFJaV00zT1hGQmEySlpOWFZ5TW1GR1YyUm9kWGx1U0hOSFREZFJUMlZaVTFkUVMzZ1NGM04yTFY5aGNHMWZSVjk1VG5ObFRWQXpjMjVYYjFFd0dpSkJSSE55T1daVVN5MHpXRFEzTWsxbVkyaFdNazlpY1MxaE9VeGpNVGhaWjJsUiIsImZjdiI6IjMiLCJmY19pZCI6ImVVM2pKRjU2RGExSXo4ZmxBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "Full Stack Developer, QA Tester & DevOps Engineer",
+      "company_name": "Catalyst AI Labs",
+      "location": "Bengaluru, Karnataka",
+      "via": "Unstop",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=-vDEDRcEnQqi8U5cAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWLOwrCQBBAsc0RrKYSkZCIYKNV_OIHRLSXyTJsYtbdZWcisfMOHsUbeRKT5hWP96JvL9pvamPgIqgqWNGTjPMUYjhncCUWCjDo9MkzrK0uLbXm9_7A3eXAhEEV4CxsndOG-vNCxPMsTZlNollQSpUo90idpdw1aTtxhxsXGMgbFLpNpuMm8VaPhksUNC8WyHZwxJyhtLAgq9HUoY7hgMG2RYV_x8xTGLYAAAA&shmds=v1_ARwrE23OwSLIwrNEEN1CyA14JZy7jdr8xFYftL-Z5gJMwio1xA&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=-vDEDRcEnQqi8U5cAAAAAA%3D%3D",
+      "extensions": [
+        "1 day ago",
+        "Full–time"
+      ],
+      "source_link": "https://unstop.com/jobs/full-stack-developer-qa-tester-devops-engineer-catalyst-ai-labs-1764753",
+      "job_title": "Full Stack Developer, QA Tester & DevOps Engineer",
+      "description": "About the Company\n\n\nCatalyst AI Labs is a technology-focused organization building practical, reliable, and scalable digital products. We value strong engineering fundamentals, thoughtful testing, operational ownership, and collaboration across product and development teams.\n\n\nResponsibilities\n\n\n\nDesign, develop, enhance, and maintain full-stack web applications across frontend and backend layers.\nWrite clean, maintainable code and contribute to technical decisions, API integrations, database design, and application performance.\nCreate and execute functional, regression, integration, and exploratory test cases to identify defects early.\nCollaborate with developers and stakeholders to reproduce, document, prioritize, and resolve bugs.\nSupport DevOps activities including build automation, deployment workflows, environment configuration, monitoring, and release coordination.\nParticipate in code reviews, documentation, agile ceremonies, and continuous improvement of engineering practices.\n\nRequirements\n\n\n\n1–3 years of relevant experience in full-stack development, quality assurance, DevOps, or a closely related technology role.\nWorking knowledge of frontend and backend development concepts, databases, APIs, version control, and software testing methodologies.\nAbility to work with testing tools and processes, troubleshoot issues, and communicate technical findings clearly.\nFamiliarity with CI/CD, cloud or deployment environments, scripting, containerization, or infrastructure automation is valuable.\nStrong problem-solving skills, attention to detail, ownership, and willingness to work across development, QA, and operations responsibilities.\n\nThis is a full-time, in-office opportunity based in Bangalore, India, offering a monthly compensation range of ₹30,000 to ₹40,000.",
+      "apply_options": [
+        {
+          "title": "Unstop",
+          "link": "https://unstop.com/jobs/full-stack-developer-qa-tester-devops-engineer-catalyst-ai-labs-1764753?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jooble",
+          "link": "https://in.jooble.org/jdp/-7844538452303309879?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/335507428/full-stack-engineer-python-cloud-devops-bengaluru?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJGdWxsIFN0YWNrIERldmVsb3BlciwgUUEgVGVzdGVyIFx1MDAyNiBEZXZPcHMgRW5naW5lZXIiLCJjb21wYW55X25hbWUiOiJDYXRhbHlzdCBBSSBMYWJzIiwiaHRpZG9jaWQiOiItdkRFRFJjRW5RcWk4VTVjQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlFtVnVaMkZzZFhKMUxFdGhjbTVoZEdGcllTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFNUUmZWazFaWkZkemFXOVFWR00zYkhaclZtbEZlVEkxTUU1Q04yNXBjelZFY21FNE9ISkRNbTVDY2twVllUVjZMVWRxTm1sUGNVWnplbW96YmtoNFQyUXhMWGRIZVVwaE5UUlBObGxvVWpkM1duSlRSVUl3TVhSblQyTlJkR1l5TmpkNE0xVjRVbVZ3VTNnd1ZHRlpWRE40V0VVeGVUUlJPVGhPVUMxalRESkJkMHA1ZGtJU0YzTjJMVjloY0cxZlJWOTVUbk5sVFZBemMyNVhiMUV3R2lKQlJITnlPV1pVT1RWd2RWaGFZM0JtYXpWc1l6QkNYMmxUWkVoTU1raFlkamQzIiwiZmN2IjoiMyIsImZjX2lkIjoiLXZERURSY0VuUXFpOFU1Y0FBQUFBQT09In0="
+    },
+    {
+      "title": "Devops /SRE/Cloud Platform  Engineer with GCP Opening with CAPCO (Bengaluru)",
+      "company_name": "CAPCO",
+      "location": "Bengaluru, Karnataka",
+      "via": "Shine",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=-dABOEbk3TUXJCsXAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_z2OMQrCQBBFsc0RBGFKFcmKYKOVxmBhYdADyBjHzepmZtndqKV38EjexJOoCDa_ePB4P3m2ElrQRVwAtd3kKrPSHKCwGI_ia4CctWEiD1cTK1hmBawdsWH9A9msyNbQnRNrtI1vevC6P-AkewiEvqxAGJYi2lJ7WsXowkSpEGyqQ8RoyrSUWgnTXm7qI4Xv7EKFntznAe1G4-Etdaz7nV_IMPxTA1ihZ4x4xjeOc7v3xgAAAA&shmds=v1_ARwrE237Jy-BMENB75FPkunqEd1nnpxJ_UrxAPhK-WnKnZ0Hpg&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=-dABOEbk3TUXJCsXAAAAAA%3D%3D",
+      "extensions": [
+        "16 hours ago",
+        "Full–time"
+      ],
+      "source_link": "https://www.shine.com/jobs/devops-sre-cloud-platform-engineer-with-gcp-opening-with-capco-bengaluru/capco/19685270",
+      "job_title": "Devops /SRE/Cloud Platform  Engineer with GCP Opening with CAPCO (Bengaluru)",
+      "description": "We are seeking an experienced Cloud Platform Engineer / Site Reliability Engineer (SRE) to support the design, delivery, automation, and operational reliability of cloud platforms within a large-scale banking ecosystem. The role combines platform engineering, DevOps, and reliability engineering to build secure, scalable, and resilient cloud-native services while ensuring operational excellence across production environments.\n\nKey Responsibilities\n\n- Design, build, automate, and operate cloud platform capabilities across Google Cloud Platform (GCP) and Kubernetes (GKE) environments.\n\n- Manage platform services through their full lifecycle, including implementation, deployment, production support, and continuous improvement.\n\n- Drive adoption of Site Reliability Engineering (SRE) practices, focusing on automation, reliability, observability, and reduction of operational toil.\n\n- Implement and maintain Infrastructure as Code (IaC) solutions using Terraform and modern CI/CD pipelines.\n\n- Ensure platform security, scalability, resilience, and compliance with enterprise standards.\n\n- Support incident management, problem management, capacity planning, disaster recovery, and production readiness activities.\n\n- Collaborate with engineering, product, security, and platform teams to deliver highly available and supportable services.\n\n- Enhance platform observability using monitoring, logging, tracing, and alerting solutions.\n\n- Troubleshoot complex issues spanning infrastructure, networking, Kubernetes, cloud services, and integrations.\n\nRequired Skills & Experience\n\n- Strong experience as a Cloud Platform Engineer, Site Reliability Engineer, Platform Engineer, DevOps Engineer, or Infrastructure Engineer.\n\n- Hands-on experience with Google Cloud Platform (GCP) and cloud-native architectures.\n\n- Solid expertise in Kubernetes/GKE, including deployments, networking, ingress, scaling, upgrades, and operational support.\n\n- Proven experience with Terraform and Infrastructure as Code practices.\n\n- Experience building and managing CI/CD pipelines and automation frameworks.\n\n- Solid understanding of SRE concepts including SLIs, SLOs, Error Budgets, Reliability Engineering, and Operational Readiness.\n\n- Strong experience in incident response, monitoring, alerting, resilience engineering, and service improvement.\n\n- Hands-on troubleshooting across cloud infrastructure, networking, security, and platform services. .",
+      "apply_options": [
+        {
+          "title": "Shine",
+          "link": "https://www.shine.com/jobs/devops-sre-cloud-platform-engineer-with-gcp-opening-with-capco-bengaluru/capco/19685270?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/8656421645667270656?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/340476606/devops-sre-cloud-platform-engineer-with-gcp-opening-with-capco-bengaluru?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEZXZvcHMgL1NSRS9DbG91ZCBQbGF0Zm9ybSAgRW5naW5lZXIgd2l0aCBHQ1AgT3BlbmluZyB3aXRoIENBUENPIChCZW5nYWx1cnUpIiwiY29tcGFueV9uYW1lIjoiQ0FQQ08iLCJodGlkb2NpZCI6Ii1kQUJPRWJrM1RVWEpDc1hBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwU2pjNFFYbGtiWFYwV21NeFRESlJkMVl6ZWpKTVQwcFRhSEF4VFZsaWJVWkVWR001WWsxbmR6TTBhRlk1ZWxkS04xOHRkek5YZFhSaVVUSlBVMjg1TFV4cFJ6TnljV1ZLYlVSTFlUUjZlVmRPYW1JNGFsRmtURTlKYkdoeE9UWnpSbTkyVjBoalFpMHpNM1pOVFZKTE1URTNhVmRpZURaQ2NYcHRNM2wwV2tKMlNXUmpiakFTRjNOMkxWOWhjRzFmUlY5NVRuTmxUVkF6YzI1WGIxRXdHaUpCUkhOeU9XWlNNVVZLUVRSd2QzZzBRbTkwYldsZllrcExOVE14TkhScVVXNTMiLCJmY3YiOiIzIiwiZmNfaWQiOiItZEFCT0ViazNUVVhKQ3NYQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "EY GDS - DevOps Engineer - Infrastructure & Automation",
+      "company_name": "hirist.tech",
+      "location": "Bengaluru, Karnataka",
+      "via": "Hirist",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=FST--eEPBgtTm0fGAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xWMMQrCQBBFsc0RrAYEC9FEBButFCWIhYWVlYxh3Kwms2FmViy9g0fxRp7EtXnF4_2ffXrZYXuCcnOECWzocegUtuw8E0kyO74KqkmsLArBEFbRQovmA8P39YZbuIASSlVDMmUIrqH-sjbrdFEUqk3u1FJe5VVoi8B0Cc8ijfSPs9Yo1DVodJ7Np8-8Yzca1F68Wm6UPj3DmthhEyWOYY_CaHjHH8hVfDa2AAAA&shmds=v1_ARwrE23Pa5r7a3Lkfs1cOhiC4bsVq3xzi14rs10YVj85XFGsQg&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=FST--eEPBgtTm0fGAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/searches/6abfffa5f6e9268bad395792/images/F5lg4eTC3Xe9LYQ8NxGmhWD0fu7KylXvkL1-CXEgE1E.jpeg",
+      "extensions": [
+        "3 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://www.hirist.tech/j/ey-gds-devops-engineer-infrastructure-and-automation-1676390?ref=kp_br_prm&jobPos=2",
+      "job_title": "EY GDS - DevOps Engineer - Infrastructure & Automation",
+      "description": "Note : If screened-in, you will be invited for initial rounds on 10th October 2026 (Saturday) in Bangalore.\n\n\n\n\n\n\nThe Opportunity : \n\n\nThis is an exciting opportunity to join a high-performing technology team focused on delivering business-critical services and digital capabilities. As a DevOps Engineer, you will be responsible for building and maintaining the infrastructure, automation, and deployment processes that support our applications and platforms.\n\nYour Key Responsibilities : \n\n- Design, implement, and maintain infrastructure solutions that support application hosting, data processing, analytics, and enterprise services.\n\n- Develop and manage Continuous Integration and Continuous Deployment (CI/CD) pipelines to streamline software delivery and improve deployment quality and consistency.\n\n- Implement monitoring, alerting, and logging capabilities to ensure system health, availability, and performance visibility.\n\n- Automate operational and administrative tasks to reduce manual effort, increase efficiency, and improve reliability.\n\n- Collaborate with development, operations, product, and business teams to ensure solutions meet business requirements and are delivered successfully.\n\n- Ensure platforms and services comply with organizational security standards, governance requirements, and regulatory obligations.\n\n- Participate in troubleshooting and root-cause analysis of production issues, driving long-term corrective actions and continuous improvement.\n\nTo Qualify for the Role, You Must Have : \n\n- Experience designing, implementing, and supporting enterprise infrastructure environments.\n\n- Experience developing and maintaining CI/CD pipelines and deployment automation.\n\n- Knowledge of monitoring, logging, and observability tools and practices.\n\n- Experience automating operational processes using scripting and automation technologies.\n\n- Understanding of security best practices, access controls, compliance requirements, and infrastructure governance.\n\n- Strong troubleshooting and analytical skills with the ability to solve complex technical problems.\n\n- Experience working collaboratively with cross-functional teams in an Agile delivery environment.\n\nWhat Working at EY Offers : \n\nAt EY, you'll have the opportunity to build a career as unique as you are, supported by a global scale, an inclusive culture, and technology to help you become the best version of yourself.\n\nEY | Building a better working world : \n\nEY exists to build a better working world, helping to create long-term value for clients, people and society and build trust in the capital markets.",
+      "apply_options": [
+        {
+          "title": "Hirist",
+          "link": "https://www.hirist.tech/j/ey-gds-devops-engineer-infrastructure-and-automation-1676390?ref=kp_br_prm&jobPos=2&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Getmereferred.com",
+          "link": "https://getmereferred.com/job-listing/database-automation-engineer-hana-oracle-devops-cloud-ex-26y-sap-bengaluru-2-to-5-years-experience-2c3bcc47-167c-4656-9506-ac4096bcae2b?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jooble",
+          "link": "https://in.jooble.org/jdp/-4070288203749874359?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Trabajo.org",
+          "link": "https://in.trabajo.org/job-4056-860713651519682492eab550b54386d9?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/5144036148783349760?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/340384436/lead-engineer-developer-velocity-and-devops-automation-bengaluru?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJFWSBHRFMgLSBEZXZPcHMgRW5naW5lZXIgLSBJbmZyYXN0cnVjdHVyZSBcdTAwMjYgQXV0b21hdGlvbiIsImNvbXBhbnlfbmFtZSI6ImhpcmlzdC50ZWNoIiwiaHRpZG9jaWQiOiJGU1QtLWVFUEJndFRtMGZHQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJWlFtVnVaMkZzZFhKMUxFdGhjbTVoZEdGcllTeEpibVJwWVEiLCJnbCI6ImluIiwiaGwiOiJlbiIsImZjIjoiRXN3QkNvd0JRVXBwVkRSMFNrSm5aVUZ5Vm00eFMzUldRV1JaTmpCalJ6bDJaekZaUnpGWFJIaDZlVVJXYzB4NFZWRkVkR1k0ZUhaUWFXaHpjMjVwVjNnNVQxTk1ZVFJSZUZkWlVVSkRkekpoVTBZM1h6VmZSak4wY1U1NFNrMHdOVVZVUkVwbk5XcHVlbWhCYlZGNmRrUnBWSFpRWm0xMFNuSmZRMDVWY1MwMlVUaDZORGRZYTJWZk5IQnlWVTF2Vm5nU0YzTjJMVjloY0cxZlJWOTVUbk5sVFZBemMyNVhiMUV3R2lKQlJITnlPV1pUWkRsc2JWVlRZbXR1TkVWc2FuWmFaamRIY0ROU1QwOXdVVU5CIiwiZmN2IjoiMyIsImZjX2lkIjoiRlNULS1lRVBCZ3RUbTBmR0FBQUFBQT09In0="
+    },
+    {
+      "title": "DevOps Engineer",
+      "company_name": "McAfee",
+      "location": "Bengaluru, Karnataka",
+      "via": "McAfee Careers",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=gsaSUWQLWDIQTfxDAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLMQoCMRAAQGzvCRaypYgkIthopSgWIj7h2AtrcmfcDdmcXGnnA_yhL1Gb6aZ6jarpnh6XpHBg3zJRhs_zDZ00oITZBRCGo4iPNN6EUpKurVWNxmvB0jrj5G6FqZHB_pL-qTVgphSxUL1cLQaT2M8mZ7e9EkHLsCP2GPvcz-GEmbHgDb-a4mRkigAAAA&shmds=v1_ARwrE231toxuXigQZM87k4oQ2kZu9bozXk09O3itOWk-i-z1rA&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=gsaSUWQLWDIQTfxDAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAclBMVEX____AGBi-AADXqqrfnp724-O_Dw_x09PAFRW7AAD89PS_EhK_DAz03d3y5OT__PzQY2PKS0vtxsbipKTbkJDEKirourrGNzfKT0_FMDDXgYH56urZh4ffmZnkqqrvzMzSbW3ToqLWeXnMVlbns7PIQ0Or-kGRAAABaklEQVRIie2W2ZqCMAxGm1jRsAgKIuKC6_u_ou2AU5bSlvm-ueO_o-kRjDYHxubYs4lddsWbwdIduRWNOd4HiwtEPJ9M2CkTWxYaENaIj-UYtnwgrkEPiiAlKx22Sqiuj4EAIW13_dpuS2FdNYASPbzaldfhi1lAgAAhbVocp4CBqlhAkH3KfMb8LBQdgQmgRKk8UxdzAuUuzZITqIkBxP7TNV_ZBmLGw3YbZQJEnqEN5Cy-7slTmEf7a8y4AyiS__7m4t-QyxVHkLHqSQRA9Kzqa2eQsSghSqLv1QRQnKTWGZsEtjODM_hfYKoHUxvoFXoFFJ4FFAf-rVNAMxKMU86jY1cBRzVJbAog4EoB9CcFYHfkaYwctZzUoGXZG7JickUDUMmzhXaFMyJdedfbwDLqU-imu9s3p_OYAswvFiL-JRgqILj4FkxGqwDH5G-lgHfuSv2kKmoFFNUkTEa02NzI8SxHX7PmmPMBNJwSRbjEL14AAAAASUVORK5CYII.png",
+      "extensions": [
+        "4 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://careers.mcafee.com/jobs/1753?lang=en-us",
+      "job_title": "DevOps Engineer",
+      "description": "Role Summary\n\nLooking for an experienced candidate with a blend of DevOps/Platform Engineering with automation and AI capabilities.  This role will lead automation, platform modernization, cloud-native adoption, observability, and security initiatives while enabling developers through self-service platform capabilities.  The ideal candidate should have expertise in AWS, Kubernetes, IAC, CI/CD, Platform Automation, Observability tools, Networking, Security and emerging AIOps technologies.\nThis is a Hybrid position located at our Bangalore, India development center. You will be required to be on-site 2 to 3 days per week. When you are not working on-site, you will be working from your home office. We are only considering candidates within a commutable distance to our Bangalore office and are not offering relocation assistance at this time. \nPosition Details\n\nAbout the role:Participate as a functional member of the Product Engineering team in standups, design reviews, sprint planning, backlog grooming, and release readiness activities while providing operational and platform perspectives.Review architecture designs, pull requests, and technical solutions to ensure scalability, reliability, security, and operational readiness for 24x7 production environments.Troubleshoot production issues end-to-end across application, infrastructure, networking, databases, and cloud platforms; trace data flows and implement fixes with minimal escalation.Drive operational maturity by implementing monitoring, observability, alerting, runbooks, failover strategies, performance testing, patch management, security remediation, and release validation.Partner with Product Engineering, SRE, Release Engineering, and InfoSec teams to improve platform adoption, developer experience, incident response, and service reliability\nAbout You:4-6 years of experience in Software Engineering, DevOps, SRE, or Platform Engineering, including hands-on production coding, debugging, incident resolution, and embedded team collaboration.Strong programming expertise in Go and Python, with the ability to read, debug, and patch applications built using Node.js/TypeScript, Dart/Flutter, Java, .NET, C++, and C, along with advanced SQL skills (TSQL, PLpgSQL).Hands-on experience with Kubernetes ecosystems including Amazon EKS, Helm, Cilium, cloud-native architectures, GCP/GKE, API gateways, and service mesh technologies such as Kong, Envoy, and Istio.Strong platform engineering expertise including Terraform, Terragrunt, Infrastructure as Code, GitHub Actions, Harness, CI/CD pipelines, integration testing, end-to-end testing, performance testing (K6, Locust, JMeter), and secure software delivery practices.Deep understanding of databases, distributed systems, Kafka, Redis, observability (OpenTelemetry, Prometheus, Grafana), Databricks, security tooling (SonarQube, Dependabot, JFrog), and AI-assisted development platforms such as GitHub Copilot, Claude Code, and CodeRabbit. #LI-Hybrid \nCompany Overview\n\nMcAfee is a leader in personal security for consumers. Focused on protecting people, not just devices, McAfee consumer solutions adapt to users’ needs in an always online world, empowering them to live securely through integrated, intuitive solutions that protects their families and communities with the right security at the right moment. \nCompany Benefits and Perks\n\nWe work hard to embrace diversity and inclusion and encourage everyone at McAfee to bring their authentic selves to work every day. We’re proud to be Great Place to Work® Certified in 10 countries, a reflection of the supportive, empowering environment we’ve built where people feel seen, valued, and energized to reach their full potential and thrive.We offer a variety of social programs, flexible work hours and family-friendly benefits to all of our employees.\n\n\n\nBonus ProgramPension and Retirement PlansMedical, Dental, and Vision CoveragePaid Time OffPaid Parental LeaveSupport for Community InvolvementWe're serious about our commitment to diversity which is why McAfee prohibits discrimination based on race, color, religion, gender, national origin, age, disability, veteran status, marital status, pregnancy, gender expression or identity, sexual orientation or any other legally protected status. \nJob Applicant Privacy Notice\n\nPlease click here to view and download the Job Applicant Privacy Notice, which applies to all McAfee job applicants who are residents of the state of California.",
+      "apply_options": [
+        {
+          "title": "McAfee Careers",
+          "link": "https://careers.mcafee.com/jobs/1753?lang=en-us&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobs At Alstom",
+          "link": "https://jobsearch.alstom.com/job/Bangalore-DevOps-Engineer-KA/1391259833/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Michael Page",
+          "link": "https://www.michaelpage.co.in/job-detail/devops-engineer/ref/jn-122025-6899382?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "HPE Careers - Hewlett Packard Enterprise (HPE)",
+          "link": "https://careers.hpe.com/us/en/job/1213661/DevOps-Engineer?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "埃森哲中国",
+          "link": "https://www.accenture.cn/cn-zh/careers/jobdetails?id=ATCI-5303027-S2060035_en&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Accenture",
+          "link": "https://www.accenture.com/co-es/careers/jobdetails?id=ATCI-5290283-S2026390_en&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Wabtec Careers - Wabtec Corporation",
+          "link": "https://careers.wabtec.com/job/devops-engineer-in-bengaluru-ka-india-jid-4300?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJEZXZPcHMgRW5naW5lZXIiLCJjb21wYW55X25hbWUiOiJNY0FmZWUiLCJodGlkb2NpZCI6ImdzYVNVV1FMV0RJUVRmeERBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwU2xSaU4wMHpURGRYU1ZKNlFUVnRaRzgwUlhwTVRHUjRTbXhxVldnM05VOVRVVEpsVDFCTmIxVXhMVTFYYTJGb1VESnBjalp3WlZreWVVeE1aa3RxYTJrdGF6aEllamR5TWxCMFUxOWxSWGxzU1ZoT1ZVcHlObEoxYVZBMGEwaFBNRXBRUTBseVVETmFkaTF6TmtSR01ESXpZMHR1U1doNGFrUXpjMVJmZWw4MVp6QXlWVllTRjNOMkxWOWhjRzFmUlY5NVRuTmxUVkF6YzI1WGIxRXdHaUpCUkhOeU9XWlVTbEZDVUVaWFVFTnpNRTlJWm5kMmJteDZTazVYUmkxUE9FNVIiLCJmY3YiOiIzIiwiZmNfaWQiOiJnc2FTVVdRTFdESVFUZnhEQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Azure DevOps Engineer",
+      "company_name": "Capgemini",
+      "location": "Bengaluru, Karnataka",
+      "via": "Capgemini",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=GgEbUVZNzHhxKYb_AAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLOwoCMRAAUGz3CFZjK5KIYKOVPywsPMIyuwzZuNmZkElksfIIgjf0JGrzule9JpXZPUoiONL9GhVO7DwTJfg833CTBpQwtR0Iw1nEBZpuu5yjbqxVDcZpxuxb08pghamR0f6S_qm1w0QxYKZ6tV6OJrKbzw4YHQ2ePXiGPbHDUFJZwAUTY8Yev0x1E8OTAAAA&shmds=v1_ARwrE20i8Z4scGQ6lld5mUSweU96CW_MDN1X-I_ZUUV37YDG5w&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=GgEbUVZNzHhxKYb_AAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAaVBMVEX___8AWKoAUKcAVqkATabM1ef4-fz09vrb4e7h5vH8_P2ZrNEAUqi4xN4ARqPq7fVHcbWouNcAL5x2ksQAQ6JsisA5abGMosxkhb4AEZVZe7nCy-IAJZnV3OuRp84vYa4APaCDnMkANZ6EQRJkAAABWUlEQVRIie2S0XKEIAxFLyICKgKLopUq6v9_ZJHuy3Y67nM7nodMJuZmzA3Azc3NzT9npEVz9X3hz6TKsZ5alRNnwD-qC-EcnsnnOUEVLe2mlMjPJBqf87hOQagalUS9VGuan4qABrM5wdBRQmjnAGvyNNXOEN4XDKtpuI7G1nTsg35IzAu8LDYNmn6vJEnnV1dhnPIeLVL7QwcXCIx2gTk-G7U204rI4K3dLVrwPulIacuewfpTaBQKLXuw0uzoxBC8VNGxfRIzDoZykMrhgO6Srmgi6VTaUQJNF8SDKc9jYL5p2b4J7gsrvAO10yr7EjKKTcAXtPUqbud---H8KDq_UDORIRllXbQDjdzI-qEwGBBjU30mLILPdGBbI7MvQsnsHkT2SZjT_-_7sNfD1NkO48JrGUs8L1LC_eh_iz5SCGmtq-fwK-E8N_WXD_AC_r7l5ubm5q_wBWeUExct_wZWAAAAAElFTkSuQmCC.png",
+      "extensions": [
+        "Full–time"
+      ],
+      "source_link": "https://www.capgemini.com/in-en/jobs/489092-en_GB+sap_btp",
+      "job_title": "Azure DevOps Engineer",
+      "description": "Choosing Capgemini means choosing a company where you will be empowered to shape your career in the way you’d like, where you’ll be supported and inspired by a collaborative community of colleagues around the world, and where you’ll be able to reimagine what’s possible. Join us and help the world’s leading organizations unlock the value of technology and build a more sustainable, more inclusive world. Your RoleDesign, build, and maintain CI/CD pipelines using Azure DevOps.Manage and deploy cloud infrastructure on Microsoft Azure.Automate infrastructure provisioning using Terraform / ARM / Bicep.Deploy and manage containerized applications using Docker and Kubernetes/AKS.Monitor applications and infrastructure, troubleshoot issues, and ensure security, availability, and performance.Your ProfileExperience in DevOps / Cloud Engineering.Strong hands-on experience with Azure DevOps, Azure Pipelines, Repos, and Artifacts.Experience with key Azure services, including AKS, VMs, Storage, Key Vault, and Azure Monitor.Strong knowledge of Terraform, Docker, Kubernetes, Git, Linux, and CI/CD.Experience with scripting using PowerShell, Bash, or Python and knowledge of cloud security and monitoring.What you will love about working hereYou can shape your career with us. We offer a range of career paths and internal opportunities within Capgemini group. You will also get personalized career guidance from our leaders.You will get comprehensive wellness benefits including health checks, telemedicine, insurance with top-ups, elder care, partner coverage or new parent support via flexible work.At Capgemini, you can work on cutting-edge projects in tech and engineering with industry leaders or create solutions to overcome societal and environmental challenges.Capgemini is an AI-powered global business and technology transformation partner, delivering tangible business value. We imagine the future of organizations and make it real with AI, technology and people. With our strong heritage of nearly 60 years, we are a responsible and diverse group of 420,000 team members in more than 50 countries. We deliver end-to-end services and solutions with our deep industry expertise and strong partner ecosystem, leveraging our capabilities across strategy, technology, design, engineering and business operations. The Group reported 2024 global revenues of €22.1 billion.Make it real | www.capgemini.com",
+      "apply_options": [
+        {
+          "title": "Capgemini",
+          "link": "https://www.capgemini.com/in-en/jobs/489092-en_GB+sap_btp?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "WSA APAC",
+          "link": "https://careersapac.wsa.com/jobs/8385352-azure-devops-engineer?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Concentrix Careers",
+          "link": "https://jobs.concentrix.com/job/?id=R1760871&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Birlasoft",
+          "link": "https://jobs.birlasoft.com/job/Bengaluru-Sr-Azure-DevOps-Engineer-INDI/59528344/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Internshala",
+          "link": "https://internshala.com/job/detail/fresher-azure-engineer-job-in-bangalore-at-tech-mahindra1789842758?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Platform.uplers.com",
+          "link": "https://platform.uplers.com/talent/all-opportunities/HR1178418597058778?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "LinkedIn",
+          "link": "https://in.linkedin.com/jobs/view/azure-devops-engineer-at-capco-4464197067?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "EFinancialCareers",
+          "link": "https://www.efinancialcareers.com/jobs-India-Bangalore-Senior_Azure_DevOps_Engineer.id24799503?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJBenVyZSBEZXZPcHMgRW5naW5lZXIiLCJjb21wYW55X25hbWUiOiJDYXBnZW1pbmkiLCJodGlkb2NpZCI6IkdnRWJVVlpOekhoeEtZYl9BQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwU2tOelFubGliVkJ3YTJwUWJuSnJRbXh1VTFGUU4ycG9kMXBTZGxsVGNqQXhiRkJ2Vm1wSWJYTndjMWhSTjJOblduaFVha3BGYnpZMmJ6Wk5NMHRWVm5ob2QxbDRPVlJwUjNrNE9EZFZWVVZXVm1wdFpHaHVSa016UTBOV00wZDZSR0pPZVRKQlRYRkZYMEZrTUhFNWNDMW5SbUY1WkhWb09IaFNOMWhSTlVoYWVWRkJRMjBTRjNOMkxWOWhjRzFmUlY5NVRuTmxUVkF6YzI1WGIxRXdHaUpCUkhOeU9XWlVaMWg2VGxOUE5FRnhaV0ZYY214RWVFVjBjRmhGTkZsZllteG4iLCJmY3YiOiIzIiwiZmNfaWQiOiJHZ0ViVVZaTnpIaHhLWWJfQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Senior Cloud and DevOps Engineer-Azure",
+      "company_name": "WSP in India",
+      "location": "Bengaluru, Karnataka",
+      "via": "Foundit",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=CxpErsH8I-7xcGmfAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLPQrCQBBAYWxzBKsprESzIthoIf4hYqGQwjJMkmGzus4suxsJVt7BK3gyT6JpHl_zkk8vWWbERjxsrDQVIFewpcfJBdixNkzkx6tn4wm-rzdcpYBA6MsahGEvoi31F3WMLsyVCsGmOkSMpkxLuSthKqRV_yl0yUONnpzFSPl0NmlTx3o4uGRnMAwHrgx2WBNrtI1vRnBEzxjxhj87GusIpwAAAA&shmds=v1_ARwrE20bZpsgkvBnT4XLuhr84JbKvf2BtGWhK-WpysmtbakLVg&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=CxpErsH8I-7xcGmfAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAAbCAMAAAAeYLy0AAAAb1BMVEX____vNCfvMyXvKhvvMCH0g37uFwD0f3nuIQzuHgXuKBf95uXvLR7uAADzdm_96-r5w8H71tT2nJjwSkD839770c_1j4r6ycfybmfyYVn2oZ33qab4uLXzenTyZl_wQzj1lZH-9fTxV07wPTH3r6zxt228AAABY0lEQVQ4je2S23qDIAyAASkgBU-VWou2tfX9n3HRUIur-7Zdb7lJCPlzAtL1MsvJJHUm-4IEkTIrSSxS9n42HIRVoEtr0grv0kQfQlhtjc1XoE6UROuijHWgr5xR9Bw1FTWaTbqYQThLdmjtBTUt6DOEOywjqL4toDl9AZKWUzEQkguahCYOnDG0wEn1Jd8GR0VVMSdgKXr8Upy0CaVGnMotsITOzqA7SNDNngGK93g5UE0n9F6_g1OPs60Yb8PCDBPhdsiEAZSL7g2E_GYeTiZU4DjFUnzq6CSgX2abrYrHyXChZxDN-P21kH0vGOWPz6BLqcbPwBi_om8HxffRLp1iwRGB8IAp7rCCbZbLwqoInDaHQRF4WJ4B_sLzGR5MH2MQ5sGcL9C9Hp7cBX-2Iezqqzmr7LAGH6la_nHpm2cFP8YcafzYrZdT-nFsyM8lmvF38g_-cVApIb-P2hDvfRGfPwDQfBEX9J0uagAAAABJRU5ErkJggg.png",
+      "extensions": [
+        "3 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://www.foundit.in/job/senior-cloud-and-devops-engineer-azure-wsp-in-india-bengaluru-bangalore-69310768",
+      "job_title": "Senior Cloud and DevOps Engineer-Azure",
+      "description": "Job Description\n\nCloud / DevOps Engineer would lead the implementation, automation, and operational reliability of cloud-native and DevOps solutions across Azure environments, with awareness of equivalent AWS patterns where required. The role would involve transformation of MVP applications into production-grade, multi-tenant SaaS platforms by enabling cloud-native deployment architecture—driving database migration support, containerized deployments on Azure, secure identity and access management, CI/CD pipeline implementation, observability setup, environment consistency, and performance optimization for scalable operations.\n\nResponsibilities\n\nCloud Architecture & Implementation\n\n Design and implement scalable, secure, and cost-optimized cloud solutions primarily on Azure.  Drive adoption of PaaS, managed services, and container-based deployment models.  Enable deployment architecture using Azure App Service, Azure Functions, Blob Storage, Key Vault, and Entra ID / AAD.  Establish cloud governance, environment consistency, access control, and cost optimization practices.\n\nContainerization & Platform Engineering\n\n Design and implement container-based application deployment using Docker.  Build and optimize Docker Compose setups for multi-service environments and multi-stage builds for secure, lightweight images.  Support deployment using orchestration services such as Kubernetes (AKS / EKS awareness) or Azure Container Apps.  Improve platform consistency, portability, and deployment repeatability.\n\nCI/CD & DevOps Transformation\n\n Architect and implement end-to-end CI/CD pipelines using GitHub Actions / Azure DevOps.  Enable automated builds, testing, and deployment with multi-stage environment promotion.  Support deployment strategies such as blue-green, canary, or rolling updates.  Improve release reliability, deployment speed, and operational maturity.\n\nReliability, Observability & Operations\n\n Implement observability using structured logging, distributed tracing, dashboards, and APM tooling.  Enable health checks, readiness validation, alerting, incident response readiness, and SLO-based monitoring.  Support resilience mechanisms including retries, graceful degradation, and fault-aware deployment patterns.\n\nSecurity & DevSecOps\n\n Implement secure DevOps practices including secret management, identity and role-based access controls, and pipeline-integrated security scans.  Ensure secure configuration and alignment with enterprise standards for cloud delivery and operations.\n\nPerformance & Scalability\n\n Support performance strategies including caching, autoscaling, deployment tuning, and environment optimization.  Assist with provisioning and managing Redis / distributed cache services where applicable.  Enable scalable deployment patterns for growing user demand and system load.  Required Technical Skills  Docker / Containers | Advanced — Compose, multi-stage builds, image hardening, container deployment  Azure Cloud | Proficient — App Service, Functions, Blob Storage, Key Vault, Entra ID / AAD  CI/CD | Advanced — GitHub Actions or Azure DevOps; automated testing and staged deployments  Git | Advanced — branching strategies, PR workflows, repository governance  Cluster Provisioning & Management | Proficient — Kubernetes / AKS / container orchestration awareness  Monitoring & Operations | Proficient — Azure Monitor, App Insights, dashboards, alerts, logs  Security & Automation | Proficient — secrets, identity, access control, scanning, IaC awareness\n\nRequired Experience\n\n Minimum 6 years of professional experience in Cloud / DevOps engineering.  Proven experience in enabling cloud-native deployment practices for enterprise or SaaS applications.  Hands-on experience with CI/CD pipelines, release automation, and environment promotion strategies.  Experience supporting containerized deployments and modern cloud-hosted applications.  Experience with observability, operational monitoring, and incident-supporting platform practices.  Exposure to secure DevOps practices, secrets management, and identity-based access controls.  Experience improving deployment reliability, automation, and operational consistency across environments.\n\nPreferred (Not Required)\n\n Exposure to MVP-to-production modernization programs.  Experience with Terraform / Bicep / infrastructure-as-code tooling.  Exposure to SaaS multi-tenancy, API gateways, or cloud platform hardening.  Experience in consultancy, infrastructure, or engineering sector platforms.  Exposure to AI-assisted engineering productivity tooling.\n\nQualifications\n\n Bachelor's degree in Computer Science, Information Technology, Engineering, or related field.  8+ years of hands-on experience in cloud engineering, DevOps, or platform operations.\n\nBGV:\n\n Employment with WSP India is subject to the successful completion of a background verification (BGV) check conducted by a third-party agency appointed by WSP India.  Candidates are advised to ensure that all information provided during the recruitment process — including documents uploaded — is accurate and complete, both to WSP India and its BGV partner.\n\nAbout Us\n\nWSP is one of the world's leading professional services consulting firms. We are dedicated to our local communities and propelled by international brainpower. We are technical experts and strategic advisors including engineers, technicians, scientists, architects, planners, surveyors and environmental specialists, as well as other design, program and construction management professionals. We design lasting solutions in the Transportation & Infrastructure, Property & Buildings, Earth & Environment, Power & Energy, Resources and Industry sectors, as well as offering strategic advisory services. Our talented people around the globe engineer projects that will help societies grow for lifetimes to come.\n\nWith approximately 4,000 talented people across 3 locations (Noida, Bengaluru & Mumbai offices) in India and more than 73,000 globally, in 550 offices across 40 countries, we engineer projects that will help societies grow for lifetimes to come.\n\nAt WSP we draw on the diverse skills and capabilities of our employees globally to compete for the most exciting and complex projects across the world and bring the same level of expertise to our local communities. We are proud to be an international collective of innovative thinkers who work on the most complex problems. Unified under one strong brand, we use our local expertise, international reach and global scale to prepare our cities and environments for the future, connect communities and help societies thrive in built and natural ecosystems. True to our guiding principles, our business is built on four cornerstones: Our People, Our Clients, Our Operational Excellence and Our Expertise.\n\n www.wsp.com \n\nWe are\n\nPassionate people doing purposeful and sustainable work that helps shape our communities and the future.A collaborative team that thrives on challenges and unconventional thinking.A network of experts channeling our curiosity into creating solutions for complex issues.\n\nInspired by diversity, driven by inclusion, we work with passion and purpose.\n\nWorking with Us\n\nAt WSP, you can access our global scale, contribute to landmark projects and connect with the brightest minds in your field to do the best work of your life. You can embrace your curiosity in a culture that celebrates new ideas and diverse perspectives. You can experience a world of opportunity and the chance to shape a career as unique as you.\n\nOur Hybrid Working Module\n\nWith us, you can operate in a flexible, agile, yet structured work environment and follow a Hybrid Work Model.\n\nMaximize collaboration.Maintain product quality and cultural integrity.Balance community, collaboration, opportunity, productivity, and efficiency.\n\nHealth, Safety and Wellbeing\n\nOur people are our greatest asset, and we prioritize a safe work environment. Health, safety, and wellbeing are integral to our culture, with each of us accountable for fostering a safe workplace through our Making Health and Safety Personal initiative. Our Zero Harm Vision drives us to reduce risks through innovative solutions, earning recognition for our global health and safety practices with the prestigious RoSPA Health and Safety Awards for six consecutive years.\n\nInclusivity and Diversity\n\nWSP India is dedicated to fostering a sustainable and inclusive work environment where our greatest strength - Our People -feel valued, respected, and supported. We ensure an unbiased approach in hiring, promotion, and performance evaluation, regardless of age, gender identity, race, religion, sexual orientation, marital status, physical ability, education, social status, or cultural background.\n\nImagine a better future for you and a better future for us all.\n\nJoin our close-knit community of over 73,300 talented global professionals dedicated to making a positive impact. Together, we can make a difference in communities both near and far.\n\nWith us, you can.\n\nApply today.\n\nNOTICE TO THIRD PARTY AGENCIES:\n\nWSP does not accept unsolicited resumes from recruiters, employment agencies, or other staffing services. Unsolicited resumes include any resume or hiring document sent to WSP in the absence of a signed Service Agreement where WSP has expressly requested recruitment/staffing services specific to the position at hand. Any unsolicited resumes, including those submitted to hiring managers or other business leaders, will become the property of WSP and WSP will have the right to hire that candidate without reservation – no fee or other compensation will be owed or paid to the recruiter, employment agency, or other staffing service.",
+      "apply_options": [
+        {
+          "title": "Foundit",
+          "link": "https://www.foundit.in/job/senior-cloud-and-devops-engineer-azure-wsp-in-india-bengaluru-bangalore-69310768?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jooble",
+          "link": "https://in.jooble.org/jdp/5193698787244848319?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "BeBee",
+          "link": "https://bebee.com/in/jobs/senior-cloud-and-devops-engineer-azure-wsp-in-india-bengaluru-karnataka--t7xk-845806617?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "JobLeads",
+          "link": "https://www.jobleads.com/in/job/senior-cloud-and-devops-engineer-azure--bengaluru--e9b0522983c3d9808440040612e0232de?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Jobrapido.com",
+          "link": "https://in.jobrapido.com/jobpreview/5859717819310014464?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Kit Job",
+          "link": "https://www.kitjob.in/job/340193997/senior-cloud-and-devops-engineer-azure-bengaluru?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJTZW5pb3IgQ2xvdWQgYW5kIERldk9wcyBFbmdpbmVlci1BenVyZSIsImNvbXBhbnlfbmFtZSI6IldTUCBpbiBJbmRpYSIsImh0aWRvY2lkIjoiQ3hwRXJzSDhJLTd4Y0dtZkFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVpRbVZ1WjJGc2RYSjFMRXRoY201aGRHRnJZU3hKYm1ScFlRIiwiZ2wiOiJpbiIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBURUZFY2pkSVVsVnpkR1JYTVRaR2NqWjVVakoxWjBkaldFcFlVbmhTYkZoTE1XRkdVMDh0WTNsSVkxZ3RTelZVYUd0VkxXSm5VelJPVUdWRGMwdEZkbWs0UTJRMlExUlFOM3AxYW1vemNGZzVSV0ZuVTNCRFgwUTFhamhMZEV0eVVEWTNOMDF4VEhGWU1pMU9SRzFMYkcxc2JscFlaM1JWVWtocmRVTmlUMGRhVVZWclRsQVNGM04yTFY5aGNHMWZSVjk1VG5ObFRWQXpjMjVYYjFFd0dpSkJSSE55T1daU09HaGxia3A1T0ZWVFZGWlJRMGhLYUVoWlJFTnNibGRQZEhCQiIsImZjdiI6IjMiLCJmY19pZCI6IkN4cEVyc0g4SS03eGNHbWZBQUFBQUE9PSJ9"
+    },
+    {
+      "title": "Sr. DevOps Engineer II (AP)",
+      "company_name": "Planview Incorporated",
+      "location": "Bengaluru, Karnataka",
+      "via": "Planview | Careers",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=E2Eci-kN0MBu-Ez2AAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLQQ7BQBSA4dj2CFZvidCKsGFFiDQWmjhA8zpepsN4bzIzrS7dwQ0czUnU5t98-ZPPIFlefAp7as8uwIG1YSIPeQ6jbTGG7-sNN6kgEHpVgzAcRbSl4aaO0YV1loVgUx0iRqNSJY9MmCrpsn4K_5ShRk_OYqRysZp3qWM9mRUWuTX0hJyVeCe-5ysYhh2xRtv4Zgon9IwR7_gDmx-aC6UAAAA&shmds=v1_ARwrE231kKdVJoE1SzGjR9Ee4UPq-b5E3PpCdQ-yRdinUWwBKQ&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=E2Eci-kN0MBu-Ez2AAAAAA%3D%3D",
+      "extensions": [
+        "9 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://careers.planview.com/careers-home/jobs/5100?lang=en-us",
+      "job_title": "Sr. DevOps Engineer II (AP)",
+      "description": "Company Overview\n\nPlanview has one mission: to close the gap between strategic intent and business outcome, providing the intelligence organizations need to act decisively.  \n\nAs the global leader in Strategic Portfolio Management, Planview helps organizations of all sizes achieve their business goals, faster and smarter. Our comprehensive platform bring initiatives, investments, and resources into a continuous, connected model of the business: the actionable understanding leaders need to move decisively, keep teams and AI in lockstep, and know how their initiatives are performing.—now powered by Planview Anvi, our next-generation enterprise AI that delivers expert guidance, intelligent recommendations, and actionable insights, turning complex data into decisive action from strategy through execution. \n\nRecognized as a Leader in the 2026 Gartner Magic Quadrant for Strategic Portfolio Management for the fifth consecutive year, we proudly serve more than 3,000 customers globally, including 45% of the Fortune 100—and more than 3 million users worldwide. \n\nWhy Join Planview? \n\nAt Planview, our people’s connections drive our innovation and success. Our global team of 1,500+ employees work remotely and across offices in Austin, Vancouver, Hod HaSharon, Bangalore, Sydney, and Stockholm. We've built a world-class, connected culture rooted in shared values that empowers our teams to thrive and succeed from anywhere. When you join Planview, you're not just joining a company, you're joining a movement to transform how the world works. \n\nDiscover more about our portfolio at planview.com, and connect with us on LinkedIn, Instagram, and X. \n\n \nThe Opportunity\n\n•Senior individual contributor responsible for the reliability, scalability, and delivery of a large-scale enterprise SaaS work-management platform.\n•Owns CI/CD pipelines, infrastructure automation, and observability, partnering closely with backend, frontend, and SRE/CloudOps teams.\n\n \nWhat You'll Do\n\nDesign, implement, and maintain CI/CD pipelines for multiple services, improving speed, safety, and repeatability of deployments.Automate infrastructure using Infrastructure-as-Code (IaC) tools to provision, configure, and manage cloud resources in a consistent, reproducible way.Operate and evolve containerized workloads and orchestration platforms (e.g., Kubernetes) for high availability and efficient scaling.Implement and refine monitoring, logging, and alerting to ensure system health, performance, and early detection of issues.Collaborate with engineering teams to design operable services: deployment strategies, configuration management, runtime standards, and SLOs.Troubleshoot production incidents, drive root cause analysis, and implement corrective and preventive actions.Contribute to security and compliance practices across the delivery pipeline (secrets management, least-privilege access, hardened images, etc.).Document runbooks, standards, and best practices; help onboard engineers to tooling and workflows.Tech stackCI/CD: modern pipeline tooling (e.g., Git-based workflows, pipeline-as-code, automated testing and release gates).IaC: tools for declarative infrastructure management (e.g., Terraform-class tooling).Containers & orchestration: Docker-style containers; Kubernetes-class orchestrators.Cloud: experience with at least one major public cloud provider.Observability: metrics, logs, and tracing platforms; alerting and dashboarding. \nWhat You'll Bring\n\n \n\nExperience & qualifications~6–9 years of experience in DevOps / Platform / Infrastructure engineering for web or SaaS products.Strong experience building and operating CI/CD pipelines for multi-service environments.Solid hands-on skills with containers and at least one orchestration platform.Practical experience with IaC for provisioning and managing cloud infrastructure.Strong troubleshooting skills across application, infrastructure, and networking layers.Comfortable working with globally distributed engineering teams and agile delivery practices.Nice to haveExperience supporting Node.js/JavaScript or similar web application stacks in production.Exposure to AI-assisted tooling (e.g., for CI/CD workflows, configuration generation, or incident analysis).Experience in work-management, Agile/Kanban, or developer-productivity SaaS domains. \nBenefits at Planview\n\nAt Planview, you’ll join our global team and culture which reflects the vibrant communities in which our employees live and work. To support you at Planview, you will enjoy:\n\nUnplugged Days: 4 company-wide paid days off per year to recharge and relax.Generous PTO offerings (region dependent).Region specific competitive benefit plans to support you at any life stage including parental leave, retirement, medical plans, wellness support, and remote work support.Paid time to volunteer through Planview’s Force for Good Week.Employee Referral bonus program.Weekly office lunches for hybrid team members and social events.Flexible work hours/environment.Now is a great time to join our team. If you are looking for a place to grow your career, innovate with best-in-class solutions, and build the future of connected work, Planview is the right place for you!",
+      "apply_options": [
+        {
+          "title": "Planview | Careers",
+          "link": "https://careers.planview.com/careers-home/jobs/5100?lang=en-us&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Lever",
+          "link": "https://jobs.lever.co/pditechnologies/39542b34-d973-4d2c-bf24-07b1bcd64207?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Foundit",
+          "link": "https://www.foundit.in/job/engineer-ii-lululemon-bengaluru-bangalore-55365369?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Hirist",
+          "link": "https://www.hirist.tech/j/quillbot-devops-engineer-ii-linuxunix-administration-1659403?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "TA Associates Job Board",
+          "link": "https://careers.ta.com/companies/planview/jobs/94509458-sr-devops-engineer-ii-ap?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Shine",
+          "link": "https://www.shine.com/jobs/devops-engineer-ii/bayer/19552894?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Cutshort",
+          "link": "https://cutshort.io/job/DevOPs-Engineer-II-Bengaluru-Bangalore-Swiggy-5ASTqewx?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Instahyre",
+          "link": "https://www.instahyre.com/job-426332-devops-engineer-ii-at-moonfrog-labs-bangalore/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJTci4gRGV2T3BzIEVuZ2luZWVyIElJIChBUCkiLCJjb21wYW55X25hbWUiOiJQbGFudmlldyBJbmNvcnBvcmF0ZWQiLCJodGlkb2NpZCI6IkUyRWNpLWtOME1CdS1FejJBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwU1RjelNsb3lOemt0TWpadU9XczNOVU5XYmpOTmJXeGZka0pNYTFkeFRETjJRekpsZUhWMFJ6TTJTM2hRVG5ScVJubElXVFpTVFZOa2VrcDJkRXN4Tm5BemJXSnZTakF4VkV3Mk9VTjVTVWd6VFdaT2FXRkpUWFpOZEVscVRGVlZTbFptY0VKV05WZFJSakl3VW1WaFdWRnVTV2hDVm1oU1kxZEhlRkpqV2trNWJqVlZabGdTRjNOMkxWOWhjRzFmUlY5NVRuTmxUVkF6YzI1WGIxRXdHaUpCUkhOeU9XWlNUM2R2ZFhFMVNIVnZWM1l3UTBaQ00ycFFTbmRZYzBGaU1UTkIiLCJmY3YiOiIzIiwiZmNfaWQiOiJFMkVjaS1rTjBNQnUtRXoyQUFBQUFBPT0ifQ=="
+    },
+    {
+      "title": "Senior R&D Engineer DevOps - IDC",
+      "company_name": "Hitachi Global",
+      "location": "Bengaluru, Karnataka",
+      "via": "Hitachi Careers - Hitachi Global",
+      "share_link": "https://www.google.com/search?ibp=htl;jobs&q=DevOps+Engineer&htidocid=GJ8cpHQzpwi87BmtAAAAAA%3D%3D&hl=en-IN&shem=epsd1,esd2e,rimspwouoe&shndl=37&shmd=H4sIAAAAAAAA_xXLMQrCMBQAUFx7BKc_dRBtRHBQN61UcRD0APIbPkk0_h-SVDp6By_g2TyJurztFe9BsTgTO4lwKmvYsnFMFKGmxzEkmMC-3sDn-YKrtJAIo7YgDI2I8TRc2ZxDWiqVkq9MypidrrTclTC10qtfSn8uyWKk4DHTZTaf9lVgMyp3LqO2DhovLXpwDGtig76L3RgOGBkz3vALAUZWUKMAAAA&shmds=v1_ARwrE23kj4OSTUhSFwOyByf2U93dWekBb1_gufmVoaqfsPvuOw&source=sh/x/job/li/m1/1#fpstate=tldetail&htivrt=jobs&htiq=DevOps+Engineer&htidocid=GJ8cpHQzpwi87BmtAAAAAA%3D%3D",
+      "thumbnail": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAY1BMVEX___8AAAC9vb1LS0vo6OimpqbJycnj4-ORkZHt7e3z8_OZmZmsrKzAwMBwcHCUlJTY2Nj5-fnR0dE3NzdXV1dRUVEdHR2GhoYICAifn59qampcXFy1tbUtLS1CQkIoKCh-fn6h-J7bAAACJElEQVRIiZ1W26KCIBAUU9GE8lpadvL_v_LELqAoITFPCMwyLnshihyoXYsONE0gsczDeDUhYcSekFMALWnJBy39kZV2RKJniTctvREDr9SLdiUWlIe0xkYTqNy8u954gWF-0RN3F-8kN-Uf-1SeU-Vy0nE3kneFj2oRmB4wkdfJ0F4Ro7pzMWdYbDMeC_BRfI3yI_v7_p_VN3-uYcsXH54t7Es_4jXwwP2R4PGySJKC44ZhzCjlSgcXK3Ch27h9a2u4k6kFtjpIDG4mD8IEKgUG3XlZOsPELIZwpJllYFckbb3lKWahzJtaeyVnXHQmjNHF6qi0djulF_NfH2L0hOGg_u2y1drqc8C5YvBEpzy0DH12u_AwuqdIxh1XGpT9TAxEtE0w1UMa1I3Kt1htocstoA6wkn0GsZwU-bok6i_EBg_ttdRGbUkUUViBYKq01FVams4ZtVOlW8tvzkH7cB2ipA6Rdis4Fay99XUYxb2zBABlsoibAdCveZgcwlQBAi0hVysnMYMIWiHI5y0TeVBt8p1S_DevtHqbPNSarxKZlJzSbBzwAxIZnLtrQMQTW569Se1haVuBBzoa3BrWZofV5k-2AAM8g6Aks42n0rK3vKfcTUe3uZ3HZXU9bpAkX4UH9WisRitnUxxPzLOVO5rd8YPQ2rb2TcqG9GWybn4PJIGE9YrVpf5PMgDFR-CPLMBpWya8gfUiAPnx08-O4Me8U-g_RWYUoDFeKyMAAAAASUVORK5CYII.png",
+      "extensions": [
+        "7 days ago",
+        "Full–time"
+      ],
+      "source_link": "https://careers.hitachi.com/senior-r-d-engineer-devops-idc/job/R0142094",
+      "job_title": "Senior R&D Engineer DevOps - IDC",
+      "description": "Senior Software Development Engineer \n\nJoin Hitachi and work in a team that is dedicated to creating a future where innovative digital technologies allow greater access to cleaner energy.\n\nIt is an exciting time to join Hitachi Energy which now combines Hitachi’s complementary strengths to form a new and stronger global leader in the power sector. Hitachi Energy will have more than 230 years of combined heritage and experience inheriting from ABB & ABB Power Grids. We are now well-positioned to shape the future of energy, with pioneering technologies, as the partner of choice for enabling a stronger, smarter, and greener grid. Join us on this exciting journey.\n\nHitachi Energy is seeking Senior DevOps Engineer for its Bangalore, IN location and be part of a global organization with offices in Houston, San Jose (CA.), Vasteras (Sweden) and Krakow (Poland). Under limited direction, perform complex assignments requiring diversified knowledge Software development and software engineering to cost effectively accomplish the organization's goals and objectives. Proactively seek and implement initiatives to improve quality and increase customer satisfaction.\n\nYour responsibilitiesBuild, package and deploy software product applications on internal test systemsHelp implement process and tools improvements related to configuration managementPerform entry-level debugging of the source code to facilitate resolution of integration problemsAutomate repetitive tasks by scripting and development of software toolsShare your experience and skills with other team membersUse agile development methodologies that require active participation in all team’s duties.Living Hitachi Energy’s core values of safety and integrity, which means taking responsibility for your own actions while caring for your colleagues, and the business. Train and mentor others on how to test software and how to apply proven testing methodologies, improve software quality and reduce quality risks\n\nYour background:\n\nExperience with build management tools (Azure DevOps , GIT and Jenkins), Hands on experience on creating Azure CI/CD pipelinesGIT repo via ADO. ADO as work item management + build pipelines and container repo.Windows and Linux (Red Hat preferred) knowledge at administration levelDevelopment skills, preferably shell scripting: PowerShell, Perl, ksh, bash, but also Python, C++/C#/JavaKnowledge of MSI and RPM packaging and Podman ContainersKnowledge of Linux, Ansible,KafkaBachelor's degree in engineering or related field with 5-10 years of experience.Ability to develop innovative solutions to problems and make decisions regarding quality matters.Possess a diversified knowledge of engineering, electric utilities, and related functions.In-depth knowledge of product development and Agile processes.",
+      "apply_options": [
+        {
+          "title": "Hitachi Careers - Hitachi Global",
+          "link": "https://careers.hitachi.com/senior-r-d-engineer-devops-idc/job/R0142094?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Hitachi Energy",
+          "link": "https://www.hitachienergy.com/ca/fr/careers/open-jobs/details/JID3-216929?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "EY Careers",
+          "link": "https://careers.ey.com/ey/job/Bengaluru-TechOps-CloudOps-DevOps-Engineer-Senior-KA-560048/1439861633/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Workday",
+          "link": "https://3m.wd1.myworkdayjobs.com/en-US/Search/job/Senior-Engineer---DevOps_R01166855?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Built In",
+          "link": "https://builtin.com/job/senior-r-d-engineer-devops-idc/11247816?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Uplers",
+          "link": "https://platform.uplers.com/talent/all-opportunities/HR1176247393829178?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Climatebase",
+          "link": "https://climatebase.org/job/76882017/senior-rd-engineer-devops---idc?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        },
+        {
+          "title": "Instahyre",
+          "link": "https://www.instahyre.com/job-439586-senior-engineer-devops-at-albertsons-companies-bangalore/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+        }
+      ],
+      "job_id": "eyJqb2JfdGl0bGUiOiJTZW5pb3IgUlx1MDAyNkQgRW5naW5lZXIgRGV2T3BzIC0gSURDIiwiY29tcGFueV9uYW1lIjoiSGl0YWNoaSBHbG9iYWwiLCJodGlkb2NpZCI6IkdKOGNwSFF6cHdpODdCbXRBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0laUW1WdVoyRnNkWEoxTEV0aGNtNWhkR0ZyWVN4SmJtUnBZUSIsImdsIjoiaW4iLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwVEhaSFRVUllhazVWTjJkUlFrSlRUMVJGYTNKVlYyOTRZV1ZpUld4VWRVWndhVVoxZG5kR1RuQnpjV0k1WVVveWVXNW9kRTQxVDFWclRtTXRaRzlOVlV4R1RqUlFNVGRpU0RacFVERllNRkkyWldWUWRYZFdNM3BMYWxaRlJYWmZPRlZ3YVRKM1ZWaDZhaTA1WVhWa09VMXRTRzl2ZDIwMWFVVkJWRVJDYWpWVllUUlRZamdTRjNOMkxWOWhjRzFmUlY5NVRuTmxUVkF6YzI1WGIxRXdHaUpCUkhOeU9XWlRibGwyWnpGaVNtSmhZbmczTVhkTlVHTTJNREEzUlZFM2MwbG4iLCJmY3YiOiIzIiwiZmNfaWQiOiJHSjhjcEhRenB3aTg3Qm10QUFBQUFBPT0ifQ=="
+    }
+  ],
+  "serpapi_pagination": {
+    "next_page_token": "eyJmYyI6IkVxSUVDdUlEUVVwcFZEUjBTV3QwYzJ0Q01HOUtYMVZyTWxkSVUwTkdPV05UZVdKck5VaGtRVFJJY1daeGVVRk5aVGw2UkRBME5GOWllalU1VGxOTmJtNTBRWEpWVWt4SmFVMHpWbXQ1VkRWaFpUa3hSMDB3ZFZaRGJtUk9Oelp5VTNkM2VWOWZiVkpZYUdNMlMwaDJNRk5mUlhoQ2NrSkhRMVUxVEZZM1IzSmlVamR5V0hBd1lrVmtkMloyZDI5c05rSkRjV1ZyZDI5cGRsbDZhR3BsWlhWRlEySk5TSFpZVnpSRFFqQjJSazVFWWtnMFVEQnZNM3BVTW1WM01XMHhkWFkyUm1NMFVWUnphRVJFZVVablZGOVdSM3BYVEVZek9VbzVia05UVkcxa1QyVjJjMGR6ZVZRMVF6ZEZjRUl5ZW1aZmJWWkJjM0kyVjIxalEzaG1jRVZQVEU1aFpHeDNkWFpuZFVsNWNERTRZbXBRZVZsUmJGZFpUVVZTU2podlNFdEtaRFEzUkdwVFpGUnZVRkoxV0daMU0zbzRNRTV4VGtGR09YRlpVSFp5TFc1Q1VuVjVaWEZUVG5velJHWjFSVkJHY2pKdFptbERhVTlUVFhkSExXOVNUREU1T0UxdWEyOVNTbEZaWWpaWGNUWTVVbUZ0WWpCUldFMTJXbXhhWDBoUFVtWjFiWFp3WlZwUmIxRmtkRzlETVcxclRXZHRVVzFQY2xNNWVYQjBXVUpCWDFoMlIxbHFOSEZKVDFnd1RuTXpVbk5HTFdWQ1FWOUNZV2xsV1hoS1ExQjBlV1JwWDBSUWRIaGlOVXBNUmpSMWFXRjFVV0puYzJ4SGQySlBVbE5uTVdJeVdsRVNGM04yTFY5aGNHMWZSVjk1VG5ObFRWQXpjMjVYYjFFd0dpSkJSSE55T1daUlEzcHlXbGRuVkdaSU4xYzJTV295T1RVd2FqTm1VVmQ1ZGpOMyIsImZjdiI6IjMifQ==",
+    "next": "https://serpapi.com/search.json?engine=google_jobs&gl=in&google_domain=google.com&hl=en&location=Bengaluru%2C+Karnataka%2C+India&next_page_token=eyJmYyI6IkVxSUVDdUlEUVVwcFZEUjBTV3QwYzJ0Q01HOUtYMVZyTWxkSVUwTkdPV05UZVdKck5VaGtRVFJJY1daeGVVRk5aVGw2UkRBME5GOWllalU1VGxOTmJtNTBRWEpWVWt4SmFVMHpWbXQ1VkRWaFpUa3hSMDB3ZFZaRGJtUk9Oelp5VTNkM2VWOWZiVkpZYUdNMlMwaDJNRk5mUlhoQ2NrSkhRMVUxVEZZM1IzSmlVamR5V0hBd1lrVmtkMloyZDI5c05rSkRjV1ZyZDI5cGRsbDZhR3BsWlhWRlEySk5TSFpZVnpSRFFqQjJSazVFWWtnMFVEQnZNM3BVTW1WM01XMHhkWFkyUm1NMFVWUnphRVJFZVVablZGOVdSM3BYVEVZek9VbzVia05UVkcxa1QyVjJjMGR6ZVZRMVF6ZEZjRUl5ZW1aZmJWWkJjM0kyVjIxalEzaG1jRVZQVEU1aFpHeDNkWFpuZFVsNWNERTRZbXBRZVZsUmJGZFpUVVZTU2podlNFdEtaRFEzUkdwVFpGUnZVRkoxV0daMU0zbzRNRTV4VGtGR09YRlpVSFp5TFc1Q1VuVjVaWEZUVG5velJHWjFSVkJHY2pKdFptbERhVTlUVFhkSExXOVNUREU1T0UxdWEyOVNTbEZaWWpaWGNUWTVVbUZ0WWpCUldFMTJXbXhhWDBoUFVtWjFiWFp3WlZwUmIxRmtkRzlETVcxclRXZHRVVzFQY2xNNWVYQjBXVUpCWDFoMlIxbHFOSEZKVDFnd1RuTXpVbk5HTFdWQ1FWOUNZV2xsV1hoS1ExQjBlV1JwWDBSUWRIaGlOVXBNUmpSMWFXRjFVV0puYzJ4SGQySlBVbE5uTVdJeVdsRVNGM04yTFY5aGNHMWZSVjk1VG5ObFRWQXpjMjVYYjFFd0dpSkJSSE55T1daUlEzcHlXbGRuVkdaSU4xYzJTV295T1RVd2FqTm1VVmQ1ZGpOMyIsImZjdiI6IjMifQ%3D%3D&q=DevOps+Engineer"
+  }
+}
