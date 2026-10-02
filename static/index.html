@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SerpApi Job &amp; Market Radar</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header / Navigation -->
+    <header class="app-header">
+      <div class="header-container">
+        <div class="brand-group">
+          <div class="brand-badge">RADAR</div>
+          <div class="brand-titles">
+            <h1>SerpApi Job &amp; Market Radar</h1>
+            <p class="brand-subtitle">
+              Real-time Search Engine Intelligence &amp; DuckDB In-Memory
+              Analytics
+            </p>
+          </div>
+        </div>
+        <div class="header-status">
+          <div class="status-pill" id="apiStatusPill">
+            <span class="status-dot"></span>
+            <span id="apiStatusText">Checking API...</span>
+          </div>
+          <div class="db-pill">DuckDB: Active</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+      <!-- Search & Ingestion Console -->
+      <section class="console-card">
+        <div class="card-header">
+          <h2>Live Search &amp; Ingestion Console</h2>
+          <span class="card-tag">SerpApi Engine: google_jobs</span>
+        </div>
+        <form id="searchForm" class="search-form">
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label for="queryInput">Target Job Title / Tech Stack</label>
+              <input
+                type="text"
+                id="queryInput"
+                value="Software Engineer Python"
+                placeholder="e.g. Data Engineer DuckDB, AI Engineer, Next.js"
+                required
+              />
+            </div>
+            <div class="form-group flex-1">
+              <label for="locationInput">Location Filter</label>
+              <select id="locationInput">
+                <option value="India" selected>India (All)</option>
+                <option value="Remote">Remote</option>
+                <option value="Bengaluru, Karnataka, India">Bengaluru</option>
+                <option value="Gurgaon, Haryana, India">Gurgaon / NCR</option>
+                <option value="Hyderabad, Telangana, India">Hyderabad</option>
+                <option value="United States">United States (Remote)</option>
+              </select>
+            </div>
+            <div class="form-group flex-0">
+              <label for="resultsLimit">Fetch Count</label>
+              <select id="resultsLimit">
+                <option value="10">10 Jobs</option>
+                <option value="20" selected>20 Jobs</option>
+                <option value="50">50 Jobs</option>
+              </select>
+            </div>
+            <div class="form-group submit-group">
+              <button type="submit" id="searchBtn" class="btn btn-primary">
+                <span id="searchBtnText">Run Live Query</span>
+              </button>
+            </div>
+          </div>
+        </form>
+        <div
+          id="searchNotification"
+          class="notification-bar"
+          style="display: none"
+        ></div>
+      </section>
+
+      <!-- Key Metrics Grid -->
+      <section class="metrics-grid">
+        <div class="metric-card">
+          <span class="metric-label">TOTAL JOBS INGESTED</span>
+          <div class="metric-value" id="statTotalJobs">0</div>
+          <span class="metric-sub">Stored in radar.duckdb</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">REMOTE OPPORTUNITIES</span>
+          <div class="metric-value" id="statRemoteJobs">0</div>
+          <span class="metric-sub" id="statRemotePercent"
+            >0% of total openings</span
+          >
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">ON-SITE / HYBRID</span>
+          <div class="metric-value" id="statOnSiteJobs">0</div>
+          <span class="metric-sub">Verified physical locations</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">AVERAGE QUERY LATENCY</span>
+          <div class="metric-value" id="statLatency">8 ms</div>
+          <span class="metric-sub">In-process DuckDB SQL</span>
+        </div>
+      </section>
+
+      <!-- Dual Column Analytics & Tools -->
+      <section class="analytics-row">
+        <!-- Skills Frequency Chart -->
+        <div class="analytics-card">
+          <div class="card-header">
+            <h3>Top Demanded Technologies</h3>
+            <span class="card-tag">Frequency Analysis</span>
+          </div>
+          <div id="skillsChart" class="skills-bars">
+            <p class="empty-state">
+              No skills data available yet. Run a search query above.
+            </p>
+          </div>
+        </div>
+
+        <!-- Platforms & Hiring Companies -->
+        <div class="analytics-card">
+          <div class="card-header">
+            <h3>Hiring Platforms &amp; Top Companies</h3>
+            <span class="card-tag">Source Distribution</span>
+          </div>
+          <div class="distribution-columns">
+            <div class="distribution-col">
+              <h4>Application Portals</h4>
+              <div id="platformsList" class="badge-list">
+                <p class="empty-state">No portal data.</p>
+              </div>
+            </div>
+            <div class="distribution-col">
+              <h4>Top Hiring Entities</h4>
+              <div id="companiesList" class="badge-list">
+                <p class="empty-state">No company data.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resume Skill Gap Matcher (ATS Analyzer) -->
+      <section class="resume-matcher-card">
+        <div class="card-header">
+          <h3>Resume ATS Keyword &amp; Gap Matcher</h3>
+          <span class="card-tag">Deterministic Verification</span>
+        </div>
+        <p class="card-description">
+          Paste your technical resume text or skill set below to calculate match
+          percentage against live job openings and detect missing keywords.
+        </p>
+        <div class="matcher-grid">
+          <div class="matcher-input">
+            <textarea
+              id="resumeInput"
+              rows="5"
+              placeholder="Paste resume summary or skills here (e.g. Python, DuckDB, PostgreSQL, Docker, FastAPI, Next.js, RAG architectures)..."
+            ></textarea>
+            <button type="button" id="matchBtn" class="btn btn-secondary">
+              Analyze Match Score
+            </button>
+          </div>
+          <div id="matcherResults" class="matcher-output">
+            <div class="matcher-placeholder">
+              Enter resume content and click analyze to compute market
+              alignment.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filter & Jobs Table -->
+      <section class="jobs-section">
+        <div class="section-toolbar">
+          <div>
+            <h2>Active Job Corpus</h2>
+            <p class="section-sub">Queried directly from DuckDB</p>
+          </div>
+          <div class="filter-controls">
+            <input
+              type="text"
+              id="filterKeyword"
+              placeholder="Filter by keyword..."
+            />
+            <select id="filterWorkType">
+              <option value="">All Arrangements</option>
+              <option value="Remote">Remote Only</option>
+              <option value="On-site">On-site Only</option>
+              <option value="Hybrid">Hybrid</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="jobsContainer" class="jobs-list">
+          <p class="empty-state">Loading job records...</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-container">
+        <div>SerpApi India Hackathon 2026 Submission Entry</div>
+        <div class="footer-meta">
+          Built with Python, FastAPI, DuckDB, and SerpApi | Author: Raj
+          Chhapariya
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
