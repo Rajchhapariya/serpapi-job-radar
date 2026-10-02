@@ -2,14 +2,14 @@ import os
 import re
 import duckdb
 from typing import List, Dict, Any, Optional
-from datetime import datetime
 
 DATABASE_FILE = os.getenv("DATABASE_PATH", "radar.duckdb")
 
 TRACKED_SKILLS = [
     "Python", "SQL", "DuckDB", "PostgreSQL", "Next.js", "React", "TypeScript",
     "JavaScript", "FastAPI", "Docker", "Kubernetes", "AWS", "PyTorch", "Git",
-    "MongoDB", "Redis", "Kafka", "Linux", "GCP", "GraphQL", "Tailwind"
+    "MongoDB", "Redis", "Kafka", "Linux", "GCP", "GraphQL", "Tailwind",
+    "LangChain", "RAG", "Node.js", "Pandas"
 ]
 
 
@@ -48,10 +48,6 @@ class DatabaseManager:
             """)
 
     def upsert_jobs(self, jobs: List[Dict[str, Any]]) -> int:
-        """
-        Inserts new jobs or updates existing ones based on job_id.
-        Returns count of processed records.
-        """
         if not jobs:
             return 0
 
@@ -101,6 +97,8 @@ class DatabaseManager:
         keyword: Optional[str] = None,
         location_type: Optional[str] = None,
         company: Optional[str] = None,
+        has_salary: Optional[bool] = None,
+        sort_by: str = "newest",
         limit: int = 50,
         offset: int = 0
     ) -> List[Dict[str, Any]]:
@@ -108,42 +106,53 @@ class DatabaseManager:
             query = "SELECT * FROM jobs WHERE 1=1"
             params = []
 
-            if keyword:
-                query += " AND (LOWER(title) LIKE ? OR LOWER(description) LIKE ?)"
-                kw = f"%{keyword.lower()}%"
-                params.extend([kw, kw])
+            if keyword and keyword.strip():
+                kw = f"%{keyword.strip().lower()}%"
+                query += " AND (LOWER(title) LIKE ? OR LOWER(description) LIKE ? OR LOWER(company_name) LIKE ?)"
+                params.extend([kw, kw, kw])
 
-            if location_type:
-                loc_lower = location_type.lower()
+            if location_type and location_type.strip():
+                loc_lower = location_type.strip().lower()
                 if loc_lower == "remote":
                     query += " AND (work_from_home = TRUE OR LOWER(location) LIKE '%remote%')"
                 elif loc_lower == "hybrid":
                     query += " AND (LOWER(location) LIKE '%hybrid%' OR LOWER(description) LIKE '%hybrid%')"
                 elif loc_lower == "on-site":
-                    query += " AND work_from_home = FALSE AND LOWER(location) NOT LIKE '%remote%'"
+                    query += " AND work_from_home = FALSE AND LOWER(location) NOT LIKE '%remote%' AND LOWER(location) NOT LIKE '%hybrid%'"
 
-            if company:
+            if company and company.strip():
                 query += " AND LOWER(company_name) LIKE ?"
-                params.append(f"%{company.lower()}%")
+                params.append(f"%{company.strip().lower()}%")
 
-            query += " ORDER BY scraped_at DESC LIMIT ? OFFSET ?"
-            params.extend([limit, offset])
+            if has_salary is True:
+                query += " AND salary IS NOT NULL AND salary != ''"
+
+            if sort_by == "company":
+                query += " ORDER BY company_name ASC, scraped_at DESC"
+            elif sort_by == "title":
+                query += " ORDER BY title ASC, scraped_at DESC"
+            else:
+                query += " ORDER BY scraped_at DESC"
+
+            query += " LIMIT ? OFFSET ?"
+            params.extend([max(1, limit), max(0, offset)])
 
             cursor = con.execute(query, params)
             return self._rows_to_dicts(cursor)
 
     def get_analytics(self) -> Dict[str, Any]:
         with self.get_connection() as con:
-            # Total and remote counts
             counts = con.execute("""
                 SELECT 
                     COUNT(*) AS total,
-                    SUM(CASE WHEN work_from_home = TRUE OR LOWER(location) LIKE '%remote%' THEN 1 ELSE 0 END) AS remote_count
+                    SUM(CASE WHEN work_from_home = TRUE OR LOWER(location) LIKE '%remote%' THEN 1 ELSE 0 END) AS remote_count,
+                    SUM(CASE WHEN salary IS NOT NULL AND salary != '' THEN 1 ELSE 0 END) AS salary_count
                 FROM jobs
             """).fetchone()
 
             total_jobs = counts[0] if (counts and counts[0] is not None) else 0
             remote_jobs = counts[1] if (counts and counts[1] is not None) else 0
+            salary_disclosed = counts[2] if (counts and counts[2] is not None) else 0
             on_site_jobs = max(0, total_jobs - remote_jobs)
 
             if total_jobs == 0:
@@ -151,6 +160,7 @@ class DatabaseManager:
                     "total_jobs": 0,
                     "remote_jobs": 0,
                     "on_site_jobs": 0,
+                    "salary_disclosed_jobs": 0,
                     "top_skills": [],
                     "top_companies": [],
                     "top_platforms": []
@@ -186,7 +196,7 @@ class DatabaseManager:
             """)
             top_platforms = self._rows_to_dicts(cursor_platforms)
 
-            # Skills frequency analysis across job descriptions and titles
+            # Skills frequency analysis
             all_text = con.execute("""
                 SELECT string_agg(LOWER(title) || ' ' || LOWER(description), ' ') AS combined
                 FROM jobs
@@ -205,21 +215,18 @@ class DatabaseManager:
                 "total_jobs": total_jobs,
                 "remote_jobs": remote_jobs,
                 "on_site_jobs": on_site_jobs,
-                "top_skills": skill_counts[:10],
+                "salary_disclosed_jobs": salary_disclosed,
+                "top_skills": skill_counts[:12],
                 "top_companies": top_companies,
                 "top_platforms": top_platforms
             }
 
     def match_resume(self, resume_text: str) -> Dict[str, Any]:
-        """
-        Extracts matched and missing tracked skills against DuckDB job descriptions.
-        """
         text_lower = resume_text.lower()
         matched = [s for s in TRACKED_SKILLS if re.search(r'\b' + re.escape(s.lower()) + r'\b', text_lower)]
         missing = [s for s in TRACKED_SKILLS if s not in matched]
 
         with self.get_connection() as con:
-            # Find jobs matching at least one extracted skill
             if not matched:
                 return {
                     "matched_skills": [],
@@ -230,11 +237,11 @@ class DatabaseManager:
 
             skill_conditions = " OR ".join([f"LOWER(description) LIKE '%{s.lower()}%'" for s in matched])
             query = f"""
-                SELECT job_id, title, company_name, location, via, apply_link
+                SELECT job_id, title, company_name, location, via, apply_link, salary, schedule_type
                 FROM jobs
                 WHERE {skill_conditions}
                 ORDER BY scraped_at DESC
-                LIMIT 5
+                LIMIT 6
             """
             cursor_rec = con.execute(query)
             recommended = self._rows_to_dicts(cursor_rec)
@@ -243,7 +250,7 @@ class DatabaseManager:
 
         return {
             "matched_skills": matched,
-            "missing_skills": missing[:6],
+            "missing_skills": missing[:8],
             "match_score_percentage": min(score * 2, 100),
             "recommended_jobs": recommended
         }

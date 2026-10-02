@@ -13,6 +13,7 @@ Software developers and data engineers frequently spend hours manually browsing 
 1. **Live Extraction:** Direct programmatic ingestion from SerpApi's normalized `google_jobs` engine.
 2. **Columnar In-Memory Processing:** Automatic upsert into an embedded DuckDB database (`radar.duckdb`), achieving sub-10ms SQL aggregations across titles, locations, salaries, and technical keywords.
 3. **Deterministic ATS Matcher:** Instant keyword comparison between candidate resumes and active job postings to identify technical skill gaps without hallucinated scoring.
+4. **Obsidian Agency Interface:** A high-precision tactile command center inspired by Linear and Raycast, featuring an asymmetric Bento Grid, 60-FPS HTML5 Sonar Radar sweep, and interactive 3D spotlight cards.
 
 ---
 
@@ -49,8 +50,15 @@ Software developers and data engineers frequently spend hours manually browsing 
 - **API Framework:** FastAPI, Uvicorn, Starlette
 - **Data Engine:** DuckDB (In-process SQL, regex-based keyword extraction, transactional upserts)
 - **Data Source:** SerpApi (`engine=google_jobs`, `https://serpapi.com/search.json`)
-- **Frontend:** Vanilla HTML5, CSS3, JavaScript (zero heavy framework dependencies, dark mode design system, responsive grid layout)
-- **Testing:** Pytest unit test suite with mock isolation
+- **Frontend Architecture:**
+  - Obsidian Depth Design System (`#050608` cosmic space base, `#0c0e16` elevated glass surface).
+  - Procedural zero-byte SVG film grain overlay eliminating OLED color banding.
+  - Dual volumetric respiratory bloom lighting pools.
+  - Interactive HTML5 Canvas Sonar Radar sweep (44.1 Hz / 60 FPS).
+  - Specular interior micro-hairlines (`box-shadow: inset 0 1px 1px rgba(255,255,255,0.06)`).
+  - Slide-over job inspection drawer.
+  - Dual-font typography: Inter (tight headline tracking) + JetBrains Mono (telemetry).
+- **Testing:** Pytest unit and regression suite with mock isolation (16 passing tests).
 
 ---
 
@@ -91,6 +99,8 @@ Software developers and data engineers frequently spend hours manually browsing 
    DATABASE_PATH=radar.duckdb
    ```
 
+   _(Note: Running without an API key automatically falls back to the preloaded demonstration dataset for immediate local testing)._
+
 4. Run the application:
    ```bash
    python run.py
@@ -101,32 +111,34 @@ Software developers and data engineers frequently spend hours manually browsing 
 
 ## 5. API Endpoints Reference
 
-| Method | Endpoint            | Description                                                      |
-| :----- | :------------------ | :--------------------------------------------------------------- |
-| `GET`  | `/`                 | Serves the web dashboard interface                               |
-| `GET`  | `/api/health`       | Returns backend status and SerpApi connection state              |
-| `POST` | `/api/search`       | Ingests live jobs from SerpApi into DuckDB                       |
-| `GET`  | `/api/jobs`         | Queries stored jobs with keyword and location filters            |
-| `GET`  | `/api/analytics`    | Returns aggregated metrics (top skills, platforms, remote ratio) |
-| `POST` | `/api/match-resume` | Computes keyword overlap and missing technical skills            |
+| Method | Endpoint            | Description                                                          |
+| :----- | :------------------ | :------------------------------------------------------------------- |
+| `GET`  | `/`                 | Serves the web dashboard interface                                   |
+| `GET`  | `/api/health`       | Returns backend status, uptime, and SerpApi connection state         |
+| `POST` | `/api/search`       | Ingests live jobs from SerpApi into DuckDB                           |
+| `GET`  | `/api/jobs`         | Queries stored jobs with keyword, location, salary, and sort options |
+| `GET`  | `/api/analytics`    | Returns aggregated metrics (top skills, platforms, remote ratio)     |
+| `POST` | `/api/match-resume` | Computes keyword overlap, missing technical skills, and matches      |
 
 ---
 
 ## 6. Automated Test Suite
 
-Run unit tests via Pytest:
+Run unit and regression tests via Pytest:
 
 ```bash
 python -m pytest tests/test_radar.py -v
 ```
 
-All 5 core tests verify:
+All 16 core tests verify:
 
 - Table schema initialization and primary key constraints.
 - Ingestion and conflict resolution (`ON CONFLICT DO UPDATE`).
 - Regex-based skills frequency calculation in SQL.
 - Candidate resume skill extraction and gap matching.
-- Client fallback behavior when API keys are unconfigured.
+- Empty database zero-division safeguards.
+- Pagination boundaries and SQL injection safety.
+- Client fallback behavior on unconfigured keys or network timeouts.
 
 ---
 
