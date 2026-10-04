@@ -536,3 +536,32 @@ def test_rate_limiter_for_unlock_endpoints(monkeypatch):
     assert resp_blocked.status_code == 429
     assert "Rate limit exceeded" in resp_blocked.json()["detail"]
 
+
+def test_ui_routing_and_security():
+    # 1. / returns 200 and contains H1 text
+    res_root = client.get("/")
+    assert res_root.status_code == 200
+    assert "Which skill unlocks the most jobs?" in res_root.text
+
+    # 2. /legacy returns 200
+    res_legacy = client.get("/legacy")
+    assert res_legacy.status_code == 200
+
+    # 3. static/app/app.js contains none of the forbidden strings
+    import re
+    app_js_path = os.path.join("static", "app", "app.js")
+    assert os.path.exists(app_js_path)
+    with open(app_js_path, "r", encoding="utf-8") as f:
+        js_code = f.read()
+
+    forbidden_patterns = [
+        r"\binnerHTML\b",
+        r"\bouterHTML\b",
+        r"\binsertAdjacentHTML\b",
+        r"\bdocument\.write\b",
+        r"\beval\("
+    ]
+    for pat in forbidden_patterns:
+        assert not re.search(pat, js_code), f"Forbidden pattern {pat} found in static/app/app.js"
+
+

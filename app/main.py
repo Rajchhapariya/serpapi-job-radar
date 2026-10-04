@@ -205,10 +205,18 @@ async def custom_500_exception_handler(request: Request, exc: Exception):
 
 @app.get("/")
 def serve_dashboard():
-    index_file = os.path.join(STATIC_DIR, "index.html")
-    if os.path.exists(index_file):
-        return FileResponse(index_file)
-    return {"message": "SerpApi Job Radar Backend Active. Static dashboard not found."}
+    new_index = os.path.join(STATIC_DIR, "app", "index.html")
+    if os.path.exists(new_index):
+        return FileResponse(new_index)
+    return {"message": "Skill Unlock Dashboard not found."}
+
+
+@app.get("/legacy")
+def serve_legacy_dashboard():
+    legacy_file = os.path.join(STATIC_DIR, "index.html")
+    if os.path.exists(legacy_file):
+        return FileResponse(legacy_file)
+    return {"message": "Legacy dashboard not found."}
 
 
 @app.get("/robots.txt", response_class=PlainTextResponse)

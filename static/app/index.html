@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Which skill unlocks the most jobs? — Job &amp; Market Radar</title>
+    <meta
+      name="description"
+      content="Paste a resume. See the one skill that moves you closest to the most open roles, computed from real Google Jobs data. No LLM."
+    />
+    <link rel="icon" type="image/svg+xml" href="/static/logo-icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/app/app.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <img
+            src="/static/logo-icon.svg"
+            alt=""
+            width="28"
+            height="28"
+            class="brand-logo"
+          />
+          <span class="brand-name">Job &amp; Market Radar</span>
+        </div>
+        <div class="header-pills">
+          <span id="pill-jobs" class="pill mono">-- jobs indexed</span>
+          <span id="pill-date" class="pill mono">As of --</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="app-container">
+      <section class="hero-section">
+        <h1>Which skill unlocks the most jobs?</h1>
+        <p class="sub-headline">
+          Paste a resume. See the one skill that moves you closest to the most
+          open roles, computed from real Google Jobs data. No LLM.
+        </p>
+      </section>
+
+      <div class="app-grid">
+        <!-- Left Column: Resume & Filters Sticky Panel -->
+        <aside class="resume-panel card" aria-label="Resume input and controls">
+          <div class="panel-header">
+            <label for="resume-input" class="panel-label">Your resume</label>
+            <span id="sample-badge" class="sample-badge mono hidden"
+              >SAMPLE RESUME: edit it or paste yours</span
+            >
+          </div>
+
+          <textarea
+            id="resume-input"
+            rows="11"
+            placeholder="Paste your resume or technical background..."
+            spellcheck="false"
+            class="resume-textarea mono"
+          ></textarea>
+
+          <div class="char-counter-row mono">
+            <button type="button" id="btn-sample-resume" class="btn-text">
+              Use sample resume
+            </button>
+            <span id="char-counter" class="counter-text">0 / 50,000</span>
+          </div>
+
+          <fieldset class="control-group">
+            <legend class="control-label">Role</legend>
+            <div class="segmented-control" id="role-segmented">
+              <label class="seg-item">
+                <input type="radio" name="role-filter" value="" checked />
+                <span class="seg-label">Any</span>
+              </label>
+              <label class="seg-item">
+                <input type="radio" name="role-filter" value="backend" />
+                <span class="seg-label" id="role-label-backend">Backend</span>
+              </label>
+              <label class="seg-item">
+                <input type="radio" name="role-filter" value="data" />
+                <span class="seg-label" id="role-label-data">Data</span>
+              </label>
+              <label class="seg-item">
+                <input type="radio" name="role-filter" value="ml_ai" />
+                <span class="seg-label" id="role-label-ml_ai">ML / AI</span>
+              </label>
+              <label class="seg-item">
+                <input type="radio" name="role-filter" value="devops_cloud" />
+                <span class="seg-label" id="role-label-devops_cloud"
+                  >DevOps &amp; Cloud</span
+                >
+              </label>
+              <label class="seg-item">
+                <input
+                  type="radio"
+                  name="role-filter"
+                  value="frontend_fullstack"
+                />
+                <span class="seg-label" id="role-label-frontend_fullstack"
+                  >Frontend &amp; Fullstack</span
+                >
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="control-group">
+            <legend class="control-label">Location</legend>
+            <div class="segmented-control" id="location-segmented">
+              <label class="seg-item">
+                <input type="radio" name="location-filter" value="" checked />
+                <span class="seg-label">All</span>
+              </label>
+              <label class="seg-item">
+                <input type="radio" name="location-filter" value="Remote" />
+                <span class="seg-label">Remote</span>
+              </label>
+              <label class="seg-item">
+                <input type="radio" name="location-filter" value="On-site" />
+                <span class="seg-label">On-site</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="control-group">
+            <div class="slider-header">
+              <label for="threshold-slider" class="control-label"
+                >Match bar</label
+              >
+              <span id="threshold-val" class="slider-val mono">60%</span>
+            </div>
+            <input
+              type="range"
+              id="threshold-slider"
+              min="50"
+              max="80"
+              step="5"
+              value="60"
+              class="range-slider"
+            />
+            <p id="match-help" class="help-text">
+              A job counts as a match when you already cover 60% of its listed
+              skills.
+            </p>
+          </div>
+
+          <button type="button" id="btn-find-unlocks" class="btn-primary">
+            Find my unlocks
+          </button>
+        </aside>
+
+        <!-- Right Column: Results Section -->
+        <section class="results-panel" id="results-panel" aria-live="polite">
+          <!-- Idle State -->
+          <div id="state-idle" class="state-block card state-idle">
+            <p class="state-title">Ready to analyze</p>
+            <p class="state-desc">
+              Paste your resume or click "Use sample resume" to calculate
+              deterministic skill unlocks across active jobs.
+            </p>
+          </div>
+
+          <!-- Loading State -->
+          <div id="state-loading" class="state-block state-loading hidden">
+            <div class="skeleton-stat-strip">
+              <div class="skeleton-card"></div>
+              <div class="skeleton-card"></div>
+              <div class="skeleton-card"></div>
+            </div>
+            <div class="skeleton-card skeleton-path"></div>
+            <div class="skeleton-card skeleton-unlocks"></div>
+            <div class="skeleton-card skeleton-jobs"></div>
+          </div>
+
+          <!-- Error State -->
+          <div id="state-error" class="state-block card state-error hidden">
+            <div class="error-badge mono">Error</div>
+            <p id="error-message" class="error-text">
+              An unexpected error occurred.
+            </p>
+          </div>
+
+          <!-- Active Results State -->
+          <div id="state-results" class="results-content hidden">
+            <!-- 1. Stat Strip -->
+            <div class="stat-strip">
+              <div class="stat-block card">
+                <span class="stat-label">Matched now</span>
+                <span id="stat-matched-now" class="stat-val mono">0 / 0</span>
+              </div>
+              <div class="stat-block card stat-hero">
+                <span class="stat-label">After 3 skills</span>
+                <span id="stat-after-skills" class="stat-val mono hero-number"
+                  >0</span
+                >
+              </div>
+              <div class="stat-block card">
+                <span class="stat-label">Skills found</span>
+                <span id="stat-skills-found" class="stat-val mono">0</span>
+              </div>
+            </div>
+
+            <!-- 2. Fastest Path -->
+            <section class="results-section" aria-labelledby="heading-path">
+              <h2 id="heading-path" class="section-title">Your fastest path</h2>
+              <div id="path-container" class="path-container">
+                <!-- Dynamically populated or empty notice -->
+              </div>
+            </section>
+
+            <!-- 3. All Unlocks -->
+            <section class="results-section" aria-labelledby="heading-unlocks">
+              <div class="section-header-row">
+                <h2 id="heading-unlocks" class="section-title">All unlocks</h2>
+                <span id="unlocks-count-badge" class="section-badge mono"
+                  >-- skills</span
+                >
+              </div>
+              <div id="unlocks-container" class="unlocks-list">
+                <!-- Dynamically populated rows with expandable buttons -->
+              </div>
+            </section>
+
+            <!-- 4. Best-Fit Jobs Now -->
+            <section class="results-section" aria-labelledby="heading-jobs">
+              <div class="section-header-row">
+                <h2 id="heading-jobs" class="section-title">
+                  Best-fit jobs now
+                </h2>
+                <span id="jobs-count-badge" class="section-badge mono"
+                  >Top 8</span
+                >
+              </div>
+              <div id="jobs-container" class="jobs-list">
+                <!-- Dynamically populated job cards -->
+              </div>
+            </section>
+
+            <!-- 5. Footer & Telemetry -->
+            <footer class="results-footer">
+              <p id="footer-sample-note" class="footer-note"></p>
+              <p id="footer-telemetry" class="footer-telemetry mono"></p>
+            </footer>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="/static/app/app.js"></script>
+  </body>
+</html>
