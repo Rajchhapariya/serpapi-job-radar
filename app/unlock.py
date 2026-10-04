@@ -100,11 +100,11 @@ def parse_and_validate_skills_input(
 
 
 ROLE_PATTERNS = {
-    "backend": r"backend|back-end|python developer|java developer|software engineer|api",
-    "data": r"data (engineer|analyst|scientist)|analytics|etl|snowflake|\bbi\b",
-    "ml_ai": r"machine learning|\bml\b|\bai\b|llm|nlp|deep learning|gen ?ai|rag",
+    "backend": r"backend|back-end|python developer|java developer|software engineer|\bapis?\b",
+    "data": r"data (engineer|analyst|scientist)|analytics|\betl\b|snowflake|\bbi\b",
+    "ml_ai": r"machine learning|\bml\b|\bai\b|llm|nlp|deep learning|gen ?ai|\brag\b",
     "devops_cloud": r"devops|\bsre\b|site reliability|cloud|infrastructure|platform engineer",
-    "frontend_fullstack": r"front-?end|full[ -]?stack|react|\bui\b"
+    "frontend_fullstack": r"front-?end|full[ -]?stack|\breact(js)?\b|\bui\b"
 }
 
 ROLE_LABELS = {
@@ -170,7 +170,7 @@ def get_roles_summary(con, table_name: str = "jobs") -> Dict[str, Any]:
 def get_corpus_stats(con, table_name: str = "jobs") -> Tuple[Dict[str, Any], float]:
     """
     Fetches corpus metrics: total jobs, date range from scraped_at, snapshot share,
-    distinct searches_count, and sample_note.
+    distinct_queries count, and sample_note.
     """
     t0 = time.perf_counter()
     row = con.execute(f"""
@@ -182,16 +182,16 @@ def get_corpus_stats(con, table_name: str = "jobs") -> Tuple[Dict[str, Any], flo
         FROM {table_name}
     """).fetchone()
 
-    searches_count = 0
+    distinct_queries = 0
     try:
         sq_row = con.execute(f"""
             SELECT count(DISTINCT sq) 
             FROM (SELECT unnest(source_queries) AS sq FROM {table_name})
         """).fetchone()
         if sq_row and sq_row[0] is not None:
-            searches_count = int(sq_row[0])
+            distinct_queries = int(sq_row[0])
     except Exception:
-        searches_count = 0
+        distinct_queries = 0
 
     elapsed_ms = (time.perf_counter() - t0) * 1000
 
@@ -201,8 +201,8 @@ def get_corpus_stats(con, table_name: str = "jobs") -> Tuple[Dict[str, Any], flo
             "as_of_min": None,
             "as_of_max": None,
             "snapshot_share": 0.0,
-            "searches_count": searches_count,
-            "sample_note": f"Jobs captured from {searches_count} Google Jobs searches in India. Not a random sample of the market."
+            "distinct_queries": distinct_queries,
+            "sample_note": f"Jobs captured from Google Jobs searches in India using {distinct_queries} distinct query phrases across several cities and remote. Not a random sample of the market."
         }, elapsed_ms
 
     return {
@@ -210,8 +210,8 @@ def get_corpus_stats(con, table_name: str = "jobs") -> Tuple[Dict[str, Any], flo
         "as_of_min": str(row[1]) if row[1] is not None else None,
         "as_of_max": str(row[2]) if row[2] is not None else None,
         "snapshot_share": round(float(row[3] or 0.0), 4),
-        "searches_count": searches_count,
-        "sample_note": f"Jobs captured from {searches_count} Google Jobs searches in India. Not a random sample of the market."
+        "distinct_queries": distinct_queries,
+        "sample_note": f"Jobs captured from Google Jobs searches in India using {distinct_queries} distinct query phrases across several cities and remote. Not a random sample of the market."
     }, elapsed_ms
 
 

@@ -24,6 +24,18 @@ from app.unlock import (
 
 client = TestClient(app)
 
+
+@pytest.fixture(autouse=True)
+def clear_rate_limit_histories():
+    """Autouse fixture to ensure rate limit state does not leak between tests."""
+    from app.main import ip_unlock_history, ip_request_history
+    ip_unlock_history.clear()
+    ip_request_history.clear()
+    yield
+    ip_unlock_history.clear()
+    ip_request_history.clear()
+
+
 FIXTURE_JOBS = [
     {
         "job_id": "J1",
@@ -405,22 +417,56 @@ def test_role_filter_api_validation_and_behavior():
 
 
 def test_corpus_disclosure_fields():
-    # Verify searches_count and sample_note are present and correctly formatted
+    # Verify distinct_queries and sample_note are present and correctly formatted
     res_u = client.post("/api/unlock", json={"skills": ["Python", "SQL"]})
     assert res_u.status_code == 200
     corpus_u = res_u.json()["corpus"]
-    assert "searches_count" in corpus_u
+    assert "distinct_queries" in corpus_u
     assert "sample_note" in corpus_u
-    assert isinstance(corpus_u["searches_count"], int)
-    expected_note = f"Jobs captured from {corpus_u['searches_count']} Google Jobs searches in India. Not a random sample of the market."
+    assert isinstance(corpus_u["distinct_queries"], int)
+    expected_note = f"Jobs captured from Google Jobs searches in India using {corpus_u['distinct_queries']} distinct query phrases across several cities and remote. Not a random sample of the market."
     assert corpus_u["sample_note"] == expected_note
 
     res_f = client.post("/api/fit", json={"skills": ["Python", "SQL"]})
     assert res_f.status_code == 200
     corpus_f = res_f.json()["corpus"]
-    assert "searches_count" in corpus_f
+    assert "distinct_queries" in corpus_f
     assert "sample_note" in corpus_f
     assert corpus_f["sample_note"] == expected_note
+
+
+def test_role_regex_tightening_boundary_titles():
+    """
+    Verifies regex tightening on boundary titles:
+    - 'Rapid Prototyping Engineer' does NOT match backend
+    - 'Cloud Storage Engineer' does NOT match ml_ai
+    - 'ETL Developer' matches data
+    - 'RAG Engineer' matches ml_ai
+    - 'REST API Developer' matches backend
+    - 'Reactive Systems Engineer' does NOT match frontend_fullstack
+    - 'ReactJS Developer' matches frontend_fullstack
+    Both in Python re and DuckDB regexp_matches.
+    """
+    import re
+    from app.unlock import ROLE_PATTERNS
+
+    boundary_cases = [
+        ("Rapid Prototyping Engineer", "backend", False),
+        ("Cloud Storage Engineer", "ml_ai", False),
+        ("ETL Developer", "data", True),
+        ("RAG Engineer", "ml_ai", True),
+        ("REST API Developer", "backend", True),
+        ("Reactive Systems Engineer", "frontend_fullstack", False),
+        ("ReactJS Developer", "frontend_fullstack", True),
+    ]
+
+    con = duckdb.connect()
+    for title, role, expected in boundary_cases:
+        pat = ROLE_PATTERNS[role]
+        py_match = bool(re.search(pat, title, re.IGNORECASE))
+        assert py_match is expected, f"Python match failed for '{title}' on {role}: expected {expected}, got {py_match}"
+        duck_match = bool(con.execute("SELECT regexp_matches(?, ?, 'i')", [title, pat]).fetchone()[0])
+        assert duck_match is expected, f"DuckDB match failed for '{title}' on {role}: expected {expected}, got {duck_match}"
 
 
 def test_rate_limiter_for_unlock_endpoints(monkeypatch):
