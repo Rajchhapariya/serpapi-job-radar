@@ -20,6 +20,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application source code and assets
 COPY app/ ./app/
 COPY static/ ./static/
+COPY data/ ./data/
 COPY run.py .
 
 # Expose HTTP port
