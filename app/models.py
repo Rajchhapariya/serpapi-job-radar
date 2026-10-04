@@ -98,6 +98,7 @@ class UnlockRequest(BaseModel):
     min_job_skills: int = Field(default=3, ge=1, le=10)
     top_n: int = Field(default=10, ge=1, le=25)
     location_type: Optional[str] = Field(default=None, pattern="^(Remote|On-site)$")
+    role: Optional[str] = Field(default=None, pattern="^(backend|data|ml_ai|devops_cloud|frontend_fullstack)$")
 
 
 class FitRequest(BaseModel):
@@ -107,5 +108,6 @@ class FitRequest(BaseModel):
     min_job_skills: int = Field(default=3, ge=1, le=10)
     limit: int = Field(default=500, ge=1, le=500)
     location_type: Optional[str] = Field(default=None, pattern="^(Remote|On-site)$")
+    role: Optional[str] = Field(default=None, pattern="^(backend|data|ml_ai|devops_cloud|frontend_fullstack)$")
 
 

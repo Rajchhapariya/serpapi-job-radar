@@ -99,9 +99,78 @@ def parse_and_validate_skills_input(
         return r_skills, ignored
 
 
+ROLE_PATTERNS = {
+    "backend": r"backend|back-end|python developer|java developer|software engineer|api",
+    "data": r"data (engineer|analyst|scientist)|analytics|etl|snowflake|\bbi\b",
+    "ml_ai": r"machine learning|\bml\b|\bai\b|llm|nlp|deep learning|gen ?ai|rag",
+    "devops_cloud": r"devops|\bsre\b|site reliability|cloud|infrastructure|platform engineer",
+    "frontend_fullstack": r"front-?end|full[ -]?stack|react|\bui\b"
+}
+
+ROLE_LABELS = {
+    "backend": "Backend",
+    "data": "Data",
+    "ml_ai": "ML / AI",
+    "devops_cloud": "DevOps & Cloud",
+    "frontend_fullstack": "Frontend & Fullstack"
+}
+
+ALLOWED_ROLES = set(ROLE_PATTERNS.keys())
+
+
+def get_roles_summary(con, table_name: str = "jobs") -> Dict[str, Any]:
+    """
+    Computes job counts per role over eligible-by-default jobs (min_job_skills=3),
+    plus 'any_role_unmatched': count of eligible jobs matching none of the roles.
+    """
+    query = f"""
+        SELECT 
+            COUNT(*) FILTER (WHERE regexp_matches(title, ?, 'i')) AS cnt_backend,
+            COUNT(*) FILTER (WHERE regexp_matches(title, ?, 'i')) AS cnt_data,
+            COUNT(*) FILTER (WHERE regexp_matches(title, ?, 'i')) AS cnt_ml_ai,
+            COUNT(*) FILTER (WHERE regexp_matches(title, ?, 'i')) AS cnt_devops_cloud,
+            COUNT(*) FILTER (WHERE regexp_matches(title, ?, 'i')) AS cnt_frontend_fullstack,
+            COUNT(*) FILTER (WHERE NOT (
+                regexp_matches(title, ?, 'i') OR 
+                regexp_matches(title, ?, 'i') OR 
+                regexp_matches(title, ?, 'i') OR 
+                regexp_matches(title, ?, 'i') OR 
+                regexp_matches(title, ?, 'i')
+            )) AS any_role_unmatched
+        FROM {table_name}
+        WHERE len(list_distinct(skills_required)) >= 3
+    """
+    pats = [
+        ROLE_PATTERNS["backend"],
+        ROLE_PATTERNS["data"],
+        ROLE_PATTERNS["ml_ai"],
+        ROLE_PATTERNS["devops_cloud"],
+        ROLE_PATTERNS["frontend_fullstack"]
+    ]
+    params = pats + pats
+    row = con.execute(query, params).fetchone()
+    if not row:
+        return {
+            "roles": [{"role": r, "label": ROLE_LABELS[r], "jobs": 0} for r in ROLE_PATTERNS],
+            "any_role_unmatched": 0
+        }
+
+    return {
+        "roles": [
+            {"role": "backend", "label": ROLE_LABELS["backend"], "jobs": row[0] or 0},
+            {"role": "data", "label": ROLE_LABELS["data"], "jobs": row[1] or 0},
+            {"role": "ml_ai", "label": ROLE_LABELS["ml_ai"], "jobs": row[2] or 0},
+            {"role": "devops_cloud", "label": ROLE_LABELS["devops_cloud"], "jobs": row[3] or 0},
+            {"role": "frontend_fullstack", "label": ROLE_LABELS["frontend_fullstack"], "jobs": row[4] or 0}
+        ],
+        "any_role_unmatched": row[5] or 0
+    }
+
+
 def get_corpus_stats(con, table_name: str = "jobs") -> Tuple[Dict[str, Any], float]:
     """
-    Fetches corpus metrics: total jobs, date range from scraped_at, and snapshot share.
+    Fetches corpus metrics: total jobs, date range from scraped_at, snapshot share,
+    distinct searches_count, and sample_note.
     """
     t0 = time.perf_counter()
     row = con.execute(f"""
@@ -112,6 +181,18 @@ def get_corpus_stats(con, table_name: str = "jobs") -> Tuple[Dict[str, Any], flo
             AVG(CASE WHEN is_snapshot = TRUE THEN 1.0 ELSE 0.0 END) AS snapshot_share
         FROM {table_name}
     """).fetchone()
+
+    searches_count = 0
+    try:
+        sq_row = con.execute(f"""
+            SELECT count(DISTINCT sq) 
+            FROM (SELECT unnest(source_queries) AS sq FROM {table_name})
+        """).fetchone()
+        if sq_row and sq_row[0] is not None:
+            searches_count = int(sq_row[0])
+    except Exception:
+        searches_count = 0
+
     elapsed_ms = (time.perf_counter() - t0) * 1000
 
     if not row or row[0] == 0:
@@ -119,14 +200,18 @@ def get_corpus_stats(con, table_name: str = "jobs") -> Tuple[Dict[str, Any], flo
             "jobs": 0,
             "as_of_min": None,
             "as_of_max": None,
-            "snapshot_share": 0.0
+            "snapshot_share": 0.0,
+            "searches_count": searches_count,
+            "sample_note": f"Jobs captured from {searches_count} Google Jobs searches in India. Not a random sample of the market."
         }, elapsed_ms
 
     return {
         "jobs": row[0],
         "as_of_min": str(row[1]) if row[1] is not None else None,
         "as_of_max": str(row[2]) if row[2] is not None else None,
-        "snapshot_share": round(float(row[3] or 0.0), 4)
+        "snapshot_share": round(float(row[3] or 0.0), 4),
+        "searches_count": searches_count,
+        "sample_note": f"Jobs captured from {searches_count} Google Jobs searches in India. Not a random sample of the market."
     }, elapsed_ms
 
 
@@ -136,6 +221,7 @@ def compute_skill_unlocks(
     threshold: int = 60,
     min_job_skills: int = 3,
     location_type: Optional[str] = None,
+    role: Optional[str] = None,
     top_n: int = 10,
     table_name: str = "jobs"
 ) -> Dict[str, Any]:
@@ -144,7 +230,11 @@ def compute_skill_unlocks(
     example unlocked jobs, and greedy unlock path up to 3 steps.
     All skill values and filters are bound as query parameters.
     """
-    total_query_ms = 0.0
+    if role is not None and role not in ALLOWED_ROLES:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Invalid role '{role}'. Allowed values: {sorted(list(ALLOWED_ROLES))}"
+        )
 
     loc_clause = ""
     loc_params: List[Any] = []
@@ -152,24 +242,41 @@ def compute_skill_unlocks(
         loc_clause = "AND location_type = ?"
         loc_params = [location_type]
 
-    # 1. Baseline matching query
+    role_clause = ""
+    role_params: List[Any] = []
+    if role:
+        role_clause = "AND regexp_matches(title, ?, 'i')"
+        role_params = [ROLE_PATTERNS[role]]
+
+    total_query_ms = 0.0
+
+    # 1. Materialize eligible set in temp table with precomputed n and initial m
     t0 = time.perf_counter()
-    base_query = f"""
-        WITH eligible AS (
-            SELECT 
-                len(list_distinct(skills_required)) AS n,
-                len(list_intersect(list_distinct(skills_required), ?::VARCHAR[])) AS m
-            FROM {table_name}
-            WHERE len(list_distinct(skills_required)) >= ?
-              {loc_clause}
-        )
+    con.execute(f"""
+        CREATE OR REPLACE TEMP TABLE _req_eligible AS
+        SELECT 
+            job_id,
+            title,
+            company_name,
+            location_type,
+            list_distinct(skills_required) AS skills,
+            len(list_distinct(skills_required)) AS n,
+            len(list_intersect(list_distinct(skills_required), ?::VARCHAR[])) AS m
+        FROM {table_name}
+        WHERE len(list_distinct(skills_required)) >= ?
+          {loc_clause}
+          {role_clause}
+    """, [R, min_job_skills] + loc_params + role_params)
+    total_query_ms += (time.perf_counter() - t0) * 1000
+
+    # 2. Baseline matching query
+    t0 = time.perf_counter()
+    base_row = con.execute("""
         SELECT 
             COUNT(*) AS eligible_jobs,
             COUNT(*) FILTER (WHERE m * 100 >= ? * n) AS matched_jobs
-        FROM eligible
-    """
-    base_params = [R, min_job_skills] + loc_params + [threshold]
-    base_row = con.execute(base_query, base_params).fetchone()
+        FROM _req_eligible
+    """, [threshold]).fetchone()
     total_query_ms += (time.perf_counter() - t0) * 1000
 
     eligible_jobs = base_row[0] if base_row else 0
@@ -184,101 +291,45 @@ def compute_skill_unlocks(
             "query_ms": round(total_query_ms, 2)
         }
 
-    # 2. Main UNLOCK and DEMAND single SQL aggregation
+    # 3. Main UNLOCK and DEMAND single SQL aggregation
     t0 = time.perf_counter()
-    unlock_query = f"""
-        WITH eligible AS (
-            SELECT 
-                job_id,
-                list_distinct(skills_required) AS skills,
-                len(list_distinct(skills_required)) AS n,
-                len(list_intersect(list_distinct(skills_required), ?::VARCHAR[])) AS m
-            FROM {table_name}
-            WHERE len(list_distinct(skills_required)) >= ?
-              {loc_clause}
-        ),
-        classified AS (
-            SELECT 
-                job_id,
-                skills,
-                n,
-                m,
-                (m * 100 >= ? * n) AS is_matched
-            FROM eligible
-        ),
-        unmatched_candidates AS (
-            SELECT 
-                c.job_id,
-                c.n,
-                c.m,
-                unnest(c.skills) AS skill
-            FROM classified c
-            WHERE NOT c.is_matched
-        ),
-        all_eligible_skills AS (
-            SELECT 
-                c.job_id,
-                unnest(c.skills) AS skill
-            FROM eligible c
-        )
+    unlock_query = """
         SELECT 
-            d.skill,
-            COUNT(DISTINCT CASE WHEN (u.m + 1) * 100 >= ? * u.n THEN u.job_id END) AS unlocks,
-            COUNT(DISTINCT d.job_id) AS demand
-        FROM all_eligible_skills d
-        LEFT JOIN unmatched_candidates u ON d.skill = u.skill
-        WHERE NOT list_contains(?::VARCHAR[], d.skill)
-        GROUP BY d.skill
+            skill,
+            COUNT(*) FILTER (WHERE m * 100 < ? * n AND (m + 1) * 100 >= ? * n) AS unlocks,
+            COUNT(*) AS demand
+        FROM (
+            SELECT m, n, unnest(skills) AS skill FROM _req_eligible
+        )
+        WHERE NOT list_contains(?::VARCHAR[], skill)
+        GROUP BY skill
         HAVING unlocks > 0
         ORDER BY unlocks DESC, demand DESC, skill ASC
     """
-    params_unlock = [R, min_job_skills] + loc_params + [threshold, threshold, R]
-    unlock_rows = con.execute(unlock_query, params_unlock).fetchall()
+    unlock_rows = con.execute(unlock_query, [threshold, threshold, R]).fetchall()
     total_query_ms += (time.perf_counter() - t0) * 1000
 
     all_unlocks_count = len(unlock_rows)
     top_unlock_rows = unlock_rows[:top_n]
+    demand_map = {r[0]: r[2] for r in unlock_rows}
 
-    # 3. Example jobs for top unlocks (max 3 per skill)
+    # 4. Example jobs for top unlocks (max 3 per skill, single ROW_NUMBER window query)
     unlock_list = []
-    if top_unlock_rows:
-        top_skill_names = [r[0] for r in top_unlock_rows]
+    top_skill_names = [r[0] for r in top_unlock_rows]
+    if top_skill_names:
         t0 = time.perf_counter()
-        ex_query = f"""
-            WITH eligible AS (
-                SELECT 
-                    job_id,
-                    title,
-                    company_name,
-                    list_distinct(skills_required) AS skills,
-                    len(list_distinct(skills_required)) AS n,
-                    len(list_intersect(list_distinct(skills_required), ?::VARCHAR[])) AS m
-                FROM {table_name}
-                WHERE len(list_distinct(skills_required)) >= ?
-                  {loc_clause}
-            ),
-            unmatched AS (
+        ex_query = """
+            WITH unmatched AS (
                 SELECT 
                     job_id,
                     title,
                     company_name,
                     skills,
-                    n,
-                    m,
                     (m * 100) // n AS match_before,
-                    ((m + 1) * 100) // n AS match_after
-                FROM eligible
+                    ((m + 1) * 100) // n AS match_after,
+                    unnest(skills) AS skill
+                FROM _req_eligible
                 WHERE m * 100 < ? * n AND (m + 1) * 100 >= ? * n
-            ),
-            unmatched_unnested AS (
-                SELECT 
-                    u.job_id,
-                    u.title,
-                    u.company_name,
-                    u.match_before,
-                    u.match_after,
-                    unnest(u.skills) AS skill
-                FROM unmatched u
             ),
             ranked_examples AS (
                 SELECT 
@@ -289,7 +340,7 @@ def compute_skill_unlocks(
                     match_before,
                     match_after,
                     ROW_NUMBER() OVER (PARTITION BY skill ORDER BY match_before DESC, job_id ASC) AS rn
-                FROM unmatched_unnested
+                FROM unmatched
                 WHERE list_contains(?::VARCHAR[], skill)
             )
             SELECT skill, job_id, title, company_name, match_before, match_after
@@ -297,8 +348,7 @@ def compute_skill_unlocks(
             WHERE rn <= 3
             ORDER BY skill, match_before DESC, job_id ASC
         """
-        params_ex = [R, min_job_skills] + loc_params + [threshold, threshold, top_skill_names]
-        ex_rows = con.execute(ex_query, params_ex).fetchall()
+        ex_rows = con.execute(ex_query, [threshold, threshold, top_skill_names]).fetchall()
         total_query_ms += (time.perf_counter() - t0) * 1000
 
         examples_by_skill: Dict[str, List[Dict[str, Any]]] = {}
@@ -322,43 +372,47 @@ def compute_skill_unlocks(
                 "example_jobs": examples_by_skill.get(s_name, [])
             })
 
-    # 4. Greedy Path (up to 3 steps)
+    # 5. Greedy Path (up to 3 steps, avoiding redundant rescans)
     path = []
     current_R = list(R)
+    running_gain = 0
     for step_num in range(1, 4):
-        t0 = time.perf_counter()
-        params_step = [current_R, min_job_skills] + loc_params + [threshold, threshold, current_R]
-        top_cand_row = con.execute(unlock_query + " LIMIT 1", params_step).fetchone()
-        total_query_ms += (time.perf_counter() - t0) * 1000
+        if step_num == 1:
+            if not unlock_rows or unlock_rows[0][1] <= 0:
+                break
+            top_s, top_u = unlock_rows[0][0], unlock_rows[0][1]
+            current_R.append(top_s)
+            running_gain += top_u
+            path.append({
+                "step": 1,
+                "skill": top_s,
+                "unlocks": top_u,
+                "cumulative_gain": running_gain
+            })
+            t0 = time.perf_counter()
+            con.execute("UPDATE _req_eligible SET m = m + 1 WHERE list_contains(skills, ?)", [top_s])
+            total_query_ms += (time.perf_counter() - t0) * 1000
+        else:
+            t0 = time.perf_counter()
+            step_rows = con.execute(unlock_query + " LIMIT 1", [threshold, threshold, current_R]).fetchall()
+            total_query_ms += (time.perf_counter() - t0) * 1000
 
-        if not top_cand_row or top_cand_row[1] <= 0:
-            break
+            if not step_rows or step_rows[0][1] <= 0:
+                break
 
-        top_s = top_cand_row[0]
-        top_u = top_cand_row[1]
-        current_R.append(top_s)
-
-        t0 = time.perf_counter()
-        matched_curr_row = con.execute(f"""
-            WITH eligible AS (
-                SELECT 
-                    len(list_distinct(skills_required)) AS n,
-                    len(list_intersect(list_distinct(skills_required), ?::VARCHAR[])) AS m
-                FROM {table_name}
-                WHERE len(list_distinct(skills_required)) >= ?
-                  {loc_clause}
-            )
-            SELECT COUNT(*) FROM eligible WHERE m * 100 >= ? * n
-        """, [current_R, min_job_skills] + loc_params + [threshold]).fetchone()
-        total_query_ms += (time.perf_counter() - t0) * 1000
-
-        cum_gain = (matched_curr_row[0] if matched_curr_row else 0) - matched_jobs
-        path.append({
-            "step": step_num,
-            "skill": top_s,
-            "unlocks": top_u,
-            "cumulative_gain": cum_gain
-        })
+            top_s, top_u = step_rows[0][0], step_rows[0][1]
+            current_R.append(top_s)
+            running_gain += top_u
+            path.append({
+                "step": step_num,
+                "skill": top_s,
+                "unlocks": top_u,
+                "cumulative_gain": running_gain
+            })
+            if step_num < 3:
+                t0 = time.perf_counter()
+                con.execute("UPDATE _req_eligible SET m = m + 1 WHERE list_contains(skills, ?)", [top_s])
+                total_query_ms += (time.perf_counter() - t0) * 1000
 
     return {
         "baseline": {"eligible_jobs": eligible_jobs, "matched_jobs": matched_jobs},
@@ -375,6 +429,7 @@ def compute_job_fit(
     threshold: int = 60,
     min_job_skills: int = 3,
     location_type: Optional[str] = None,
+    role: Optional[str] = None,
     limit: int = 500,
     table_name: str = "jobs"
 ) -> Tuple[List[Dict[str, Any]], float]:
@@ -382,11 +437,23 @@ def compute_job_fit(
     Scores each eligible job against candidate skills R.
     Sorted by match_pct DESC then title ASC then job_id ASC.
     """
+    if role is not None and role not in ALLOWED_ROLES:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Invalid role '{role}'. Allowed values: {sorted(list(ALLOWED_ROLES))}"
+        )
+
     loc_clause = ""
     loc_params: List[Any] = []
     if location_type:
         loc_clause = "AND location_type = ?"
         loc_params = [location_type]
+
+    role_clause = ""
+    role_params: List[Any] = []
+    if role:
+        role_clause = "AND regexp_matches(title, ?, 'i')"
+        role_params = [ROLE_PATTERNS[role]]
 
     t0 = time.perf_counter()
     query = f"""
@@ -404,6 +471,7 @@ def compute_job_fit(
             FROM {table_name}
             WHERE len(list_distinct(skills_required)) >= ?
               {loc_clause}
+              {role_clause}
         )
         SELECT 
             job_id,
@@ -419,7 +487,7 @@ def compute_job_fit(
         ORDER BY match_pct DESC, title ASC, job_id ASC
         LIMIT ?
     """
-    params = [R, min_job_skills] + loc_params + [R, max(1, min(limit, 500))]
+    params = [R, min_job_skills] + loc_params + role_params + [R, max(1, min(limit, 500))]
     rows = con.execute(query, params).fetchall()
     elapsed_ms = (time.perf_counter() - t0) * 1000
 
@@ -448,20 +516,33 @@ def python_reference_unlock(
     threshold: int = 60,
     min_job_skills: int = 3,
     location_type: Optional[str] = None,
+    role: Optional[str] = None,
     top_n: int = 10
 ) -> Dict[str, Any]:
     """
     Pure-Python reference implementation of Skill Unlock and Greedy Path.
     Used exclusively in tests to assert SQL parity.
     """
+    if role is not None and role not in ALLOWED_ROLES:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Invalid role '{role}'. Allowed values: {sorted(list(ALLOWED_ROLES))}"
+        )
+    role_pat = re.compile(ROLE_PATTERNS[role], re.IGNORECASE) if role else None
+
     R_set = set(R)
     eligible = []
     for j in jobs:
-        skills = set(j.get("skills_required") or [])
-        if len(skills) < min_job_skills:
-            continue
         if location_type and j.get("location_type") != location_type:
             continue
+        if role_pat and not role_pat.search(j.get("title") or ""):
+            continue
+        # Set of distinct skills
+        raw_skills = j.get("skills_required") or []
+        distinct_skills = list(dict.fromkeys(raw_skills))
+        if len(distinct_skills) < min_job_skills:
+            continue
+        skills = set(distinct_skills)
         n = len(skills)
         m = len(R_set & skills)
         is_matched = (m * 100 >= threshold * n)

@@ -340,3 +340,101 @@ def test_d_fit_and_sample_resume():
         k1 = (-j1["match_pct"], j1["title"], j1["job_id"])
         k2 = (-j2["match_pct"], j2["title"], j2["job_id"])
         assert k1 <= k2
+
+
+# ==================== TEST E: ROLE FILTER, CORPUS DISCLOSURE & RATE LIMIT ====================
+
+def test_role_filter_on_fixture(temp_unlock_con):
+    # Test on fixture jobs:
+    # J1: "Backend Dev 1" -> backend
+    # J2: "Cloud Dev 2" -> devops_cloud
+    # J3: "Platform Dev 3" -> no match (platform dev != platform engineer)
+    # J4: "Data Analyst 4" -> data
+    # J5: "Enterprise Dev 5" -> no match
+    # J6: "Fullstack Dev 6" -> frontend_fullstack
+    # J7: "Junior Dev 7" -> ineligible (2 skills)
+    # Unfiltered eligible = 6
+
+    # 1. Unfiltered eligible_jobs = 6
+    res_default = compute_skill_unlocks(temp_unlock_con, ["Python", "SQL"], threshold=60, min_job_skills=3)
+    assert res_default["baseline"]["eligible_jobs"] == 6
+
+    # 2. Role filter reduces eligible_jobs on the fixture
+    res_backend = compute_skill_unlocks(temp_unlock_con, ["Python", "SQL"], threshold=60, min_job_skills=3, role="backend")
+    assert res_backend["baseline"]["eligible_jobs"] == 1
+
+    res_data = compute_skill_unlocks(temp_unlock_con, ["Python", "SQL"], threshold=60, min_job_skills=3, role="data")
+    assert res_data["baseline"]["eligible_jobs"] == 1
+
+    res_devops = compute_skill_unlocks(temp_unlock_con, ["Python", "SQL"], threshold=60, min_job_skills=3, role="devops_cloud")
+    assert res_devops["baseline"]["eligible_jobs"] == 1
+
+    res_fe = compute_skill_unlocks(temp_unlock_con, ["Python", "SQL"], threshold=60, min_job_skills=3, role="frontend_fullstack")
+    assert res_fe["baseline"]["eligible_jobs"] == 1
+
+
+def test_role_filter_api_validation_and_behavior():
+    # 1. Invalid role -> 422 on /api/unlock
+    res_inv_unlock = client.post("/api/unlock", json={"skills": ["Python", "SQL"], "role": "cybersecurity"})
+    assert res_inv_unlock.status_code == 422
+
+    # 2. Invalid role -> 422 on /api/fit
+    res_inv_fit = client.post("/api/fit", json={"skills": ["Python", "SQL"], "role": "invalid_role"})
+    assert res_inv_fit.status_code == 422
+
+    # 3. Valid role filters work on live API
+    res_be = client.post("/api/unlock", json={"skills": ["Python", "SQL"], "role": "backend"})
+    res_all = client.post("/api/unlock", json={"skills": ["Python", "SQL"]})
+    assert res_be.status_code == 200
+    assert res_all.status_code == 200
+    assert res_be.json()["baseline"]["eligible_jobs"] < res_all.json()["baseline"]["eligible_jobs"]
+
+    # 4. Roles endpoint GET /api/roles
+    res_roles = client.get("/api/roles")
+    assert res_roles.status_code == 200
+    data_roles = res_roles.json()
+    assert "roles" in data_roles
+    assert "any_role_unmatched" in data_roles
+    assert isinstance(data_roles["any_role_unmatched"], int)
+    role_keys = [r["role"] for r in data_roles["roles"]]
+    assert set(role_keys) == {"backend", "data", "ml_ai", "devops_cloud", "frontend_fullstack"}
+    for r in data_roles["roles"]:
+        assert "label" in r
+        assert "jobs" in r
+        assert isinstance(r["jobs"], int)
+
+
+def test_corpus_disclosure_fields():
+    # Verify searches_count and sample_note are present and correctly formatted
+    res_u = client.post("/api/unlock", json={"skills": ["Python", "SQL"]})
+    assert res_u.status_code == 200
+    corpus_u = res_u.json()["corpus"]
+    assert "searches_count" in corpus_u
+    assert "sample_note" in corpus_u
+    assert isinstance(corpus_u["searches_count"], int)
+    expected_note = f"Jobs captured from {corpus_u['searches_count']} Google Jobs searches in India. Not a random sample of the market."
+    assert corpus_u["sample_note"] == expected_note
+
+    res_f = client.post("/api/fit", json={"skills": ["Python", "SQL"]})
+    assert res_f.status_code == 200
+    corpus_f = res_f.json()["corpus"]
+    assert "searches_count" in corpus_f
+    assert "sample_note" in corpus_f
+    assert corpus_f["sample_note"] == expected_note
+
+
+def test_rate_limiter_for_unlock_endpoints(monkeypatch):
+    import app.main as main_mod
+    monkeypatch.setattr(main_mod, "UNLOCK_RATE_LIMIT", 5)
+    main_mod.ip_unlock_history.clear()
+
+    # Requests 1 to 5 should succeed
+    for _ in range(5):
+        resp = client.post("/api/unlock", json={"skills": ["Python", "SQL"]})
+        assert resp.status_code == 200
+
+    # Request 6 (N+1) should return 429
+    resp_blocked = client.post("/api/unlock", json={"skills": ["Python", "SQL"]})
+    assert resp_blocked.status_code == 429
+    assert "Rate limit exceeded" in resp_blocked.json()["detail"]
+

@@ -2,7 +2,13 @@ from contextlib import asynccontextmanager
 from app.serpapi_client import serpapi_client
 from app.database import db_manager
 from app.models import SearchRequest, ResumeMatchRequest, SQLQueryRequest, UnlockRequest, FitRequest
-from app.unlock import parse_and_validate_skills_input, get_corpus_stats, compute_skill_unlocks, compute_job_fit
+from app.unlock import (
+    parse_and_validate_skills_input,
+    get_corpus_stats,
+    compute_skill_unlocks,
+    compute_job_fit,
+    get_roles_summary
+)
 import os
 import io
 import csv
@@ -42,6 +48,11 @@ process_searches_made = 0
 SEARCH_RATE_LIMIT = 15
 SEARCH_WINDOW_SECONDS = 60
 ip_request_history = defaultdict(list)
+
+# Sliding-window in-memory rate limiter for matching & unlock operations
+UNLOCK_RATE_LIMIT = int(os.getenv("UNLOCK_RATE_LIMIT", "60"))
+UNLOCK_WINDOW_SECONDS = 60
+ip_unlock_history = defaultdict(list)
 
 
 def get_search_cache_key(query: str, location: str, gl: str, hl: str, date_posted: Optional[str]) -> str:
@@ -110,13 +121,27 @@ async def security_and_rate_limit_middleware(request: Request, call_next):
             ts for ts in ip_request_history[client_ip] if now - ts < SEARCH_WINDOW_SECONDS
         ]
         if len(ip_request_history[client_ip]) >= SEARCH_RATE_LIMIT:
-            raise HTTPException(
+            return JSONResponse(
                 status_code=429,
-                detail="Rate limit exceeded. Maximum 15 searches allowed per minute to protect API quota."
+                content={"detail": "Rate limit exceeded. Maximum 15 searches allowed per minute to protect API quota."}
             )
         ip_request_history[client_ip].append(now)
 
-    # 2. Process Request
+    # 2. Rate Limiting on Unlock, Fit, and Sample-Resume Endpoints
+    if request.url.path in ("/api/unlock", "/api/fit", "/api/sample-resume"):
+        client_ip = request.client.host if request.client else "127.0.0.1"
+        now = time.time()
+        ip_unlock_history[client_ip] = [
+            ts for ts in ip_unlock_history[client_ip] if now - ts < UNLOCK_WINDOW_SECONDS
+        ]
+        if len(ip_unlock_history[client_ip]) >= UNLOCK_RATE_LIMIT:
+            return JSONResponse(
+                status_code=429,
+                content={"detail": f"Rate limit exceeded. Maximum {UNLOCK_RATE_LIMIT} requests allowed per minute."}
+            )
+        ip_unlock_history[client_ip].append(now)
+
+    # 3. Process Request
     response: Response = await call_next(request)
 
     # 3. Inject Defensive Security Headers
@@ -434,6 +459,7 @@ def unlock_skills(req: UnlockRequest):
             threshold=req.threshold,
             min_job_skills=req.min_job_skills,
             location_type=req.location_type,
+            role=req.role,
             top_n=req.top_n
         )
 
@@ -465,6 +491,7 @@ def fit_jobs(req: FitRequest):
             threshold=req.threshold,
             min_job_skills=req.min_job_skills,
             location_type=req.location_type,
+            role=req.role,
             limit=req.limit
         )
 
@@ -474,6 +501,12 @@ def fit_jobs(req: FitRequest):
         "corpus": corpus_data,
         "query_ms": total_query_ms
     }
+
+
+@app.get("/api/roles")
+def get_roles():
+    with db_manager.get_connection() as con:
+        return get_roles_summary(con)
 
 
 @app.get("/api/sample-resume")
