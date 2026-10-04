@@ -343,6 +343,10 @@ def test_d_fit_and_sample_resume():
         assert "match_pct" in j
         assert "matched" in j
         assert "missing" in j
+        assert "role" in j
+        assert "status" in j
+        assert j["status"] in {"matched", "one_skill_away", "further"}
+        assert j["role"] in {"backend", "data", "ml_ai", "devops_cloud", "frontend_fullstack", "other"}
         assert isinstance(j["match_pct"], int)
 
     # Assert sorted by match_pct DESC, title ASC, job_id ASC
@@ -352,6 +356,54 @@ def test_d_fit_and_sample_resume():
         k1 = (-j1["match_pct"], j1["title"], j1["job_id"])
         k2 = (-j2["match_pct"], j2["title"], j2["job_id"])
         assert k1 <= k2
+
+
+def test_fit_role_and_status(temp_unlock_con):
+    # Tests (fixture, R={Python,SQL}, T=60, min_job_skills=3):
+    # J1 matched; J2, J4, J6 one_skill_away; J3, J5 further; J7 absent (ineligible).
+    jobs, elapsed = compute_job_fit(temp_unlock_con, ["Python", "SQL"], threshold=60, min_job_skills=3)
+    status_by_id = {j["job_id"]: j["status"] for j in jobs}
+    assert status_by_id["J1"] == "matched"
+    assert status_by_id["J2"] == "one_skill_away"
+    assert status_by_id["J4"] == "one_skill_away"
+    assert status_by_id["J6"] == "one_skill_away"
+    assert status_by_id["J3"] == "further"
+    assert status_by_id["J5"] == "further"
+    assert "J7" not in status_by_id  # Ineligible (only 2 skills)
+
+    # Role tests with fixture titles:
+    # "ML Engineer Backend" -> ml_ai; "Senior Cloud Data Engineer" -> data;
+    # "DevOps Engineer" -> devops_cloud; "Full Stack Developer" -> frontend_fullstack;
+    # "Backend Developer" -> backend; "Product Manager" -> other.
+    from app.unlock import ROLE_PATTERNS
+    fixture_titles = [
+        ("ML Engineer Backend", "ml_ai"),
+        ("Senior Cloud Data Engineer", "data"),
+        ("DevOps Engineer", "devops_cloud"),
+        ("Full Stack Developer", "frontend_fullstack"),
+        ("Backend Developer", "backend"),
+        ("Product Manager", "other")
+    ]
+    query = """
+        SELECT 
+            CASE 
+                WHEN regexp_matches(?, ?, 'i') THEN 'ml_ai'
+                WHEN regexp_matches(?, ?, 'i') THEN 'data'
+                WHEN regexp_matches(?, ?, 'i') THEN 'devops_cloud'
+                WHEN regexp_matches(?, ?, 'i') THEN 'frontend_fullstack'
+                WHEN regexp_matches(?, ?, 'i') THEN 'backend'
+                ELSE 'other'
+            END
+    """
+    for title, expected_role in fixture_titles:
+        computed_role = temp_unlock_con.execute(query, [
+            title, ROLE_PATTERNS["ml_ai"],
+            title, ROLE_PATTERNS["data"],
+            title, ROLE_PATTERNS["devops_cloud"],
+            title, ROLE_PATTERNS["frontend_fullstack"],
+            title, ROLE_PATTERNS["backend"]
+        ]).fetchone()[0]
+        assert computed_role == expected_role, f"Role mismatch for {title}: expected {expected_role}, got {computed_role}"
 
 
 # ==================== TEST E: ROLE FILTER, CORPUS DISCLOSURE & RATE LIMIT ====================

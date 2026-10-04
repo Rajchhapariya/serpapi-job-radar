@@ -467,7 +467,8 @@ def compute_job_fit(
                 portal_count,
                 list_distinct(skills_required) AS skills,
                 len(list_distinct(skills_required)) AS n,
-                list_intersect(list_distinct(skills_required), ?::VARCHAR[]) AS matched_skills
+                list_intersect(list_distinct(skills_required), ?::VARCHAR[]) AS matched_skills,
+                len(list_intersect(list_distinct(skills_required), ?::VARCHAR[])) AS m
             FROM {table_name}
             WHERE len(list_distinct(skills_required)) >= ?
               {loc_clause}
@@ -480,14 +481,37 @@ def compute_job_fit(
             location,
             location_type,
             portal_count,
-            (len(matched_skills) * 100) // n AS match_pct,
+            (m * 100) // n AS match_pct,
             list_sort(matched_skills) AS matched,
-            list_sort(list_filter(skills, x -> NOT list_contains(?::VARCHAR[], x))) AS missing
+            list_sort(list_filter(skills, x -> NOT list_contains(?::VARCHAR[], x))) AS missing,
+            CASE 
+                WHEN m * 100 >= ? * n THEN 'matched'
+                WHEN (m + 1) * 100 >= ? * n THEN 'one_skill_away'
+                ELSE 'further'
+            END AS status,
+            CASE 
+                WHEN regexp_matches(title, ?, 'i') THEN 'ml_ai'
+                WHEN regexp_matches(title, ?, 'i') THEN 'data'
+                WHEN regexp_matches(title, ?, 'i') THEN 'devops_cloud'
+                WHEN regexp_matches(title, ?, 'i') THEN 'frontend_fullstack'
+                WHEN regexp_matches(title, ?, 'i') THEN 'backend'
+                ELSE 'other'
+            END AS role
         FROM eligible
         ORDER BY match_pct DESC, title ASC, job_id ASC
         LIMIT ?
     """
-    params = [R, min_job_skills] + loc_params + role_params + [R, max(1, min(limit, 500))]
+    params = [
+        R, R, min_job_skills
+    ] + loc_params + role_params + [
+        R, threshold, threshold,
+        ROLE_PATTERNS["ml_ai"],
+        ROLE_PATTERNS["data"],
+        ROLE_PATTERNS["devops_cloud"],
+        ROLE_PATTERNS["frontend_fullstack"],
+        ROLE_PATTERNS["backend"],
+        max(1, min(limit, 500))
+    ]
     rows = con.execute(query, params).fetchall()
     elapsed_ms = (time.perf_counter() - t0) * 1000
 
@@ -502,7 +526,9 @@ def compute_job_fit(
             "portal_count": r[5] or 1,
             "match_pct": r[6],
             "matched": r[7] or [],
-            "missing": r[8] or []
+            "missing": r[8] or [],
+            "role": r[10],
+            "status": r[9]
         })
 
     return results, round(elapsed_ms, 2)
