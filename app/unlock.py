@@ -100,7 +100,7 @@ def parse_and_validate_skills_input(
 
 
 ROLE_PATTERNS = {
-    "backend": r"backend|back-end|python developer|java developer|software engineer|\bapis?\b",
+    "backend": r"backend|back-end|python developer|java developer|software engineer|\bapis?\b|fastapi|django|flask",
     "data": r"data (engineer|analyst|scientist)|analytics|\betl\b|snowflake|\bbi\b",
     "ml_ai": r"machine learning|\bml\b|\bai\b|llm|nlp|deep learning|gen ?ai|\brag\b",
     "devops_cloud": r"devops|\bsre\b|site reliability|cloud|infrastructure|platform engineer",
