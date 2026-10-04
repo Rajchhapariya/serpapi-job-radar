@@ -1,7 +1,8 @@
 from contextlib import asynccontextmanager
 from app.serpapi_client import serpapi_client
 from app.database import db_manager
-from app.models import SearchRequest, ResumeMatchRequest, SQLQueryRequest
+from app.models import SearchRequest, ResumeMatchRequest, SQLQueryRequest, UnlockRequest, FitRequest
+from app.unlock import parse_and_validate_skills_input, get_corpus_stats, compute_skill_unlocks, compute_job_fit
 import os
 import io
 import csv
@@ -417,6 +418,76 @@ def get_analytics():
 @app.post("/api/match-resume")
 def match_resume(req: ResumeMatchRequest):
     return db_manager.match_resume(req.resume_text)
+
+
+@app.post("/api/unlock")
+def unlock_skills(req: UnlockRequest):
+    r_skills, ignored_skills = parse_and_validate_skills_input(
+        resume_text=req.resume_text,
+        skills=req.skills
+    )
+    with db_manager.get_connection() as con:
+        corpus_data, corpus_ms = get_corpus_stats(con)
+        unlock_res = compute_skill_unlocks(
+            con=con,
+            R=r_skills,
+            threshold=req.threshold,
+            min_job_skills=req.min_job_skills,
+            location_type=req.location_type,
+            top_n=req.top_n
+        )
+
+    total_query_ms = round(corpus_ms + unlock_res["query_ms"], 2)
+    return {
+        "resume_skills": r_skills,
+        "ignored_skills": ignored_skills,
+        "threshold": req.threshold,
+        "min_job_skills": req.min_job_skills,
+        "baseline": unlock_res["baseline"],
+        "unlocks": unlock_res["unlocks"],
+        "path": unlock_res["path"],
+        "corpus": corpus_data,
+        "query_ms": total_query_ms
+    }
+
+
+@app.post("/api/fit")
+def fit_jobs(req: FitRequest):
+    r_skills, _ignored = parse_and_validate_skills_input(
+        resume_text=req.resume_text,
+        skills=req.skills
+    )
+    with db_manager.get_connection() as con:
+        corpus_data, corpus_ms = get_corpus_stats(con)
+        jobs, fit_ms = compute_job_fit(
+            con=con,
+            R=r_skills,
+            threshold=req.threshold,
+            min_job_skills=req.min_job_skills,
+            location_type=req.location_type,
+            limit=req.limit
+        )
+
+    total_query_ms = round(corpus_ms + fit_ms, 2)
+    return {
+        "jobs": jobs,
+        "corpus": corpus_data,
+        "query_ms": total_query_ms
+    }
+
+
+@app.get("/api/sample-resume")
+def get_sample_resume():
+    sample_file = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        "data", "sample_resume.txt"
+    )
+    if not os.path.exists(sample_file):
+        raise HTTPException(status_code=404, detail="sample_resume.txt not found.")
+    with open(sample_file, "r", encoding="utf-8") as f:
+        content = f.read()
+    return {"text": content}
+
 
 
 @app.post("/api/sql")

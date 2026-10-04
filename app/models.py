@@ -90,3 +90,22 @@ class SQLQueryRequest(BaseModel):
         description="Read-only SELECT query executed against in-memory DuckDB table"
     )
 
+
+class UnlockRequest(BaseModel):
+    resume_text: Optional[str] = Field(default=None, max_length=50000)
+    skills: Optional[List[str]] = Field(default=None, max_length=100)
+    threshold: int = Field(default=60, ge=1, le=100)
+    min_job_skills: int = Field(default=3, ge=1, le=10)
+    top_n: int = Field(default=10, ge=1, le=25)
+    location_type: Optional[str] = Field(default=None, pattern="^(Remote|On-site)$")
+
+
+class FitRequest(BaseModel):
+    resume_text: Optional[str] = Field(default=None, max_length=50000)
+    skills: Optional[List[str]] = Field(default=None, max_length=100)
+    threshold: int = Field(default=60, ge=1, le=100)
+    min_job_skills: int = Field(default=3, ge=1, le=10)
+    limit: int = Field(default=500, ge=1, le=500)
+    location_type: Optional[str] = Field(default=None, pattern="^(Remote|On-site)$")
+
+

@@ -1,0 +1,17 @@
+SAMPLE RESUME
+
+Summary:
+Junior Python Backend Developer with 1.5 years of experience building RESTful APIs and asynchronous backend microservices. Practical background in database query design, relational data modeling, and service containerization.
+
+Technical Skills:
+- Languages: Python, SQL
+- Frameworks: FastAPI, Django
+- Databases: PostgreSQL, SQLite
+- Tools & Cloud: Docker, Git, Linux
+
+Experience:
+Junior Software Engineer — CloudScale Technologies (2023 – Present)
+- Developed and maintained REST API endpoints using Python and FastAPI for customer-facing order workflows.
+- Designed database schemas and wrote optimized SQL queries in PostgreSQL, reducing query latency by 20%.
+- Packaged services into Docker containers for local staging and deployed automated test suites with pytest.
+- Collaborated using Git version control and handled backend task queues.
