@@ -224,7 +224,7 @@
 
     unlocksList.forEach(function (u) {
       const card = document.createElement("div");
-      card.className = "unlock-row-card";
+      card.className = "card unlock-row-card";
 
       const btn = document.createElement("button");
       btn.type = "button";
@@ -350,7 +350,7 @@
     topJobs.forEach(function (job, idx) {
       const card = document.createElement("div");
       card.className = "card job-card";
-      card.style.animationDelay = idx * 40 + "ms";
+      card.style.animationDelay = Math.min(idx, 7) * 40 + "ms";
 
       // Header row
       const header = document.createElement("div");
