@@ -41,6 +41,11 @@
   const footerSampleNote = document.getElementById("footer-sample-note");
   const footerTelemetry = document.getElementById("footer-telemetry");
 
+  const liveQueryInput = document.getElementById("live-query-input");
+  const liveLocationInput = document.getElementById("live-location-input");
+  const btnFetchLive = document.getElementById("btn-fetch-live");
+  const liveStatusRow = document.getElementById("live-status-row");
+
   const roleInputs = document.querySelectorAll('input[name="role-filter"]');
   const locationInputs = document.querySelectorAll(
     'input[name="location-filter"]',
@@ -629,10 +634,23 @@
       const corpus = dataUnlock.corpus || {};
       const dateFormatted = formatDateString(corpus.as_of_max);
       pillDate.textContent = "Data as of " + dateFormatted;
-      const notePrefix =
-        corpus.sample_note || "Jobs captured from Google Jobs searches.";
+      if (corpus.jobs != null) {
+        pillJobs.textContent = corpus.jobs + " jobs indexed";
+      }
+
+      const share =
+        corpus.snapshot_share != null ? Number(corpus.snapshot_share) : 1;
+      let snapshotSentence = "";
+      if (share >= 0.999 || share === 1) {
+        snapshotSentence =
+          "All listings come from saved Google Jobs snapshots.";
+      } else {
+        const pct = Math.round(share * 100);
+        snapshotSentence =
+          pct + "% of listings come from saved Google Jobs snapshots.";
+      }
       footerSampleNote.textContent =
-        notePrefix + " Data as of " + dateFormatted + ".";
+        snapshotSentence + " Data as of " + dateFormatted + ".";
 
       const uMs = dataUnlock.query_ms != null ? dataUnlock.query_ms : "--";
       const fMs = dataFit.query_ms != null ? dataFit.query_ms : "--";
@@ -644,6 +662,7 @@
         " ms (DuckDB, server-side)";
 
       showState("results");
+      return dataUnlock;
     } catch (err) {
       if (reqId !== activeRequestId) return;
       showState("error");
@@ -652,11 +671,174 @@
       } else {
         errorMessage.textContent = "Could not reach the server.";
       }
+      return null;
     } finally {
       if (reqId === activeRequestId) {
         btnFindUnlocks.disabled = false;
         btnFindUnlocks.textContent = "Find my unlocks";
       }
+    }
+  }
+
+  // Live Data Ingestion Handler
+  function renderLiveError(msg) {
+    clearElementChildren(liveStatusRow);
+    liveStatusRow.classList.remove("hidden");
+
+    const badge = document.createElement("span");
+    badge.className = "live-status-badge live-status-badge-error mono";
+    badge.textContent = "ERROR";
+    liveStatusRow.appendChild(badge);
+
+    const sep = document.createTextNode(" · ");
+    liveStatusRow.appendChild(sep);
+
+    const spanErr = document.createElement("span");
+    spanErr.className = "live-status-error-text mono";
+    spanErr.textContent = msg;
+    liveStatusRow.appendChild(spanErr);
+  }
+
+  function renderLiveSuccess(data, newCorpusCount) {
+    clearElementChildren(liveStatusRow);
+    liveStatusRow.classList.remove("hidden");
+
+    // Source label LIVE or CACHE
+    const badge = document.createElement("span");
+    const isCache = String(data.source).toLowerCase() === "cache";
+    badge.className =
+      "live-status-badge mono " +
+      (isCache ? "live-status-badge-cache" : "live-status-badge-live");
+    badge.textContent = isCache ? "CACHE" : "LIVE";
+    liveStatusRow.appendChild(badge);
+
+    // SerpApi {serpapi_ms} ms
+    const sMs = data.serpapi_ms != null ? data.serpapi_ms : 0;
+    const spanSerp = document.createElement("span");
+    spanSerp.textContent = " · SerpApi " + sMs + " ms";
+    liveStatusRow.appendChild(spanSerp);
+
+    // Ingest {ingest_ms} ms
+    const iMs = data.ingest_ms != null ? data.ingest_ms : 0;
+    const spanIngest = document.createElement("span");
+    spanIngest.textContent = " · Ingest " + iMs + " ms";
+    liveStatusRow.appendChild(spanIngest);
+
+    // SerpApi cache: yes / no / unknown (null means unknown)
+    let cacheStatus = "unknown";
+    if (data.serpapi_cached === true) cacheStatus = "yes";
+    else if (data.serpapi_cached === false) cacheStatus = "no";
+    const spanCache = document.createElement("span");
+    spanCache.textContent = " · SerpApi cache: " + cacheStatus;
+    liveStatusRow.appendChild(spanCache);
+
+    // {retrieved_count} retrieved, {stored_count} new
+    const rCount = data.retrieved_count != null ? data.retrieved_count : 0;
+    const sCount = data.stored_count != null ? data.stored_count : 0;
+    const spanCounts = document.createElement("span");
+    spanCounts.textContent = " · " + rCount + " retrieved, " + sCount + " new";
+    liveStatusRow.appendChild(spanCounts);
+
+    // Notice text if present
+    if (data.notice) {
+      const spanNotice = document.createElement("span");
+      spanNotice.textContent = " · " + data.notice;
+      liveStatusRow.appendChild(spanNotice);
+    }
+
+    // Corpus now {n} jobs
+    if (newCorpusCount != null) {
+      const spanCorpus = document.createElement("span");
+      spanCorpus.id = "live-corpus-now";
+      spanCorpus.textContent = " · Corpus now " + newCorpusCount + " jobs";
+      liveStatusRow.appendChild(spanCorpus);
+    }
+  }
+
+  async function handleFetchLive() {
+    const query = (liveQueryInput.value || "").trim();
+    const location = (liveLocationInput.value || "").trim();
+
+    if (!query || !location) {
+      renderLiveError("Please enter both a job title and location.");
+      return;
+    }
+
+    btnFetchLive.disabled = true;
+    btnFetchLive.textContent = "Fetching...";
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(function () {
+      controller.abort();
+    }, 30000);
+
+    try {
+      const res = await fetch("/api/search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          query: query,
+          location: location,
+          num_results: 10,
+          max_pages: 1,
+        }),
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!res.ok) {
+        if (res.status === 429) {
+          renderLiveError("Too many requests. Wait a minute and try again.");
+          return;
+        }
+
+        let detailMsg = "Upstream search failed.";
+        try {
+          const errData = await res.json();
+          if (errData && errData.detail) {
+            const detailStr = String(errData.detail);
+            if (
+              detailStr.toLowerCase().includes("not configured") ||
+              detailStr.includes("SERPAPI_API_KEY")
+            ) {
+              detailMsg = "Live fetching is not configured on this server.";
+            } else {
+              detailMsg = detailStr;
+            }
+          }
+        } catch (e) {
+          // Keep generic detailMsg
+        }
+        renderLiveError(detailMsg);
+        return;
+      }
+
+      const searchData = await res.json();
+
+      // Automatically re-run the analysis
+      const unlockData = await handleRunAnalysis();
+      const newJobsCount =
+        unlockData && unlockData.corpus && unlockData.corpus.jobs != null
+          ? unlockData.corpus.jobs
+          : null;
+
+      // Update header jobs count
+      if (newJobsCount != null) {
+        pillJobs.textContent = newJobsCount + " jobs indexed";
+      }
+
+      renderLiveSuccess(searchData, newJobsCount);
+    } catch (err) {
+      clearTimeout(timeoutId);
+      if (err.name === "AbortError") {
+        renderLiveError("Request timed out after 30 seconds.");
+      } else {
+        renderLiveError("Could not reach the server.");
+      }
+    } finally {
+      btnFetchLive.disabled = false;
+      btnFetchLive.textContent = "Fetch from Google Jobs";
     }
   }
 
@@ -723,6 +905,10 @@
       }
     });
   });
+
+  if (btnFetchLive) {
+    btnFetchLive.addEventListener("click", handleFetchLive);
+  }
 
   // Initial Boot Sequence
   async function init() {

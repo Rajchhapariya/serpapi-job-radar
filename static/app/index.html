@@ -217,7 +217,7 @@
             <div class="hero-block card" id="hero-block">
               <div class="hero-eyebrow mono">AFTER 3 SKILLS</div>
               <div class="hero-metric-row">
-                <span id="hero-stat-number" class="hero-stat-number mono"
+                <span id="stat-after-skills" class="hero-stat-number mono"
                   >0</span
                 >
                 <span id="hero-stat-total" class="hero-stat-total mono">
@@ -284,7 +284,62 @@
               </div>
             </section>
 
-            <!-- 5. Footer & Telemetry -->
+            <!-- 5. Add Live Data -->
+            <section
+              class="results-section live-panel-section"
+              aria-labelledby="heading-live"
+            >
+              <div class="section-header-row">
+                <h2 id="heading-live" class="section-title">Add live data</h2>
+              </div>
+              <p class="live-panel-desc">
+                Fetch fresh listings from Google Jobs through SerpApi. New jobs
+                join the analysis above.
+              </p>
+              <div class="live-form-grid">
+                <div class="live-form-field">
+                  <label for="live-query-input" class="control-label mono"
+                    >Job title</label
+                  >
+                  <input
+                    type="text"
+                    id="live-query-input"
+                    class="live-text-input mono"
+                    value="Python Developer"
+                    placeholder="e.g. Python Developer"
+                  />
+                </div>
+                <div class="live-form-field">
+                  <label for="live-location-input" class="control-label mono"
+                    >Location</label
+                  >
+                  <input
+                    type="text"
+                    id="live-location-input"
+                    class="live-text-input mono"
+                    value="Bengaluru, Karnataka, India"
+                    placeholder="e.g. Bengaluru, Karnataka, India"
+                  />
+                </div>
+                <div class="live-form-action">
+                  <button
+                    type="button"
+                    id="btn-fetch-live"
+                    class="btn-primary mono"
+                  >
+                    Fetch from Google Jobs
+                  </button>
+                </div>
+              </div>
+              <div
+                id="live-status-row"
+                class="live-status-row mono hidden"
+                role="status"
+                aria-live="polite"
+              ></div>
+            </section>
+
+            <!-- 6. Footer & Telemetry -->
             <footer class="results-footer">
               <p id="footer-sample-note" class="footer-note"></p>
               <p id="footer-telemetry" class="footer-telemetry mono"></p>
