@@ -25,9 +25,13 @@
   const stateResults = document.getElementById("state-results");
   const errorMessage = document.getElementById("error-message");
 
-  const statMatchedNow = document.getElementById("stat-matched-now");
   const statAfterSkills = document.getElementById("stat-after-skills");
-  const statSkillsFound = document.getElementById("stat-skills-found");
+  const heroStatTotal = document.getElementById("hero-stat-total");
+  const heroSupportLine = document.getElementById("hero-support-line");
+
+  const pathTrackBar = document.getElementById("path-track-bar");
+  const pathTrackLabels = document.getElementById("path-track-labels");
+  const pathTrackEmpty = document.getElementById("path-track-empty");
 
   const pathContainer = document.getElementById("path-container");
   const unlocksContainer = document.getElementById("unlocks-container");
@@ -162,26 +166,73 @@
     }
   }
 
-  // Render Fastest Path
+  // Render Horizontal Path Track beneath Hero
+  function renderTrack(baseline, pathList) {
+    clearElementChildren(pathTrackBar);
+    clearElementChildren(pathTrackLabels);
+
+    const eligible = baseline.eligible_jobs || 1;
+    const matched = baseline.matched_jobs || 0;
+
+    // Segment 1: matched now (var(--ink))
+    const segNow = document.createElement("div");
+    segNow.className = "track-segment track-segment-now";
+    const pctNow = Math.min(100, (matched / eligible) * 100);
+    segNow.style.width = pctNow + "%";
+    pathTrackBar.appendChild(segNow);
+
+    // Label 1: NOW {matched}
+    const lblNow = document.createElement("span");
+    lblNow.className = "track-label";
+    lblNow.textContent = "NOW " + matched;
+    pathTrackLabels.appendChild(lblNow);
+
+    if (!pathList || pathList.length === 0) {
+      if (pathTrackEmpty) pathTrackEmpty.classList.remove("hidden");
+      return;
+    }
+    if (pathTrackEmpty) pathTrackEmpty.classList.add("hidden");
+
+    // Segments 2 to 4: path steps 1 to 3
+    const opacities = [0.55, 0.75, 1.0];
+    const stepsToShow = pathList.slice(0, 3);
+
+    stepsToShow.forEach(function (st, idx) {
+      const seg = document.createElement("div");
+      seg.className = "track-segment track-segment-step";
+      seg.style.opacity = opacities[idx];
+      const segPct = Math.min(100, (st.unlocks / eligible) * 100);
+      seg.style.width = segPct + "%";
+      pathTrackBar.appendChild(seg);
+
+      const lbl = document.createElement("span");
+      lbl.className = "track-label";
+      const cumCount = matched + st.cumulative_gain;
+      lbl.textContent = "+ " + st.skill.toUpperCase() + " " + cumCount;
+      pathTrackLabels.appendChild(lbl);
+    });
+  }
+
+  // Render Fastest Path Ledger Rows
   function renderPath(pathList) {
     clearElementChildren(pathContainer);
 
     if (!pathList || pathList.length === 0) {
-      const emptyCard = document.createElement("div");
-      emptyCard.className = "card path-empty-card";
-      emptyCard.textContent =
+      const emptyRow = document.createElement("div");
+      emptyRow.className = "ledger-row ledger-row-empty mono";
+      emptyRow.textContent =
         "No single skill moves you closer at this match bar.";
-      pathContainer.appendChild(emptyCard);
+      pathContainer.appendChild(emptyRow);
       return;
     }
 
     pathList.forEach(function (step) {
-      const card = document.createElement("div");
-      card.className = "card path-step-card";
+      const row = document.createElement("div");
+      row.className = "ledger-row path-ledger-row";
 
-      const badge = document.createElement("span");
-      badge.className = "path-step-badge mono";
-      badge.textContent = "Step " + step.step;
+      const stepNum = document.createElement("span");
+      stepNum.className = "path-step-num mono";
+      stepNum.textContent = String(step.step);
 
       const skillEl = document.createElement("span");
       skillEl.className = "path-step-skill";
@@ -193,24 +244,24 @@
 
       const cumEl = document.createElement("span");
       cumEl.className = "path-step-cum mono";
-      cumEl.textContent = step.cumulative_gain + " total unlocked";
+      cumEl.textContent = step.cumulative_gain + " total";
 
-      card.appendChild(badge);
-      card.appendChild(skillEl);
-      card.appendChild(unlocksEl);
-      card.appendChild(cumEl);
-      pathContainer.appendChild(card);
+      row.appendChild(stepNum);
+      row.appendChild(skillEl);
+      row.appendChild(unlocksEl);
+      row.appendChild(cumEl);
+      pathContainer.appendChild(row);
     });
   }
 
-  // Render All Unlocks
+  // Render All Unlocks Ledger Rows
   function renderUnlocks(unlocksList) {
     clearElementChildren(unlocksContainer);
     currentlyExpandedAccordion = null;
 
     if (!unlocksList || unlocksList.length === 0) {
       const emptyRow = document.createElement("div");
-      emptyRow.className = "card path-empty-card";
+      emptyRow.className = "ledger-row ledger-row-empty mono";
       emptyRow.textContent =
         "No skill unlocks found for this resume and threshold.";
       unlocksContainer.appendChild(emptyRow);
@@ -223,16 +274,16 @@
     });
 
     unlocksList.forEach(function (u) {
-      const card = document.createElement("div");
-      card.className = "card unlock-row-card";
+      const row = document.createElement("div");
+      row.className = "ledger-row unlock-ledger-row";
 
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "unlock-btn";
       btn.setAttribute("aria-expanded", "false");
 
-      const topRow = document.createElement("div");
-      topRow.className = "unlock-row-top";
+      const mainDiv = document.createElement("div");
+      mainDiv.className = "unlock-btn-main";
 
       const skillName = document.createElement("span");
       skillName.className = "unlock-skill-name";
@@ -242,33 +293,30 @@
       metrics.className = "unlock-metrics mono";
 
       const mUnlocks = document.createElement("span");
-      mUnlocks.className = "metric-unlocks";
+      mUnlocks.className = "unlock-metric-gain";
       mUnlocks.textContent = "+" + u.unlocks + " jobs";
 
       const mDemand = document.createElement("span");
-      mDemand.className = "metric-demand";
+      mDemand.className = "unlock-metric-demand";
       mDemand.textContent = "in " + u.demand + " jobs";
 
       metrics.appendChild(mUnlocks);
       metrics.appendChild(mDemand);
-      topRow.appendChild(skillName);
-      topRow.appendChild(metrics);
+      mainDiv.appendChild(skillName);
+      mainDiv.appendChild(metrics);
 
       const track = document.createElement("div");
       track.className = "unlock-bar-track";
 
       const fill = document.createElement("div");
       fill.className = "unlock-bar-fill";
-      const pctWidth = Math.max(
-        3,
-        Math.min(100, Math.round((u.unlocks / maxUnlocks) * 100)),
-      );
-      fill.style.width = pctWidth + "%";
+      const ratio = Math.max(0.02, Math.min(1.0, u.unlocks / maxUnlocks));
+      fill.style.transform = "scaleX(" + ratio + ")";
       track.appendChild(fill);
 
-      btn.appendChild(topRow);
+      btn.appendChild(mainDiv);
       btn.appendChild(track);
-      card.appendChild(btn);
+      row.appendChild(btn);
 
       // Accordion panel for example jobs
       const panel = document.createElement("div");
@@ -287,7 +335,7 @@
           const matchSpan = document.createElement("span");
           matchSpan.className = "example-job-match mono";
           matchSpan.textContent =
-            ex.match_before + "% → " + ex.match_after + "%";
+            ex.match_before + "% to " + ex.match_after + "%";
 
           item.appendChild(titleSpan);
           item.appendChild(matchSpan);
@@ -303,7 +351,7 @@
         panel.appendChild(noEx);
       }
 
-      card.appendChild(panel);
+      row.appendChild(panel);
 
       btn.addEventListener("click", function () {
         const isExpanded = btn.getAttribute("aria-expanded") === "true";
@@ -328,94 +376,84 @@
         }
       });
 
-      unlocksContainer.appendChild(card);
+      unlocksContainer.appendChild(row);
     });
   }
 
-  // Render Best-Fit Jobs
+  // Render Best-Fit Jobs Ledger Rows
   function renderJobs(jobsList) {
     clearElementChildren(jobsContainer);
 
     if (!jobsList || jobsList.length === 0) {
-      const emptyCard = document.createElement("div");
-      emptyCard.className = "card path-empty-card";
-      emptyCard.textContent = "No matching jobs found for current filters.";
-      jobsContainer.appendChild(emptyCard);
+      const emptyRow = document.createElement("div");
+      emptyRow.className = "ledger-row ledger-row-empty mono";
+      emptyRow.textContent = "No matching jobs found for current filters.";
+      jobsContainer.appendChild(emptyRow);
       return;
     }
 
-    // Top 8 jobs
     const topJobs = jobsList.slice(0, 8);
 
     topJobs.forEach(function (job, idx) {
-      const card = document.createElement("div");
-      card.className = "card job-card";
-      card.style.animationDelay = Math.min(idx, 7) * 40 + "ms";
+      const row = document.createElement("div");
+      row.className = "ledger-row job-ledger-row stagger-row";
+      row.style.animationDelay = Math.min(idx, 7) * 30 + "ms";
 
-      // Header row
-      const header = document.createElement("div");
-      header.className = "job-header";
-
-      const metaLeft = document.createElement("div");
-      metaLeft.className = "job-meta-left";
+      // Top row: Title on left, Status + Portals on right
+      const topRow = document.createElement("div");
+      topRow.className = "job-row-top";
 
       const titleEl = document.createElement("span");
       titleEl.className = "job-title";
       titleEl.textContent = job.title;
 
-      const compEl = document.createElement("span");
-      compEl.className = "job-company";
-      compEl.textContent =
-        job.company_name + (job.location ? " · " + job.location : "");
-
-      metaLeft.appendChild(titleEl);
-      metaLeft.appendChild(compEl);
-
       const badges = document.createElement("div");
       badges.className = "job-badges";
 
-      // Status chip
+      // Status label: matched = green on green-soft, one_skill_away = amber on amber-soft, further = ink-3 on inset (4px radius)
       const statusChip = document.createElement("span");
       if (job.status === "matched") {
-        statusChip.className = "chip chip-status-matched";
+        statusChip.className = "status-badge status-matched";
         statusChip.textContent = "Matched";
       } else if (job.status === "one_skill_away") {
-        statusChip.className = "chip chip-status-one_skill_away";
+        statusChip.className = "status-badge status-one_skill_away";
         statusChip.textContent = "1 skill away";
       } else {
-        statusChip.className = "chip chip-status-further";
+        statusChip.className = "status-badge status-further";
         statusChip.textContent = "Further";
       }
       badges.appendChild(statusChip);
 
-      // Location chip
-      if (job.location_type) {
-        const locChip = document.createElement("span");
-        locChip.className = "chip chip-location";
-        locChip.textContent = job.location_type;
-        badges.appendChild(locChip);
-      }
-
-      // Portal chip
+      // Portals as "{n} portals" or "8+ portals"
       const portalChip = document.createElement("span");
-      portalChip.className = "chip chip-portals mono";
+      portalChip.className = "job-portal-badge mono";
       const pCount = job.portal_count || 1;
       portalChip.textContent = pCount >= 8 ? "8+ portals" : pCount + " portals";
       badges.appendChild(portalChip);
 
-      header.appendChild(metaLeft);
-      header.appendChild(badges);
-      card.appendChild(header);
+      topRow.appendChild(titleEl);
+      topRow.appendChild(badges);
+      row.appendChild(topRow);
 
-      // Match bar row
+      // Meta sub row: Company and Location_type in var(--ink-3)
+      const metaRow = document.createElement("div");
+      metaRow.className = "job-meta-row";
+      let metaText = job.company_name || "";
+      if (job.location_type) {
+        metaText += (metaText ? " · " : "") + job.location_type;
+      }
+      metaRow.textContent = metaText;
+      row.appendChild(metaRow);
+
+      // Match bar row: thin match bar with "{match_pct}%" in mono
       const matchRow = document.createElement("div");
       matchRow.className = "job-match-row";
 
       const track = document.createElement("div");
-      track.className = "job-match-bar-track";
+      track.className = "job-match-track";
 
       const fill = document.createElement("div");
-      fill.className = "job-match-bar-fill";
+      fill.className = "job-match-fill";
       const pct = Math.max(0, Math.min(100, job.match_pct || 0));
       fill.style.width = pct + "%";
       track.appendChild(fill);
@@ -426,39 +464,37 @@
 
       matchRow.appendChild(track);
       matchRow.appendChild(pctText);
-      card.appendChild(matchRow);
+      row.appendChild(matchRow);
 
-      // Missing skills chips
+      // Missing skills: chips (red on red-soft, no border, 4px radius)
       if (job.missing && job.missing.length > 0) {
         const missingWrap = document.createElement("div");
-        missingWrap.className = "job-missing-skills";
+        missingWrap.className = "job-missing-wrap";
 
-        const label = document.createElement("span");
-        label.className = "missing-label";
-        label.textContent = "Missing:";
-        missingWrap.appendChild(label);
+        const mLabel = document.createElement("span");
+        mLabel.className = "job-missing-label mono";
+        mLabel.textContent = "MISSING:";
+        missingWrap.appendChild(mLabel);
 
         job.missing.forEach(function (mSkill) {
           const chip = document.createElement("span");
-          chip.className = "chip chip-missing";
+          chip.className = "chip-missing";
           chip.textContent = mSkill;
           missingWrap.appendChild(chip);
         });
 
-        card.appendChild(missingWrap);
+        row.appendChild(missingWrap);
       }
 
-      jobsContainer.appendChild(card);
+      jobsContainer.appendChild(row);
     });
   }
 
-  // Execute Analysis
-  async function runAnalysis() {
-    const text = resumeInput.value.trim();
-    if (!text) {
-      showState("error");
-      errorMessage.textContent =
-        "Please paste a resume or use the sample resume to find unlocks.";
+  // API Call Coordinator
+  async function handleRunAnalysis() {
+    const resumeText = resumeInput.value.trim();
+    if (!resumeText) {
+      showState("idle");
       return;
     }
 
@@ -472,7 +508,7 @@
     const locationType = getSelectedLocation();
 
     const payloadUnlock = {
-      resume_text: text,
+      resume_text: resumeText,
       threshold: threshold,
       top_n: 10,
     };
@@ -480,7 +516,7 @@
     if (locationType) payloadUnlock.location_type = locationType;
 
     const payloadFit = {
-      resume_text: text,
+      resume_text: resumeText,
       threshold: threshold,
       limit: 12,
     };
@@ -551,41 +587,48 @@
 
       if (reqId !== activeRequestId) return;
 
-      // Populate Stat Strip
+      // Populate Hero Block
       const baseline = dataUnlock.baseline || {
         eligible_jobs: 0,
         matched_jobs: 0,
       };
-      statMatchedNow.textContent =
-        baseline.matched_jobs + " / " + baseline.eligible_jobs;
 
-      // Hero Stat: Matched + cumulative gain from last step of path
       const pathList = dataUnlock.path || [];
       const lastGain =
         pathList.length > 0
           ? pathList[pathList.length - 1].cumulative_gain || 0
           : 0;
       const targetAfter = baseline.matched_jobs + lastGain;
+
       animateHeroNumber(statAfterSkills, targetAfter, 600);
+      heroStatTotal.textContent = " of " + baseline.eligible_jobs + " jobs";
 
       const resumeSkills = dataUnlock.resume_skills || [];
-      statSkillsFound.textContent = resumeSkills.length.toString();
+      heroSupportLine.textContent =
+        "Up from " +
+        baseline.matched_jobs +
+        " today. " +
+        resumeSkills.length +
+        " skills recognized in your resume.";
 
-      // Populate Fastest Path
+      // Populate Path Track beneath hero
+      renderTrack(baseline, pathList);
+
+      // Populate Fastest Path ledger rows
       renderPath(pathList);
 
-      // Populate All Unlocks
+      // Populate All Unlocks ledger rows
       const unlocksList = dataUnlock.unlocks || [];
       unlocksCountBadge.textContent = unlocksList.length + " skills";
       renderUnlocks(unlocksList);
 
-      // Populate Best-Fit Jobs
+      // Populate Best-Fit Jobs ledger rows
       renderJobs(dataFit.jobs || []);
 
       // Footer Disclosure & Telemetry
       const corpus = dataUnlock.corpus || {};
       const dateFormatted = formatDateString(corpus.as_of_max);
-      pillDate.textContent = "As of " + dateFormatted;
+      pillDate.textContent = "Data as of " + dateFormatted;
       const notePrefix =
         corpus.sample_note || "Jobs captured from Google Jobs searches.";
       footerSampleNote.textContent =
@@ -605,8 +648,7 @@
       if (reqId !== activeRequestId) return;
       showState("error");
       if (err.name === "AbortError") {
-        errorMessage.textContent =
-          "Request timed out after 15 seconds. Please try again.";
+        errorMessage.textContent = "Request timed out after 15 seconds.";
       } else {
         errorMessage.textContent = "Could not reach the server.";
       }
@@ -618,69 +660,29 @@
     }
   }
 
-  // Populate Sample Resume
-  async function loadSampleResume(autoRun) {
+  // Load sample resume from API
+  async function loadSampleResume(triggerRun) {
     try {
       const res = await fetch("/api/sample-resume");
-      if (!res.ok) throw new Error("Failed to load sample resume");
+      if (!res.ok) throw new Error("Sample resume fetch failed");
       const data = await res.json();
       if (data && data.text) {
         resumeInput.value = data.text;
-        updateCharCount();
         sampleBadge.classList.remove("hidden");
-        if (autoRun) {
-          runAnalysis();
-        }
-      }
-    } catch (err) {
-      showState("idle");
-    }
-  }
-
-  // Load Header Meta (Health & Roles)
-  async function loadHeaderMeta() {
-    try {
-      const [resHealth, resRoles] = await Promise.all([
-        fetch("/api/health"),
-        fetch("/api/roles"),
-      ]);
-
-      if (resHealth.ok) {
-        const hData = await resHealth.json();
-        if (hData && hData.indexed_jobs_count != null) {
-          pillJobs.textContent = hData.indexed_jobs_count + " jobs indexed";
-        }
-      }
-
-      if (resRoles.ok) {
-        const rData = await resRoles.json();
-        if (rData && rData.roles) {
-          rData.roles.forEach(function (r) {
-            const labelEl = document.getElementById("role-label-" + r.role);
-            if (labelEl) {
-              labelEl.textContent = r.label + " (" + r.jobs + ")";
-            }
-          });
+        updateCharCount();
+        if (triggerRun) {
+          handleRunAnalysis();
         }
       }
     } catch (e) {
-      // Non-critical background header load
+      showState("idle");
     }
   }
 
   // Event Listeners
   resumeInput.addEventListener("input", function () {
-    updateCharCount();
     sampleBadge.classList.add("hidden");
-  });
-
-  thresholdSlider.addEventListener("input", function () {
-    const val = getThreshold();
-    thresholdVal.textContent = val + "%";
-    matchHelp.textContent =
-      "A job counts as a match when you already cover " +
-      val +
-      "% of its listed skills.";
+    updateCharCount();
   });
 
   btnSampleResume.addEventListener("click", function () {
@@ -688,27 +690,76 @@
   });
 
   btnFindUnlocks.addEventListener("click", function () {
-    runAnalysis();
+    handleRunAnalysis();
   });
 
-  roleInputs.forEach(function (radio) {
-    radio.addEventListener("change", function () {
-      if (resumeInput.value.trim().length > 0) {
-        runAnalysis();
+  thresholdSlider.addEventListener("input", function () {
+    const val = thresholdSlider.value;
+    thresholdVal.textContent = val + "%";
+    matchHelp.textContent =
+      "A job counts as a match when you already cover " +
+      val +
+      "% of its listed skills.";
+  });
+
+  thresholdSlider.addEventListener("change", function () {
+    if (resumeInput.value.trim()) {
+      handleRunAnalysis();
+    }
+  });
+
+  roleInputs.forEach(function (r) {
+    r.addEventListener("change", function () {
+      if (resumeInput.value.trim()) {
+        handleRunAnalysis();
       }
     });
   });
 
-  locationInputs.forEach(function (radio) {
-    radio.addEventListener("change", function () {
-      if (resumeInput.value.trim().length > 0) {
-        runAnalysis();
+  locationInputs.forEach(function (l) {
+    l.addEventListener("change", function () {
+      if (resumeInput.value.trim()) {
+        handleRunAnalysis();
       }
     });
   });
 
-  // Initialization
-  updateCharCount();
-  loadHeaderMeta();
-  loadSampleResume(true); // First load: fetch sample resume and run automatically
+  // Initial Boot Sequence
+  async function init() {
+    updateCharCount();
+
+    // Fetch health metadata for jobs count
+    fetch("/api/health")
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (data) {
+        if (data && data.indexed_jobs_count != null) {
+          pillJobs.textContent = data.indexed_jobs_count + " jobs indexed";
+        }
+      })
+      .catch(function () {});
+
+    // Fetch roles metadata for counts
+    fetch("/api/roles")
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (data) {
+        if (data && data.roles) {
+          data.roles.forEach(function (r) {
+            const labelEl = document.getElementById("role-label-" + r.role);
+            if (labelEl) {
+              labelEl.textContent = r.name;
+            }
+          });
+        }
+      })
+      .catch(function () {});
+
+    // First load: auto-load sample resume and run
+    loadSampleResume(true);
+  }
+
+  init();
 })();

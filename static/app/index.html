@@ -11,12 +11,12 @@
     <link
       rel="icon"
       type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='10' stroke='%232f54eb' stroke-width='2'/%3E%3Cline x1='12' y1='12' x2='19' y2='5' stroke='%232f54eb' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='12' r='2.5' fill='%232f54eb'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='10' stroke='%23171717' stroke-width='2'/%3E%3Cline x1='12' y1='12' x2='19' y2='5' stroke='%23171717' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='12' r='2.5' fill='%23171717'/%3E%3C/svg%3E"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/static/app/app.css" />
@@ -27,8 +27,8 @@
         <div class="brand">
           <svg
             class="brand-radar"
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             aria-hidden="true"
@@ -37,7 +37,7 @@
               cx="12"
               cy="12"
               r="10"
-              stroke="var(--accent)"
+              stroke="var(--ink)"
               stroke-width="2"
             />
             <line
@@ -45,23 +45,25 @@
               y1="12"
               x2="19"
               y2="5"
-              stroke="var(--accent)"
+              stroke="var(--ink)"
               stroke-width="2"
               stroke-linecap="round"
             />
-            <circle cx="12" cy="12" r="2.5" fill="var(--accent)" />
+            <circle cx="12" cy="12" r="2.5" fill="var(--ink)" />
           </svg>
           <span class="brand-name">Job &amp; Market Radar</span>
         </div>
-        <div class="header-pills">
-          <span id="pill-jobs" class="pill mono">-- jobs indexed</span>
-          <span id="pill-date" class="pill mono">As of --</span>
+        <div class="header-meta mono">
+          <span id="pill-jobs" class="header-meta-item">-- jobs indexed</span>
+          <span class="header-meta-divider" aria-hidden="true">/</span>
+          <span id="pill-date" class="header-meta-item">Data as of --</span>
         </div>
       </div>
     </header>
 
     <main class="app-container">
       <section class="hero-section">
+        <div class="eyebrow mono">SKILL UNLOCK ENGINE</div>
         <h1 aria-label="Which skill unlocks the most jobs?">
           <span class="h1-line1">Which skill unlocks</span>
           <span class="h1-line2">the most jobs?</span>
@@ -76,7 +78,9 @@
         <!-- Left Column: Resume & Filters Sticky Panel -->
         <aside class="resume-panel card" aria-label="Resume input and controls">
           <div class="panel-header">
-            <label for="resume-input" class="panel-label">Your resume</label>
+            <label for="resume-input" class="panel-label mono"
+              >Your resume</label
+            >
             <span id="sample-badge" class="sample-badge mono hidden"
               >SAMPLE RESUME: edit it or paste yours</span
             >
@@ -98,7 +102,7 @@
           </div>
 
           <fieldset class="control-group">
-            <legend class="control-label">Role</legend>
+            <legend class="control-label mono">Role</legend>
             <div class="segmented-control" id="role-segmented">
               <label class="seg-item">
                 <input type="radio" name="role-filter" value="" checked />
@@ -136,7 +140,7 @@
           </fieldset>
 
           <fieldset class="control-group">
-            <legend class="control-label">Location</legend>
+            <legend class="control-label mono">Location</legend>
             <div class="segmented-control" id="location-segmented">
               <label class="seg-item">
                 <input type="radio" name="location-filter" value="" checked />
@@ -155,7 +159,7 @@
 
           <div class="control-group">
             <div class="slider-header">
-              <label for="threshold-slider" class="control-label"
+              <label for="threshold-slider" class="control-label mono"
                 >Match bar</label
               >
               <span id="threshold-val" class="slider-val mono">60%</span>
@@ -193,11 +197,7 @@
 
           <!-- Loading State -->
           <div id="state-loading" class="state-block state-loading hidden">
-            <div class="skeleton-stat-strip">
-              <div class="skeleton-card"></div>
-              <div class="skeleton-card"></div>
-              <div class="skeleton-card"></div>
-            </div>
+            <div class="skeleton-card skeleton-hero"></div>
             <div class="skeleton-card skeleton-path"></div>
             <div class="skeleton-card skeleton-unlocks"></div>
             <div class="skeleton-card skeleton-jobs"></div>
@@ -213,29 +213,46 @@
 
           <!-- Active Results State -->
           <div id="state-results" class="results-content hidden">
-            <!-- 1. Stat Strip -->
-            <div class="stat-strip">
-              <div class="stat-block card">
-                <span class="stat-label">Matched now</span>
-                <span id="stat-matched-now" class="stat-val mono">0 / 0</span>
-              </div>
-              <div class="stat-block card stat-hero">
-                <span class="stat-label">After 3 skills</span>
-                <span id="stat-after-skills" class="stat-val mono hero-number"
+            <!-- 1. Hero Block -->
+            <div class="hero-block card" id="hero-block">
+              <div class="hero-eyebrow mono">AFTER 3 SKILLS</div>
+              <div class="hero-metric-row">
+                <span id="hero-stat-number" class="hero-stat-number mono"
                   >0</span
                 >
+                <span id="hero-stat-total" class="hero-stat-total mono">
+                  of -- jobs</span
+                >
               </div>
-              <div class="stat-block card">
-                <span class="stat-label">Skills found</span>
-                <span id="stat-skills-found" class="stat-val mono">0</span>
+              <p id="hero-support-line" class="hero-support-line">
+                Up from 0 today. 0 skills recognized in your resume.
+              </p>
+              <div class="path-track-section">
+                <div
+                  id="path-track-bar"
+                  class="path-track-bar"
+                  role="progressbar"
+                  aria-label="Cumulative job unlock track"
+                ></div>
+                <div
+                  id="path-track-labels"
+                  class="path-track-labels mono"
+                ></div>
+                <div id="path-track-empty" class="path-track-empty mono hidden">
+                  No single skill moves you closer at this match bar.
+                </div>
               </div>
             </div>
 
             <!-- 2. Fastest Path -->
             <section class="results-section" aria-labelledby="heading-path">
-              <h2 id="heading-path" class="section-title">Your fastest path</h2>
-              <div id="path-container" class="path-container">
-                <!-- Dynamically populated or empty notice -->
+              <div class="section-header-row">
+                <h2 id="heading-path" class="section-title">
+                  Your fastest path
+                </h2>
+              </div>
+              <div id="path-container" class="ledger-table">
+                <!-- Dynamically populated ledger rows -->
               </div>
             </section>
 
@@ -247,8 +264,8 @@
                   >-- skills</span
                 >
               </div>
-              <div id="unlocks-container" class="unlocks-list">
-                <!-- Dynamically populated rows with expandable buttons -->
+              <div id="unlocks-container" class="ledger-table">
+                <!-- Dynamically populated expandable ledger rows -->
               </div>
             </section>
 
@@ -262,8 +279,8 @@
                   >Top 8</span
                 >
               </div>
-              <div id="jobs-container" class="jobs-list">
-                <!-- Dynamically populated job cards -->
+              <div id="jobs-container" class="ledger-table">
+                <!-- Dynamically populated job ledger rows -->
               </div>
             </section>
 
