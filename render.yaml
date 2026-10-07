@@ -11,5 +11,13 @@ services:
         value: 3.11.8
       - key: HOST
         value: 0.0.0.0
+      - key: DUCKDB_PATH
+        value: /tmp/radar.duckdb
+      - key: CACHE_TTL_HOURS
+        value: "24"
+      - key: SEARCH_BUDGET_PER_RUN
+        value: "20"
+      - key: UNLOCK_RATE_LIMIT
+        value: "60"
       - key: SERPAPI_API_KEY
         sync: false
