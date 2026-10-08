@@ -476,7 +476,8 @@ def unlock_skills(req: UnlockRequest):
             min_job_skills=req.min_job_skills,
             location_type=req.location_type,
             role=req.role,
-            top_n=req.top_n
+            top_n=req.top_n,
+            max_age_days=req.max_age_days
         )
 
     total_query_ms = round(corpus_ms + unlock_res["query_ms"], 2)
@@ -509,7 +510,8 @@ def fit_jobs(req: FitRequest):
             min_job_skills=req.min_job_skills,
             location_type=req.location_type,
             role=req.role,
-            limit=req.limit
+            limit=req.limit,
+            max_age_days=req.max_age_days
         )
 
     total_query_ms = round(corpus_ms + fit_ms, 2)

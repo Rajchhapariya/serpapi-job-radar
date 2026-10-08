@@ -224,6 +224,7 @@ def compute_skill_unlocks(
     location_type: Optional[str] = None,
     role: Optional[str] = None,
     top_n: int = 10,
+    max_age_days: Optional[int] = None,
     table_name: str = "jobs"
 ) -> Dict[str, Any]:
     """
@@ -260,6 +261,12 @@ def compute_skill_unlocks(
     sal_min_expr = "salary_min_lpa" if "salary_min_lpa" in existing_cols else "NULL::DOUBLE AS salary_min_lpa"
     sal_max_expr = "salary_max_lpa" if "salary_max_lpa" in existing_cols else "NULL::DOUBLE AS salary_max_lpa"
 
+    age_clause = ""
+    age_params: List[Any] = []
+    if max_age_days is not None and "posted_days_ago" in existing_cols:
+        age_clause = "AND posted_days_ago <= ?"
+        age_params = [max_age_days]
+
     # 1. Materialize eligible set in temp table with precomputed n and initial m
     t0 = time.perf_counter()
     con.execute(f"""
@@ -278,7 +285,8 @@ def compute_skill_unlocks(
         WHERE len(list_distinct(skills_required)) >= ?
           {loc_clause}
           {role_clause}
-    """, [R, min_job_skills] + loc_params + role_params)
+          {age_clause}
+    """, [R, min_job_skills] + loc_params + role_params + age_params)
     total_query_ms += (time.perf_counter() - t0) * 1000
 
     # 2. Baseline matching query
@@ -480,6 +488,7 @@ def compute_job_fit(
     location_type: Optional[str] = None,
     role: Optional[str] = None,
     limit: int = 500,
+    max_age_days: Optional[int] = None,
     table_name: str = "jobs"
 ) -> Tuple[List[Dict[str, Any]], float]:
     """
@@ -515,6 +524,13 @@ def compute_job_fit(
     apply_opts_expr = "apply_options" if "apply_options" in existing_cols else "NULL::JSON AS apply_options"
     posted_at_expr = "posted_at" if "posted_at" in existing_cols else "NULL::VARCHAR AS posted_at"
     desc_expr = "substring(description, 1, 260) AS description_snippet" if "description" in existing_cols else "NULL::VARCHAR AS description_snippet"
+    posted_days_expr = "posted_days_ago" if "posted_days_ago" in existing_cols else "NULL::INTEGER AS posted_days_ago"
+
+    age_clause = ""
+    age_params: List[Any] = []
+    if max_age_days is not None and "posted_days_ago" in existing_cols:
+        age_clause = "AND posted_days_ago <= ?"
+        age_params = [max_age_days]
 
     t0 = time.perf_counter()
     query = f"""
@@ -531,6 +547,7 @@ def compute_job_fit(
                 {apply_opts_expr},
                 {posted_at_expr},
                 {desc_expr},
+                {posted_days_expr},
                 list_distinct(skills_required) AS skills,
                 len(list_distinct(skills_required)) AS n,
                 list_intersect(list_distinct(skills_required), ?::VARCHAR[]) AS matched_skills,
@@ -539,6 +556,7 @@ def compute_job_fit(
             WHERE len(list_distinct(skills_required)) >= ?
               {loc_clause}
               {role_clause}
+              {age_clause}
         )
         SELECT 
             job_id,
@@ -567,14 +585,15 @@ def compute_job_fit(
             apply_link,
             apply_options,
             posted_at,
-            description_snippet
+            description_snippet,
+            posted_days_ago
         FROM eligible
         ORDER BY match_pct DESC, title ASC, job_id ASC
         LIMIT ?
     """
     params = [
         R, R, min_job_skills
-    ] + loc_params + role_params + [
+    ] + loc_params + role_params + age_params + [
         R, threshold, threshold,
         ROLE_PATTERNS["ml_ai"],
         ROLE_PATTERNS["data"],
@@ -595,6 +614,21 @@ def compute_job_fit(
             except Exception:
                 apply_opts = None
 
+        if isinstance(apply_opts, list) and len(apply_opts) > 1:
+            def portal_priority(opt):
+                link = str((opt or {}).get("link", "")).lower()
+                title = str((opt or {}).get("title", "")).lower()
+                if any(k in link for k in ["greenhouse.io", "lever.co", "workday", "smartrecruiters", "myworkdayjobs", "careers", "jobs."]):
+                    return 0
+                if "linkedin" in link or "linkedin" in title:
+                    return 1
+                if "naukri" in link or "indeed" in link or "naukri" in title:
+                    return 2
+                if any(k in link or k in title for k in ["shine", "jobmapp", "clickjobs", "timesjobs"]):
+                    return 4
+                return 3
+            apply_opts = sorted(apply_opts, key=portal_priority)
+
         results.append({
             "job_id": r[0],
             "title": r[1],
@@ -611,7 +645,8 @@ def compute_job_fit(
             "apply_link": r[12],
             "apply_options": apply_opts,
             "posted_at": r[14],
-            "description_snippet": r[15] or ""
+            "description_snippet": r[15] or "",
+            "posted_days_ago": r[16]
         })
 
     return results, round(elapsed_ms, 2)

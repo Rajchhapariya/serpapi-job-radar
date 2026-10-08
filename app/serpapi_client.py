@@ -171,6 +171,57 @@ def sanitize_salary_raw(val: Optional[str]) -> Optional[str]:
     return trimmed
 
 
+def extract_posted_at_from_extensions(item: Dict[str, Any]) -> str:
+    """
+    Extracts relative posting timestamp string (e.g. '2 days ago', '5 hours ago')
+    from detected_extensions or the extensions array.
+    """
+    ext = item.get("detected_extensions") or {}
+    cand = ext.get("posted_at")
+    if cand and isinstance(cand, str) and cand.strip():
+        return cand.strip()
+
+    for e in (item.get("extensions") or []):
+        if not isinstance(e, str):
+            continue
+        cleaned = e.strip()
+        lower = cleaned.lower()
+        if lower in RELATIVE_TIME_KEYWORDS or re.search(r'\b(?:hour|day|week|month|year)s?\s+ago\b', lower) or re.search(r'^\d+\s+(?:minute|hour|day|week|month|year)s?\s+ago$', lower):
+            return cleaned
+    return ""
+
+
+def parse_posted_days_ago(posted_str: Optional[str]) -> Optional[int]:
+    """
+    Converts relative posting timestamp into an integer number of days ago.
+    Returns 0 for today/hours ago, exact days for days/weeks, 30*months for months,
+    and 365*years for years.
+    Returns None if unparseable or unknown.
+    """
+    if not posted_str or not isinstance(posted_str, str):
+        return None
+    lower = posted_str.strip().lower()
+    if not lower:
+        return None
+    if any(k in lower for k in ["hour", "minute", "today", "just now"]):
+        return 0
+    if "yesterday" in lower:
+        return 1
+    m = re.search(r'(\d+)\s+day', lower)
+    if m:
+        return int(m.group(1))
+    m = re.search(r'(\d+)\s+week', lower)
+    if m:
+        return int(m.group(1)) * 7
+    m = re.search(r'(\d+)\s+month', lower)
+    if m:
+        return int(m.group(1)) * 30
+    m = re.search(r'(\d+)\s+year', lower)
+    if m:
+        return int(m.group(1)) * 365
+    return None
+
+
 def extract_salary_from_extensions(item: Dict[str, Any]) -> Optional[str]:
     """
     Extracts salary string from detected_extensions or extensions list.
@@ -335,7 +386,8 @@ class SerpApiClient:
                     work_from_home = bool(extensions.get("work_from_home", False) or wfh_from_ext or "remote" in loc_str.lower() or "anywhere" in loc_str.lower())
                     schedule_type = extensions.get(
                         "schedule_type", "Full-time")
-                    posted_at = extensions.get("posted_at", "")
+                    posted_at = extract_posted_at_from_extensions(item)
+                    posted_days_ago = parse_posted_days_ago(posted_at)
 
                     # Extract salary string strictly without false positives
                     salary_raw = extract_salary_from_extensions(item)
@@ -389,6 +441,7 @@ class SerpApiClient:
                         "apply_options": apply_options,
                         "portal_count": portal_count,
                         "posted_at": posted_at,
+                        "posted_days_ago": posted_days_ago,
                         "source_query": query,
                         "source_queries": [query] if query else [],
                         "source_gl": gl,

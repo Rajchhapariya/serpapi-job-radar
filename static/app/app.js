@@ -62,6 +62,9 @@
   const locationInputs = document.querySelectorAll(
     'input[name="location-filter"]',
   );
+  const recencyInputs = document.querySelectorAll(
+    'input[name="recency-filter"]',
+  );
 
   // State
   let activeRequestId = 0;
@@ -132,6 +135,16 @@
       }
     }
     return null;
+  }
+
+  function getSelectedRecency() {
+    for (let i = 0; i < recencyInputs.length; i++) {
+      if (recencyInputs[i].checked) {
+        const val = recencyInputs[i].value;
+        return val ? parseInt(val, 10) : null;
+      }
+    }
+    return 30;
   }
 
   function getThreshold() {
@@ -444,6 +457,32 @@
       }
       badges.appendChild(statusChip);
 
+      // Freshness badge
+      if (job.posted_days_ago !== undefined && job.posted_days_ago !== null) {
+        const freshChip = document.createElement("span");
+        if (job.posted_days_ago <= 1) {
+          freshChip.className = "job-freshness-badge freshness-fresh mono";
+          freshChip.textContent =
+            job.posted_days_ago === 0 ? "Today" : "1d ago";
+        } else if (job.posted_days_ago <= 7) {
+          freshChip.className = "job-freshness-badge freshness-fresh mono";
+          freshChip.textContent = job.posted_days_ago + "d ago";
+        } else if (job.posted_days_ago <= 30) {
+          freshChip.className = "job-freshness-badge freshness-recent mono";
+          freshChip.textContent = Math.round(job.posted_days_ago / 7) + "w ago";
+        } else {
+          freshChip.className = "job-freshness-badge freshness-stale mono";
+          freshChip.textContent =
+            Math.round(job.posted_days_ago / 30) + "mo ago";
+        }
+        badges.appendChild(freshChip);
+      } else if (job.posted_at) {
+        const freshChip = document.createElement("span");
+        freshChip.className = "job-freshness-badge freshness-recent mono";
+        freshChip.textContent = job.posted_at;
+        badges.appendChild(freshChip);
+      }
+
       // Portals as "{n} portals" or "8+ portals"
       const portalChip = document.createElement("span");
       portalChip.className = "job-portal-badge mono";
@@ -539,9 +578,18 @@
         : "Salary: Not disclosed";
       drawerMeta.appendChild(salSpan);
 
-      if (job.posted_at) {
+      if (
+        job.posted_at ||
+        (job.posted_days_ago !== undefined && job.posted_days_ago !== null)
+      ) {
         const postedSpan = document.createElement("span");
-        postedSpan.textContent = "Posted: " + job.posted_at;
+        const ageLabel =
+          job.posted_at ||
+          (job.posted_days_ago === 0
+            ? "Today"
+            : job.posted_days_ago + " days ago");
+        postedSpan.textContent =
+          "Posted: " + ageLabel + " (verified via Google Jobs)";
         drawerMeta.appendChild(postedSpan);
       }
 
@@ -669,6 +717,7 @@
     const threshold = getThreshold();
     const role = getSelectedRole();
     const locationType = getSelectedLocation();
+    const maxAgeDays = getSelectedRecency();
 
     const payloadUnlock = {
       resume_text: resumeText,
@@ -677,6 +726,7 @@
     };
     if (role) payloadUnlock.role = role;
     if (locationType) payloadUnlock.location_type = locationType;
+    if (maxAgeDays) payloadUnlock.max_age_days = maxAgeDays;
 
     const payloadFit = {
       resume_text: resumeText,
@@ -685,6 +735,7 @@
     };
     if (role) payloadFit.role = role;
     if (locationType) payloadFit.location_type = locationType;
+    if (maxAgeDays) payloadFit.max_age_days = maxAgeDays;
 
     const controller = new AbortController();
     const timeoutId = setTimeout(function () {
@@ -1112,6 +1163,14 @@
 
   locationInputs.forEach(function (l) {
     l.addEventListener("change", function () {
+      if (resumeInput.value.trim()) {
+        handleRunAnalysis();
+      }
+    });
+  });
+
+  recencyInputs.forEach(function (rec) {
+    rec.addEventListener("change", function () {
       if (resumeInput.value.trim()) {
         handleRunAnalysis();
       }

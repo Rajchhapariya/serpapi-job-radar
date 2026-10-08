@@ -51,6 +51,7 @@ class JobItem(BaseModel):
     salary: Optional[str] = None
     apply_link: Optional[str] = None
     posted_at: Optional[str] = None
+    posted_days_ago: Optional[int] = None
     scraped_at: str
     apply_options: Optional[Any] = None
     portal_count: Optional[int] = 1
@@ -99,6 +100,7 @@ class UnlockRequest(BaseModel):
     top_n: int = Field(default=10, ge=1, le=25)
     location_type: Optional[str] = Field(default=None, pattern="^(Remote|On-site)$")
     role: Optional[str] = Field(default=None, pattern="^(backend|data|ml_ai|devops_cloud|frontend_fullstack)$")
+    max_age_days: Optional[int] = Field(default=None, ge=1, le=365)
 
 
 class FitRequest(BaseModel):
@@ -109,5 +111,6 @@ class FitRequest(BaseModel):
     limit: int = Field(default=500, ge=1, le=500)
     location_type: Optional[str] = Field(default=None, pattern="^(Remote|On-site)$")
     role: Optional[str] = Field(default=None, pattern="^(backend|data|ml_ai|devops_cloud|frontend_fullstack)$")
+    max_age_days: Optional[int] = Field(default=None, ge=1, le=365)
 
 

@@ -178,6 +178,28 @@
             </div>
           </fieldset>
 
+          <fieldset class="control-group">
+            <legend class="control-label mono">Posting Recency</legend>
+            <div class="segmented-control" id="recency-segmented">
+              <label class="seg-item">
+                <input type="radio" name="recency-filter" value="30" checked />
+                <span class="seg-label">30d (Active)</span>
+              </label>
+              <label class="seg-item">
+                <input type="radio" name="recency-filter" value="14" />
+                <span class="seg-label">14d</span>
+              </label>
+              <label class="seg-item">
+                <input type="radio" name="recency-filter" value="7" />
+                <span class="seg-label">7d</span>
+              </label>
+              <label class="seg-item">
+                <input type="radio" name="recency-filter" value="" />
+                <span class="seg-label">Any</span>
+              </label>
+            </div>
+          </fieldset>
+
           <div class="control-group">
             <div class="slider-header">
               <label for="threshold-slider" class="control-label mono"

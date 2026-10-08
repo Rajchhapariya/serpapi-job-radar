@@ -199,7 +199,8 @@ class DatabaseManager:
                     source_gl VARCHAR,
                     is_snapshot BOOLEAN DEFAULT FALSE,
                     serpapi_token VARCHAR,
-                    source_queries VARCHAR[]
+                    source_queries VARCHAR[],
+                    posted_days_ago INTEGER
                 );
             """)
             # Non-destructive migrations for existing database files
@@ -238,7 +239,8 @@ class DatabaseManager:
                 ("source_gl", "VARCHAR"),
                 ("is_snapshot", "BOOLEAN DEFAULT FALSE"),
                 ("serpapi_token", "VARCHAR"),
-                ("source_queries", "VARCHAR[]")
+                ("source_queries", "VARCHAR[]"),
+                ("posted_days_ago", "INTEGER")
             ]
             for col, ctype in new_columns:
                 try:
@@ -274,6 +276,20 @@ class DatabaseManager:
                         OR lower(trim(salary)) IN ('just now', 'yesterday', 'today')
                         OR trim(salary) = ''
                     ));
+                """)
+            except Exception:
+                pass
+
+            # Backfill posted_days_ago from scraped_at if null
+            try:
+                con.execute("""
+                    UPDATE jobs
+                    SET posted_days_ago = CASE
+                        WHEN posted_days_ago IS NOT NULL THEN posted_days_ago
+                        WHEN scraped_at IS NOT NULL THEN GREATEST(0, CAST(date_diff('day', scraped_at, CURRENT_TIMESTAMP) AS INTEGER))
+                        ELSE 0
+                    END
+                    WHERE posted_days_ago IS NULL;
                 """)
             except Exception:
                 pass
@@ -364,8 +380,8 @@ class DatabaseManager:
             merged["location_type"] = existing.get("location_type") or incoming.get("location_type") or "On-site"
 
         # Update non-protected metadata fields from incoming if present
-        for field in ["title", "company_name", "location", "via", "description", "schedule_type", "posted_at", "via_platform", "source_gl"]:
-            if incoming.get(field):
+        for field in ["title", "company_name", "location", "via", "description", "schedule_type", "posted_at", "posted_days_ago", "via_platform", "source_gl"]:
+            if incoming.get(field) is not None:
                 merged[field] = incoming[field]
 
         return merged
@@ -464,6 +480,7 @@ class DatabaseManager:
                 "salary": salary_raw,
                 "apply_link": apply_link,
                 "posted_at": job.get("posted_at", ""),
+                "posted_days_ago": job.get("posted_days_ago"),
                 "scraped_at": scraped_at,
                 "via_platform": job.get("via_platform") or via,
                 "salary_raw": salary_raw,
@@ -487,14 +504,16 @@ class DatabaseManager:
                 salary, apply_link, posted_at, scraped_at,
                 via_platform, salary_raw, location_type, skills_required,
                 apply_options, portal_count, salary_min_lpa, salary_max_lpa,
-                source_query, source_gl, is_snapshot, serpapi_token, source_queries
+                source_query, source_gl, is_snapshot, serpapi_token, source_queries,
+                posted_days_ago
             ) VALUES (
                 ?, ?, ?, ?, ?,
                 ?, ?, ?,
                 ?, ?, ?, ?,
                 ?, ?, ?, ?,
                 ?, ?, ?, ?,
-                ?, ?, ?, ?, ?
+                ?, ?, ?, ?, ?,
+                ?
             )
             ON CONFLICT (job_id) DO UPDATE SET
                 title = excluded.title,
@@ -506,6 +525,7 @@ class DatabaseManager:
                 work_from_home = excluded.work_from_home,
                 salary = excluded.salary,
                 apply_link = excluded.apply_link,
+                posted_at = excluded.posted_at,
                 scraped_at = excluded.scraped_at,
                 via_platform = excluded.via_platform,
                 salary_raw = excluded.salary_raw,
@@ -519,7 +539,8 @@ class DatabaseManager:
                 source_gl = excluded.source_gl,
                 is_snapshot = excluded.is_snapshot,
                 serpapi_token = excluded.serpapi_token,
-                source_queries = excluded.source_queries;
+                source_queries = excluded.source_queries,
+                posted_days_ago = excluded.posted_days_ago;
         """
 
         with self.get_connection() as con:
@@ -548,7 +569,7 @@ class DatabaseManager:
                         rec.get("via_platform", ""), rec.get("salary_raw"), rec.get("location_type", "On-site"), rec.get("skills_required", []),
                         opts_json, rec.get("portal_count", 1), rec.get("salary_min_lpa"), rec.get("salary_max_lpa"),
                         rec.get("source_query"), rec.get("source_gl", "in"), bool(rec.get("is_snapshot", False)),
-                        rec.get("serpapi_token"), rec.get("source_queries", [])
+                        rec.get("serpapi_token"), rec.get("source_queries", []), rec.get("posted_days_ago")
                     ]
                     con.execute(upsert_sql, params)
 
@@ -558,15 +579,15 @@ class DatabaseManager:
                 con.execute("ROLLBACK;")
                 raise
 
-    def load_snapshots_if_empty(self, snapshots_dir: Optional[str] = None) -> int:
+    def load_snapshots_if_empty(self, snapshots_dir: Optional[str] = None, force: bool = False) -> int:
         """
-        Loads snapshots from data/snapshots/*.json if the jobs table is empty.
+        Loads snapshots from data/snapshots/*.json if the jobs table is empty, or refreshes
+        metadata if force=True.
         Uses snapshot captured_at as scraped_at and sets is_snapshot=True.
-        Idempotent: if table has data, does nothing.
         """
         with self.get_connection() as con:
             count = con.execute("SELECT COUNT(*) FROM jobs").fetchone()[0]
-            if count > 0:
+            if count > 0 and not force:
                 return 0
 
         if not snapshots_dir:
@@ -591,7 +612,12 @@ class DatabaseManager:
                 q_meta = data.get("query_params", {})
                 
                 # Import parser dynamically to avoid circular import
-                from app.serpapi_client import parse_indian_salary_to_lpa, extract_salary_from_extensions
+                from app.serpapi_client import (
+                    parse_indian_salary_to_lpa,
+                    extract_salary_from_extensions,
+                    extract_posted_at_from_extensions,
+                    parse_posted_days_ago
+                )
 
                 for item in raw_jobs:
                     # Detected extensions & raw extensions
@@ -601,7 +627,14 @@ class DatabaseManager:
                     loc_str = str(item.get("location") or "")
                     wfh = bool(ext.get("work_from_home", False) or wfh_from_ext or "remote" in loc_str.lower() or "anywhere" in loc_str.lower())
                     sched = ext.get("schedule_type", "Full-time")
-                    posted = ext.get("posted_at", "")
+                    posted = extract_posted_at_from_extensions(item)
+                    posted_days = parse_posted_days_ago(posted)
+                    if posted_days is None and captured_at:
+                        try:
+                            dt_cap = datetime.fromisoformat(str(captured_at).replace("Z", "+00:00"))
+                            posted_days = max(0, (datetime.now(timezone.utc) - dt_cap).days)
+                        except Exception:
+                            posted_days = 0
                     
                     # Extract salary string strictly without relative-time leakage
                     salary_str = extract_salary_from_extensions(item)
@@ -648,6 +681,7 @@ class DatabaseManager:
                         "salary_raw": salary_str,
                         "apply_link": apply_link,
                         "posted_at": posted,
+                        "posted_days_ago": posted_days,
                         "captured_at": captured_at,
                         "scraped_at": captured_at,
                         "apply_options": apply_opts,

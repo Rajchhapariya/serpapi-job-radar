@@ -1,4 +1,5 @@
 import io
+import json
 import pytest
 from fastapi.testclient import TestClient
 from pypdf import PdfWriter
@@ -190,3 +191,107 @@ def test_pdf_upload_reject_empty_payload():
     )
     assert res.status_code == 422
     assert "empty" in res.json()["detail"]
+
+
+# ==================== RECENCY & FRESHNESS INTELLIGENCE ====================
+
+def test_relative_age_parsing_units():
+    """Validates deterministic relative-age parsing across hours, days, weeks, months, and years."""
+    from app.serpapi_client import parse_posted_days_ago, extract_posted_at_from_extensions
+
+    assert parse_posted_days_ago("3 hours ago") == 0
+    assert parse_posted_days_ago("today") == 0
+    assert parse_posted_days_ago("just now") == 0
+    assert parse_posted_days_ago("yesterday") == 1
+    assert parse_posted_days_ago("1 day ago") == 1
+    assert parse_posted_days_ago("5 days ago") == 5
+    assert parse_posted_days_ago("2 weeks ago") == 14
+    assert parse_posted_days_ago("1 month ago") == 30
+    assert parse_posted_days_ago("3 months ago") == 90
+    assert parse_posted_days_ago("1 year ago") == 365
+    assert parse_posted_days_ago("2 years ago") == 730
+    assert parse_posted_days_ago("") is None
+    assert parse_posted_days_ago(None) is None
+
+    # Test extraction from item
+    item_with_ext = {"extensions": ["Full-time", "4 days ago", "15L - 25L a year"]}
+    assert extract_posted_at_from_extensions(item_with_ext) == "4 days ago"
+
+    item_with_detected = {"detected_extensions": {"posted_at": "2 days ago"}}
+    assert extract_posted_at_from_extensions(item_with_detected) == "2 days ago"
+
+
+def test_unlock_recency_filter_excludes_stale_jobs():
+    """Validates that POST /api/unlock applies max_age_days to exclude stale/older jobs from baseline math."""
+    res_all = client.post("/api/unlock", json={"skills": ["Python", "SQL"], "threshold": 60})
+    assert res_all.status_code == 200
+    all_eligible = res_all.json()["baseline"]["eligible_jobs"]
+
+    res_7d = client.post("/api/unlock", json={"skills": ["Python", "SQL"], "threshold": 60, "max_age_days": 7})
+    assert res_7d.status_code == 200
+    fresh_eligible = res_7d.json()["baseline"]["eligible_jobs"]
+
+    # In our corpus, fresh 7-day jobs are a subset of the full corpus
+    assert fresh_eligible > 0
+    assert fresh_eligible <= all_eligible
+
+
+def test_fit_recency_filter_returns_strictly_fresh_jobs():
+    """Validates that POST /api/fit with max_age_days returns only jobs within the age boundary."""
+    res = client.post("/api/fit", json={"skills": ["Python", "SQL"], "limit": 20, "max_age_days": 7})
+    assert res.status_code == 200
+    data = res.json()
+    assert "jobs" in data
+    assert len(data["jobs"]) > 0
+
+    for job in data["jobs"]:
+        assert "posted_days_ago" in job
+        if job["posted_days_ago"] is not None:
+            assert job["posted_days_ago"] <= 7, f"Job {job['title']} exceeded max_age_days 7: {job['posted_days_ago']}"
+
+
+def test_smart_portal_prioritization():
+    """Validates that direct ATS endpoints and LinkedIn are prioritized above aggregator scrapers."""
+    import duckdb
+    from app.unlock import compute_job_fit
+
+    con = duckdb.connect()
+    con.execute("""
+        CREATE TABLE jobs (
+            job_id VARCHAR PRIMARY KEY,
+            title VARCHAR,
+            company_name VARCHAR,
+            location VARCHAR,
+            location_type VARCHAR,
+            portal_count INTEGER,
+            skills_required VARCHAR[],
+            apply_options JSON,
+            salary VARCHAR,
+            apply_link VARCHAR,
+            posted_at VARCHAR,
+            posted_days_ago INTEGER,
+            description VARCHAR
+        );
+    """)
+    opts = [
+        {"title": "Shine.com", "link": "https://www.shine.com/jobs/sample"},
+        {"title": "Company Careers", "link": "https://boards.greenhouse.io/sample/jobs"},
+        {"title": "LinkedIn", "link": "https://www.linkedin.com/jobs/view/123"}
+    ]
+    con.execute("""
+        INSERT INTO jobs VALUES (
+            'test_1', 'Python Developer', 'Acme', 'Remote', 'Remote', 3,
+            ['Python', 'SQL', 'FastAPI'], ?, '20 LPA', 'https://example.com', '1 day ago', 1, 'Sample job description'
+        );
+    """, [json.dumps(opts)])
+
+    jobs, _ = compute_job_fit(con, ["Python", "SQL", "FastAPI"], threshold=60)
+    assert len(jobs) == 1
+    sorted_opts = jobs[0]["apply_options"]
+    assert len(sorted_opts) == 3
+    # Greenhouse should be first, LinkedIn second, Shine last
+    assert "greenhouse" in sorted_opts[0]["link"].lower()
+    assert "linkedin" in sorted_opts[1]["link"].lower()
+    assert "shine" in sorted_opts[2]["link"].lower()
+    con.close()
+

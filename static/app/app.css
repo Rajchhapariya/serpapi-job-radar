@@ -930,6 +930,30 @@ h1 {
   background: var(--inset);
 }
 
+.job-freshness-badge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.freshness-fresh {
+  color: var(--green);
+  background: var(--green-soft);
+}
+
+.freshness-recent {
+  color: var(--ink-2);
+  background: var(--inset);
+  border: 1px solid var(--line);
+}
+
+.freshness-stale {
+  color: var(--amber);
+  background: var(--amber-soft);
+}
+
 .job-portal-badge {
   font-size: 12px;
   color: var(--ink-3);
