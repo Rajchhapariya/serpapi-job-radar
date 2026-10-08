@@ -22,6 +22,7 @@ from app.unlock import (
     get_corpus_stats
 )
 
+db_manager.load_snapshots_if_empty()
 client = TestClient(app)
 
 
