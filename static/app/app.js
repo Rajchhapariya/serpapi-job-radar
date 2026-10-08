@@ -37,6 +37,9 @@
   const unlocksContainer = document.getElementById("unlocks-container");
   const unlocksCountBadge = document.getElementById("unlocks-count-badge");
   const jobsContainer = document.getElementById("jobs-container");
+  const jobsCountBadge = document.getElementById("jobs-count-badge");
+  const jobsFooterRow = document.getElementById("jobs-footer-row");
+  const btnToggleAllJobs = document.getElementById("btn-toggle-all-jobs");
 
   const footerSampleNote = document.getElementById("footer-sample-note");
   const footerTelemetry = document.getElementById("footer-telemetry");
@@ -69,6 +72,8 @@
   // State
   let activeRequestId = 0;
   let currentlyExpandedAccordion = null;
+  let allCurrentJobs = [];
+  let isShowingAllJobs = false;
 
   const MONTHS = [
     "Jan",
@@ -412,19 +417,54 @@
 
   // Render Best-Fit Jobs Ledger Rows
   function renderJobs(jobsList) {
+    if (jobsList !== undefined) {
+      allCurrentJobs = jobsList || [];
+    }
+    const currentList = allCurrentJobs;
+
     clearElementChildren(jobsContainer);
 
-    if (!jobsList || jobsList.length === 0) {
+    if (!currentList || currentList.length === 0) {
       const emptyRow = document.createElement("div");
       emptyRow.className = "ledger-row ledger-row-empty mono";
       emptyRow.textContent = "No matching jobs found for current filters.";
       jobsContainer.appendChild(emptyRow);
+      if (jobsCountBadge) jobsCountBadge.textContent = "0 jobs";
+      if (jobsFooterRow) jobsFooterRow.classList.add("hidden");
       return;
     }
 
-    const topJobs = jobsList.slice(0, 10);
+    if (jobsFooterRow) jobsFooterRow.classList.remove("hidden");
 
-    topJobs.forEach(function (job, idx) {
+    const displayedJobs = isShowingAllJobs
+      ? currentList
+      : currentList.slice(0, 10);
+
+    if (jobsCountBadge) {
+      jobsCountBadge.textContent = isShowingAllJobs
+        ? "All " + currentList.length + " jobs"
+        : "Top " +
+          Math.min(10, currentList.length) +
+          " of " +
+          currentList.length;
+    }
+
+    if (btnToggleAllJobs) {
+      if (currentList.length <= 10) {
+        btnToggleAllJobs.classList.add("hidden");
+      } else {
+        btnToggleAllJobs.classList.remove("hidden");
+        btnToggleAllJobs.textContent = isShowingAllJobs
+          ? "Show top 10 jobs"
+          : "Show all " +
+            currentList.length +
+            " matching jobs (" +
+            (currentList.length - 10) +
+            " more)";
+      }
+    }
+
+    displayedJobs.forEach(function (job, idx) {
       const row = document.createElement("div");
       row.className = "ledger-row job-ledger-row stagger-row";
       row.style.animationDelay = Math.min(idx, 7) * 30 + "ms";
@@ -710,6 +750,7 @@
     }
 
     const reqId = ++activeRequestId;
+    isShowingAllJobs = false;
     showState("loading");
     btnFindUnlocks.disabled = true;
     btnFindUnlocks.textContent = "Finding...";
@@ -1179,6 +1220,13 @@
 
   if (btnFetchLive) {
     btnFetchLive.addEventListener("click", handleFetchLive);
+  }
+
+  if (btnToggleAllJobs) {
+    btnToggleAllJobs.addEventListener("click", function () {
+      isShowingAllJobs = !isShowingAllJobs;
+      renderJobs();
+    });
   }
 
   // Resume PDF Upload Handling

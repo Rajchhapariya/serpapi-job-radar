@@ -57,6 +57,14 @@
           <span id="pill-jobs" class="header-meta-item">-- jobs indexed</span>
           <span class="header-meta-divider" aria-hidden="true">/</span>
           <span id="pill-date" class="header-meta-item">Data as of --</span>
+          <span class="header-meta-divider" aria-hidden="true">/</span>
+          <a
+            href="/legacy"
+            class="header-meta-link mono"
+            target="_blank"
+            rel="noopener"
+            >Browse All Jobs ↗</a
+          >
         </div>
       </div>
     </header>
@@ -335,6 +343,23 @@
               </div>
               <div id="jobs-container" class="ledger-table">
                 <!-- Dynamically populated job ledger rows -->
+              </div>
+              <div id="jobs-footer-row" class="jobs-footer-row mono hidden">
+                <button
+                  type="button"
+                  id="btn-toggle-all-jobs"
+                  class="btn-toggle-jobs mono"
+                >
+                  Show all matching jobs
+                </button>
+                <a
+                  href="/legacy"
+                  class="jobs-explorer-link mono"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Browse complete 361-job analytical database (DuckDB) ↗
+                </a>
               </div>
             </section>
 
