@@ -7,7 +7,12 @@ from datetime import datetime, timezone, timedelta
 import duckdb
 from typing import List, Dict, Any, Optional, Tuple
 
-DATABASE_FILE = os.getenv("DUCKDB_PATH") or os.getenv("DATABASE_PATH", "radar.duckdb")
+DEFAULT_DB_PATH = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "radar.duckdb"
+)
+DATABASE_FILE = (
+    os.getenv("DUCKDB_PATH") or os.getenv("DATABASE_PATH") or DEFAULT_DB_PATH
+)
 
 TRACKED_SKILLS = [
     # Languages & Core
