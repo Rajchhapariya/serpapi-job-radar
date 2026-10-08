@@ -511,7 +511,8 @@ def test_comprehensive_input_field_validations():
     assert res.status_code == 422
 
 
-def test_readonly_sql_execution():
+def test_readonly_sql_execution(monkeypatch):
+    monkeypatch.setenv("ENABLE_SQL_CONSOLE", "true")
     from fastapi.testclient import TestClient
     from app.main import app
     client = TestClient(app)
@@ -526,7 +527,8 @@ def test_readonly_sql_execution():
     assert data["row_count"] >= 1
 
 
-def test_readonly_sql_security_sandbox():
+def test_readonly_sql_security_sandbox(monkeypatch):
+    monkeypatch.setenv("ENABLE_SQL_CONSOLE", "true")
     from fastapi.testclient import TestClient
     from app.main import app
     client = TestClient(app)
@@ -562,7 +564,8 @@ def test_export_csv_and_json():
     assert "attachment; filename=serpapi_jobs_radar.json" in res_json.headers["content-disposition"]
 
 
-def test_sql_console_presets_execution():
+def test_sql_console_presets_execution(monkeypatch):
+    monkeypatch.setenv("ENABLE_SQL_CONSOLE", "true")
     from fastapi.testclient import TestClient
     from app.main import app
     client = TestClient(app)
@@ -1010,10 +1013,11 @@ def test_salary_parser_boundaries_and_sanitization():
     assert sanitize_salary_raw("   ") is None
 
 
-def test_api_health_and_quota_privacy():
+def test_api_health_and_quota_privacy(monkeypatch):
     """
     Verifies that /api/health and /api/quota NEVER leak account_email, plan name, or private credentials.
     """
+    monkeypatch.setenv("ENABLE_QUOTA_ENDPOINT", "true")
     from fastapi.testclient import TestClient
     from unittest.mock import patch
     import app.main as main_mod
@@ -1408,6 +1412,53 @@ def test_deterministic_pagination_with_identical_timestamps(temp_db):
 
     run_2_ids = [j["job_id"] for j in run_2_jobs]
     assert run_1_ids == run_2_ids
+
+
+
+def test_endpoints_disabled_by_default(monkeypatch):
+    """
+    Verifies that /api/sql and /api/quota return 404 {"detail": "Not found"} by default,
+    that enabling each flag via environment variable allows them to function,
+    and that /legacy still returns 200 regardless of flag states.
+    """
+    from fastapi.testclient import TestClient
+    from unittest.mock import patch
+    import app.main as main_mod
+
+    client = TestClient(main_mod.app)
+
+    # 1. Defaults (disabled)
+    monkeypatch.delenv("ENABLE_SQL_CONSOLE", raising=False)
+    monkeypatch.delenv("ENABLE_QUOTA_ENDPOINT", raising=False)
+
+    res_sql = client.post("/api/sql", json={"query": "SELECT 1"})
+    assert res_sql.status_code == 404
+    assert res_sql.json() == {"detail": "Not found"}
+
+    res_quota = client.get("/api/quota")
+    assert res_quota.status_code == 404
+    assert res_quota.json() == {"detail": "Not found"}
+
+    res_legacy = client.get("/legacy")
+    assert res_legacy.status_code == 200
+
+    # 2. Enable SQL console only
+    monkeypatch.setenv("ENABLE_SQL_CONSOLE", "true")
+    res_sql_enabled = client.post("/api/sql", json={"query": "SELECT 1"})
+    assert res_sql_enabled.status_code == 200
+
+    assert client.get("/api/quota").status_code == 404
+
+    # 3. Enable Quota endpoint only
+    monkeypatch.delenv("ENABLE_SQL_CONSOLE", raising=False)
+    monkeypatch.setenv("ENABLE_QUOTA_ENDPOINT", "true")
+    with patch.object(main_mod.serpapi_client, "get_account_quota", return_value={"total_searches_left": 100}):
+        res_quota_enabled = client.get("/api/quota")
+        assert res_quota_enabled.status_code == 200
+    assert client.post("/api/sql", json={"query": "SELECT 1"}).status_code == 404
+
+    # /legacy still 200
+    assert client.get("/legacy").status_code == 200
 
 
 

@@ -170,8 +170,7 @@ async def custom_http_exception_handler(request: Request, exc: StarletteHTTPExce
         if request.url.path.startswith("/api/") or "application/json" in accept:
             return JSONResponse(
                 status_code=404,
-                content={"error": "Not Found",
-                         "detail": exc.detail, "path": request.url.path}
+                content={"detail": exc.detail}
             )
         page_404 = os.path.join(STATIC_DIR, "404.html")
         if os.path.exists(page_404):
@@ -268,6 +267,8 @@ def health_check():
 
 @app.get("/api/quota")
 def get_quota():
+    if not os.getenv("ENABLE_QUOTA_ENDPOINT", "false").lower() in ("true", "1", "yes"):
+        raise HTTPException(status_code=404, detail="Not found")
     quota = serpapi_client.get_account_quota()
     cleaned_quota = None
     if quota:
@@ -539,6 +540,8 @@ def get_sample_resume():
 
 @app.post("/api/sql")
 def execute_sql(req: SQLQueryRequest):
+    if not os.getenv("ENABLE_SQL_CONSOLE", "false").lower() in ("true", "1", "yes"):
+        raise HTTPException(status_code=404, detail="Not found")
     try:
         return db_manager.execute_readonly_query(req.query)
     except ValueError as ve:
