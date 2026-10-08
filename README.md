@@ -23,10 +23,10 @@ The engine evaluates technical skill coverage through exact set arithmetic witho
 ## SerpApi Integration
 
 - **Engine:** Google Jobs via SerpApi (`google_jobs`).
-- **Pagination:** Traversal via `next_page_token` (2 calls, 10 + 9 jobs, 0 duplicates, verified live).
+- **Pagination:** Traversal via `next_page_token` (2 calls, 10 + 9 jobs, 0 duplicates, verified on upstream call).
 - **Portal extraction:** Multi-portal job postings from `apply_options` mapped directly to `portal_count`.
 - **Regional targeting:** Configured with `gl=in` and `hl=en`.
-- **Remote listings:** Filtered with `ltype=1`. SerpApi documentation states Google deprecated this parameter; all 74 remote jobs in the snapshot corpus carried the "Work from home" metadata tag.
+- **Remote listings:** Filtered with `ltype=1`. SerpApi documentation states Google deprecated this parameter. Across the 8 raw remote capture snapshots (`data/snapshots/remote_*.json`), all 74 returned job listings carried the "Work from home" extension tag. In the deduplicated database corpus, 78 jobs have `location_type = 'Remote'` and 78 have `work_from_home = TRUE` (76 each from the baseline snapshot corpus, plus 2 from live ingestion).
 - **Caching & quota protection:** In-database search caching with configurable TTL (`CACHE_TTL_HOURS`). Account API quota guard reserves 15 searches before rejecting upstream calls, complemented by a per-run execution budget (`SEARCH_BUDGET_PER_RUN`).
 - **Telemetry split:** Response headers and payload isolate `serpapi_ms`, `ingest_ms`, and `query_ms`.
 
@@ -34,7 +34,7 @@ The engine evaluates technical skill coverage through exact set arithmetic witho
 
 The baseline corpus contains 392 deduplicated jobs (consolidated from 418 raw records across 43 snapshot files), captured 2 Oct 2026 across 25 distinct search phrases in Bengaluru, Hyderabad, Pune, and remote India. Snapshots are stored in `data/snapshots/` with full provenance documented in `data/snapshots/PROVENANCE.md`.
 
-At server launch, DuckDB automatically seeds itself from snapshot files if the database table is empty, allowing immediate local execution without an active API key. The web interface includes an ingestion panel to fetch fresh listings from Google Jobs through SerpApi; any freshly ingested listings are discarded when free hosting instances restart.
+At server launch, DuckDB automatically seeds itself from snapshot files if the database table is empty, allowing immediate local execution without an active API key. The web interface includes a live panel to fetch fresh listings from Google Jobs through SerpApi; live-fetched rows are lost when the free instance restarts.
 
 Job listings are third-party content retrieved through SerpApi and included for demonstration.
 
@@ -44,7 +44,7 @@ Measured locally, Windows, Python 3.11.9, 392-job corpus (20 runs of `/api/unloc
 
 - **Returned query_ms:** p50 = 31.68 ms, p95 = 37.11 ms
 - **Wall-clock latency:** p50 = 46.72 ms, p95 = 52.57 ms
-- **Test suite:** 62 automated unit and integration tests; all 62 pass.
+- **Test suite:** 63 automated unit and integration tests; all 63 pass.
 
 ## Run Locally
 
