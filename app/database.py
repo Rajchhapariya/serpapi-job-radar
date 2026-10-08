@@ -672,14 +672,26 @@ class DatabaseManager:
     def get_cached_search(self, cache_key: str, ttl_hours: int = 24) -> Optional[Dict[str, Any]]:
         with self.get_connection() as con:
             row = con.execute("""
-                SELECT response_json FROM search_cache
+                SELECT response_json, fetched_at FROM search_cache
                 WHERE cache_key = ?
                   AND fetched_at >= now() - (? * INTERVAL '1 hour')
                 ORDER BY fetched_at DESC LIMIT 1;
             """, [cache_key, ttl_hours]).fetchone()
             if row and row[0]:
                 try:
-                    return json.loads(row[0])
+                    data = json.loads(row[0])
+                    fetched_at = row[1]
+                    if fetched_at:
+                        if hasattr(fetched_at, "isoformat"):
+                            iso_str = fetched_at.isoformat()
+                            if not iso_str.endswith("Z") and "+" not in iso_str:
+                                iso_str += "Z"
+                            data["fetched_at"] = iso_str
+                        else:
+                            data["fetched_at"] = str(fetched_at)
+                    else:
+                        data["fetched_at"] = None
+                    return data
                 except Exception:
                     return None
             return None

@@ -703,13 +703,31 @@
     clearElementChildren(liveStatusRow);
     liveStatusRow.classList.remove("hidden");
 
-    // Source label LIVE or CACHE
-    const badge = document.createElement("span");
     const isCache = String(data.source).toLowerCase() === "cache";
-    badge.className =
-      "live-status-badge mono " +
-      (isCache ? "live-status-badge-cache" : "live-status-badge-live");
-    badge.textContent = isCache ? "CACHE" : "LIVE";
+    if (isCache) {
+      const badge = document.createElement("span");
+      badge.className = "live-status-badge mono live-status-badge-cache";
+      badge.textContent = "CACHE";
+      liveStatusRow.appendChild(badge);
+
+      const rCount = data.retrieved_count != null ? data.retrieved_count : 0;
+      const spanCacheText = document.createElement("span");
+      let msg =
+        " · served from saved results · no SerpApi call · " +
+        rCount +
+        " retrieved, 0 new";
+      if (newCorpusCount != null) {
+        msg += " · Corpus now " + newCorpusCount + " jobs";
+      }
+      spanCacheText.textContent = msg;
+      liveStatusRow.appendChild(spanCacheText);
+      return;
+    }
+
+    // LIVE row kept as it is
+    const badge = document.createElement("span");
+    badge.className = "live-status-badge mono live-status-badge-live";
+    badge.textContent = "LIVE";
     liveStatusRow.appendChild(badge);
 
     // SerpApi {serpapi_ms} ms

@@ -291,17 +291,19 @@ def search_jobs(req: SearchRequest):
     cached = db_manager.get_cached_search(cache_key, ttl_hours=CACHE_TTL_HOURS)
     read_ms = round((time.perf_counter() - t_read) * 1000, 2)
     if cached:
+        fetched_at_str = cached.get("fetched_at")
         return {
             "source": "cache",
-            "message": cached.get("message", "Serving cached query results."),
+            "message": f"Served from cache (originally fetched at {fetched_at_str}).",
             "retrieved_count": len(cached.get("jobs", [])),
             "stored_count": 0,
-            "serpapi_ms": 0,
+            "serpapi_ms": None,
             "serpapi_cached": None,
             "serpapi_time_taken_s": None,
             "ingest_ms": None,
             "query_ms": read_ms,
-            "notice": cached.get("notice")
+            "notice": cached.get("notice"),
+            "fetched_at": fetched_at_str
         }
 
     # 2. Check quota guard before live call
@@ -311,17 +313,19 @@ def search_jobs(req: SearchRequest):
         stale = db_manager.get_cached_search(cache_key, ttl_hours=999999)
         stale_ms = round((time.perf_counter() - t_stale) * 1000, 2)
         if stale:
+            stale_fetched_at = stale.get("fetched_at")
             return {
                 "source": "cache",
-                "message": "Search budget reached. Serving historical cached data.",
+                "message": f"Served from cache (originally fetched at {stale_fetched_at}).",
                 "notice": notice,
                 "retrieved_count": len(stale.get("jobs", [])),
                 "stored_count": 0,
-                "serpapi_ms": 0,
+                "serpapi_ms": None,
                 "serpapi_cached": None,
                 "serpapi_time_taken_s": None,
                 "ingest_ms": None,
-                "query_ms": stale_ms
+                "query_ms": stale_ms,
+                "fetched_at": stale_fetched_at
             }
         raise HTTPException(
             status_code=429,
@@ -379,7 +383,8 @@ def search_jobs(req: SearchRequest):
             "serpapi_cached": serpapi_cached,
             "serpapi_time_taken_s": serpapi_time_taken_s,
             "ingest_ms": ingest_ms,
-            "query_ms": None
+            "query_ms": None,
+            "fetched_at": None
         }
     else:
         if result.get("source") in ["live", "live_serpapi"]:
@@ -392,7 +397,8 @@ def search_jobs(req: SearchRequest):
                 "serpapi_cached": serpapi_cached,
                 "serpapi_time_taken_s": serpapi_time_taken_s,
                 "ingest_ms": None,
-                "query_ms": None
+                "query_ms": None,
+                "fetched_at": None
             }
         raise HTTPException(
             status_code=502,

@@ -800,7 +800,9 @@ def test_snapshot_seeding_idempotence(tmp_path):
 
 def test_cache_hit_bypasses_network_call():
     """
-    Tests that a cache hit returns source='cache' without making any HTTP request.
+    Tests that a cache hit returns source='cache' without making any HTTP request,
+    reporting honest cache metadata (exact message prefix, fetched_at presence, null serpapi_ms/ingest_ms).
+    Also asserts live responses carry fetched_at=None.
     """
     from fastapi.testclient import TestClient
     from unittest.mock import patch
@@ -829,8 +831,38 @@ def test_cache_hit_bypasses_network_call():
         assert res.status_code == 200
         data = res.json()
         assert data["source"] == "cache"
-        assert data["serpapi_ms"] == 0
+        assert data["message"].startswith("Served from cache (originally fetched at ")
+        assert "live" not in data["message"].lower()
+        assert "serpapi in" not in data["message"].lower()
+        assert data["fetched_at"] is not None
+        assert data["serpapi_ms"] is None
+        assert data["ingest_ms"] is None
+        assert data["stored_count"] == 0
         mock_get.assert_not_called()
+
+    # Verify that a live response has fetched_at=None
+    from app.serpapi_client import serpapi_client
+    with patch.object(serpapi_client, "fetch_jobs") as mock_fetch:
+        mock_fetch.return_value = {
+            "source": "live",
+            "jobs": [],
+            "calls_made": 1,
+            "serpapi_ms": 120,
+            "serpapi_cached": False,
+            "serpapi_time_taken_s": 0.12,
+            "message": "Live query"
+        }
+        res_live = client.post("/api/search", json={
+            "query": "UncachedLiveQuery",
+            "location": "Bengaluru",
+            "gl": "in",
+            "hl": "en"
+        })
+        assert res_live.status_code == 200
+        data_live = res_live.json()
+        assert data_live["source"] == "live"
+        assert data_live["fetched_at"] is None
+
 
 
 def test_quota_guard_exhaustion_behavior():
