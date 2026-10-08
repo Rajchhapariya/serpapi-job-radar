@@ -439,7 +439,7 @@ def test_database_calendar_date_range(temp_db):
     ]
     temp_db.upsert_jobs(sample_jobs)
     import datetime
-    today_str = datetime.date.today().strftime("%Y-%m-%d")
+    today_str = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
 
     # Match today
     matched = temp_db.get_jobs(from_date=today_str, to_date=today_str)
@@ -1449,8 +1449,9 @@ def test_endpoints_disabled_by_default(monkeypatch):
         assert res_quota_enabled.status_code == 200
     assert client.post("/api/sql", json={"query": "SELECT 1"}).status_code == 404
 
-    # /legacy still 200
-    assert client.get("/legacy").status_code == 200
+    # /legacy redirects to root
+    assert client.get("/legacy", follow_redirects=False).status_code == 307
+    assert client.get("/legacy", follow_redirects=True).status_code == 200
 
 
 

@@ -19,7 +19,8 @@ import hashlib
 from collections import defaultdict
 from fastapi import FastAPI, HTTPException, Query, Request, Response
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse, PlainTextResponse, Response, JSONResponse
+from fastapi.responses import FileResponse, PlainTextResponse, Response, JSONResponse, RedirectResponse
+from datetime import datetime, timezone
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from typing import Optional, Tuple
 from dotenv import load_dotenv
@@ -110,18 +111,30 @@ if os.path.exists(STATIC_DIR):
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
+def get_client_ip(request: Request) -> str:
+    forwarded = request.headers.get("x-forwarded-for")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    return request.client.host if request.client else "127.0.0.1"
+
+
 # Security Headers & Rate-Limiting Middleware
 @app.middleware("http")
 async def security_and_rate_limit_middleware(request: Request, call_next):
     # 1. Rate Limiting on Search Endpoint
     if request.url.path == "/api/search" and request.method == "POST":
-        client_ip = request.client.host if request.client else "127.0.0.1"
+        client_ip = get_client_ip(request)
         now = time.time()
         # Clean timestamps older than 60s
-        ip_request_history[client_ip] = [
+        filtered = [
             ts for ts in ip_request_history[client_ip] if now - ts < SEARCH_WINDOW_SECONDS
         ]
-        if len(ip_request_history[client_ip]) >= SEARCH_RATE_LIMIT:
+        if filtered:
+            ip_request_history[client_ip] = filtered
+        else:
+            ip_request_history.pop(client_ip, None)
+
+        if len(ip_request_history.get(client_ip, [])) >= SEARCH_RATE_LIMIT:
             return JSONResponse(
                 status_code=429,
                 content={"detail": "Rate limit exceeded. Maximum 15 searches allowed per minute to protect API quota."}
@@ -130,12 +143,17 @@ async def security_and_rate_limit_middleware(request: Request, call_next):
 
     # 2. Rate Limiting on Unlock, Fit, and Sample-Resume Endpoints
     if request.url.path in ("/api/unlock", "/api/fit", "/api/sample-resume"):
-        client_ip = request.client.host if request.client else "127.0.0.1"
+        client_ip = get_client_ip(request)
         now = time.time()
-        ip_unlock_history[client_ip] = [
+        filtered = [
             ts for ts in ip_unlock_history[client_ip] if now - ts < UNLOCK_WINDOW_SECONDS
         ]
-        if len(ip_unlock_history[client_ip]) >= UNLOCK_RATE_LIMIT:
+        if filtered:
+            ip_unlock_history[client_ip] = filtered
+        else:
+            ip_unlock_history.pop(client_ip, None)
+
+        if len(ip_unlock_history.get(client_ip, [])) >= UNLOCK_RATE_LIMIT:
             return JSONResponse(
                 status_code=429,
                 content={"detail": f"Rate limit exceeded. Maximum {UNLOCK_RATE_LIMIT} requests allowed per minute."}
@@ -213,29 +231,29 @@ def serve_dashboard():
 
 @app.get("/legacy")
 def serve_legacy_dashboard():
-    new_index = os.path.join(STATIC_DIR, "app", "index.html")
-    if os.path.exists(new_index):
-        return FileResponse(new_index)
-    return {"message": "Skill Unlock Dashboard not found."}
+    return RedirectResponse(url="/", status_code=307)
 
 
 @app.get("/robots.txt", response_class=PlainTextResponse)
-def serve_robots():
-    return """User-agent: *
+def serve_robots(request: Request):
+    base_url = os.getenv("BASE_URL", str(request.base_url).rstrip("/"))
+    return f"""User-agent: *
 Allow: /
 Allow: /static/
 Disallow: /api/
-Sitemap: http://127.0.0.1:8000/sitemap.xml
+Sitemap: {base_url}/sitemap.xml
 """
 
 
 @app.get("/sitemap.xml")
-def serve_sitemap():
-    xml_content = """<?xml version="1.0" encoding="UTF-8"?>
+def serve_sitemap(request: Request):
+    base_url = os.getenv("BASE_URL", str(request.base_url).rstrip("/"))
+    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://127.0.0.1:8000/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <loc>{base_url}/</loc>
+    <lastmod>{today_str}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

@@ -40,8 +40,8 @@ def validate_and_extract_resume_pdf(pdf_bytes: bytes) -> Dict[str, Any]:
     if len(pdf_bytes) > MAX_PDF_SIZE_BYTES:
         raise ValueError("File size exceeds 5MB limit.")
 
-    # 1. Magic bytes verification
-    if not pdf_bytes.startswith(b"%PDF-"):
+    # 1. Magic bytes verification (ISO 32000-1 permits %PDF- within first 1024 bytes)
+    if b"%PDF-" not in pdf_bytes[:1024]:
         raise ValueError("Uploaded file is not a valid PDF document (missing %PDF- magic header).")
 
     # 2. PDF parsing via pypdf

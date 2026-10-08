@@ -874,7 +874,7 @@
         if (salBench.matched_min_lpa && salBench.matched_max_lpa) {
           matchedStr =
             salBench.matched_min_lpa +
-            " – " +
+            " - " +
             salBench.matched_max_lpa +
             " LPA (matched)";
         } else if (salBench.matched_max_lpa) {

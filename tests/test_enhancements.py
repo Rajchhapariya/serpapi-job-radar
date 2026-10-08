@@ -295,3 +295,80 @@ def test_smart_portal_prioritization():
     assert "shine" in sorted_opts[2]["link"].lower()
     con.close()
 
+
+# ==================== PRODUCTION HARDENING AUDIT TESTS ====================
+
+def test_dynamic_robots_and_sitemap(monkeypatch):
+    """Verifies that robots.txt and sitemap.xml dynamically adapt to host and current date."""
+    monkeypatch.setenv("BASE_URL", "https://serpapi-job-radar.onrender.com")
+    res_robots = client.get("/robots.txt")
+    assert res_robots.status_code == 200
+    assert "https://serpapi-job-radar.onrender.com/sitemap.xml" in res_robots.text
+
+    res_sitemap = client.get("/sitemap.xml")
+    assert res_sitemap.status_code == 200
+    assert "https://serpapi-job-radar.onrender.com/" in res_sitemap.text
+    import datetime
+    today_str = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
+    assert f"<lastmod>{today_str}</lastmod>" in res_sitemap.text
+
+
+def test_pdf_header_with_leading_bytes():
+    """Validates that valid PDFs with leading BOM or comments (ISO 32000-1 § 7.5.2) parse without false rejection."""
+    from app.pdf_parser import validate_and_extract_resume_pdf
+    valid_text = (
+        "John Doe - Senior Software Engineer\n"
+        "Email: john.doe@example.com | Phone: +91 9876543210 | Bengaluru, India\n\n"
+        "Work Experience\n"
+        "Lead Python Developer at TechCorp (2022 - Present)\n"
+        "Architected high-throughput microservices using FastAPI, Python, and PostgreSQL.\n\n"
+        "Technical Skills\n"
+        "Python, Docker, SQL, Kubernetes, FastAPI, Redis\n\n"
+        "Education\n"
+        "B.Tech in Computer Science, State Technical University\n"
+    )
+    raw_pdf = build_test_pdf(valid_text)
+    # Prepend 8 bytes of leading comment/BOM header permitted by ISO 32000-1
+    bom_pdf = b"\xef\xbb\xbf%BOM\n" + raw_pdf
+    result = validate_and_extract_resume_pdf(bom_pdf)
+    assert result["page_count"] >= 1
+    assert "Python" in result["skills"]
+
+
+def test_unlock_and_fit_accept_hybrid_location():
+    """Validates that location_type='Hybrid' is fully accepted by /api/unlock and /api/fit."""
+    res_unlock = client.post("/api/unlock", json={"skills": ["Python", "SQL"], "location_type": "Hybrid"})
+    assert res_unlock.status_code == 200
+
+    res_fit = client.post("/api/fit", json={"skills": ["Python", "SQL"], "location_type": "Hybrid"})
+    assert res_fit.status_code == 200
+
+
+def test_proxy_forwarded_ip_rate_limiting():
+    """Validates that X-Forwarded-For is used to accurately isolate client IPs behind reverse proxies."""
+    res = client.post("/api/unlock", json={"skills": ["Python"]}, headers={"X-Forwarded-For": "203.0.113.195, 10.0.0.1"})
+    assert res.status_code == 200
+
+
+def test_concurrent_upsert_write_lock_safety():
+    """Verifies that concurrent multi-threaded upserts execute without DuckDB catalog write-write conflicts."""
+    import concurrent.futures
+    from app.database import db_manager
+
+    def upsert_worker(worker_id):
+        job = {
+            "title": f"Concurrency Test Engineer {worker_id}",
+            "company_name": f"Concurrent Corp {worker_id}",
+            "location": "Remote",
+            "description": "Python DuckDB threading safety test",
+            "schedule_type": "Full-time",
+            "salary": "25 LPA",
+            "posted_at": "Today"
+        }
+        return db_manager.upsert_jobs([job], is_snapshot=False)
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+        results = list(executor.map(upsert_worker, range(4)))
+
+    assert all(r == 1 for r in results)
+

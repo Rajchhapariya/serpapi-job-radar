@@ -3,6 +3,7 @@ import re
 import json
 import glob
 import hashlib
+import threading
 from datetime import datetime, timezone, timedelta
 import duckdb
 from typing import List, Dict, Any, Optional, Tuple
@@ -164,6 +165,7 @@ def extract_skills_from_text(text: str) -> List[str]:
 class DatabaseManager:
     def __init__(self, db_path: str = DATABASE_FILE):
         self.db_path = db_path
+        self._write_lock = threading.Lock()
         self._init_schema()
 
     @staticmethod
@@ -177,53 +179,54 @@ class DatabaseManager:
         return duckdb.connect(self.db_path)
 
     def _init_schema(self):
-        with self.get_connection() as con:
-            con.execute("""
-                CREATE TABLE IF NOT EXISTS jobs (
-                    job_id VARCHAR PRIMARY KEY,
-                    title VARCHAR NOT NULL,
-                    company_name VARCHAR NOT NULL,
-                    location VARCHAR,
-                    via VARCHAR,
-                    description VARCHAR,
-                    schedule_type VARCHAR,
-                    work_from_home BOOLEAN DEFAULT FALSE,
-                    salary VARCHAR,
-                    apply_link VARCHAR,
-                    posted_at VARCHAR,
-                    scraped_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    via_platform VARCHAR,
-                    salary_raw VARCHAR,
-                    location_type VARCHAR,
-                    skills_required VARCHAR[],
-                    apply_options JSON,
-                    portal_count INTEGER DEFAULT 1,
-                    salary_min_lpa DOUBLE,
-                    salary_max_lpa DOUBLE,
-                    source_query VARCHAR,
-                    source_gl VARCHAR,
-                    is_snapshot BOOLEAN DEFAULT FALSE,
-                    serpapi_token VARCHAR,
-                    source_queries VARCHAR[],
-                    posted_days_ago INTEGER
-                );
-            """)
-            # Non-destructive migrations for existing database files
-            self._run_migrations(con)
-            
-            # Cache table for SerpApi queries
-            con.execute("""
-                CREATE TABLE IF NOT EXISTS search_cache (
-                    cache_key VARCHAR PRIMARY KEY,
-                    query VARCHAR,
-                    location VARCHAR,
-                    gl VARCHAR,
-                    hl VARCHAR,
-                    date_posted VARCHAR,
-                    response_json TEXT,
-                    fetched_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                );
-            """)
+        with self._write_lock:
+            with self.get_connection() as con:
+                con.execute("""
+                    CREATE TABLE IF NOT EXISTS jobs (
+                        job_id VARCHAR PRIMARY KEY,
+                        title VARCHAR NOT NULL,
+                        company_name VARCHAR NOT NULL,
+                        location VARCHAR,
+                        via VARCHAR,
+                        description VARCHAR,
+                        schedule_type VARCHAR,
+                        work_from_home BOOLEAN DEFAULT FALSE,
+                        salary VARCHAR,
+                        apply_link VARCHAR,
+                        posted_at VARCHAR,
+                        scraped_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        via_platform VARCHAR,
+                        salary_raw VARCHAR,
+                        location_type VARCHAR,
+                        skills_required VARCHAR[],
+                        apply_options JSON,
+                        portal_count INTEGER DEFAULT 1,
+                        salary_min_lpa DOUBLE,
+                        salary_max_lpa DOUBLE,
+                        source_query VARCHAR,
+                        source_gl VARCHAR,
+                        is_snapshot BOOLEAN DEFAULT FALSE,
+                        serpapi_token VARCHAR,
+                        source_queries VARCHAR[],
+                        posted_days_ago INTEGER
+                    );
+                """)
+                # Non-destructive migrations for existing database files
+                self._run_migrations(con)
+                
+                # Cache table for SerpApi queries
+                con.execute("""
+                    CREATE TABLE IF NOT EXISTS search_cache (
+                        cache_key VARCHAR PRIMARY KEY,
+                        query VARCHAR,
+                        location VARCHAR,
+                        gl VARCHAR,
+                        hl VARCHAR,
+                        date_posted VARCHAR,
+                        response_json TEXT,
+                        fetched_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    );
+                """)
 
     def _run_migrations(self, con=None):
         should_close = False
@@ -548,41 +551,42 @@ class DatabaseManager:
                 posted_days_ago = excluded.posted_days_ago;
         """
 
-        with self.get_connection() as con:
-            con.execute("BEGIN TRANSACTION;")
-            try:
-                unique_ids = list({p["job_id"] for p in prepared_jobs})
-                placeholders = ", ".join(["?"] * len(unique_ids))
-                cur = con.execute(f"SELECT * FROM jobs WHERE job_id IN ({placeholders})", unique_ids)
-                existing_records = self._rows_to_dicts(cur)
-                merged_map = {r["job_id"]: r for r in existing_records}
+        with self._write_lock:
+            with self.get_connection() as con:
+                con.execute("BEGIN TRANSACTION;")
+                try:
+                    unique_ids = list({p["job_id"] for p in prepared_jobs})
+                    placeholders = ", ".join(["?"] * len(unique_ids))
+                    cur = con.execute(f"SELECT * FROM jobs WHERE job_id IN ({placeholders})", unique_ids)
+                    existing_records = self._rows_to_dicts(cur)
+                    merged_map = {r["job_id"]: r for r in existing_records}
 
-                for p in prepared_jobs:
-                    jid = p["job_id"]
-                    if jid in merged_map:
-                        merged_map[jid] = self._merge_job_records(merged_map[jid], p)
-                    else:
-                        merged_map[jid] = p
+                    for p in prepared_jobs:
+                        jid = p["job_id"]
+                        if jid in merged_map:
+                            merged_map[jid] = self._merge_job_records(merged_map[jid], p)
+                        else:
+                            merged_map[jid] = p
 
-                for jid, rec in merged_map.items():
-                    opts = rec.get("apply_options")
-                    opts_json = json.dumps(opts) if opts is not None else None
-                    params = [
-                        rec["job_id"], rec.get("title", ""), rec.get("company_name", ""), rec.get("location", ""), rec.get("via", ""),
-                        rec.get("description", ""), rec.get("schedule_type", "Full-time"), bool(rec.get("work_from_home", False)),
-                        rec.get("salary"), rec.get("apply_link", ""), rec.get("posted_at", ""), rec.get("scraped_at") or datetime.now(timezone.utc).replace(tzinfo=None),
-                        rec.get("via_platform", ""), rec.get("salary_raw"), rec.get("location_type", "On-site"), rec.get("skills_required", []),
-                        opts_json, rec.get("portal_count", 1), rec.get("salary_min_lpa"), rec.get("salary_max_lpa"),
-                        rec.get("source_query"), rec.get("source_gl", "in"), bool(rec.get("is_snapshot", False)),
-                        rec.get("serpapi_token"), rec.get("source_queries", []), rec.get("posted_days_ago")
-                    ]
-                    con.execute(upsert_sql, params)
+                    for jid, rec in merged_map.items():
+                        opts = rec.get("apply_options")
+                        opts_json = json.dumps(opts) if opts is not None else None
+                        params = [
+                            rec["job_id"], rec.get("title", ""), rec.get("company_name", ""), rec.get("location", ""), rec.get("via", ""),
+                            rec.get("description", ""), rec.get("schedule_type", "Full-time"), bool(rec.get("work_from_home", False)),
+                            rec.get("salary"), rec.get("apply_link", ""), rec.get("posted_at", ""), rec.get("scraped_at") or datetime.now(timezone.utc).replace(tzinfo=None),
+                            rec.get("via_platform", ""), rec.get("salary_raw"), rec.get("location_type", "On-site"), rec.get("skills_required", []),
+                            opts_json, rec.get("portal_count", 1), rec.get("salary_min_lpa"), rec.get("salary_max_lpa"),
+                            rec.get("source_query"), rec.get("source_gl", "in"), bool(rec.get("is_snapshot", False)),
+                            rec.get("serpapi_token"), rec.get("source_queries", []), rec.get("posted_days_ago")
+                        ]
+                        con.execute(upsert_sql, params)
 
-                con.execute("COMMIT;")
-                return len(merged_map)
-            except Exception:
-                con.execute("ROLLBACK;")
-                raise
+                    con.execute("COMMIT;")
+                    return len(merged_map)
+                except Exception:
+                    con.execute("ROLLBACK;")
+                    raise
 
     def load_snapshots_if_empty(self, snapshots_dir: Optional[str] = None, force: bool = False) -> int:
         """
@@ -744,10 +748,11 @@ class DatabaseManager:
                 con.close()
 
     def set_cached_search(self, cache_key: str, query_meta: Dict[str, Any], response_data: Dict[str, Any], con=None):
-        should_close = False
-        if con is None:
-            con = self.get_connection()
-            should_close = True
+        with self._write_lock:
+            should_close = False
+            if con is None:
+                con = self.get_connection()
+                should_close = True
         try:
             response_json = json.dumps(response_data)
             now_utc = datetime.now(timezone.utc).replace(tzinfo=None)
