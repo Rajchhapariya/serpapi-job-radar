@@ -213,10 +213,10 @@ def serve_dashboard():
 
 @app.get("/legacy")
 def serve_legacy_dashboard():
-    legacy_file = os.path.join(STATIC_DIR, "index.html")
-    if os.path.exists(legacy_file):
-        return FileResponse(legacy_file)
-    return {"message": "Legacy dashboard not found."}
+    new_index = os.path.join(STATIC_DIR, "app", "index.html")
+    if os.path.exists(new_index):
+        return FileResponse(new_index)
+    return {"message": "Skill Unlock Dashboard not found."}
 
 
 @app.get("/robots.txt", response_class=PlainTextResponse)

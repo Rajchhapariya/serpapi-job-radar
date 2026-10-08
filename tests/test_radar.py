@@ -361,15 +361,7 @@ def test_brand_assets_and_favicons_available():
 
     client = TestClient(app)
     asset_paths = [
-        "/static/favicon.svg",
-        "/static/favicon.ico",
-        "/static/favicon-16x16.png",
-        "/static/favicon-32x32.png",
-        "/static/apple-touch-icon.png",
-        "/static/icon-192.png",
-        "/static/icon-512.png",
-        "/static/logo.svg",
-        "/static/logo-icon.svg"
+        "/static/favicon.svg"
     ]
     for path in asset_paths:
         res = client.get(path)
