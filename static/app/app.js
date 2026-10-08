@@ -409,6 +409,8 @@
       return;
     }
 
+    const topJobs = jobsList.slice(0, 10);
+
     topJobs.forEach(function (job, idx) {
       const row = document.createElement("div");
       row.className = "ledger-row job-ledger-row stagger-row";
@@ -855,6 +857,7 @@
       showState("results");
       return dataUnlock;
     } catch (err) {
+      console.error("Unlock analysis error:", err);
       if (reqId !== activeRequestId) return;
       showState("error");
       if (err.name === "AbortError") {
