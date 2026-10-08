@@ -449,7 +449,7 @@ class DatabaseManager:
                 if job_source_query and job_source_query not in source_queries:
                     source_queries.append(job_source_query)
 
-            scraped_at = job.get("scraped_at") or job.get("captured_at") or datetime.now()
+            scraped_at = job.get("scraped_at") or job.get("captured_at") or datetime.now(timezone.utc).replace(tzinfo=None)
             job_is_snap = job.get("is_snapshot", is_snapshot)
 
             prepared_jobs.append({
@@ -544,7 +544,7 @@ class DatabaseManager:
                     params = [
                         rec["job_id"], rec.get("title", ""), rec.get("company_name", ""), rec.get("location", ""), rec.get("via", ""),
                         rec.get("description", ""), rec.get("schedule_type", "Full-time"), bool(rec.get("work_from_home", False)),
-                        rec.get("salary"), rec.get("apply_link", ""), rec.get("posted_at", ""), rec.get("scraped_at") or datetime.now(),
+                        rec.get("salary"), rec.get("apply_link", ""), rec.get("posted_at", ""), rec.get("scraped_at") or datetime.now(timezone.utc).replace(tzinfo=None),
                         rec.get("via_platform", ""), rec.get("salary_raw"), rec.get("location_type", "On-site"), rec.get("skills_required", []),
                         opts_json, rec.get("portal_count", 1), rec.get("salary_min_lpa"), rec.get("salary_max_lpa"),
                         rec.get("source_query"), rec.get("source_gl", "in"), bool(rec.get("is_snapshot", False)),

@@ -1462,6 +1462,40 @@ def test_endpoints_disabled_by_default(monkeypatch):
 
 
 
+def test_live_upsert_scraped_at_utc_under_timezone():
+    """
+    Verifies that a live-style upsert without scraped_at under SET TimeZone='Asia/Kolkata'
+    stores a value in naive UTC within 5 seconds of datetime.now(timezone.utc).
+    """
+    from datetime import datetime, timezone
+    from app.database import db_manager
+
+    con = db_manager.get_connection()
+    try:
+        con.execute("SET TimeZone='Asia/Kolkata'")
+        job_data = {
+            "title": "UTC Test Engineer",
+            "company_name": "UTC Test Corp",
+            "location": "Bengaluru",
+            "description": "Test description Python SQL Docker",
+        }
+        db_manager.upsert_jobs([job_data], is_snapshot=False)
+        row = con.execute("SELECT scraped_at FROM jobs WHERE company_name = 'UTC Test Corp' ORDER BY scraped_at DESC LIMIT 1").fetchone()
+        assert row is not None
+        stored_scraped_at = row[0]
+        if isinstance(stored_scraped_at, str):
+            stored_dt = datetime.fromisoformat(stored_scraped_at.replace("Z", ""))
+        else:
+            stored_dt = stored_scraped_at
+        now_utc = datetime.now(timezone.utc).replace(tzinfo=None)
+        diff_s = abs((now_utc - stored_dt).total_seconds())
+        assert diff_s <= 5, f"Expected scraped_at within 5s of UTC now, got {diff_s}s"
+    finally:
+        con.execute("DELETE FROM jobs WHERE company_name = 'UTC Test Corp'")
+        con.close()
+
+
+
 
 
 
