@@ -44,7 +44,7 @@ Measured locally, Windows, Python 3.11.9, 392-job corpus (20 runs of `/api/unloc
 
 - **Returned query_ms:** p50 = 31.68 ms, p95 = 37.11 ms
 - **Wall-clock latency:** p50 = 46.72 ms, p95 = 52.57 ms
-- **Test suite:** 65 automated unit and integration tests; all 65 pass.
+- **Test suite:** 77 automated unit and integration tests; all 77 pass.
 
 ## Run Locally
 
@@ -73,17 +73,17 @@ Deployed on Render via `render.yaml`.
 ## API Endpoints
 
 - `GET /`: Serves the primary Skill Unlock web application.
-- `GET /legacy`: Serves the legacy dashboard view.
+- `POST /api/resume/parse-pdf`: Validates and parses uploaded PDF resumes (with anti-invoice structural validation) and extracts skills.
 - `GET /robots.txt`: Crawler policy directives and sitemap URL declaration.
 - `GET /sitemap.xml`: XML sitemap with daily update frequency.
 - `GET /api/health`: Service health status, total indexed job count, uptime, and SerpApi connectivity status.
 - `GET /api/quota`: Upstream account quota state and process search budget telemetry (disabled unless enabled by environment variable).
 - `POST /api/search`: Query Google Jobs via SerpApi or retrieve cached query results.
-- `GET /api/jobs`: Filter, paginate, and sort indexed job records.
+- `GET /api/jobs`: Filter, paginate, and sort indexed job records with calendar date boundaries.
 - `GET /api/analytics`: Aggregate corpus metrics including remote ratios and top skill distributions.
 - `POST /api/match-resume`: Calculate coverage and matched skills for raw resume text.
-- `POST /api/unlock`: Compute deterministic single-skill unlock gains and greedy 3-skill unlock path.
-- `POST /api/fit`: Retrieve individual job fit statuses, roles, and missing skills against threshold.
+- `POST /api/unlock`: Compute deterministic single-skill unlock gains, salary benchmarks, and greedy 3-skill unlock path with recency filtering.
+- `POST /api/fit`: Retrieve individual job fit statuses, roles, missing skills, verified posting ages, and prioritized direct ATS portals.
 - `GET /api/roles`: Role taxonomy list with display labels and indexed job counts.
 - `GET /api/sample-resume`: Default sample resume text for testing.
 - `POST /api/sql`: Read-only SQL query interface over the DuckDB jobs table (disabled unless enabled by environment variable).
