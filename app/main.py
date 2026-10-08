@@ -9,6 +9,7 @@ from app.unlock import (
     compute_job_fit,
     get_roles_summary
 )
+from app.pdf_parser import validate_and_extract_resume_pdf
 import os
 import io
 import csv
@@ -485,6 +486,7 @@ def unlock_skills(req: UnlockRequest):
         "threshold": req.threshold,
         "min_job_skills": req.min_job_skills,
         "baseline": unlock_res["baseline"],
+        "salary_benchmark": unlock_res.get("salary_benchmark"),
         "unlocks": unlock_res["unlocks"],
         "path": unlock_res["path"],
         "corpus": corpus_data,
@@ -535,6 +537,29 @@ def get_sample_resume():
     with open(sample_file, "r", encoding="utf-8") as f:
         content = f.read()
     return {"text": content}
+
+
+@app.post("/api/resume/parse-pdf")
+async def parse_resume_pdf(request: Request):
+    content_len = request.headers.get("content-length")
+    if content_len and int(content_len) > 5 * 1024 * 1024:
+        raise HTTPException(status_code=413, detail="File size exceeds 5MB limit.")
+
+    body = await request.body()
+    if len(body) > 5 * 1024 * 1024:
+        raise HTTPException(status_code=413, detail="File size exceeds 5MB limit.")
+
+    try:
+        result = validate_and_extract_resume_pdf(body)
+        return result
+    except ValueError as ve:
+        msg = str(ve)
+        if "exceeds 5MB" in msg:
+            raise HTTPException(status_code=413, detail=msg)
+        raise HTTPException(status_code=422, detail=msg)
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, detail=f"Failed to process PDF: {str(e)}")
 
 
 

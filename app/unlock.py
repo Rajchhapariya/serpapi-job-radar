@@ -7,6 +7,7 @@ Enforces integer math only (no float division). No LLM.
 
 import time
 import re
+import json
 from typing import List, Dict, Any, Optional, Tuple
 from fastapi import HTTPException
 from app.database import TRACKED_SKILLS, SKILL_PATTERNS, extract_skills_from_text
@@ -250,6 +251,15 @@ def compute_skill_unlocks(
 
     total_query_ms = 0.0
 
+    # Inspect table columns for fixture / migration compatibility
+    try:
+        existing_cols = {r[1] for r in con.execute(f"PRAGMA table_info('{table_name}')").fetchall()}
+    except Exception:
+        existing_cols = set()
+
+    sal_min_expr = "salary_min_lpa" if "salary_min_lpa" in existing_cols else "NULL::DOUBLE AS salary_min_lpa"
+    sal_max_expr = "salary_max_lpa" if "salary_max_lpa" in existing_cols else "NULL::DOUBLE AS salary_max_lpa"
+
     # 1. Materialize eligible set in temp table with precomputed n and initial m
     t0 = time.perf_counter()
     con.execute(f"""
@@ -259,6 +269,8 @@ def compute_skill_unlocks(
             title,
             company_name,
             location_type,
+            {sal_min_expr},
+            {sal_max_expr},
             list_distinct(skills_required) AS skills,
             len(list_distinct(skills_required)) AS n,
             len(list_intersect(list_distinct(skills_required), ?::VARCHAR[])) AS m
@@ -282,9 +294,45 @@ def compute_skill_unlocks(
     eligible_jobs = base_row[0] if base_row else 0
     matched_jobs = base_row[1] if base_row else 0
 
+    # 2b. Salary analytics across matched vs eligible
+    t0 = time.perf_counter()
+    sal_row = con.execute("""
+        SELECT 
+            COUNT(salary_min_lpa) FILTER (WHERE m * 100 >= ? * n) AS matched_sal_count,
+            MIN(salary_min_lpa) FILTER (WHERE m * 100 >= ? * n) AS matched_min_sal,
+            MAX(salary_max_lpa) FILTER (WHERE m * 100 >= ? * n) AS matched_max_sal,
+            MAX(salary_max_lpa) AS total_max_sal
+        FROM _req_eligible
+    """, [threshold, threshold, threshold]).fetchone()
+    total_query_ms += (time.perf_counter() - t0) * 1000
+
+    disclosed_count = int(sal_row[0]) if sal_row and sal_row[0] is not None else 0
+    matched_min_sal = round(float(sal_row[1]), 1) if sal_row and sal_row[1] is not None else None
+    matched_max_sal = round(float(sal_row[2]), 1) if sal_row and sal_row[2] is not None else None
+    total_max_sal = round(float(sal_row[3]), 1) if sal_row and sal_row[3] is not None else None
+
+    ceiling_boost_pct = None
+    if matched_max_sal and total_max_sal and total_max_sal > matched_max_sal:
+        ceiling_boost_pct = round(((total_max_sal - matched_max_sal) / matched_max_sal) * 100)
+
+    salary_benchmark = {
+        "disclosed_count": disclosed_count,
+        "matched_min_lpa": matched_min_sal,
+        "matched_max_lpa": matched_max_sal,
+        "unlocked_max_lpa": total_max_sal,
+        "ceiling_boost_pct": ceiling_boost_pct
+    }
+
     if eligible_jobs == 0:
         return {
             "baseline": {"eligible_jobs": 0, "matched_jobs": 0},
+            "salary_benchmark": {
+                "disclosed_count": 0,
+                "matched_min_lpa": None,
+                "matched_max_lpa": None,
+                "unlocked_max_lpa": None,
+                "ceiling_boost_pct": None
+            },
             "unlocks": [],
             "path": [],
             "all_unlocks_count": 0,
@@ -416,6 +464,7 @@ def compute_skill_unlocks(
 
     return {
         "baseline": {"eligible_jobs": eligible_jobs, "matched_jobs": matched_jobs},
+        "salary_benchmark": salary_benchmark,
         "unlocks": unlock_list,
         "path": path,
         "all_unlocks_count": all_unlocks_count,
@@ -455,6 +504,18 @@ def compute_job_fit(
         role_clause = "AND regexp_matches(title, ?, 'i')"
         role_params = [ROLE_PATTERNS[role]]
 
+    # Inspect table columns for fixture / migration compatibility
+    try:
+        existing_cols = {r[1] for r in con.execute(f"PRAGMA table_info('{table_name}')").fetchall()}
+    except Exception:
+        existing_cols = set()
+
+    salary_expr = "salary" if "salary" in existing_cols else "NULL::VARCHAR AS salary"
+    apply_link_expr = "apply_link" if "apply_link" in existing_cols else "NULL::VARCHAR AS apply_link"
+    apply_opts_expr = "apply_options" if "apply_options" in existing_cols else "NULL::JSON AS apply_options"
+    posted_at_expr = "posted_at" if "posted_at" in existing_cols else "NULL::VARCHAR AS posted_at"
+    desc_expr = "substring(description, 1, 260) AS description_snippet" if "description" in existing_cols else "NULL::VARCHAR AS description_snippet"
+
     t0 = time.perf_counter()
     query = f"""
         WITH eligible AS (
@@ -465,6 +526,11 @@ def compute_job_fit(
                 location,
                 location_type,
                 portal_count,
+                {salary_expr},
+                {apply_link_expr},
+                {apply_opts_expr},
+                {posted_at_expr},
+                {desc_expr},
                 list_distinct(skills_required) AS skills,
                 len(list_distinct(skills_required)) AS n,
                 list_intersect(list_distinct(skills_required), ?::VARCHAR[]) AS matched_skills,
@@ -496,7 +562,12 @@ def compute_job_fit(
                 WHEN regexp_matches(title, ?, 'i') THEN 'frontend_fullstack'
                 WHEN regexp_matches(title, ?, 'i') THEN 'backend'
                 ELSE 'other'
-            END AS role
+            END AS role,
+            salary,
+            apply_link,
+            apply_options,
+            posted_at,
+            description_snippet
         FROM eligible
         ORDER BY match_pct DESC, title ASC, job_id ASC
         LIMIT ?
@@ -517,6 +588,13 @@ def compute_job_fit(
 
     results = []
     for r in rows:
+        apply_opts = r[13]
+        if isinstance(apply_opts, str):
+            try:
+                apply_opts = json.loads(apply_opts)
+            except Exception:
+                apply_opts = None
+
         results.append({
             "job_id": r[0],
             "title": r[1],
@@ -528,7 +606,12 @@ def compute_job_fit(
             "matched": r[7] or [],
             "missing": r[8] or [],
             "role": r[10],
-            "status": r[9]
+            "status": r[9],
+            "salary": r[11],
+            "apply_link": r[12],
+            "apply_options": apply_opts,
+            "posted_at": r[14],
+            "description_snippet": r[15] or ""
         })
 
     return results, round(elapsed_ms, 2)

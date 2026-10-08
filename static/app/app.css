@@ -1115,6 +1115,195 @@ h1 {
 }
 
 /* ==========================================================================
+   Enhancements: PDF Dropzone, Salary Benchmark & Job Drawer
+   ========================================================================== */
+
+/* Resume PDF Dropzone */
+.resume-dropzone {
+  border: 1px dashed var(--line-strong);
+  border-radius: 6px;
+  background: var(--canvas);
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  text-align: center;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.resume-dropzone:hover,
+.resume-dropzone.dragover {
+  border-color: var(--ink);
+  background: var(--inset);
+}
+
+.resume-dropzone.is-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.dropzone-text {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.dropzone-subtext {
+  font-size: 10px;
+  color: var(--ink-3);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Salary Benchmark Row */
+.salary-benchmark-row {
+  margin-top: 10px;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background: var(--inset);
+  box-shadow: inset 0 0 0 1px var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--ink-2);
+}
+
+.benchmark-label {
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+
+.benchmark-val {
+  color: var(--ink);
+}
+
+.benchmark-divider {
+  color: var(--line-strong);
+}
+
+/* Job Ledger Row Expansion */
+.job-ledger-row {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease;
+}
+
+.job-ledger-row:hover {
+  background-color: #fafafa;
+}
+
+.job-expand-chevron {
+  width: 12px;
+  height: 12px;
+  margin-left: 6px;
+  stroke: var(--ink-3);
+  transition: transform 0.2s ease;
+  vertical-align: middle;
+}
+
+.job-ledger-row.is-expanded .job-expand-chevron {
+  transform: rotate(180deg);
+}
+
+/* Job Detail Drawer (Expanded) */
+.job-detail-drawer {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: default;
+  user-select: text;
+}
+
+.job-drawer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--ink-2);
+}
+
+.job-drawer-salary {
+  font-weight: 500;
+  color: var(--green);
+}
+
+.job-drawer-portals-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  margin-bottom: 6px;
+}
+
+.job-portals-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.btn-portal {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 9px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line-strong);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.btn-portal:hover {
+  background: var(--inset);
+  box-shadow: 0 0 0 1px var(--ink);
+}
+
+.btn-portal svg {
+  width: 11px;
+  height: 11px;
+  stroke: currentColor;
+}
+
+.job-drawer-snippet {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  background: var(--inset);
+  padding: 8px 10px;
+  border-radius: 4px;
+  border-left: 2px solid var(--line-strong);
+}
+
+/* ==========================================================================
    Reduced Motion
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {

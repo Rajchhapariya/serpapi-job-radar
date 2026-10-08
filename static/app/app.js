@@ -46,6 +46,18 @@
   const btnFetchLive = document.getElementById("btn-fetch-live");
   const liveStatusRow = document.getElementById("live-status-row");
 
+  const resumeDropzone = document.getElementById("resume-dropzone");
+  const pdfFileInput = document.getElementById("pdf-file-input");
+  const dropzoneText = document.getElementById("dropzone-text");
+  const dropzoneSubtext = document.getElementById("dropzone-subtext");
+
+  const salaryBenchmarkRow = document.getElementById("salary-benchmark-row");
+  const benchmarkMatchedVal = document.getElementById("benchmark-matched-val");
+  const benchmarkUnlockedVal = document.getElementById(
+    "benchmark-unlocked-val",
+  );
+  const benchmarkDivider = document.getElementById("benchmark-divider");
+
   const roleInputs = document.querySelectorAll('input[name="role-filter"]');
   const locationInputs = document.querySelectorAll(
     'input[name="location-filter"]',
@@ -397,14 +409,15 @@
       return;
     }
 
-    const topJobs = jobsList.slice(0, 8);
-
     topJobs.forEach(function (job, idx) {
       const row = document.createElement("div");
       row.className = "ledger-row job-ledger-row stagger-row";
       row.style.animationDelay = Math.min(idx, 7) * 30 + "ms";
+      row.setAttribute("role", "button");
+      row.setAttribute("tabindex", "0");
+      row.setAttribute("aria-expanded", "false");
 
-      // Top row: Title on left, Status + Portals on right
+      // Top row: Title on left, Status + Portals + Chevron on right
       const topRow = document.createElement("div");
       topRow.className = "job-row-top";
 
@@ -415,7 +428,7 @@
       const badges = document.createElement("div");
       badges.className = "job-badges";
 
-      // Status label: matched = green on green-soft, one_skill_away = amber on amber-soft, further = ink-3 on inset (4px radius)
+      // Status label: matched = green on green-soft, one_skill_away = amber on amber-soft, further = ink-3 on inset
       const statusChip = document.createElement("span");
       if (job.status === "matched") {
         statusChip.className = "status-badge status-matched";
@@ -435,6 +448,24 @@
       const pCount = job.portal_count || 1;
       portalChip.textContent = pCount >= 8 ? "8+ portals" : pCount + " portals";
       badges.appendChild(portalChip);
+
+      // Expand chevron
+      const chevron = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "svg",
+      );
+      chevron.setAttribute("class", "job-expand-chevron");
+      chevron.setAttribute("viewBox", "0 0 24 24");
+      chevron.setAttribute("fill", "none");
+      chevron.setAttribute("stroke", "currentColor");
+      chevron.setAttribute("stroke-width", "2");
+      const pathSvg = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "polyline",
+      );
+      pathSvg.setAttribute("points", "6 9 12 15 18 9");
+      chevron.appendChild(pathSvg);
+      badges.appendChild(chevron);
 
       topRow.appendChild(titleEl);
       topRow.appendChild(badges);
@@ -471,7 +502,7 @@
       matchRow.appendChild(pctText);
       row.appendChild(matchRow);
 
-      // Missing skills: chips (red on red-soft, no border, 4px radius)
+      // Missing skills: chips
       if (job.missing && job.missing.length > 0) {
         const missingWrap = document.createElement("div");
         missingWrap.className = "job-missing-wrap";
@@ -490,6 +521,131 @@
 
         row.appendChild(missingWrap);
       }
+
+      // Expandable Drawer Container
+      const drawer = document.createElement("div");
+      drawer.className = "job-detail-drawer hidden";
+
+      // Drawer Metadata: Salary, Posted Recency, Location
+      const drawerMeta = document.createElement("div");
+      drawerMeta.className = "job-drawer-meta mono";
+
+      const salSpan = document.createElement("span");
+      salSpan.className = "job-drawer-salary";
+      salSpan.textContent = job.salary
+        ? "Salary: " + job.salary
+        : "Salary: Not disclosed";
+      drawerMeta.appendChild(salSpan);
+
+      if (job.posted_at) {
+        const postedSpan = document.createElement("span");
+        postedSpan.textContent = "Posted: " + job.posted_at;
+        drawerMeta.appendChild(postedSpan);
+      }
+
+      if (job.location) {
+        const locSpan = document.createElement("span");
+        locSpan.textContent = "Location: " + job.location;
+        drawerMeta.appendChild(locSpan);
+      }
+      drawer.appendChild(drawerMeta);
+
+      // Direct Apply Portals section
+      const portalsSection = document.createElement("div");
+      portalsSection.className = "job-portals-section";
+
+      const portalsLabel = document.createElement("div");
+      portalsLabel.className = "job-drawer-portals-label mono";
+      portalsLabel.textContent =
+        "DIRECT APPLICATION PORTALS (VERIFIED VIA SERPAPI):";
+      portalsSection.appendChild(portalsLabel);
+
+      const portalsGroup = document.createElement("div");
+      portalsGroup.className = "job-portals-group";
+
+      let hasPortals = false;
+      if (
+        job.apply_options &&
+        Array.isArray(job.apply_options) &&
+        job.apply_options.length > 0
+      ) {
+        job.apply_options.forEach(function (opt) {
+          if (opt && opt.link) {
+            hasPortals = true;
+            const a = document.createElement("a");
+            a.className = "btn-portal mono";
+            a.href = opt.link;
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+            a.textContent = (opt.title || "Apply") + " ↗";
+            a.addEventListener("click", function (e) {
+              e.stopPropagation();
+            });
+            portalsGroup.appendChild(a);
+          }
+        });
+      }
+
+      if (!hasPortals && job.apply_link) {
+        const a = document.createElement("a");
+        a.className = "btn-portal mono";
+        a.href = job.apply_link;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = "Apply on Google Jobs ↗";
+        a.addEventListener("click", function (e) {
+          e.stopPropagation();
+        });
+        portalsGroup.appendChild(a);
+      } else if (!hasPortals) {
+        const noPortals = document.createElement("span");
+        noPortals.className = "mono";
+        noPortals.style.fontSize = "12px";
+        noPortals.style.color = "var(--ink-3)";
+        noPortals.textContent =
+          "Direct application link not available in search capture.";
+        portalsGroup.appendChild(noPortals);
+      }
+
+      portalsSection.appendChild(portalsGroup);
+      drawer.appendChild(portalsSection);
+
+      // Description snippet if available
+      if (job.description_snippet) {
+        const snippetEl = document.createElement("div");
+        snippetEl.className = "job-drawer-snippet";
+        snippetEl.textContent =
+          job.description_snippet.trim() +
+          (job.description_snippet.length >= 250 ? "..." : "");
+        drawer.appendChild(snippetEl);
+      }
+
+      row.appendChild(drawer);
+
+      // Click to toggle expansion
+      function toggleExpand() {
+        const isExp = row.classList.contains("is-expanded");
+        if (isExp) {
+          row.classList.remove("is-expanded");
+          drawer.classList.add("hidden");
+          row.setAttribute("aria-expanded", "false");
+        } else {
+          row.classList.add("is-expanded");
+          drawer.classList.remove("hidden");
+          row.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      row.addEventListener("click", function () {
+        toggleExpand();
+      });
+
+      row.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleExpand();
+        }
+      });
 
       jobsContainer.appendChild(row);
     });
@@ -615,6 +771,41 @@
         " today. " +
         resumeSkills.length +
         " skills recognized in your resume.";
+
+      // Populate Salary Benchmark row
+      const salBench = dataUnlock.salary_benchmark;
+      if (salBench && salBench.disclosed_count > 0 && salaryBenchmarkRow) {
+        salaryBenchmarkRow.classList.remove("hidden");
+        let matchedStr = "";
+        if (salBench.matched_min_lpa && salBench.matched_max_lpa) {
+          matchedStr =
+            salBench.matched_min_lpa +
+            " – " +
+            salBench.matched_max_lpa +
+            " LPA (matched)";
+        } else if (salBench.matched_max_lpa) {
+          matchedStr = salBench.matched_max_lpa + " LPA (matched)";
+        } else {
+          matchedStr =
+            "Disclosed across " + salBench.disclosed_count + " roles";
+        }
+        if (benchmarkMatchedVal) benchmarkMatchedVal.textContent = matchedStr;
+
+        if (salBench.unlocked_max_lpa && benchmarkUnlockedVal) {
+          let boostStr =
+            "Up to " + salBench.unlocked_max_lpa + " LPA with unlocked roles";
+          if (salBench.ceiling_boost_pct && salBench.ceiling_boost_pct > 0) {
+            boostStr += " (+" + salBench.ceiling_boost_pct + "% ceiling boost)";
+          }
+          benchmarkUnlockedVal.textContent = boostStr;
+          if (benchmarkDivider) benchmarkDivider.classList.remove("hidden");
+        } else if (benchmarkUnlockedVal) {
+          benchmarkUnlockedVal.textContent = "";
+          if (benchmarkDivider) benchmarkDivider.classList.add("hidden");
+        }
+      } else if (salaryBenchmarkRow) {
+        salaryBenchmarkRow.classList.add("hidden");
+      }
 
       // Populate Path Track beneath hero
       renderTrack(baseline, pathList);
@@ -926,6 +1117,122 @@
 
   if (btnFetchLive) {
     btnFetchLive.addEventListener("click", handleFetchLive);
+  }
+
+  // Resume PDF Upload Handling
+  function renderDropzoneError(msg) {
+    if (!resumeDropzone || !dropzoneText || !dropzoneSubtext) return;
+    resumeDropzone.classList.remove("is-loading");
+    dropzoneText.textContent = "PDF Rejected";
+    dropzoneSubtext.textContent = msg;
+    dropzoneSubtext.style.color = "var(--red)";
+    setTimeout(function () {
+      dropzoneText.textContent = "Drop resume PDF or click to browse";
+      dropzoneSubtext.textContent = "Valid PDF resumes only · Max 5 MB";
+      dropzoneSubtext.style.color = "var(--ink-3)";
+    }, 6000);
+  }
+
+  async function handlePdfUpload(file) {
+    if (!file) return;
+
+    if (!file.name.toLowerCase().endsWith(".pdf")) {
+      renderDropzoneError("Only PDF files (.pdf) are supported.");
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      renderDropzoneError("File exceeds 5MB size limit.");
+      return;
+    }
+
+    if (resumeDropzone && dropzoneText && dropzoneSubtext) {
+      resumeDropzone.classList.add("is-loading");
+      dropzoneText.textContent = "Validating resume PDF...";
+      dropzoneSubtext.textContent = file.name;
+    }
+
+    try {
+      const arrayBuffer = await file.arrayBuffer();
+      const res = await fetch("/api/resume/parse-pdf", {
+        method: "POST",
+        headers: { "Content-Type": "application/pdf" },
+        body: arrayBuffer,
+      });
+
+      if (!res.ok) {
+        let errMsg = "Uploaded document is not a valid resume.";
+        try {
+          const errData = await res.json();
+          if (errData && errData.detail) errMsg = errData.detail;
+        } catch (e) {}
+        renderDropzoneError(errMsg);
+        return;
+      }
+
+      const data = await res.json();
+      resumeInput.value = data.text;
+      updateCharCount();
+      if (sampleBadge) sampleBadge.classList.add("hidden");
+
+      if (dropzoneText && dropzoneSubtext) {
+        dropzoneText.textContent = "Resume parsed (" + file.name + ")";
+        dropzoneSubtext.textContent =
+          (data.skills ? data.skills.length : 0) +
+          " technical skills identified · Computing unlocks...";
+      }
+
+      // Auto-run analysis with newly parsed resume
+      handleRunAnalysis();
+    } catch (err) {
+      renderDropzoneError("Network error while validating resume PDF.");
+    } finally {
+      if (resumeDropzone) resumeDropzone.classList.remove("is-loading");
+      if (pdfFileInput) pdfFileInput.value = "";
+    }
+  }
+
+  if (resumeDropzone && pdfFileInput) {
+    resumeDropzone.addEventListener("click", function () {
+      pdfFileInput.click();
+    });
+
+    resumeDropzone.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        pdfFileInput.click();
+      }
+    });
+
+    ["dragenter", "dragover"].forEach(function (eventName) {
+      resumeDropzone.addEventListener(eventName, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        resumeDropzone.classList.add("dragover");
+      });
+    });
+
+    ["dragleave", "drop"].forEach(function (eventName) {
+      resumeDropzone.addEventListener(eventName, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        resumeDropzone.classList.remove("dragover");
+      });
+    });
+
+    resumeDropzone.addEventListener("drop", function (e) {
+      const dt = e.dataTransfer;
+      const files = dt ? dt.files : null;
+      if (files && files.length > 0) {
+        handlePdfUpload(files[0]);
+      }
+    });
+
+    pdfFileInput.addEventListener("change", function () {
+      if (pdfFileInput.files && pdfFileInput.files.length > 0) {
+        handlePdfUpload(pdfFileInput.files[0]);
+      }
+    });
   }
 
   // Initial Boot Sequence

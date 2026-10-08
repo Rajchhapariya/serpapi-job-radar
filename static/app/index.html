@@ -86,9 +86,30 @@
             >
           </div>
 
+          <div
+            class="resume-dropzone mono"
+            id="resume-dropzone"
+            role="button"
+            tabindex="0"
+            aria-label="Upload resume PDF"
+          >
+            <input
+              type="file"
+              id="pdf-file-input"
+              accept=".pdf,application/pdf"
+              class="sr-only"
+            />
+            <span id="dropzone-text" class="dropzone-text"
+              >Drop resume PDF or click to browse</span
+            >
+            <span id="dropzone-subtext" class="dropzone-subtext"
+              >Valid PDF resumes only · Max 5 MB</span
+            >
+          </div>
+
           <textarea
             id="resume-input"
-            rows="11"
+            rows="10"
             placeholder="Paste your resume or technical background..."
             spellcheck="false"
             class="resume-textarea mono"
@@ -227,6 +248,17 @@
               <p id="hero-support-line" class="hero-support-line">
                 Up from 0 today. 0 skills recognized in your resume.
               </p>
+              <div
+                id="salary-benchmark-row"
+                class="salary-benchmark-row mono hidden"
+              >
+                <span class="benchmark-label">COMPENSATION SPREAD:</span>
+                <span id="benchmark-matched-val" class="benchmark-val">--</span>
+                <span id="benchmark-divider" class="benchmark-divider">·</span>
+                <span id="benchmark-unlocked-val" class="benchmark-val"
+                  >--</span
+                >
+              </div>
               <div class="path-track-section">
                 <div
                   id="path-track-bar"
