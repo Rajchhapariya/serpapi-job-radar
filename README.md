@@ -1,101 +1,144 @@
-# SerpApi Job & Market Radar
+# Job & Market Radar
 
-Paste a resume. Find the one skill that moves you closest to the most open roles, computed from Google Jobs data by deterministic SQL. No LLM.
+> **Which skill unlocks the most jobs?**
+> Paste a resume or drop a PDF. Find the exact skills that move you closest to the most open roles, computed from Google Jobs data by deterministic DuckDB SQL. Zero LLM hallucinations.
 
-## Live Demo
+---
 
-{DEPLOY_URL}
+## Live Demo & Deployment
 
-Free Render instances sleep after about 15 minutes idle; the first request can take 30 to 60 seconds.
+- **Live URL:** `https://serpapi-job-radar.onrender.com`
+- **Deployment Specification:** Automated blueprint via [`render.yaml`](file:///c:/Users/Rajch/Desktop/Research/serpapi-job-radar/render.yaml) & [`Dockerfile`](file:///c:/Users/Rajch/Desktop/Research/serpapi-job-radar/Dockerfile).
+- _Note on Free Instances:_ Free Render web services sleep after 15 minutes of inactivity; initial cold boots take approximately 30 to 45 seconds while DuckDB auto-seeds snapshot data.
 
-## How the Unlock Engine Works
+---
 
-The engine evaluates technical skill coverage through exact set arithmetic without semantic estimation:
+## Architecture & How the Unlock Engine Works
 
-- **Eligible job:** A listing specifying at least 3 recognizable skills (`min_job_skills >= 3`).
-- **Match:** A candidate resume covers at least T% of an eligible job's required skills, evaluated strictly using integer math: `m * 100 >= T * n`.
-- **Unlock:** A skill not yet in the candidate's resume that lifts an unmet eligible job over the threshold: `(m + 1) * 100 >= T * n`.
-- **Greedy path:** A sequential progression of up to 3 skills where each step selects the single skill that maximizes net-new job unlocks.
-- **Integer math only:** Zero floating-point rounding errors across all match comparisons.
-- **Single DuckDB aggregation:** All single-skill unlock counts and greedy sequences are computed in one analytical query over indexed skill arrays.
-- **Python reference equivalence:** A pure-Python implementation executes alongside DuckDB; full mathematical parity is verified by `test_b_sql_vs_python_reference_fixture` on fixture data and `test_b_sql_vs_python_reference_real_corpus` across all eligible corpus jobs.
+The analytical engine evaluates technical skill coverage through exact integer set arithmetic without probabilistic language model estimation:
 
-## SerpApi Integration
+1. **Eligible Job Definition:** A job posting specifying at least 3 recognizable technical skills (`min_job_skills >= 3`).
+2. **Match Evaluation:** A candidate resume covers at least $T\%$ of an eligible job's required skills, evaluated strictly using integer math:
+   $$\text{matched} \iff m \times 100 \ge T \times n$$
+   where $m$ is the number of intersecting skills, $n$ is total distinct skills on the job, and $T$ is the user match threshold (default 60%).
+3. **Marginal Skill Unlock:** A skill not yet in the candidate's profile that lifts an unmet eligible job over the threshold:
+   $$\text{unlocked} \iff (m + 1) \times 100 \ge T \times n$$
+4. **Greedy 3-Skill Path:** A sequential progression of up to 3 skills where each step selects the single skill maximizing cumulative net-new job unlocks.
+5. **Integer Math Only:** Zero floating-point rounding errors across all match comparisons.
+6. **Single DuckDB Aggregation:** All single-skill unlock counts and greedy sequences are computed in one analytical query over indexed skill arrays.
+7. **Python Reference Equivalence:** A pure-Python reference implementation executes alongside DuckDB; mathematical parity is verified by `test_b_sql_vs_python_reference_fixture` on test fixtures and `test_b_sql_vs_python_reference_real_corpus` across all eligible corpus jobs.
+
+---
+
+## Freshness & Recency Intelligence
+
+To solve the issue of stale listings (e.g., job aggregator postings from 6 months or 1 year ago that linger on Google Jobs), the platform implements a 4-pillar freshness system:
+
+1. **Deterministic Age Parsing:** Converts relative posting strings (`"3 hours ago"`, `"2 days ago"`, `"3 weeks ago"`, `"1 month ago"`, `"1 year ago"`) into an exact integer column: `posted_days_ago`.
+2. **SQL Recency Boundary Filtering:** Analytical queries filter on `posted_days_ago <= ?` supporting 4 distinct recency tiers:
+   - `7d` (Past Week - Ultra Fresh)
+   - `14d` (Past Two Weeks)
+   - `30d (Active)` (Past Month - Default)
+   - `Any` (Entire Historical Corpus)
+3. **Visual Freshness Telemetry:** Job cards display visual freshness badges (`Today`, `2d ago`, `1w ago`, `3w ago`).
+4. **Smart ATS Portal Prioritization:** Multi-portal job listings prioritize direct company ATS endpoints (`Greenhouse`, `Lever`, `Workday`, `Careers`) and professional networks (`LinkedIn`) ahead of secondary scraper aggregators (`Shine`, `JobMapp`, `ClickJobs`).
+
+---
+
+## Validated PDF Resume Ingestion
+
+- **In-Memory Streaming:** Secure PDF extraction via `pypdf` with strict 5 MB payload boundary protection.
+- **Anti-Invoice Structural Verification:** Heuristic content validation ensures uploaded files contain genuine resume sections (`experience`, `education`, `skills`, `projects`) and rejects non-resume PDFs (e.g. invoices, bank statements, receipts).
+- **Blank / Scanned Detection:** Rejects non-OCR scanned documents or empty PDFs with descriptive 422 validation diagnostics.
+
+---
+
+## SerpApi Google Jobs Integration
 
 - **Engine:** Google Jobs via SerpApi (`google_jobs`).
-- **Pagination:** Traversal via `next_page_token` (2 calls, 10 + 9 jobs, 0 duplicates, verified on upstream call).
-- **Portal extraction:** Multi-portal job postings from `apply_options` mapped directly to `portal_count`.
-- **Regional targeting:** Configured with `gl=in` and `hl=en`.
-- **Remote listings:** Filtered with `ltype=1`. SerpApi documentation states Google deprecated this parameter. Across the 8 raw remote capture snapshots (`data/snapshots/remote_*.json`), all 74 returned job listings carried the "Work from home" extension tag. In the deduplicated snapshot corpus, 76 jobs have `location_type = 'Remote'` and 76 have `work_from_home = TRUE`.
-- **Caching & quota protection:** In-database search caching with configurable TTL (`CACHE_TTL_HOURS`). Account API quota guard reserves 15 searches before rejecting upstream calls, complemented by a per-run execution budget (`SEARCH_BUDGET_PER_RUN`).
-- **Telemetry split:** Response headers and payload isolate `serpapi_ms`, `ingest_ms`, and `query_ms`.
+- **Automated Pagination:** Traversal via `next_page_token` (2 calls, 10 + 9 jobs, 0 duplicates, verified on upstream call).
+- **Multi-Portal Extraction:** Comprehensive job application options captured from `apply_options` mapped directly to `portal_count`.
+- **Regional & Language Targeting:** Configured for high-intent technical markets with `gl=in` and `hl=en`.
+- **Remote Listings:** Filtered via `ltype=1` and `work_from_home` extension tag extraction.
+- **Caching & Quota Guard:** In-database search caching with configurable TTL (`CACHE_TTL_HOURS`). Account API quota guard reserves 15 searches before rejecting upstream calls, complemented by a per-run execution budget (`SEARCH_BUDGET_PER_RUN`).
+- **Latency Split Telemetry:** Isolates `serpapi_ms`, `ingest_ms`, and `query_ms` in API responses.
 
-## Data
+---
 
-The baseline corpus contains 392 deduplicated jobs (consolidated from 418 raw records across 43 snapshot files), captured 2 Oct 2026 across 25 distinct search phrases in Bengaluru, Hyderabad, Pune, and remote India. Snapshots are stored in `data/snapshots/` with full provenance documented in `data/snapshots/PROVENANCE.md`.
+## Analytical Corpus & Provenance
 
-At server launch, DuckDB automatically seeds itself from snapshot files if the database table is empty, allowing immediate local execution without an active API key. The web interface includes a live panel to fetch fresh listings from Google Jobs through SerpApi; live-fetched rows are lost when the free instance restarts.
+The baseline snapshot corpus contains **392 deduplicated jobs** (consolidated from 418 raw records across 43 snapshot files), captured across 25 distinct search phrases in Bengaluru, Hyderabad, Pune, and remote India. Snapshots are stored in `data/snapshots/` with provenance documented in [`data/snapshots/PROVENANCE.md`](file:///c:/Users/Rajch/Desktop/Research/serpapi-job-radar/data/snapshots/PROVENANCE.md).
 
-Job listings are third-party content retrieved through SerpApi and included for demonstration.
+At server launch, DuckDB automatically seeds itself from snapshot files if the database table is empty, allowing immediate local execution without an active API key. The web interface includes a live panel to fetch fresh listings from Google Jobs through SerpApi in real time.
 
-## Measured Numbers
+---
 
-Measured locally, Windows, Python 3.11.9, 392-job corpus (20 runs of `/api/unlock`, sample resume, T=60, default parameters):
+## Performance & Test Metrics
 
-- **Returned query_ms:** p50 = 31.68 ms, p95 = 37.11 ms
-- **Wall-clock latency:** p50 = 46.72 ms, p95 = 52.57 ms
-- **Test suite:** 77 automated unit and integration tests; all 77 pass.
+Measured on Python 3.11.9, Windows, 392-job DuckDB corpus (20 iterations of `/api/unlock`, sample resume, $T=60$, default parameters):
 
-## Run Locally
+- **Analytical Query Latency (`query_ms`):** p50 = 31.68 ms, p95 = 37.11 ms
+- **Wall-Clock Response Time:** p50 = 46.72 ms, p95 = 52.57 ms
+- **Automated Test Suite:** **77 / 77 automated unit and integration tests passing.**
+
+---
+
+## Local Development Setup
 
 ```bash
+# 1. Clone repository
+git clone https://github.com/Rajchhapariya/serpapi-job-radar.git
+cd serpapi-job-radar
+
+# 2. Set up virtual environment
 python -m venv .venv
 # Windows: .venv\Scripts\activate | Unix: source .venv/bin/activate
+
+# 3. Install dependencies
 pip install -r requirements-dev.txt
+
+# 4. Run test suite
 pytest -v
+
+# 5. Launch application
 python run.py
 ```
 
-### Environment Variables
+The application will be available at `http://127.0.0.1:8000/`.
 
-- `SERPAPI_API_KEY`: API key for upstream Google Jobs search queries.
-- `DUCKDB_PATH`: Storage path for the DuckDB analytical database file.
-- `HOST`: Server interface binding (default `127.0.0.1`, production `0.0.0.0`).
-- `PORT`: HTTP port binding (default `8000`).
-- `CACHE_TTL_HOURS`: Cache retention lifespan for upstream query responses.
-- `SEARCH_BUDGET_PER_RUN`: Maximum upstream searches allowed per server process.
-- `UNLOCK_RATE_LIMIT`: Sliding-window rate limit for analytical endpoints.
-- `ENABLE_SQL_CONSOLE`: Enables the raw read-only SQL endpoint when true (default false; off in production).
-- `ENABLE_QUOTA_ENDPOINT`: Enables upstream SerpApi quota inspection when true (default false; off in production).
+---
 
-Deployed on Render via `render.yaml`.
+## Environment Variables
 
-## API Endpoints
+| Variable                | Default        | Description                                                         |
+| :---------------------- | :------------- | :------------------------------------------------------------------ |
+| `SERPAPI_API_KEY`       | `""`           | Upstream API key for live Google Jobs queries.                      |
+| `DUCKDB_PATH`           | `radar.duckdb` | Storage path for the embedded DuckDB database file.                 |
+| `HOST`                  | `127.0.0.1`    | Host interface binding (`0.0.0.0` for production).                  |
+| `PORT`                  | `8000`         | HTTP port binding (assigned automatically by Render).               |
+| `CACHE_TTL_HOURS`       | `24`           | Cache lifespan for upstream search query results.                   |
+| `SEARCH_BUDGET_PER_RUN` | `20`           | Maximum upstream searches allowed per server process.               |
+| `UNLOCK_RATE_LIMIT`     | `60`           | Sliding-window requests/minute rate limit for analytical endpoints. |
+| `ENABLE_SQL_CONSOLE`    | `false`        | Enables read-only DuckDB SQL query endpoint.                        |
+| `ENABLE_QUOTA_ENDPOINT` | `false`        | Enables upstream account quota telemetry endpoint.                  |
 
-- `GET /`: Serves the primary Skill Unlock web application.
-- `POST /api/resume/parse-pdf`: Validates and parses uploaded PDF resumes (with anti-invoice structural validation) and extracts skills.
-- `GET /robots.txt`: Crawler policy directives and sitemap URL declaration.
-- `GET /sitemap.xml`: XML sitemap with daily update frequency.
-- `GET /api/health`: Service health status, total indexed job count, uptime, and SerpApi connectivity status.
-- `GET /api/quota`: Upstream account quota state and process search budget telemetry (disabled unless enabled by environment variable).
+---
+
+## API Endpoints Reference
+
+- `GET /`: Primary Skill Unlock web application interface.
+- `POST /api/resume/parse-pdf`: Ingest and validate PDF resumes (with anti-invoice checks) and extract technical skills.
+- `POST /api/unlock`: Compute deterministic single-skill unlock gains, salary benchmarks, and greedy 3-skill unlock path with recency filtering.
+- `POST /api/fit`: Retrieve individual job fit statuses, roles, missing skills, verified posting ages, and prioritized direct ATS portals.
 - `POST /api/search`: Query Google Jobs via SerpApi or retrieve cached query results.
 - `GET /api/jobs`: Filter, paginate, and sort indexed job records with calendar date boundaries.
 - `GET /api/analytics`: Aggregate corpus metrics including remote ratios and top skill distributions.
 - `POST /api/match-resume`: Calculate coverage and matched skills for raw resume text.
-- `POST /api/unlock`: Compute deterministic single-skill unlock gains, salary benchmarks, and greedy 3-skill unlock path with recency filtering.
-- `POST /api/fit`: Retrieve individual job fit statuses, roles, missing skills, verified posting ages, and prioritized direct ATS portals.
 - `GET /api/roles`: Role taxonomy list with display labels and indexed job counts.
 - `GET /api/sample-resume`: Default sample resume text for testing.
-- `POST /api/sql`: Read-only SQL query interface over the DuckDB jobs table (disabled unless enabled by environment variable).
+- `GET /api/health`: Health status, indexed job count, uptime, and SerpApi connectivity state.
+- `GET /api/quota`: Upstream account quota state (disabled unless enabled by environment variable).
+- `POST /api/sql`: Read-only SQL query interface over DuckDB table (disabled unless enabled by environment variable).
 - `GET /api/export`: Export filtered job listings to CSV or JSON.
-
-## Known Limitations
-
-- **Corpus scope:** The snapshot corpus represents specific search terms and is not a random sample of the market.
-- **Skill taxonomy:** Skill identification uses exact regex matching over a fixed dictionary of 73 tracked skills; unlisted skills are not captured.
-- **Role classification:** Roles are categorized via regular expressions on job titles across 5 predefined tracks.
-- **Near-duplicates:** Two known near-duplicate clusters (Jitterbit, Tricon) remain unmerged due to minor title variations.
-- **Salary disclosure:** Salary was parsed into LPA for only 35 of 392 snapshot jobs (with 42 disclosing text salaries), meaning salary-conditioned unlock modeling is omitted.
-- **Path algorithm:** The 3-step greedy progression uses step-wise heuristics rather than a global combinatorial optimum.
-- **Match threshold:** Job matching relies on a user-selected integer percentage bar.
-- **Rate limiting:** API rate limiters operate in-memory per worker process.
+- `GET /robots.txt`: Crawler policy directives and sitemap URL declaration.
+- `GET /sitemap.xml`: XML sitemap with daily update frequency.

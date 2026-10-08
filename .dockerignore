@@ -1,16 +1,65 @@
-__pycache__
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-.venv/
-.env
-.git
+# ==============================================================================
+# SerpApi Job & Market Radar - Docker Build Ignore Rules
+# ==============================================================================
+
+# Git & Version Control
+.git/
 .gitignore
-.pytest_cache
+.gitattributes
+
+# Secrets & Environment Configurations
+.env*
+!.env.example
+secrets/
+*.pem
+*.key
+
+# Python Runtime & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.Python
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Databases, WAL Logs & Dumps
+*.duckdb*
+*.db
+*.sqlite*
+radar.duckdb*
+
+# Testing & Coverage
 tests/
-radar.duckdb
-radar.duckdb.wal
-scratch_test.py
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Development Dependencies & Scratch Scripts
+requirements-dev.txt
+scratch*.py
+test_live_*.py
+scratch/
+RULES.md
+
+# Logs & Temporary Files
+*.log
+logs/
+*.tmp
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/

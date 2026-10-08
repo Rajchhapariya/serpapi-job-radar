@@ -99,3 +99,10 @@ yarn-error.log*
 ehthumbs.db
 Thumbs.db
 desktop.ini
+
+# --- Scratch, Agent Scaffolding & Temporary Debug Scripts ---
+RULES.md
+scratch*.py
+scratch/
+test_live_*.py
+*.tmp
