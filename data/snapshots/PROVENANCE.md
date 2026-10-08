@@ -6,7 +6,7 @@ All snapshot files located in [`data/snapshots/*.json`](file:///c:/Users/Rajch/D
 
 - **Total Snapshot Files:** 43
 - **Total Raw Jobs:** 418
-- **Capture Date Range:** `2026-10-02T18:40:32.546319+00:00` to `2026-10-02T19:17:54.978523+00:00` (min and max `captured_at` read directly from snapshot metadata)
+- **Capture Date Range:** `2026-10-08T18:40:32.546319+00:00` to `2026-10-08T19:17:54.978523+00:00` (min and max `captured_at` read directly from snapshot metadata)
 
 ## Verified Edits & Percent-Encoding Restorations
 
