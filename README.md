@@ -26,7 +26,7 @@ The engine evaluates technical skill coverage through exact set arithmetic witho
 - **Pagination:** Traversal via `next_page_token` (2 calls, 10 + 9 jobs, 0 duplicates, verified on upstream call).
 - **Portal extraction:** Multi-portal job postings from `apply_options` mapped directly to `portal_count`.
 - **Regional targeting:** Configured with `gl=in` and `hl=en`.
-- **Remote listings:** Filtered with `ltype=1`. SerpApi documentation states Google deprecated this parameter. Across the 8 raw remote capture snapshots (`data/snapshots/remote_*.json`), all 74 returned job listings carried the "Work from home" extension tag. In the deduplicated database corpus, 78 jobs have `location_type = 'Remote'` and 78 have `work_from_home = TRUE` (76 each from the baseline snapshot corpus, plus 2 from live ingestion).
+- **Remote listings:** Filtered with `ltype=1`. SerpApi documentation states Google deprecated this parameter. Across the 8 raw remote capture snapshots (`data/snapshots/remote_*.json`), all 74 returned job listings carried the "Work from home" extension tag. In the deduplicated snapshot corpus, 76 jobs have `location_type = 'Remote'` and 76 have `work_from_home = TRUE`.
 - **Caching & quota protection:** In-database search caching with configurable TTL (`CACHE_TTL_HOURS`). Account API quota guard reserves 15 searches before rejecting upstream calls, complemented by a per-run execution budget (`SEARCH_BUDGET_PER_RUN`).
 - **Telemetry split:** Response headers and payload isolate `serpapi_ms`, `ingest_ms`, and `query_ms`.
 
@@ -44,7 +44,7 @@ Measured locally, Windows, Python 3.11.9, 392-job corpus (20 runs of `/api/unloc
 
 - **Returned query_ms:** p50 = 31.68 ms, p95 = 37.11 ms
 - **Wall-clock latency:** p50 = 46.72 ms, p95 = 52.57 ms
-- **Test suite:** 63 automated unit and integration tests; all 63 pass.
+- **Test suite:** 65 automated unit and integration tests; all 65 pass.
 
 ## Run Locally
 
@@ -65,6 +65,8 @@ python run.py
 - `CACHE_TTL_HOURS`: Cache retention lifespan for upstream query responses.
 - `SEARCH_BUDGET_PER_RUN`: Maximum upstream searches allowed per server process.
 - `UNLOCK_RATE_LIMIT`: Sliding-window rate limit for analytical endpoints.
+- `ENABLE_SQL_CONSOLE`: Enables the raw read-only SQL endpoint when true (default false; off in production).
+- `ENABLE_QUOTA_ENDPOINT`: Enables upstream SerpApi quota inspection when true (default false; off in production).
 
 Deployed on Render via `render.yaml`.
 
@@ -75,7 +77,7 @@ Deployed on Render via `render.yaml`.
 - `GET /robots.txt`: Crawler policy directives and sitemap URL declaration.
 - `GET /sitemap.xml`: XML sitemap with daily update frequency.
 - `GET /api/health`: Service health status, total indexed job count, uptime, and SerpApi connectivity status.
-- `GET /api/quota`: Upstream account quota state and process search budget telemetry.
+- `GET /api/quota`: Upstream account quota state and process search budget telemetry (disabled unless enabled by environment variable).
 - `POST /api/search`: Query Google Jobs via SerpApi or retrieve cached query results.
 - `GET /api/jobs`: Filter, paginate, and sort indexed job records.
 - `GET /api/analytics`: Aggregate corpus metrics including remote ratios and top skill distributions.
@@ -84,7 +86,7 @@ Deployed on Render via `render.yaml`.
 - `POST /api/fit`: Retrieve individual job fit statuses, roles, and missing skills against threshold.
 - `GET /api/roles`: Role taxonomy list with display labels and indexed job counts.
 - `GET /api/sample-resume`: Default sample resume text for testing.
-- `POST /api/sql`: Read-only SQL query interface over the DuckDB jobs table.
+- `POST /api/sql`: Read-only SQL query interface over the DuckDB jobs table (disabled unless enabled by environment variable).
 - `GET /api/export`: Export filtered job listings to CSV or JSON.
 
 ## Known Limitations
