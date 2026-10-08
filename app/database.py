@@ -3,7 +3,7 @@ import re
 import json
 import glob
 import hashlib
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 import duckdb
 from typing import List, Dict, Any, Optional, Tuple
 
@@ -669,14 +669,19 @@ class DatabaseManager:
             total_seeded = self.upsert_jobs(all_normalized, is_snapshot=True)
         return total_seeded
 
-    def get_cached_search(self, cache_key: str, ttl_hours: int = 24) -> Optional[Dict[str, Any]]:
-        with self.get_connection() as con:
+    def get_cached_search(self, cache_key: str, ttl_hours: int = 24, con=None) -> Optional[Dict[str, Any]]:
+        should_close = False
+        if con is None:
+            con = self.get_connection()
+            should_close = True
+        try:
+            cutoff_utc = datetime.now(timezone.utc).replace(tzinfo=None) - timedelta(hours=ttl_hours)
             row = con.execute("""
                 SELECT response_json, fetched_at FROM search_cache
                 WHERE cache_key = ?
-                  AND fetched_at >= now() - (? * INTERVAL '1 hour')
+                  AND fetched_at >= ?
                 ORDER BY fetched_at DESC LIMIT 1;
-            """, [cache_key, ttl_hours]).fetchone()
+            """, [cache_key, cutoff_utc]).fetchone()
             if row and row[0]:
                 try:
                     data = json.loads(row[0])
@@ -695,17 +700,25 @@ class DatabaseManager:
                 except Exception:
                     return None
             return None
+        finally:
+            if should_close:
+                con.close()
 
-    def set_cached_search(self, cache_key: str, query_meta: Dict[str, Any], response_data: Dict[str, Any]):
-        with self.get_connection() as con:
+    def set_cached_search(self, cache_key: str, query_meta: Dict[str, Any], response_data: Dict[str, Any], con=None):
+        should_close = False
+        if con is None:
+            con = self.get_connection()
+            should_close = True
+        try:
             response_json = json.dumps(response_data)
+            now_utc = datetime.now(timezone.utc).replace(tzinfo=None)
             con.execute("""
                 INSERT INTO search_cache (
                     cache_key, query, location, gl, hl, date_posted, response_json, fetched_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, now())
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT (cache_key) DO UPDATE SET
                     response_json = excluded.response_json,
-                    fetched_at = now();
+                    fetched_at = excluded.fetched_at;
             """, [
                 cache_key,
                 query_meta.get("query", ""),
@@ -713,8 +726,12 @@ class DatabaseManager:
                 query_meta.get("gl", ""),
                 query_meta.get("hl", ""),
                 query_meta.get("date_posted", ""),
-                response_json
+                response_json,
+                now_utc
             ])
+        finally:
+            if should_close:
+                con.close()
 
     def get_jobs(
         self,

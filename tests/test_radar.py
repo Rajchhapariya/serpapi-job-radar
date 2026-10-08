@@ -865,6 +865,36 @@ def test_cache_hit_bypasses_network_call():
 
 
 
+def test_search_cache_utc_timestamp_under_timezone():
+    """
+    Asserts search_cache.fetched_at is stored in naive UTC and returns a UTC ISO string.
+    Opens a connection, runs SET TimeZone='Asia/Kolkata', calls set_cached_search then get_cached_search,
+    and asserts the returned fetched_at is within 5 seconds of datetime.now(timezone.utc).
+    """
+    from datetime import datetime, timezone
+    from app.database import db_manager
+
+    con = db_manager.get_connection()
+    try:
+        con.execute("SET TimeZone='Asia/Kolkata'")
+        cache_key = "test_tz_utc_correctness"
+        query_meta = {"query": "tz_test", "location": "India"}
+        response_data = {"jobs": [{"title": "TZ Test Job"}]}
+        db_manager.set_cached_search(cache_key, query_meta, response_data, con=con)
+        cached = db_manager.get_cached_search(cache_key, ttl_hours=24, con=con)
+        assert cached is not None
+        assert "fetched_at" in cached
+        fetched_at_str = cached["fetched_at"]
+        assert fetched_at_str.endswith("Z")
+        dt_val = datetime.fromisoformat(fetched_at_str.rstrip("Z")).replace(tzinfo=timezone.utc)
+        now_utc = datetime.now(timezone.utc)
+        diff_s = abs((now_utc - dt_val).total_seconds())
+        assert diff_s <= 5, f"Expected fetched_at within 5s of UTC now, got {diff_s}s"
+    finally:
+        con.close()
+
+
+
 def test_quota_guard_exhaustion_behavior():
     """
     Tests that when quota reserve is exhausted, live SerpApi call is prevented
