@@ -79,7 +79,7 @@ Measured on Python 3.11.9, Windows, 392-job DuckDB corpus (20 iterations of `/ap
 
 - **Analytical Query Latency (`query_ms`):** p50 = 31.68 ms, p95 = 37.11 ms
 - **Wall-Clock Response Time:** p50 = 46.72 ms, p95 = 52.57 ms
-- **Automated Test Suite:** **77 / 77 automated unit and integration tests passing.**
+- **Automated Test Suite:** **82 / 82 automated unit and integration tests passing.**
 
 ---
 
