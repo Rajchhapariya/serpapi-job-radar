@@ -591,14 +591,9 @@ class DatabaseManager:
     def load_snapshots_if_empty(self, snapshots_dir: Optional[str] = None, force: bool = False) -> int:
         """
         Loads snapshots from data/snapshots/*.json if the jobs table is empty, or refreshes
-        metadata if force=True.
+        metadata if force=True or if disk snapshots have newer capture timestamps than database snapshots.
         Uses snapshot captured_at as scraped_at and sets is_snapshot=True.
         """
-        with self.get_connection() as con:
-            count = con.execute("SELECT COUNT(*) FROM jobs").fetchone()[0]
-            if count > 0 and not force:
-                return 0
-
         if not snapshots_dir:
             base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             snapshots_dir = os.path.join(base_dir, "data", "snapshots")
@@ -609,6 +604,28 @@ class DatabaseManager:
         snapshot_files = glob.glob(os.path.join(snapshots_dir, "*.json"))
         if not snapshot_files:
             return 0
+
+        with self.get_connection() as con:
+            row = con.execute("SELECT COUNT(*), MAX(scraped_at) FROM jobs WHERE is_snapshot = TRUE").fetchone()
+            count = row[0] if row else 0
+            db_snap_max = row[1] if row else None
+
+            # Auto-detect if snapshot files on disk are newer than existing database snapshot records
+            if count > 0 and not force:
+                try:
+                    with open(snapshot_files[0], "r", encoding="utf-8") as f:
+                        first_data = json.load(f)
+                    snap_cap = first_data.get("captured_at")
+                    if snap_cap and db_snap_max and str(snap_cap)[:10] > str(db_snap_max)[:10]:
+                        force = True
+                except Exception:
+                    pass
+
+            if count > 0 and not force:
+                return 0
+
+            if force and count > 0:
+                con.execute("DELETE FROM jobs WHERE is_snapshot = TRUE")
 
         total_seeded = 0
         all_normalized = []
