@@ -8,6 +8,7 @@
 ## Live Demo & Deployment
 
 - **Live URL:** `https://serpapi-job-radar.onrender.com`
+- **Demo Video:** `https://youtu.be/N0fNd_fHff0`
 - **Deployment Specification:** Automated blueprint via [`render.yaml`](file:///c:/Users/Rajch/Desktop/Research/serpapi-job-radar/render.yaml) & [`Dockerfile`](file:///c:/Users/Rajch/Desktop/Research/serpapi-job-radar/Dockerfile).
 - _Note on Free Instances:_ Free Render web services sleep after 15 minutes of inactivity; initial cold boots take approximately 30 to 45 seconds while DuckDB auto-seeds snapshot data.
 
