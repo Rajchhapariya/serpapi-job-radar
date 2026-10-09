@@ -1158,6 +1158,8 @@
         updateCharCount();
         if (triggerRun) {
           handleRunAnalysis();
+        } else {
+          showState("idle");
         }
       }
     } catch (e) {
@@ -1172,7 +1174,7 @@
   });
 
   btnSampleResume.addEventListener("click", function () {
-    loadSampleResume(true);
+    loadSampleResume(false);
   });
 
   btnFindUnlocks.addEventListener("click", function () {
@@ -1186,36 +1188,6 @@
       "A job counts as a match when you already cover " +
       val +
       "% of its listed skills.";
-  });
-
-  thresholdSlider.addEventListener("change", function () {
-    if (resumeInput.value.trim()) {
-      handleRunAnalysis();
-    }
-  });
-
-  roleInputs.forEach(function (r) {
-    r.addEventListener("change", function () {
-      if (resumeInput.value.trim()) {
-        handleRunAnalysis();
-      }
-    });
-  });
-
-  locationInputs.forEach(function (l) {
-    l.addEventListener("change", function () {
-      if (resumeInput.value.trim()) {
-        handleRunAnalysis();
-      }
-    });
-  });
-
-  recencyInputs.forEach(function (rec) {
-    rec.addEventListener("change", function () {
-      if (resumeInput.value.trim()) {
-        handleRunAnalysis();
-      }
-    });
   });
 
   if (btnFetchLive) {
@@ -1378,8 +1350,8 @@
       })
       .catch(function () {});
 
-    // First load: auto-load sample resume and run
-    loadSampleResume(true);
+    // First load: auto-load sample resume (stays in idle state until Find my unlocks is clicked)
+    loadSampleResume(false);
   }
 
   init();
