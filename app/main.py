@@ -81,13 +81,13 @@ def check_quota_guard() -> Tuple[bool, Optional[str]]:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # 1. Load snapshots if table is empty (idempotent)
+    # Load snapshots if table is empty (idempotent)
     db_manager.load_snapshots_if_empty()
 
-    # 2. Pre-cache account quota in background for fast health checks
+    # Pre-cache account quota in background for fast health checks
     serpapi_client.get_account_quota()
 
-    # 3. If table is still empty, fallback to seed
+    # If table is still empty, fallback to seed
     analytics = db_manager.get_analytics()
     if analytics["total_jobs"] == 0:
         result = serpapi_client.fetch_jobs(
@@ -121,7 +121,7 @@ def get_client_ip(request: Request) -> str:
 # Security Headers & Rate-Limiting Middleware
 @app.middleware("http")
 async def security_and_rate_limit_middleware(request: Request, call_next):
-    # 1. Rate Limiting on Search Endpoint
+    # Rate Limiting on Search Endpoint
     if request.url.path == "/api/search" and request.method == "POST":
         client_ip = get_client_ip(request)
         now = time.time()
@@ -141,7 +141,7 @@ async def security_and_rate_limit_middleware(request: Request, call_next):
             )
         ip_request_history[client_ip].append(now)
 
-    # 2. Rate Limiting on Unlock, Fit, and Sample-Resume Endpoints
+    # Rate Limiting on Unlock, Fit, and Sample-Resume Endpoints
     if request.url.path in ("/api/unlock", "/api/fit", "/api/sample-resume"):
         client_ip = get_client_ip(request)
         now = time.time()
@@ -160,10 +160,10 @@ async def security_and_rate_limit_middleware(request: Request, call_next):
             )
         ip_unlock_history[client_ip].append(now)
 
-    # 3. Process Request
+    # Process Request
     response: Response = await call_next(request)
 
-    # 3. Inject Defensive Security Headers
+    # Inject Defensive Security Headers
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["X-Frame-Options"] = "DENY"
     response.headers["X-XSS-Protection"] = "1; mode=block"
@@ -306,7 +306,7 @@ def search_jobs(req: SearchRequest):
     cache_key = get_search_cache_key(
         req.query, req.location, req.gl or "in", req.hl or "en", req.date_posted)
 
-    # 1. Check cache first
+    # Check cache first
     t_read = time.perf_counter()
     cached = db_manager.get_cached_search(cache_key, ttl_hours=CACHE_TTL_HOURS)
     read_ms = round((time.perf_counter() - t_read) * 1000, 2)
@@ -326,7 +326,7 @@ def search_jobs(req: SearchRequest):
             "fetched_at": fetched_at_str
         }
 
-    # 2. Check quota guard before live call
+    # Check quota guard before live call
     allowed, notice = check_quota_guard()
     if not allowed:
         t_stale = time.perf_counter()
@@ -352,7 +352,7 @@ def search_jobs(req: SearchRequest):
             detail=f"Search quota budget reached: {notice}"
         )
 
-    # 3. Live SerpApi Call
+    # Live SerpApi Call
     result = serpapi_client.fetch_jobs(
         query=req.query,
         location=req.location,

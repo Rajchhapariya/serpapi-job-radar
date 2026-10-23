@@ -40,11 +40,11 @@ def validate_and_extract_resume_pdf(pdf_bytes: bytes) -> Dict[str, Any]:
     if len(pdf_bytes) > MAX_PDF_SIZE_BYTES:
         raise ValueError("File size exceeds 5MB limit.")
 
-    # 1. Magic bytes verification (ISO 32000-1 permits %PDF- within first 1024 bytes)
+    # Magic bytes verification (ISO 32000-1 permits %PDF- within first 1024 bytes)
     if b"%PDF-" not in pdf_bytes[:1024]:
         raise ValueError("Uploaded file is not a valid PDF document (missing %PDF- magic header).")
 
-    # 2. PDF parsing via pypdf
+    # PDF parsing via pypdf
     try:
         reader = PdfReader(io.BytesIO(pdf_bytes))
     except Exception as e:
@@ -56,7 +56,7 @@ def validate_and_extract_resume_pdf(pdf_bytes: bytes) -> Dict[str, Any]:
     if len(reader.pages) > 10:
         raise ValueError("PDF exceeds standard resume length (maximum 10 pages).")
 
-    # 3. Extract text from pages
+    # Extract text from pages
     extracted_text_chunks: List[str] = []
     for idx, page in enumerate(reader.pages):
         try:
@@ -71,7 +71,7 @@ def validate_and_extract_resume_pdf(pdf_bytes: bytes) -> Dict[str, Any]:
     if len(full_text) < 80:
         raise ValueError("Uploaded PDF contains no extractable text. Scanned image-only PDFs are not supported.")
 
-    # 4. Strict Resume Semantic Verification
+    # Strict Resume Semantic Verification
     # Check A: Standard resume section headers (requires at least 2 distinct sections)
     matched_sections = 0
     for pattern in RESUME_SECTION_PATTERNS:

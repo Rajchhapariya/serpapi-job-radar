@@ -267,7 +267,7 @@ def compute_skill_unlocks(
         age_clause = "AND posted_days_ago <= ?"
         age_params = [max_age_days]
 
-    # 1. Materialize eligible set in temp table with precomputed n and initial m
+    # Materialize eligible set in temp table with precomputed n and initial m
     t0 = time.perf_counter()
     con.execute(f"""
         CREATE OR REPLACE TEMP TABLE _req_eligible AS
@@ -289,7 +289,7 @@ def compute_skill_unlocks(
     """, [R, min_job_skills] + loc_params + role_params + age_params)
     total_query_ms += (time.perf_counter() - t0) * 1000
 
-    # 2. Baseline matching query
+    # Baseline matching query
     t0 = time.perf_counter()
     base_row = con.execute("""
         SELECT 
@@ -347,7 +347,7 @@ def compute_skill_unlocks(
             "query_ms": round(total_query_ms, 2)
         }
 
-    # 3. Main UNLOCK and DEMAND single SQL aggregation
+    # Main UNLOCK and DEMAND single SQL aggregation
     t0 = time.perf_counter()
     unlock_query = """
         SELECT 
@@ -369,7 +369,7 @@ def compute_skill_unlocks(
     top_unlock_rows = unlock_rows[:top_n]
     demand_map = {r[0]: r[2] for r in unlock_rows}
 
-    # 4. Example jobs for top unlocks (max 3 per skill, single ROW_NUMBER window query)
+    # Example jobs for top unlocks (max 3 per skill, single ROW_NUMBER window query)
     unlock_list = []
     top_skill_names = [r[0] for r in top_unlock_rows]
     if top_skill_names:
@@ -428,7 +428,7 @@ def compute_skill_unlocks(
                 "example_jobs": examples_by_skill.get(s_name, [])
             })
 
-    # 5. Greedy Path (up to 3 steps, avoiding redundant rescans)
+    # Greedy Path (up to 3 steps, avoiding redundant rescans)
     path = []
     current_R = list(R)
     running_gain = 0

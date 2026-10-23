@@ -87,21 +87,21 @@ Measured on Python 3.11.9, Windows, 392-job DuckDB corpus (20 iterations of `/ap
 ## Local Development Setup
 
 ```bash
-# 1. Clone repository
+# Clone repository
 git clone https://github.com/Rajchhapariya/serpapi-job-radar.git
 cd serpapi-job-radar
 
-# 2. Set up virtual environment
+# Set up virtual environment
 python -m venv .venv
 # Windows: .venv\Scripts\activate | Unix: source .venv/bin/activate
 
-# 3. Install dependencies
+# Install dependencies
 pip install -r requirements-dev.txt
 
-# 4. Run test suite
+# Run test suite
 pytest -v
 
-# 5. Launch application
+# Launch application
 python run.py
 ```
 

@@ -318,7 +318,7 @@ class DatabaseManager:
         """
         merged = dict(existing)
 
-        # 1. source_queries: distinct union
+        # source_queries: distinct union
         def to_q_list(rec):
             qs = rec.get("source_queries")
             if qs is not None and isinstance(qs, list):
@@ -339,14 +339,14 @@ class DatabaseManager:
         merged["source_queries"] = merged_queries
         merged["source_query"] = existing.get("source_query") or (merged_queries[0] if merged_queries else None)
 
-        # 2. apply_options & portal_count
+        # apply_options & portal_count
         opts, p_count = merge_apply_options(existing.get("apply_options"), incoming.get("apply_options"))
         merged["apply_options"] = opts
         merged["portal_count"] = p_count
         if not merged.get("apply_link") and opts:
             merged["apply_link"] = opts[0].get("link", "")
 
-        # 3. salary_raw, salary_min_lpa, salary_max_lpa = keep existing non-null, else take new
+        # salary_raw, salary_min_lpa, salary_max_lpa = keep existing non-null, else take new
         ex_salary_raw = existing.get("salary_raw") or existing.get("salary")
         in_salary_raw = incoming.get("salary_raw") or incoming.get("salary")
         if ex_salary_raw and str(ex_salary_raw).strip():
@@ -360,7 +360,7 @@ class DatabaseManager:
             merged["salary_min_lpa"] = incoming.get("salary_min_lpa")
             merged["salary_max_lpa"] = incoming.get("salary_max_lpa")
 
-        # 4. scraped_at = earliest
+        # scraped_at = earliest
         ts_ex = parse_timestamp(existing.get("scraped_at"))
         ts_in = parse_timestamp(incoming.get("scraped_at") or incoming.get("captured_at"))
         if ts_in < ts_ex:
@@ -368,18 +368,18 @@ class DatabaseManager:
         else:
             merged["scraped_at"] = existing.get("scraped_at")
 
-        # 5. is_snapshot = existing AND new (false if any live source)
+        # is_snapshot = existing AND new (false if any live source)
         merged["is_snapshot"] = bool(existing.get("is_snapshot", False)) and bool(incoming.get("is_snapshot", False))
 
-        # 6. serpapi_token
+        # serpapi_token
         merged["serpapi_token"] = existing.get("serpapi_token") or incoming.get("serpapi_token")
 
-        # 7. skills_required: distinct union
+        # skills_required: distinct union
         ex_skills = existing.get("skills_required") or []
         in_skills = incoming.get("skills_required") or []
         merged["skills_required"] = sorted(list(set(ex_skills + in_skills)))
 
-        # 8. location_type & work_from_home
+        # location_type & work_from_home
         wfh = bool(existing.get("work_from_home") or incoming.get("work_from_home"))
         merged["work_from_home"] = wfh
         if wfh or existing.get("location_type") == "Remote" or incoming.get("location_type") == "Remote":
@@ -404,7 +404,7 @@ class DatabaseManager:
         if not jobs:
             return 0
 
-        # Import sanitization utility
+        # Sanitization utility
         from app.serpapi_client import sanitize_salary_raw, parse_indian_salary_to_lpa
 
         prepared_jobs = []
@@ -637,7 +637,7 @@ class DatabaseManager:
                 raw_jobs = data.get("jobs") or data.get("jobs_results", [])
                 q_meta = data.get("query_params", {})
                 
-                # Import parser dynamically to avoid circular import
+                # Dynamic parser import to resolve circular dependency
                 from app.serpapi_client import (
                     parse_indian_salary_to_lpa,
                     extract_salary_from_extensions,

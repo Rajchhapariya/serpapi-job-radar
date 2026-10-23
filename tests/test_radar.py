@@ -183,12 +183,10 @@ def test_query_filtering_has_salary(temp_db):
 def test_query_sorting_options(temp_db):
     temp_db.upsert_jobs(TEST_FIXTURE_JOBS)
 
-    # Sort by company
     by_company = temp_db.get_jobs(sort_by="company")
     company_names = [j["company_name"].lower() for j in by_company]
     assert company_names == sorted(company_names)
 
-    # Sort by title
     by_title = temp_db.get_jobs(sort_by="title")
     titles = [j["title"].lower() for j in by_title]
     assert titles == sorted(titles)
@@ -466,39 +464,39 @@ def test_comprehensive_input_field_validations():
     from app.main import app
     client = TestClient(app)
 
-    # 1. Search query too short (< 2 chars) -> 422
+    # Search query too short (< 2 chars) -> 422
     res = client.post("/api/search", json={"query": "a", "location": "India"})
     assert res.status_code == 422
 
-    # 2. Search query too long (> 100 chars) -> 422
+    # Search query too long (> 100 chars) -> 422
     res = client.post("/api/search", json={"query": "x" * 101, "location": "India"})
     assert res.status_code == 422
 
-    # 3. Location with illegal script injection -> 422
+    # Location with illegal script injection -> 422
     res = client.post("/api/search", json={"query": "Python", "location": "India<script>"})
     assert res.status_code == 422
 
-    # 4. Resume matcher too short (< 5 chars) -> 422
+    # Resume matcher too short (< 5 chars) -> 422
     res = client.post("/api/match-resume", json={"resume_text": "Py"})
     assert res.status_code == 422
 
-    # 5. Jobs filter invalid location_type -> 422
+    # Jobs filter invalid location_type -> 422
     res = client.get("/api/jobs?location_type=Virtual")
     assert res.status_code == 422
 
-    # 6. Jobs filter invalid sort_by -> 422
+    # Jobs filter invalid sort_by -> 422
     res = client.get("/api/jobs?sort_by=salary_desc")
     assert res.status_code == 422
 
-    # 7. Jobs filter limit out of bounds (> 100) -> 422
+    # Jobs filter limit out of bounds (> 100) -> 422
     res = client.get("/api/jobs?limit=500")
     assert res.status_code == 422
 
-    # 8. Jobs filter negative offset -> 422
+    # Jobs filter negative offset -> 422
     res = client.get("/api/jobs?offset=-5")
     assert res.status_code == 422
 
-    # 9. Jobs filter keyword too long (> 100) -> 422
+    # Jobs filter keyword too long (> 100) -> 422
     res = client.get("/api/jobs?keyword=" + "k" * 105)
     assert res.status_code == 422
 
@@ -610,7 +608,7 @@ def test_migration_from_old_schema_with_data_and_idempotence(tmp_path):
     import duckdb
     db_file = str(tmp_path / "old_radar.duckdb")
 
-    # 1. Initialize strictly with OLD schema (no apply_options, portal_count, salary_min_lpa, etc.)
+    # Initialize strictly with OLD schema (no apply_options, portal_count, salary_min_lpa, etc.)
     with duckdb.connect(db_file) as con:
         con.execute("""
             CREATE TABLE jobs (
@@ -637,10 +635,10 @@ def test_migration_from_old_schema_with_data_and_idempotence(tmp_path):
             VALUES ('old_job_1', 'Legacy Python Dev', 'OldCorp', 'Bengaluru', '₹10 LPA');
         """)
 
-    # 2. Instantiate DatabaseManager on this DB path — triggers migration
+    # Instantiate DatabaseManager on this DB path — triggers migration
     manager = DatabaseManager(db_path=db_file)
 
-    # 3. Verify old data exists and new columns were created
+    # Verify old data exists and new columns were created
     with manager.get_connection() as con:
         row = con.execute("SELECT job_id, title, apply_options, portal_count, salary_min_lpa, is_snapshot FROM jobs WHERE job_id = 'old_job_1'").fetchone()
         assert row is not None
@@ -651,7 +649,7 @@ def test_migration_from_old_schema_with_data_and_idempotence(tmp_path):
         assert row[4] is None  # salary_min_lpa
         assert row[5] is False # is_snapshot default False
 
-    # 4. Run migration a second time to verify idempotency (no error, no data loss)
+    # Run migration a second time to verify idempotency (no error, no data loss)
     manager._run_migrations()
     with manager.get_connection() as con:
         count = con.execute("SELECT COUNT(*) FROM jobs").fetchone()[0]
@@ -761,7 +759,7 @@ def test_snapshot_seeding_idempotence(tmp_path):
     with open(os.path.join(snap_dir, "test_snap.json"), "w", encoding="utf-8") as f:
         json.dump(snap_data, f)
 
-    # 1. First run: table is empty -> loads data
+    # First run: table is empty -> loads data
     seeded = manager.load_snapshots_if_empty(snapshots_dir=snap_dir)
     assert seeded == 1
 
@@ -773,11 +771,11 @@ def test_snapshot_seeding_idempotence(tmp_path):
         assert "2026-10-01" in str(row[2])
         assert row[3] == 12.0
 
-    # 2. Second run: table is not empty -> skips seeding
+    # Second run: table is not empty -> skips seeding
     seeded_again = manager.load_snapshots_if_empty(snapshots_dir=snap_dir)
     assert seeded_again == 0
 
-    # 3. Live upsert of an existing snapshot row changes is_snapshot to False
+    # Live upsert of an existing snapshot row changes is_snapshot to False
     live_job = {
         "job_id": snap_id,
         "title": "Snapshot Data Engineer",
@@ -901,7 +899,7 @@ def test_quota_guard_exhaustion_behavior():
 
     client = TestClient(main_mod.app)
 
-    # 1. Mock Account API to return plan_searches_left = 10 (below reserve threshold of 15)
+    # Mock Account API to return plan_searches_left = 10 (below reserve threshold of 15)
     mock_quota = {
         "plan_searches_left": 10,
         "total_searches_left": 10
@@ -924,7 +922,7 @@ def test_expanded_skills_lookarounds_and_aliases():
     """
     from app.database import extract_skills_from_text
 
-    # 1. Negative lookaround assertions
+    # Negative lookaround assertions
     js_text = "Looking for a JavaScript developer who loves TypeScript and React."
     skills = extract_skills_from_text(js_text)
     assert "JavaScript" in skills
@@ -947,7 +945,7 @@ def test_expanded_skills_lookarounds_and_aliases():
     skills = extract_skills_from_text(rag_upper)
     assert "RAG" in skills
 
-    # 2. Positive special-character lookarounds
+    # Positive special-character lookarounds
     cpp_cs_text = "Proficiency in C++ and C# with .NET microservices required."
     skills = extract_skills_from_text(cpp_cs_text)
     assert "C++" in skills
@@ -955,7 +953,7 @@ def test_expanded_skills_lookarounds_and_aliases():
     assert ".NET" in skills
     assert "Microservices" in skills
 
-    # 3. Multi-word phrases & aliases
+    # Multi-word phrases & aliases
     alias_text = "Postgres and K8s on Amazon Web Services with NodeJS, scikit-learn and Power BI."
     skills = extract_skills_from_text(alias_text)
     assert "PostgreSQL" in skills
@@ -977,22 +975,22 @@ def test_salary_parser_boundaries_and_sanitization():
     """
     from app.serpapi_client import parse_indian_salary_to_lpa, sanitize_salary_raw
 
-    # 1. 1..200 LPA boundaries
+    # 1..200 LPA boundaries
     assert parse_indian_salary_to_lpa("₹50K a year") == (None, None), "0.5 LPA is below 1.0 LPA boundary"
     assert parse_indian_salary_to_lpa("₹500 LPA") == (None, None), "500 LPA is above 200.0 LPA boundary"
     assert parse_indian_salary_to_lpa("₹8-12 LPA") == (8.0, 12.0)
     assert parse_indian_salary_to_lpa("₹1 LPA") == (1.0, 1.0)
     assert parse_indian_salary_to_lpa("₹200 LPA") == (200.0, 200.0)
 
-    # 2. Hourly rate: LPA returns None, but raw string is kept
+    # Hourly rate: LPA returns None, but raw string is kept
     assert parse_indian_salary_to_lpa("₹300 an hour") == (None, None)
     assert sanitize_salary_raw("₹300 an hour") == "₹300 an hour"
 
-    # 3. Monthly Lakh scaling (*12) and unitless annual rejection
+    # Monthly Lakh scaling (*12) and unitless annual rejection
     assert parse_indian_salary_to_lpa("₹1.25L–₹2.5L a month") == (15.0, 30.0)
     assert parse_indian_salary_to_lpa("₹22–₹30 a year") == (None, None)
 
-    # 4. Strict relative-time sanitation
+    # Strict relative-time sanitation
     assert sanitize_salary_raw("13 hours ago") is None
     assert sanitize_salary_raw("19 hours ago") is None
     assert sanitize_salary_raw("1 day ago") is None
@@ -1060,7 +1058,7 @@ def test_latency_split_metrics():
 
     client = TestClient(main_mod.app)
 
-    # 1. Read endpoint returns query_ms
+    # Read endpoint returns query_ms
     res = client.get("/api/jobs?limit=5")
     assert res.status_code == 200
     data = res.json()
@@ -1161,7 +1159,7 @@ def test_dedup_non_null_salary_preserved_on_merge(temp_db):
     is preserved when merged with an incoming job that has null or different salary.
     Also tests taking incoming salary when existing is null.
     """
-    # 1. Existing has non-null salary, incoming has null
+    # Existing has non-null salary, incoming has null
     job_sal = {
         "title": "ML Research Scientist",
         "company_name": "DeepCognition",
@@ -1190,7 +1188,7 @@ def test_dedup_non_null_salary_preserved_on_merge(temp_db):
     assert rec["salary_min_lpa"] == 30.0
     assert rec["salary_max_lpa"] == 45.0
 
-    # 2. Existing has null salary, incoming has non-null salary -> incoming is taken
+    # Existing has null salary, incoming has non-null salary -> incoming is taken
     job_null_first = {
         "title": "DevOps Architect",
         "company_name": "CloudOps Alpha",
@@ -1419,7 +1417,7 @@ def test_endpoints_disabled_by_default(monkeypatch):
 
     client = TestClient(main_mod.app)
 
-    # 1. Defaults (disabled)
+    # Defaults (disabled)
     monkeypatch.delenv("ENABLE_SQL_CONSOLE", raising=False)
     monkeypatch.delenv("ENABLE_QUOTA_ENDPOINT", raising=False)
 
@@ -1434,14 +1432,14 @@ def test_endpoints_disabled_by_default(monkeypatch):
     res_legacy = client.get("/legacy")
     assert res_legacy.status_code == 200
 
-    # 2. Enable SQL console only
+    # Enable SQL console only
     monkeypatch.setenv("ENABLE_SQL_CONSOLE", "true")
     res_sql_enabled = client.post("/api/sql", json={"query": "SELECT 1"})
     assert res_sql_enabled.status_code == 200
 
     assert client.get("/api/quota").status_code == 404
 
-    # 3. Enable Quota endpoint only
+    # Enable Quota endpoint only
     monkeypatch.delenv("ENABLE_SQL_CONSOLE", raising=False)
     monkeypatch.setenv("ENABLE_QUOTA_ENDPOINT", "true")
     with patch.object(main_mod.serpapi_client, "get_account_quota", return_value={"total_searches_left": 100}):

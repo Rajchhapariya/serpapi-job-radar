@@ -169,11 +169,11 @@ def test_a_fixture_exact_specification(temp_unlock_con):
         table_name="jobs"
     )
 
-    # 1. Baseline
+    # Baseline
     assert res["baseline"]["eligible_jobs"] == 6
     assert res["baseline"]["matched_jobs"] == 1
 
-    # 2. Unlocks in exact order
+    # Unlocks in exact order
     expected_unlocks = [
         ("AWS", 2, 4),
         ("Docker", 2, 4),
@@ -190,7 +190,7 @@ def test_a_fixture_exact_specification(temp_unlock_con):
     assert "Java" not in returned_skills
     assert "Spring Boot" not in returned_skills
 
-    # 3. Path in exact order
+    # Path in exact order
     expected_path = [
         {"step": 1, "skill": "AWS", "unlocks": 2, "cumulative_gain": 2},
         {"step": 2, "skill": "Docker", "unlocks": 1, "cumulative_gain": 3},
@@ -255,15 +255,15 @@ def test_b_sql_vs_python_reference_real_corpus():
 # ==================== TEST C: VALIDATION BOUNDARIES & SAFETY ====================
 
 def test_c_validation_boundaries():
-    # 1. Neither resume_text nor skills -> 422
+    # Neither resume_text nor skills -> 422
     res1 = client.post("/api/unlock", json={"threshold": 60})
     assert res1.status_code == 422
 
-    # 2. Both resume_text and skills -> 422
+    # Both resume_text and skills -> 422
     res2 = client.post("/api/unlock", json={"resume_text": "Python SQL developer", "skills": ["Python"]})
     assert res2.status_code == 422
 
-    # 3. No recognized skills -> 422 with clear message
+    # No recognized skills -> 422 with clear message
     res3 = client.post("/api/unlock", json={"skills": ["UnknownSkillOne", "NonexistentFramework"]})
     assert res3.status_code == 422
     assert "No recognized skills found" in res3.json()["detail"]
@@ -272,14 +272,14 @@ def test_c_validation_boundaries():
     assert res3b.status_code == 422
     assert "No recognized skills found" in res3b.json()["detail"]
 
-    # 4. Threshold boundaries (0 and 101 -> 422)
+    # Threshold boundaries (0 and 101 -> 422)
     res4a = client.post("/api/unlock", json={"skills": ["Python"], "threshold": 0})
     assert res4a.status_code == 422
 
     res4b = client.post("/api/unlock", json={"skills": ["Python"], "threshold": 101})
     assert res4b.status_code == 422
 
-    # 5. Ignored skills echo
+    # Ignored skills echo
     res5 = client.post("/api/unlock", json={"skills": ["Python", "FakeSkill", "K8s", "AnotherFake"]})
     assert res5.status_code == 200
     data5 = res5.json()
@@ -288,7 +288,7 @@ def test_c_validation_boundaries():
     assert "FakeSkill" in data5["ignored_skills"]
     assert "AnotherFake" in data5["ignored_skills"]
 
-    # 6. Location type filter changes eligible jobs
+    # Location type filter changes eligible jobs
     res_all = client.post("/api/unlock", json={"skills": ["Python", "SQL"]})
     res_remote = client.post("/api/unlock", json={"skills": ["Python", "SQL"], "location_type": "Remote"})
     res_onsite = client.post("/api/unlock", json={"skills": ["Python", "SQL"], "location_type": "On-site"})
@@ -298,7 +298,7 @@ def test_c_validation_boundaries():
     assert res_remote.json()["baseline"]["eligible_jobs"] < res_all.json()["baseline"]["eligible_jobs"]
     assert res_onsite.json()["baseline"]["eligible_jobs"] < res_all.json()["baseline"]["eligible_jobs"]
 
-    # 7. Skill name with quotes or SQL fragment handled safely
+    # Skill name with quotes or SQL fragment handled safely
     malicious = ["Python", "'; DROP TABLE jobs; --", "SQL' OR '1'='1", "Docker') UNION SELECT 1--"]
     res_safe = client.post("/api/unlock", json={"skills": malicious})
     assert res_safe.status_code == 200
@@ -306,7 +306,7 @@ def test_c_validation_boundaries():
     assert "Python" in data_safe["resume_skills"]
     assert "'; DROP TABLE jobs; --" in data_safe["ignored_skills"]
 
-    # 8. Example jobs ordering is deterministic
+    # Example jobs ordering is deterministic
     res_ex = client.post("/api/unlock", json={"skills": ["Python", "SQL"]})
     assert res_ex.status_code == 200
     for u in res_ex.json()["unlocks"]:
@@ -323,14 +323,14 @@ def test_c_validation_boundaries():
 # ==================== TEST D: FIT ENDPOINT & SAMPLE RESUME ====================
 
 def test_d_fit_and_sample_resume():
-    # 1. Sample resume endpoint
+    # Sample resume endpoint
     res_sr = client.get("/api/sample-resume")
     assert res_sr.status_code == 200
     content = res_sr.json().get("text", "")
     assert content.startswith("SAMPLE RESUME")
     assert len(content.split()) >= 100
 
-    # 2. Fit endpoint scoring and sorting
+    # Fit endpoint scoring and sorting
     res_fit = client.post("/api/fit", json={"skills": ["Python", "SQL", "FastAPI"], "limit": 20})
     assert res_fit.status_code == 200
     fit_data = res_fit.json()
@@ -420,11 +420,11 @@ def test_role_filter_on_fixture(temp_unlock_con):
     # J7: "Junior Dev 7" -> ineligible (2 skills)
     # Unfiltered eligible = 6
 
-    # 1. Unfiltered eligible_jobs = 6
+    # Unfiltered eligible_jobs = 6
     res_default = compute_skill_unlocks(temp_unlock_con, ["Python", "SQL"], threshold=60, min_job_skills=3)
     assert res_default["baseline"]["eligible_jobs"] == 6
 
-    # 2. Role filter reduces eligible_jobs on the fixture
+    # Role filter reduces eligible_jobs on the fixture
     res_backend = compute_skill_unlocks(temp_unlock_con, ["Python", "SQL"], threshold=60, min_job_skills=3, role="backend")
     assert res_backend["baseline"]["eligible_jobs"] == 1
 
@@ -439,22 +439,22 @@ def test_role_filter_on_fixture(temp_unlock_con):
 
 
 def test_role_filter_api_validation_and_behavior():
-    # 1. Invalid role -> 422 on /api/unlock
+    # Invalid role -> 422 on /api/unlock
     res_inv_unlock = client.post("/api/unlock", json={"skills": ["Python", "SQL"], "role": "cybersecurity"})
     assert res_inv_unlock.status_code == 422
 
-    # 2. Invalid role -> 422 on /api/fit
+    # Invalid role -> 422 on /api/fit
     res_inv_fit = client.post("/api/fit", json={"skills": ["Python", "SQL"], "role": "invalid_role"})
     assert res_inv_fit.status_code == 422
 
-    # 3. Valid role filters work on live API
+    # Valid role filters work on live API
     res_be = client.post("/api/unlock", json={"skills": ["Python", "SQL"], "role": "backend"})
     res_all = client.post("/api/unlock", json={"skills": ["Python", "SQL"]})
     assert res_be.status_code == 200
     assert res_all.status_code == 200
     assert res_be.json()["baseline"]["eligible_jobs"] < res_all.json()["baseline"]["eligible_jobs"]
 
-    # 4. Roles endpoint GET /api/roles
+    # Roles endpoint GET /api/roles
     res_roles = client.get("/api/roles")
     assert res_roles.status_code == 200
     data_roles = res_roles.json()
@@ -539,16 +539,16 @@ def test_rate_limiter_for_unlock_endpoints(monkeypatch):
 
 
 def test_ui_routing_and_security():
-    # 1. / returns 200 and contains H1 text
+    # / returns 200 and contains H1 text
     res_root = client.get("/")
     assert res_root.status_code == 200
     assert "Which skill unlocks the most jobs?" in res_root.text
 
-    # 2. /legacy returns 200
+    # /legacy returns 200
     res_legacy = client.get("/legacy")
     assert res_legacy.status_code == 200
 
-    # 3. static/app/app.js contains none of the forbidden strings
+    # static/app/app.js contains none of the forbidden strings
     import re
     app_js_path = os.path.join("static", "app", "app.js")
     assert os.path.exists(app_js_path)
